@@ -47,5 +47,7 @@ end
 
 #Postgres SQL gem
 gem 'pg'
-#Gem to enable features such as static asset serving and logging on Heroku 
-gem 'rails_12factor', group: :production
+#Gem to enable features such as static asset serving and logging on Heroku
+gem 'rails_12factor', group: :production\
+#Specified ruby version required for heroku 
+ruby "2.2.4"

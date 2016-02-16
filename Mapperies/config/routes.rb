@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'mapperies/landing'
+
+  get 'mapperies/login'
+
+  get 'mapperies/main'
+
+  get 'mapperies/album'
+
+  get 'mapperies/friends'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

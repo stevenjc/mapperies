@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :photos
+  resources :users
   get 'mapperies/landing'
 
   get 'mapperies/login'

@@ -1,14 +1,29 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD:config/routes.rb
   resources :album_views
   resources :friends
   resources :albums
   resources :photos
   resources :users
+=======
+  resources :photos
+  resources :users
+  get '/landing', to:"mapperies#landing"
+
+  get '/login', to:"mapperies#login"
+
+  get '/main', to:"mapperies#main"
+
+  get '/album', to:"mapperies#album"
+
+  get '/friends', to:"mapperies#friends"
+
+>>>>>>> 740c20e99a6f7aa287f642aa3ea088216f6c0e8c:config/routes.rb
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'mapperies#landing'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

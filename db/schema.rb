@@ -25,7 +25,6 @@ ActiveRecord::Schema.define(version: 20160220051440) do
     t.integer  "user_id"
     #t.datetime "created_at"
     #t.datetime "updated_at"
-  end
 
   create_table "friends", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,6 +49,6 @@ ActiveRecord::Schema.define(version: 20160220051440) do
     t.string   "default_loc"
     #t.datetime "created_at",  null: false
     #t.datetime "updated_at",  null: false
-  end
+
 
 end

@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   resources :photos
   resources :users
-  get 'mapperies/landing'
+  get '/landing', to:"mapperies#landing"
 
-  get 'mapperies/login'
+  get '/login', to:"mapperies#login"
 
-  get 'mapperies/main'
+  get '/main', to:"mapperies#main"
 
-  get 'mapperies/album'
+  get '/album', to:"mapperies#album"
 
-  get 'mapperies/friends'
+  get '/friends', to:"mapperies#friends"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

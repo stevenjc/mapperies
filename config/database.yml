@@ -28,8 +28,5 @@ test:
 #Production database is now postgresql
 production:
   adapter: postgresql
-  encoding: utf8
-  database: project_production
+  encoding: unicode
   pool: 5
-  username:
-  password:

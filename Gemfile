@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+#Specified ruby version required for heroku
+ruby "2.2.4"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
@@ -53,5 +55,3 @@ group :production do
     #Gem to enable features such as static asset serving and logging on Heroku
     gem 'rails_12factor'
 end
-#Specified ruby version required for heroku
-ruby "2.2.4"

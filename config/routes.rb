@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :users
   get '/landing', to:"mapperies#landing"
 
+  get '/', to:"mapperies#landing"
+
   get '/login', to:"mapperies#login"
 
   get '/main', to:"mapperies#main"

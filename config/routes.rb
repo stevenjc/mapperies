@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   get '/landing', to:"mapperies#landing"
 
+  get '/', to:"mapperies#landing"
+
   get '/login', to:"mapperies#login"
 
   get '/main', to:"mapperies#main"

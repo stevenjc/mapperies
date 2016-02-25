@@ -1,8 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   album_name: MyString
   user_id: 1
 two:
   album_name: MyString
+=======
+  user_id: 1
+
+two:
+>>>>>>> 6ecb3ed734c64e7dfd4aeeae60eca64d1044dbb4
   user_id: 1

@@ -58,6 +58,10 @@ end
 group :production do
     #Postgres SQL gem
     gem 'pg'
+
+    #thin gem for heroku HTTPS server
+    gem 'thin'
+
     #Gem to enable features such as static asset serving and logging on Heroku
     gem 'rails_12factor'
 end

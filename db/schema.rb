@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20160220051440) do
     t.date    "b_day"
     t.boolean "f_book"
     t.string  "default_loc"
+
   end
 
 end

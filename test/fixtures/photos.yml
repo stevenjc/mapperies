@@ -1,7 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-<<<<<<< HEAD
   url: MyString
   x_coord: 1.5
   y_coord: 1.5
@@ -12,13 +11,3 @@ two:
   x_coord: 1.5
   y_coord: 1.5
   album_id: 1
-=======
-  album_id: 1
-  xcoord: 1
-  ycoord: 1
-
-two:
-  album_id: 1
-  xcoord: 1
-  ycoord: 1
->>>>>>> 740c20e99a6f7aa287f642aa3ea088216f6c0e8c

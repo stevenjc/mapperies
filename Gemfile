@@ -54,8 +54,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-<<<<<<< HEAD:Gemfile
-=======
 
 group :production do
     #Postgres SQL gem
@@ -63,4 +61,3 @@ group :production do
     #Gem to enable features such as static asset serving and logging on Heroku
     gem 'rails_12factor'
 end
->>>>>>> 740c20e99a6f7aa287f642aa3ea088216f6c0e8c:Gemfile

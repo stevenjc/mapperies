@@ -14,41 +14,32 @@
 ActiveRecord::Schema.define(version: 20160220051440) do
 
   create_table "album_views", force: :cascade do |t|
-    t.integer  "album_id"
-    t.integer  "user_id"
-    #t.datetime "created_at", null: true
-    #t.datetime "updated_at", null: true
+    t.integer "album_id"
+    t.integer "user_id"
   end
 
   create_table "albums", force: :cascade do |t|
-    t.string   "album_name"
-    t.integer  "user_id"
-    #t.datetime "created_at"
-    #t.datetime "updated_at"
+    t.string  "album_name"
+    t.integer "user_id"
+  end
 
   create_table "friends", force: :cascade do |t|
-    t.integer  "user_id"
-    #t.datetime "created_at", null: false
-    #t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string   "url"
-    t.float    "x_coord"
-    t.float    "y_coord"
-    t.integer  "album_id"
-    #t.datetime "created_at", null: false
-    #t.datetime "updated_at", null: false
+    t.string  "url"
+    t.float   "x_coord"
+    t.float   "y_coord"
+    t.integer "album_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "f_name"
-    t.string   "l_name"
-    t.date     "b_day"
-    t.boolean  "f_book"
-    t.string   "default_loc"
-    #t.datetime "created_at",  null: false
-    #t.datetime "updated_at",  null: false
-
+    t.string  "f_name"
+    t.string  "l_name"
+    t.date    "b_day"
+    t.boolean "f_book"
+    t.string  "default_loc"
+  end
 
 end

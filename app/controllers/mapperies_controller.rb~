@@ -19,6 +19,3 @@ class MapperiesController < ApplicationController
 	puts ""
   end
 end
-
-
-

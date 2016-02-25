@@ -1,0 +1,4 @@
+class LandingController < ApplicationController
+	def show_map
+	end
+end

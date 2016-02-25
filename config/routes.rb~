@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   get '/login', to:"login#login"
 
-  get '/main', to:"main#show_map"
+  #get '/main', to:"main"
 
   get '/main/albums', to:"main#albums"
 

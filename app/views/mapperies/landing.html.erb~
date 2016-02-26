@@ -1,9 +1,13 @@
 <h1>This is the landing page</h1>
 
+<<<<<<< HEAD
 <p>  <a href = "login"> Login Page </a> </p>
 <p>  <a href = "main"> User's Main Page </a> </p>
 <p>  <a href = "friends"> Friends Page </a> </p>
 <p>  <a href = "album"> Albums Page </a> </p>
+=======
+
+>>>>>>> bootstrap
 
 
 <!--
@@ -305,6 +309,7 @@
 </body>
 
 </html>
+<<<<<<< HEAD
 
 <div id="menu">
   <p>  <a href = "login"> Login Page </a> </p>
@@ -318,3 +323,6 @@
       &libraries=visualization&callback=initMap">
 </script>
 <script src="map.js"> </script>
+=======
+-->
+>>>>>>> bootstrap

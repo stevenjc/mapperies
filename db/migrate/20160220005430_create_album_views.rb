@@ -1,6 +1,6 @@
-class CreateViews < ActiveRecord::Migration
+class CreateAlbumViews < ActiveRecord::Migration
   def change
-    create_table :views do |t|
+    create_table :album_views do |t|
       t.integer :album_id
       t.integer :user_id
 

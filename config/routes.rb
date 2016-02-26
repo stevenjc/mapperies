@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
+
+  resources :album_views
+  resources :friends
+  resources :albums
   resources :photos
   resources :users
+
   get '/landing', to:"mapperies#landing"
 
   get '/login', to:"mapperies#login"

@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  dob: 2016-02-21
+  f_name: MyString
+  l_name: MyString
+  b_day: 2016-02-18
+  f_book: false
+  default_loc: MyString
 
 two:
-  name: MyString
-  dob: 2016-02-21
+  f_name: MyString
+  l_name: MyString
+  b_day: 2016-02-18
+  f_book: false
+  default_loc: MyString

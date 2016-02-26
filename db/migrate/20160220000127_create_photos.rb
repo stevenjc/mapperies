@@ -6,7 +6,6 @@ class CreatePhotos < ActiveRecord::Migration
       t.float :y_coord
       t.integer :album_id
 
-      t.timestamps null: false
     end
   end
 end

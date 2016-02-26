@@ -7,7 +7,6 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean :f_book
       t.string :default_loc
 
-      t.timestamps null: false
     end
   end
 end

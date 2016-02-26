@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users
 
 
+
   get 'landing/show'
 
    get '/landing', to:"landing#show"
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
  # get '/', to:"mapperies#landing"
 
   get '/login', to:"login#login"
+
 
   get '/main', to:"main#show_map"
 

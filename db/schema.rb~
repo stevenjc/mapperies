@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225211308) do
+ActiveRecord::Schema.define(version: 20160221225138) do
 
   create_table "album_views", force: :cascade do |t|
     t.integer  "album_id"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160225211308) do
     t.integer  "album_id"
     t.integer  "xcoord"
     t.integer  "ycoord"
+    t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -47,6 +48,13 @@ ActiveRecord::Schema.define(version: 20160225211308) do
     t.date     "b_day"
     t.boolean  "f_book"
     t.string   "default_loc"
+    t.integer  "album_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "views", force: :cascade do |t|
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
     t.string   "email"
@@ -57,12 +65,5 @@ ActiveRecord::Schema.define(version: 20160225211308) do
 
   add_index "users", ["email"], name: "index_users_on_email"
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
-
-  create_table "views", force: :cascade do |t|
-    t.integer  "album_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end

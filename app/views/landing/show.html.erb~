@@ -54,21 +54,21 @@
             </li>
             <li>
 <<<<<<< HEAD
-                <a href="#login" onclick = $("#menu-close").click(); >Login/Logout</a>
-            </li>
-            <li>
-                <a href="#services" onclick = $("#menu-close").click(); >Albums</a>
-            </li>
-            <li>
-                <a href="#portfolio" onclick = $("#menu-close").click(); >Friends</a>
-=======
+
                 <a href="/home/tifara/Documents/mapperies/app/views/login/login.html.erb" onclick = $("#menu-close").click(); >Login/Logout</a>
+=======
+                <a href="login#login" onclick = $("#menu-close").click(); >Login/Logout</a>
+>>>>>>> bootstrap
             </li>
             <li>
-                <a href="/home/tifara/Documents/mapperies/app/views/main/albums.html.erb" onclick = $("#menu-close").click(); >Albums</a>
+                <a href="main/albums" onclick = $("#menu-close").click(); >Albums</a>
             </li>
             <li>
+<<<<<<< HEAD
                 <a href="/home/tifara/Documents/mapperies/app/views/main/friends.html.erb" onclick = $("#menu-close").click(); >Friends</a>
+
+=======
+                <a href="main/friends" onclick = $("#menu-close").click(); >Friends</a>
 >>>>>>> bootstrap
             </li>
          <!--   <li>

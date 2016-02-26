@@ -20,22 +20,6 @@ Rails.application.routes.draw do
   get '/login', to:"login#login"
 
 
-=======
-  get 'landing/show'
-
-  #get 'main/friends'
-
- # get 'main/albums'
-
-  resources :photos
-  resources :users
-  get '/landing', to:"landing#show"
-
- # get '/', to:"mapperies#landing"
-
-  get '/login', to:"login#login"
-
->>>>>>> bootstrap
   get '/main', to:"main#show_map"
 
   get '/main/albums', to:"main#albums"

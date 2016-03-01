@@ -37,14 +37,14 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    autoprefixer-rails (6.3.3.1)
+      execjs
     awesome_print (1.6.1)
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
-    autoprefixer-rails (6.3.3.1)
-      execjs
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.0)
@@ -182,13 +182,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
+  autoprefixer-rails
   awesome_print
   better_errors
-=======
-  autoprefixer-rails
   bootstrap-sass (= 3.2.0.0)
->>>>>>> bootstrap
   byebug
   clearance (~> 1.5)
   coffee-rails (~> 4.1.0)

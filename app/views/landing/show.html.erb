@@ -21,14 +21,20 @@
     <title>Stylish Portfolio - Start Bootstrap Theme</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!--<link href="/public/stylesheets/bootstrap.min.css" rel="stylesheet"> -->
+    <%= stylesheet_link_tag "bootstrap.min" %>
 
     <!-- Custom CSS -->
-    <link href="css/stylish-portfolio.css" rel="stylesheet">
+    <!--<link href="/public/stylesheets/stylish-portfolio.css" rel="stylesheet">-->
+     <%= stylesheet_link_tag "stylish-portfolio" %>
 
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--<link href="/public/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
+    <%= stylesheet_link_tag "font-awesome.min" %>
+
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -50,6 +56,9 @@
                 <a href="#top"  onclick = $("#menu-close").click(); >Mapperies</a>
             </li>
             <li>
+                <a href="account/settings" onclick = $("#menu-close").click(); >Account</a>
+            </li>
+            <li>
                 <a href="#map" onclick = $("#menu-close").click(); >Landing Page</a>
             </li>
             <li>
@@ -63,9 +72,6 @@
                 <a href="main/friends" onclick = $("#menu-close").click(); >Friends</a>
 
             </li>
-         <!--   <li>
-                <a href="#contact" onclick = $("#menu-close").click(); >Contact</a>
-            </li>-->
         </ul>
     </nav>
 
@@ -75,7 +81,7 @@
             <h1>Mapperies</h1>
             <h3>See where you have traveled!</h3>
             <br>
-	    <a href="#map" class="btn btn-dark btn-lg">Learn how it works!</a> 
+	    <a href="#map" class="btn btn-dark btn-lg">Learn how it works!</a>
 	    <br>
 
             <a href="login#login" class="btn btn-dark btn-lg">Login</a>
@@ -91,7 +97,6 @@
         </small>
         </iframe>
     </section>
- 
  <!-- About -->
 
 
@@ -99,7 +104,7 @@
 
     <!-- Portfolio -->
 
- 
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -134,10 +139,12 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+
+    <%= javascript_include_tag "/js/jquery.js" %>
+
+    <%= javascript_include_tag "/js/bootstrap.min.js" %>
 
     <!-- Custom Theme JavaScript -->
     <script>

@@ -15,8 +15,14 @@ Album.delete_all
   User.create(f_name: Faker::Name.first_name, l_name: Faker::Name.last_name,
   b_day: Faker::Date.birthday(min_age = 10, max_age = 30),
   f_book: "true", default_loc: Faker::Address.city)
+end
 
-  Friend.create(friender: User.all.sample, friendee: User.all.sample)
+20.times do
+    Friend.create(friender: User.all.sample, friendee: User.all.sample)
+end
+
+20.times do
+  Album.create(album_name: Faker::Address.country, user: User.all.sample)
 end
 
 100.times do
@@ -25,11 +31,6 @@ end
   album: Album.all.sample)
 end
 
-20.times do
-  Album.create(album_name: Faker::Address.country,
-  user: User.all.sample)
-end
-
 3.times do
-  Album_view.create(album: Album.all.sample, user: User.all.sample)
+  AlbumView.create(album: Album.all.sample, user: User.all.sample)
 end

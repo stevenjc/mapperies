@@ -1,4 +1,4 @@
-class Album_view < ActiveRecord::Base
+class AlbumView < ActiveRecord::Base
   belongs_to :user
   belongs_to :album
 end

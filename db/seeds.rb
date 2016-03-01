@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+require 'faker'
 
 User.delete_all
 Photo.delete_all
@@ -15,21 +15,21 @@ Album.delete_all
   User.create(f_name: Faker::Name.first_name, l_name: Faker::Name.last_name,
   b_day: Faker::Date.birthday(min_age = 10, max_age = 30),
   f_book: "true", default_loc: Faker::Address.city)
-  Friend.create(user_id: User.all.sample)
-end
 
+  Friend.create(friender: User.all.sample, friendee: User.all.sample)
+end
 
 100.times do
   Photo.create(url: Faker::Internet.url('mappies'),
   x_coord: Faker::Address.latitude, y_coord: Faker::Address.longitude,
-  album_id: Album.all.sample)
+  album: Album.all.sample)
 end
 
 20.times do
   Album.create(album_name: Faker::Address.country,
-  user_id: User.all.sample)
+  user: User.all.sample)
 end
 
 3.times do
-  Album_view.create(album_id: Album.all.sample, user_id: User.all.sample)
+  Album_view.create(album: Album.all.sample, user: User.all.sample)
 end

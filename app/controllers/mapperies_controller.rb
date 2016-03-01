@@ -1,6 +1,8 @@
 class MapperiesController < ApplicationController
-  def landing
 
+
+
+  def landing
   end
 
   def login
@@ -19,3 +21,6 @@ class MapperiesController < ApplicationController
 	puts ""
   end
 end
+
+
+

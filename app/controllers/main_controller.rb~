@@ -1,0 +1,7 @@
+class MainController < ApplicationController
+  def friends
+  end
+
+  def albums
+  end
+end

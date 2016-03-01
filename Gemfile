@@ -39,12 +39,12 @@ gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#Clearence gem for auth
+gem 'clearance', '~> 1.5'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-end
-
-group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -65,3 +65,7 @@ group :production do
     #Gem to enable features such as static asset serving and logging on Heroku
     gem 'rails_12factor'
 end
+
+#not working...
+gem 'bootstrap-sass', '3.2.0.0'
+gem 'autoprefixer-rails'

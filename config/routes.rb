@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'account/settings'
+
   get 'landing/show'
 
   #get 'main/friends'

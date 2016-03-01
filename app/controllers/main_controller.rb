@@ -3,6 +3,7 @@ class MainController < ApplicationController
   end
 
   def albums
+    @album = Album.all
   end
 
   def show_map

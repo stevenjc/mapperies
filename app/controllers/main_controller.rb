@@ -1,9 +1,12 @@
 class MainController < ApplicationController
   def friends
+    #@friends = User.find(Friend.all.sample.friender)
+    @friends = User.all
+
   end
 
   def albums
-    @album = Album.all
+    @albums = Album.all
   end
 
   def show_map

@@ -50,7 +50,7 @@
                                 <h4>
                                     <strong>Friend 1</strong>
                                 </h4>
-                                
+
                                 <a href="#" class="btn btn-light">Boston</a>
                             </div>
                         </div>
@@ -92,6 +92,14 @@
                                 <a href="#" class="btn btn-light">Rome</a>
                             </div>
                         </div>
+
+                        <%= @friends.each do |record| %>
+                          <div>
+                            <%= puts record.inspect %>
+                          </div>
+                        <% end %>
+
+
                     </div>
                     <!-- /.row (nested) -->
                 </div>
@@ -101,4 +109,3 @@
         </div>
         <!-- /.container -->
     </section>
-

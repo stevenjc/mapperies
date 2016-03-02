@@ -75,6 +75,14 @@
                                 </a>
                             </div>
                         </div>
+
+
+                        <%= @albums.each do |record| %>
+                          <div>
+                            <%= puts record.inspect %>
+                          </div>
+                        <% end %>
+
                     </div>
                     <!-- /.row (nested) -->
                     <a href="#" class="btn btn-dark">View More Items</a>
@@ -85,7 +93,3 @@
         </div>
         <!-- /.container -->
     </section>
-
-
-
-

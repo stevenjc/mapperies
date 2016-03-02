@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   get 'account/settings'
 
   get 'landing/show'
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
 
  # get '/', to:"mapperies#landing"
 
-  get '/login', to:"login#login"
+  get '/login', to:"users#index"
 
   get '/main', to:"main#show_map"
 

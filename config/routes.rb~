@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :users
+  get 'account/settings'
+
   get 'landing/show'
 
   #get 'main/friends'
@@ -13,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/login', to:"login#login"
 
-  #get '/main', to:"main"
+  get '/main', to:"main#show_map"
 
   get '/main/albums', to:"main#albums"
 

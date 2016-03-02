@@ -2,8 +2,8 @@
 
 one:
   name: MyString
-  dob: 2016-02-21
+  password_digest: <%= BCrypt::Password.create('secret') %>
 
 two:
   name: MyString
-  dob: 2016-02-21
+  password_digest: <%= BCrypt::Password.create('secret') %>

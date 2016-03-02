@@ -12752,3 +12752,936 @@ Sass::SyntaxError - Undefined variable: "$fa-css-prefix".:
 
 
 Started POST "/__better_errors/193adec3d29ae298/variables" for 127.0.0.1 at 2016-03-02 12:52:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (144.1ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (119.2ms)[0m  [1mDELETE FROM "photos"[0m
+  [1m[35mSQL (129.0ms)[0m  DELETE FROM "albums"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (138.3ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (144.4ms)[0m  [1mDELETE FROM "photos"[0m
+  [1m[35mSQL (140.3ms)[0m  DELETE FROM "albums"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Miss Leif Paucek"], ["password_digest", "849500"], ["created_at", "2016-03-02 17:57:25.677852"], ["updated_at", "2016-03-02 17:57:25.677852"]]
+  [1m[36m (137.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:25.839385"], ["updated_at", "2016-03-02 17:57:25.839385"]]
+  [1m[36m (237.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Verona Hayes"], ["password_digest", "135714"], ["created_at", "2016-03-02 17:57:26.082462"], ["updated_at", "2016-03-02 17:57:26.082462"]]
+  [1m[35m (117.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:26.207508"], ["updated_at", "2016-03-02 17:57:26.207508"]]
+  [1m[35m (115.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Macie Hahn DDS"], ["password_digest", "249381"], ["created_at", "2016-03-02 17:57:26.328853"], ["updated_at", "2016-03-02 17:57:26.328853"]]
+  [1m[36m (119.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:26.455589"], ["updated_at", "2016-03-02 17:57:26.455589"]]
+  [1m[36m (138.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ms. Shyanne Stiedemann"], ["password_digest", "299833"], ["created_at", "2016-03-02 17:57:26.599393"], ["updated_at", "2016-03-02 17:57:26.599393"]]
+  [1m[35m (140.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:26.747241"], ["updated_at", "2016-03-02 17:57:26.747241"]]
+  [1m[35m (137.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Nelson Schroeder"], ["password_digest", "877136"], ["created_at", "2016-03-02 17:57:26.890603"], ["updated_at", "2016-03-02 17:57:26.890603"]]
+  [1m[36m (151.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:27.049178"], ["updated_at", "2016-03-02 17:57:27.049178"]]
+  [1m[36m (116.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Alphonso Waters IV"], ["password_digest", "884917"], ["created_at", "2016-03-02 17:57:27.170537"], ["updated_at", "2016-03-02 17:57:27.170537"]]
+  [1m[35m (96.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:27.273335"], ["updated_at", "2016-03-02 17:57:27.273335"]]
+  [1m[35m (116.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Gavin Zemlak II"], ["password_digest", "681748"], ["created_at", "2016-03-02 17:57:27.395040"], ["updated_at", "2016-03-02 17:57:27.395040"]]
+  [1m[36m (117.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:27.519695"], ["updated_at", "2016-03-02 17:57:27.519695"]]
+  [1m[36m (128.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Valentin Larkin"], ["password_digest", "481393"], ["created_at", "2016-03-02 17:57:27.653055"], ["updated_at", "2016-03-02 17:57:27.653055"]]
+  [1m[35m (130.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:27.791628"], ["updated_at", "2016-03-02 17:57:27.791628"]]
+  [1m[35m (137.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Jaclyn Mosciski"], ["password_digest", "921443"], ["created_at", "2016-03-02 17:57:27.934812"], ["updated_at", "2016-03-02 17:57:27.934812"]]
+  [1m[36m (140.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:28.082875"], ["updated_at", "2016-03-02 17:57:28.082875"]]
+  [1m[36m (121.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Alexzander Hayes"], ["password_digest", "231723"], ["created_at", "2016-03-02 17:57:28.215088"], ["updated_at", "2016-03-02 17:57:28.215088"]]
+  [1m[35m (117.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:28.340117"], ["updated_at", "2016-03-02 17:57:28.340117"]]
+  [1m[35m (116.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Dr. Shanon Gleason"], ["password_digest", "207261"], ["created_at", "2016-03-02 17:57:28.461873"], ["updated_at", "2016-03-02 17:57:28.461873"]]
+  [1m[36m (117.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:28.586291"], ["updated_at", "2016-03-02 17:57:28.586291"]]
+  [1m[36m (94.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Keely Ruecker"], ["password_digest", "154603"], ["created_at", "2016-03-02 17:57:28.686150"], ["updated_at", "2016-03-02 17:57:28.686150"]]
+  [1m[35m (117.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:28.811909"], ["updated_at", "2016-03-02 17:57:28.811909"]]
+  [1m[35m (126.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Mr. Glenda Ritchie"], ["password_digest", "122960"], ["created_at", "2016-03-02 17:57:28.943916"], ["updated_at", "2016-03-02 17:57:28.943916"]]
+  [1m[36m (141.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:29.093011"], ["updated_at", "2016-03-02 17:57:29.093011"]]
+  [1m[36m (127.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Eliza Maggio I"], ["password_digest", "444655"], ["created_at", "2016-03-02 17:57:29.225438"], ["updated_at", "2016-03-02 17:57:29.225438"]]
+  [1m[35m (140.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:29.373205"], ["updated_at", "2016-03-02 17:57:29.373205"]]
+  [1m[35m (104.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Declan Denesik"], ["password_digest", "641481"], ["created_at", "2016-03-02 17:57:29.483380"], ["updated_at", "2016-03-02 17:57:29.483380"]]
+  [1m[36m (129.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:29.619835"], ["updated_at", "2016-03-02 17:57:29.619835"]]
+  [1m[36m (116.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Tanya Hoeger Jr."], ["password_digest", "369452"], ["created_at", "2016-03-02 17:57:29.741875"], ["updated_at", "2016-03-02 17:57:29.741875"]]
+  [1m[35m (128.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:29.878541"], ["updated_at", "2016-03-02 17:57:29.878541"]]
+  [1m[35m (126.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Mateo Mills IV"], ["password_digest", "807013"], ["created_at", "2016-03-02 17:57:30.010485"], ["updated_at", "2016-03-02 17:57:30.010485"]]
+  [1m[36m (128.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:30.147749"], ["updated_at", "2016-03-02 17:57:30.147749"]]
+  [1m[36m (125.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Anita Emmerich"], ["password_digest", "553178"], ["created_at", "2016-03-02 17:57:30.279076"], ["updated_at", "2016-03-02 17:57:30.279076"]]
+  [1m[35m (142.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:30.429329"], ["updated_at", "2016-03-02 17:57:30.429329"]]
+  [1m[35m (127.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Will Rohan"], ["password_digest", "114684"], ["created_at", "2016-03-02 17:57:30.561277"], ["updated_at", "2016-03-02 17:57:30.561277"]]
+  [1m[36m (128.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 17:57:30.698634"], ["updated_at", "2016-03-02 17:57:30.698634"]]
+  [1m[36m (125.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Katelynn Bergnaum"], ["password_digest", "970304"], ["created_at", "2016-03-02 17:57:30.829967"], ["updated_at", "2016-03-02 17:57:30.829967"]]
+  [1m[35m (140.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 17:57:30.978706"], ["updated_at", "2016-03-02 17:57:30.978706"]]
+  [1m[35m (126.4ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (138.7ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (130.7ms)[0m  [1mDELETE FROM "photos"[0m
+  [1m[35mSQL (139.9ms)[0m  DELETE FROM "albums"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Alycia Brekke I"], ["password_digest", "663835"], ["created_at", "2016-03-02 18:00:05.219636"], ["updated_at", "2016-03-02 18:00:05.219636"]]
+  [1m[36m (144.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:05.388308"], ["updated_at", "2016-03-02 18:00:05.388308"]]
+  [1m[36m (134.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Delphia Reichert"], ["password_digest", "238590"], ["created_at", "2016-03-02 18:00:05.529919"], ["updated_at", "2016-03-02 18:00:05.529919"]]
+  [1m[35m (95.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:05.632831"], ["updated_at", "2016-03-02 18:00:05.632831"]]
+  [1m[35m (126.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Mrs. Larissa Haley"], ["password_digest", "289670"], ["created_at", "2016-03-02 18:00:05.764989"], ["updated_at", "2016-03-02 18:00:05.764989"]]
+  [1m[36m (129.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:05.902128"], ["updated_at", "2016-03-02 18:00:05.902128"]]
+  [1m[36m (137.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Javonte Balistreri"], ["password_digest", "186896"], ["created_at", "2016-03-02 18:00:06.045163"], ["updated_at", "2016-03-02 18:00:06.045163"]]
+  [1m[35m (129.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:06.181210"], ["updated_at", "2016-03-02 18:00:06.181210"]]
+  [1m[35m (149.9ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Mallory Batz"], ["password_digest", "390148"], ["created_at", "2016-03-02 18:00:06.336159"], ["updated_at", "2016-03-02 18:00:06.336159"]]
+  [1m[36m (130.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:06.474839"], ["updated_at", "2016-03-02 18:00:06.474839"]]
+  [1m[36m (126.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Marjory Cummerata"], ["password_digest", "439954"], ["created_at", "2016-03-02 18:00:06.606834"], ["updated_at", "2016-03-02 18:00:06.606834"]]
+  [1m[35m (117.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:06.732239"], ["updated_at", "2016-03-02 18:00:06.732239"]]
+  [1m[35m (127.1ms)[0m  commit transaction
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Maybell Monahan IV"], ["password_digest", "913959"], ["created_at", "2016-03-02 18:00:06.865202"], ["updated_at", "2016-03-02 18:00:06.865202"]]
+  [1m[36m (128.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:07.001717"], ["updated_at", "2016-03-02 18:00:07.001717"]]
+  [1m[36m (138.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Eino Borer"], ["password_digest", "729371"], ["created_at", "2016-03-02 18:00:07.145153"], ["updated_at", "2016-03-02 18:00:07.145153"]]
+  [1m[35m (128.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:07.281707"], ["updated_at", "2016-03-02 18:00:07.281707"]]
+  [1m[35m (149.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Elinore Zemlak"], ["password_digest", "467759"], ["created_at", "2016-03-02 18:00:07.436598"], ["updated_at", "2016-03-02 18:00:07.436598"]]
+  [1m[36m (117.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:07.561826"], ["updated_at", "2016-03-02 18:00:07.561826"]]
+  [1m[36m (149.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Chyna Goyette Jr."], ["password_digest", "595327"], ["created_at", "2016-03-02 18:00:07.716536"], ["updated_at", "2016-03-02 18:00:07.716536"]]
+  [1m[35m (119.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:07.844285"], ["updated_at", "2016-03-02 18:00:07.844285"]]
+  [1m[35m (138.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Mrs. Josefina Borer"], ["password_digest", "830616"], ["created_at", "2016-03-02 18:00:07.987236"], ["updated_at", "2016-03-02 18:00:07.987236"]]
+  [1m[36m (128.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:08.123771"], ["updated_at", "2016-03-02 18:00:08.123771"]]
+  [1m[36m (138.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ms. Darien Lakin"], ["password_digest", "690291"], ["created_at", "2016-03-02 18:00:08.267268"], ["updated_at", "2016-03-02 18:00:08.267268"]]
+  [1m[35m (140.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:08.414565"], ["updated_at", "2016-03-02 18:00:08.414565"]]
+  [1m[35m (94.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Nolan Stracke"], ["password_digest", "800238"], ["created_at", "2016-03-02 18:00:08.513912"], ["updated_at", "2016-03-02 18:00:08.513912"]]
+  [1m[36m (106.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:08.627962"], ["updated_at", "2016-03-02 18:00:08.627962"]]
+  [1m[36m (138.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jairo Moen Sr."], ["password_digest", "634871"], ["created_at", "2016-03-02 18:00:08.771764"], ["updated_at", "2016-03-02 18:00:08.771764"]]
+  [1m[35m (117.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:08.896684"], ["updated_at", "2016-03-02 18:00:08.896684"]]
+  [1m[35m (150.1ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Noemy Buckridge"], ["password_digest", "805000"], ["created_at", "2016-03-02 18:00:09.051743"], ["updated_at", "2016-03-02 18:00:09.051743"]]
+  [1m[36m (141.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:09.200683"], ["updated_at", "2016-03-02 18:00:09.200683"]]
+  [1m[36m (127.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Ms. Hunter Bergstrom"], ["password_digest", "697175"], ["created_at", "2016-03-02 18:00:09.333724"], ["updated_at", "2016-03-02 18:00:09.333724"]]
+  [1m[35m (128.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:09.470826"], ["updated_at", "2016-03-02 18:00:09.470826"]]
+  [1m[35m (126.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Vanessa DuBuque"], ["password_digest", "450068"], ["created_at", "2016-03-02 18:00:09.602359"], ["updated_at", "2016-03-02 18:00:09.602359"]]
+  [1m[36m (129.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:09.739492"], ["updated_at", "2016-03-02 18:00:09.739492"]]
+  [1m[36m (149.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Dino Deckow"], ["password_digest", "586825"], ["created_at", "2016-03-02 18:00:09.893940"], ["updated_at", "2016-03-02 18:00:09.893940"]]
+  [1m[35m (128.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:10.029750"], ["updated_at", "2016-03-02 18:00:10.029750"]]
+  [1m[35m (128.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Will Bednar"], ["password_digest", "843201"], ["created_at", "2016-03-02 18:00:10.162656"], ["updated_at", "2016-03-02 18:00:10.162656"]]
+  [1m[36m (118.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:10.289225"], ["updated_at", "2016-03-02 18:00:10.289225"]]
+  [1m[36m (138.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Miss Jerald Kautzer"], ["password_digest", "550521"], ["created_at", "2016-03-02 18:00:10.433397"], ["updated_at", "2016-03-02 18:00:10.433397"]]
+  [1m[35m (129.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:10.571027"], ["updated_at", "2016-03-02 18:00:10.571027"]]
+  [1m[35m (136.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mSQL (169.2ms)[0m  DELETE FROM "users"
+  [1m[36mSQL (152.7ms)[0m  [1mDELETE FROM "photos"[0m
+  [1m[35mSQL (125.3ms)[0m  DELETE FROM "albums"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Octavia Waelchi"], ["password_digest", "367843"], ["created_at", "2016-03-02 18:00:35.474847"], ["updated_at", "2016-03-02 18:00:35.474847"]]
+  [1m[36m (137.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:35.635118"], ["updated_at", "2016-03-02 18:00:35.635118"]]
+  [1m[36m (136.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Domenica Watsica"], ["password_digest", "824000"], ["created_at", "2016-03-02 18:00:35.778549"], ["updated_at", "2016-03-02 18:00:35.778549"]]
+  [1m[35m (128.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:35.914315"], ["updated_at", "2016-03-02 18:00:35.914315"]]
+  [1m[35m (140.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Ayana Bednar"], ["password_digest", "346503"], ["created_at", "2016-03-02 18:00:36.060087"], ["updated_at", "2016-03-02 18:00:36.060087"]]
+  [1m[36m (117.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:36.185645"], ["updated_at", "2016-03-02 18:00:36.185645"]]
+  [1m[36m (138.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Dangelo Stark Jr."], ["password_digest", "796847"], ["created_at", "2016-03-02 18:00:36.329187"], ["updated_at", "2016-03-02 18:00:36.329187"]]
+  [1m[35m (140.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:36.476885"], ["updated_at", "2016-03-02 18:00:36.476885"]]
+  [1m[35m (138.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Tevin Hand Jr."], ["password_digest", "654055"], ["created_at", "2016-03-02 18:00:36.620536"], ["updated_at", "2016-03-02 18:00:36.620536"]]
+  [1m[36m (117.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:36.745462"], ["updated_at", "2016-03-02 18:00:36.745462"]]
+  [1m[36m (116.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Soledad Rempel"], ["password_digest", "667200"], ["created_at", "2016-03-02 18:00:36.867132"], ["updated_at", "2016-03-02 18:00:36.867132"]]
+  [1m[35m (128.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:37.003435"], ["updated_at", "2016-03-02 18:00:37.003435"]]
+  [1m[35m (127.5ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Miss Mavis Kemmer"], ["password_digest", "725103"], ["created_at", "2016-03-02 18:00:37.135872"], ["updated_at", "2016-03-02 18:00:37.135872"]]
+  [1m[36m (108.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:37.252090"], ["updated_at", "2016-03-02 18:00:37.252090"]]
+  [1m[36m (127.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Rose Legros"], ["password_digest", "857294"], ["created_at", "2016-03-02 18:00:37.384267"], ["updated_at", "2016-03-02 18:00:37.384267"]]
+  [1m[35m (117.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:37.509452"], ["updated_at", "2016-03-02 18:00:37.509452"]]
+  [1m[35m (127.8ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Ken Reichel"], ["password_digest", "337694"], ["created_at", "2016-03-02 18:00:37.641967"], ["updated_at", "2016-03-02 18:00:37.641967"]]
+  [1m[36m (118.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:37.768255"], ["updated_at", "2016-03-02 18:00:37.768255"]]
+  [1m[36m (115.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jasmin Torp"], ["password_digest", "388849"], ["created_at", "2016-03-02 18:00:37.888952"], ["updated_at", "2016-03-02 18:00:37.888952"]]
+  [1m[35m (129.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:38.026183"], ["updated_at", "2016-03-02 18:00:38.026183"]]
+  [1m[35m (126.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Jessy Thiel"], ["password_digest", "618933"], ["created_at", "2016-03-02 18:00:38.157844"], ["updated_at", "2016-03-02 18:00:38.157844"]]
+  [1m[36m (129.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:38.297872"], ["updated_at", "2016-03-02 18:00:38.297872"]]
+  [1m[36m (123.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Petra Stracke DDS"], ["password_digest", "803832"], ["created_at", "2016-03-02 18:00:38.426959"], ["updated_at", "2016-03-02 18:00:38.426959"]]
+  [1m[35m (119.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:38.554110"], ["updated_at", "2016-03-02 18:00:38.554110"]]
+  [1m[35m (116.0ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Eden McClure"], ["password_digest", "744415"], ["created_at", "2016-03-02 18:00:38.675598"], ["updated_at", "2016-03-02 18:00:38.675598"]]
+  [1m[36m (150.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:38.835039"], ["updated_at", "2016-03-02 18:00:38.835039"]]
+  [1m[36m (137.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Edythe Wolf MD"], ["password_digest", "142009"], ["created_at", "2016-03-02 18:00:38.978073"], ["updated_at", "2016-03-02 18:00:38.978073"]]
+  [1m[35m (84.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:39.069416"], ["updated_at", "2016-03-02 18:00:39.069416"]]
+  [1m[35m (127.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Eli Corwin"], ["password_digest", "864634"], ["created_at", "2016-03-02 18:00:39.202348"], ["updated_at", "2016-03-02 18:00:39.202348"]]
+  [1m[36m (139.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:39.350703"], ["updated_at", "2016-03-02 18:00:39.350703"]]
+  [1m[36m (137.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mrs. Damaris Daniel"], ["password_digest", "952412"], ["created_at", "2016-03-02 18:00:39.493594"], ["updated_at", "2016-03-02 18:00:39.493594"]]
+  [1m[35m (128.8ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:39.630509"], ["updated_at", "2016-03-02 18:00:39.630509"]]
+  [1m[35m (115.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Justen Kunze"], ["password_digest", "516664"], ["created_at", "2016-03-02 18:00:39.751225"], ["updated_at", "2016-03-02 18:00:39.751225"]]
+  [1m[36m (130.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:39.890218"], ["updated_at", "2016-03-02 18:00:39.890218"]]
+  [1m[36m (126.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Leola Rodriguez"], ["password_digest", "331362"], ["created_at", "2016-03-02 18:00:40.021863"], ["updated_at", "2016-03-02 18:00:40.021863"]]
+  [1m[35m (128.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:40.159047"], ["updated_at", "2016-03-02 18:00:40.159047"]]
+  [1m[35m (126.6ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Austin O'Kon"], ["password_digest", "967017"], ["created_at", "2016-03-02 18:00:40.290503"], ["updated_at", "2016-03-02 18:00:40.290503"]]
+  [1m[36m (140.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:40.439401"], ["updated_at", "2016-03-02 18:00:40.439401"]]
+  [1m[36m (125.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("name", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Carlo Leffler II"], ["password_digest", "135226"], ["created_at", "2016-03-02 18:00:40.570702"], ["updated_at", "2016-03-02 18:00:40.570702"]]
+  [1m[35m (129.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "friends" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:40.708444"], ["updated_at", "2016-03-02 18:00:40.708444"]]
+  [1m[35m (125.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 24], ["ycoord", -79], ["created_at", "2016-03-02 18:00:40.851511"], ["updated_at", "2016-03-02 18:00:40.851511"]]
+  [1m[35m (128.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -60], ["ycoord", 161], ["created_at", "2016-03-02 18:00:40.986631"], ["updated_at", "2016-03-02 18:00:40.986631"]]
+  [1m[35m (126.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (8.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 62], ["ycoord", 19], ["created_at", "2016-03-02 18:00:41.122116"], ["updated_at", "2016-03-02 18:00:41.122116"]]
+  [1m[35m (120.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -33], ["ycoord", -77], ["created_at", "2016-03-02 18:00:41.256688"], ["updated_at", "2016-03-02 18:00:41.256688"]]
+  [1m[35m (117.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -23], ["ycoord", -79], ["created_at", "2016-03-02 18:00:41.379798"], ["updated_at", "2016-03-02 18:00:41.379798"]]
+  [1m[35m (129.0ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -5], ["ycoord", -7], ["created_at", "2016-03-02 18:00:41.514651"], ["updated_at", "2016-03-02 18:00:41.514651"]]
+  [1m[35m (128.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.3ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 75], ["ycoord", -63], ["created_at", "2016-03-02 18:00:41.648749"], ["updated_at", "2016-03-02 18:00:41.648749"]]
+  [1m[35m (117.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -34], ["ycoord", -114], ["created_at", "2016-03-02 18:00:41.772353"], ["updated_at", "2016-03-02 18:00:41.772353"]]
+  [1m[35m (139.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 21], ["ycoord", 0], ["created_at", "2016-03-02 18:00:41.918250"], ["updated_at", "2016-03-02 18:00:41.918250"]]
+  [1m[35m (116.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 28], ["ycoord", -28], ["created_at", "2016-03-02 18:00:42.041345"], ["updated_at", "2016-03-02 18:00:42.041345"]]
+  [1m[35m (117.4ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 41], ["ycoord", -150], ["created_at", "2016-03-02 18:00:42.165017"], ["updated_at", "2016-03-02 18:00:42.165017"]]
+  [1m[35m (116.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -46], ["ycoord", -80], ["created_at", "2016-03-02 18:00:42.288398"], ["updated_at", "2016-03-02 18:00:42.288398"]]
+  [1m[35m (140.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 45], ["ycoord", 101], ["created_at", "2016-03-02 18:00:42.435344"], ["updated_at", "2016-03-02 18:00:42.435344"]]
+  [1m[35m (128.4ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -39], ["ycoord", -25], ["created_at", "2016-03-02 18:00:42.570111"], ["updated_at", "2016-03-02 18:00:42.570111"]]
+  [1m[35m (128.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -17], ["ycoord", -45], ["created_at", "2016-03-02 18:00:42.704689"], ["updated_at", "2016-03-02 18:00:42.704689"]]
+  [1m[35m (128.0ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 27], ["ycoord", -47], ["created_at", "2016-03-02 18:00:42.838913"], ["updated_at", "2016-03-02 18:00:42.838913"]]
+  [1m[35m (128.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -67], ["ycoord", 47], ["created_at", "2016-03-02 18:00:42.973807"], ["updated_at", "2016-03-02 18:00:42.973807"]]
+  [1m[35m (127.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -20], ["ycoord", 92], ["created_at", "2016-03-02 18:00:43.107836"], ["updated_at", "2016-03-02 18:00:43.107836"]]
+  [1m[35m (128.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.3ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -37], ["ycoord", -166], ["created_at", "2016-03-02 18:00:43.242399"], ["updated_at", "2016-03-02 18:00:43.242399"]]
+  [1m[35m (128.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 5], ["ycoord", 62], ["created_at", "2016-03-02 18:00:43.377178"], ["updated_at", "2016-03-02 18:00:43.377178"]]
+  [1m[35m (127.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -49], ["ycoord", 22], ["created_at", "2016-03-02 18:00:43.511483"], ["updated_at", "2016-03-02 18:00:43.511483"]]
+  [1m[35m (139.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -64], ["ycoord", 78], ["created_at", "2016-03-02 18:00:43.657236"], ["updated_at", "2016-03-02 18:00:43.657236"]]
+  [1m[35m (129.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -29], ["ycoord", 96], ["created_at", "2016-03-02 18:00:43.792992"], ["updated_at", "2016-03-02 18:00:43.792992"]]
+  [1m[35m (139.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -68], ["ycoord", -140], ["created_at", "2016-03-02 18:00:43.938595"], ["updated_at", "2016-03-02 18:00:43.938595"]]
+  [1m[35m (128.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -71], ["ycoord", 35], ["created_at", "2016-03-02 18:00:44.073427"], ["updated_at", "2016-03-02 18:00:44.073427"]]
+  [1m[35m (127.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.3ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -7], ["ycoord", 39], ["created_at", "2016-03-02 18:00:44.207347"], ["updated_at", "2016-03-02 18:00:44.207347"]]
+  [1m[35m (128.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 75], ["ycoord", -9], ["created_at", "2016-03-02 18:00:44.342137"], ["updated_at", "2016-03-02 18:00:44.342137"]]
+  [1m[35m (128.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -38], ["ycoord", 87], ["created_at", "2016-03-02 18:00:44.476824"], ["updated_at", "2016-03-02 18:00:44.476824"]]
+  [1m[35m (139.4ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 6], ["ycoord", 110], ["created_at", "2016-03-02 18:00:44.622413"], ["updated_at", "2016-03-02 18:00:44.622413"]]
+  [1m[35m (117.1ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -57], ["ycoord", -28], ["created_at", "2016-03-02 18:00:44.745735"], ["updated_at", "2016-03-02 18:00:44.745735"]]
+  [1m[35m (139.4ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 38], ["ycoord", 86], ["created_at", "2016-03-02 18:00:44.891060"], ["updated_at", "2016-03-02 18:00:44.891060"]]
+  [1m[35m (139.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 47], ["ycoord", 168], ["created_at", "2016-03-02 18:00:45.037009"], ["updated_at", "2016-03-02 18:00:45.037009"]]
+  [1m[35m (129.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.3ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -4], ["ycoord", 145], ["created_at", "2016-03-02 18:00:45.173069"], ["updated_at", "2016-03-02 18:00:45.173069"]]
+  [1m[35m (128.0ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 10], ["ycoord", 96], ["created_at", "2016-03-02 18:00:45.307307"], ["updated_at", "2016-03-02 18:00:45.307307"]]
+  [1m[35m (128.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -17], ["ycoord", -10], ["created_at", "2016-03-02 18:00:45.442073"], ["updated_at", "2016-03-02 18:00:45.442073"]]
+  [1m[35m (127.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -52], ["ycoord", 84], ["created_at", "2016-03-02 18:00:45.576656"], ["updated_at", "2016-03-02 18:00:45.576656"]]
+  [1m[35m (139.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 13], ["ycoord", 124], ["created_at", "2016-03-02 18:00:45.722282"], ["updated_at", "2016-03-02 18:00:45.722282"]]
+  [1m[35m (127.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 68], ["ycoord", 80], ["created_at", "2016-03-02 18:00:45.856734"], ["updated_at", "2016-03-02 18:00:45.856734"]]
+  [1m[35m (127.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -13], ["ycoord", 19], ["created_at", "2016-03-02 18:00:45.991269"], ["updated_at", "2016-03-02 18:00:45.991269"]]
+  [1m[35m (147.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 83], ["ycoord", -50], ["created_at", "2016-03-02 18:00:46.147790"], ["updated_at", "2016-03-02 18:00:46.147790"]]
+  [1m[35m (139.0ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 70], ["ycoord", 146], ["created_at", "2016-03-02 18:00:46.293844"], ["updated_at", "2016-03-02 18:00:46.293844"]]
+  [1m[35m (142.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -7], ["ycoord", 134], ["created_at", "2016-03-02 18:00:46.462857"], ["updated_at", "2016-03-02 18:00:46.462857"]]
+  [1m[35m (150.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 29], ["ycoord", -34], ["created_at", "2016-03-02 18:00:46.619459"], ["updated_at", "2016-03-02 18:00:46.619459"]]
+  [1m[35m (128.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 44], ["ycoord", 135], ["created_at", "2016-03-02 18:00:46.754398"], ["updated_at", "2016-03-02 18:00:46.754398"]]
+  [1m[35m (127.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.6ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 5], ["ycoord", -95], ["created_at", "2016-03-02 18:00:46.889017"], ["updated_at", "2016-03-02 18:00:46.889017"]]
+  [1m[35m (138.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -3], ["ycoord", 159], ["created_at", "2016-03-02 18:00:47.034568"], ["updated_at", "2016-03-02 18:00:47.034568"]]
+  [1m[35m (139.1ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -38], ["ycoord", -38], ["created_at", "2016-03-02 18:00:47.179875"], ["updated_at", "2016-03-02 18:00:47.179875"]]
+  [1m[35m (128.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -71], ["ycoord", 50], ["created_at", "2016-03-02 18:00:47.314738"], ["updated_at", "2016-03-02 18:00:47.314738"]]
+  [1m[35m (138.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 51], ["ycoord", 131], ["created_at", "2016-03-02 18:00:47.460554"], ["updated_at", "2016-03-02 18:00:47.460554"]]
+  [1m[35m (138.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.3ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 15], ["ycoord", 107], ["created_at", "2016-03-02 18:00:47.605308"], ["updated_at", "2016-03-02 18:00:47.605308"]]
+  [1m[35m (117.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 56], ["ycoord", 122], ["created_at", "2016-03-02 18:00:47.728914"], ["updated_at", "2016-03-02 18:00:47.728914"]]
+  [1m[35m (130.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -16], ["ycoord", 27], ["created_at", "2016-03-02 18:00:47.865227"], ["updated_at", "2016-03-02 18:00:47.865227"]]
+  [1m[35m (128.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 29], ["ycoord", 58], ["created_at", "2016-03-02 18:00:47.999684"], ["updated_at", "2016-03-02 18:00:47.999684"]]
+  [1m[35m (128.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -41], ["ycoord", 107], ["created_at", "2016-03-02 18:00:48.134142"], ["updated_at", "2016-03-02 18:00:48.134142"]]
+  [1m[35m (139.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -55], ["ycoord", 90], ["created_at", "2016-03-02 18:00:48.279547"], ["updated_at", "2016-03-02 18:00:48.279547"]]
+  [1m[35m (128.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -67], ["ycoord", 122], ["created_at", "2016-03-02 18:00:48.414644"], ["updated_at", "2016-03-02 18:00:48.414644"]]
+  [1m[35m (138.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 1], ["ycoord", 14], ["created_at", "2016-03-02 18:00:48.560013"], ["updated_at", "2016-03-02 18:00:48.560013"]]
+  [1m[35m (138.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -80], ["ycoord", 135], ["created_at", "2016-03-02 18:00:48.705932"], ["updated_at", "2016-03-02 18:00:48.705932"]]
+  [1m[35m (116.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 82], ["ycoord", 84], ["created_at", "2016-03-02 18:00:48.829392"], ["updated_at", "2016-03-02 18:00:48.829392"]]
+  [1m[35m (127.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 63], ["ycoord", 9], ["created_at", "2016-03-02 18:00:48.963471"], ["updated_at", "2016-03-02 18:00:48.963471"]]
+  [1m[35m (151.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.6ms)[0m  begin transaction
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 49], ["ycoord", -70], ["created_at", "2016-03-02 18:00:49.122153"], ["updated_at", "2016-03-02 18:00:49.122153"]]
+  [1m[35m (127.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -56], ["ycoord", 156], ["created_at", "2016-03-02 18:00:49.256644"], ["updated_at", "2016-03-02 18:00:49.256644"]]
+  [1m[35m (139.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 1], ["ycoord", -3], ["created_at", "2016-03-02 18:00:49.402601"], ["updated_at", "2016-03-02 18:00:49.402601"]]
+  [1m[35m (148.0ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -87], ["ycoord", 88], ["created_at", "2016-03-02 18:00:49.557024"], ["updated_at", "2016-03-02 18:00:49.557024"]]
+  [1m[35m (140.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 79], ["ycoord", 110], ["created_at", "2016-03-02 18:00:49.704448"], ["updated_at", "2016-03-02 18:00:49.704448"]]
+  [1m[35m (149.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -71], ["ycoord", 18], ["created_at", "2016-03-02 18:00:49.860805"], ["updated_at", "2016-03-02 18:00:49.860805"]]
+  [1m[35m (128.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 28], ["ycoord", -151], ["created_at", "2016-03-02 18:00:49.995158"], ["updated_at", "2016-03-02 18:00:49.995158"]]
+  [1m[35m (151.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 27], ["ycoord", 152], ["created_at", "2016-03-02 18:00:50.152370"], ["updated_at", "2016-03-02 18:00:50.152370"]]
+  [1m[35m (127.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -71], ["ycoord", 110], ["created_at", "2016-03-02 18:00:50.286999"], ["updated_at", "2016-03-02 18:00:50.286999"]]
+  [1m[35m (128.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -30], ["ycoord", -75], ["created_at", "2016-03-02 18:00:50.421355"], ["updated_at", "2016-03-02 18:00:50.421355"]]
+  [1m[35m (129.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 66], ["ycoord", 91], ["created_at", "2016-03-02 18:00:50.557655"], ["updated_at", "2016-03-02 18:00:50.557655"]]
+  [1m[35m (127.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 80], ["ycoord", 77], ["created_at", "2016-03-02 18:00:50.692134"], ["updated_at", "2016-03-02 18:00:50.692134"]]
+  [1m[35m (138.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 8], ["ycoord", -85], ["created_at", "2016-03-02 18:00:50.837834"], ["updated_at", "2016-03-02 18:00:50.837834"]]
+  [1m[35m (150.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 53], ["ycoord", 77], ["created_at", "2016-03-02 18:00:50.994164"], ["updated_at", "2016-03-02 18:00:50.994164"]]
+  [1m[35m (139.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.3ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 7], ["ycoord", -48], ["created_at", "2016-03-02 18:00:51.139108"], ["updated_at", "2016-03-02 18:00:51.139108"]]
+  [1m[35m (118.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 84], ["ycoord", -3], ["created_at", "2016-03-02 18:00:51.262962"], ["updated_at", "2016-03-02 18:00:51.262962"]]
+  [1m[35m (128.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -37], ["ycoord", -6], ["created_at", "2016-03-02 18:00:51.397769"], ["updated_at", "2016-03-02 18:00:51.397769"]]
+  [1m[35m (150.1ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.9ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 87], ["ycoord", -79], ["created_at", "2016-03-02 18:00:51.555218"], ["updated_at", "2016-03-02 18:00:51.555218"]]
+  [1m[35m (127.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 2], ["ycoord", -90], ["created_at", "2016-03-02 18:00:51.688937"], ["updated_at", "2016-03-02 18:00:51.688937"]]
+  [1m[35m (139.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 61], ["ycoord", -172], ["created_at", "2016-03-02 18:00:51.834424"], ["updated_at", "2016-03-02 18:00:51.834424"]]
+  [1m[35m (141.4ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 62], ["ycoord", 142], ["created_at", "2016-03-02 18:00:51.981822"], ["updated_at", "2016-03-02 18:00:51.981822"]]
+  [1m[35m (128.4ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 58], ["ycoord", 123], ["created_at", "2016-03-02 18:00:52.116119"], ["updated_at", "2016-03-02 18:00:52.116119"]]
+  [1m[35m (128.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 39], ["ycoord", 102], ["created_at", "2016-03-02 18:00:52.251034"], ["updated_at", "2016-03-02 18:00:52.251034"]]
+  [1m[35m (139.0ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -73], ["ycoord", -104], ["created_at", "2016-03-02 18:00:52.396153"], ["updated_at", "2016-03-02 18:00:52.396153"]]
+  [1m[35m (128.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -42], ["ycoord", 73], ["created_at", "2016-03-02 18:00:52.530725"], ["updated_at", "2016-03-02 18:00:52.530725"]]
+  [1m[35m (128.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -62], ["ycoord", 107], ["created_at", "2016-03-02 18:00:52.665554"], ["updated_at", "2016-03-02 18:00:52.665554"]]
+  [1m[35m (149.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 87], ["ycoord", 77], ["created_at", "2016-03-02 18:00:52.822379"], ["updated_at", "2016-03-02 18:00:52.822379"]]
+  [1m[35m (139.0ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 10], ["ycoord", 94], ["created_at", "2016-03-02 18:00:52.967805"], ["updated_at", "2016-03-02 18:00:52.967805"]]
+  [1m[35m (128.0ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 8], ["ycoord", -100], ["created_at", "2016-03-02 18:00:53.102644"], ["updated_at", "2016-03-02 18:00:53.102644"]]
+  [1m[35m (129.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 68], ["ycoord", -88], ["created_at", "2016-03-02 18:00:53.238696"], ["updated_at", "2016-03-02 18:00:53.238696"]]
+  [1m[35m (139.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 32], ["ycoord", 100], ["created_at", "2016-03-02 18:00:53.384432"], ["updated_at", "2016-03-02 18:00:53.384432"]]
+  [1m[35m (138.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 34], ["ycoord", -172], ["created_at", "2016-03-02 18:00:53.529867"], ["updated_at", "2016-03-02 18:00:53.529867"]]
+  [1m[35m (128.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 19], ["ycoord", 43], ["created_at", "2016-03-02 18:00:53.664618"], ["updated_at", "2016-03-02 18:00:53.664618"]]
+  [1m[35m (127.3ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 24], ["ycoord", 71], ["created_at", "2016-03-02 18:00:53.798864"], ["updated_at", "2016-03-02 18:00:53.798864"]]
+  [1m[35m (127.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 58], ["ycoord", -146], ["created_at", "2016-03-02 18:00:53.933508"], ["updated_at", "2016-03-02 18:00:53.933508"]]
+  [1m[35m (127.7ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 39], ["ycoord", 32], ["created_at", "2016-03-02 18:00:54.067500"], ["updated_at", "2016-03-02 18:00:54.067500"]]
+  [1m[35m (128.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.5ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 78], ["ycoord", 57], ["created_at", "2016-03-02 18:00:54.202284"], ["updated_at", "2016-03-02 18:00:54.202284"]]
+  [1m[35m (138.9ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 71], ["ycoord", -70], ["created_at", "2016-03-02 18:00:54.347396"], ["updated_at", "2016-03-02 18:00:54.347396"]]
+  [1m[35m (139.8ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", 69], ["ycoord", -1], ["created_at", "2016-03-02 18:00:54.493298"], ["updated_at", "2016-03-02 18:00:54.493298"]]
+  [1m[35m (207.5ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.4ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "photos" ("xcoord", "ycoord", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["xcoord", -35], ["ycoord", -147], ["created_at", "2016-03-02 18:00:54.707093"], ["updated_at", "2016-03-02 18:00:54.707093"]]
+  [1m[35m (117.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Nicaragua"], ["created_at", "2016-03-02 18:00:54.841205"], ["updated_at", "2016-03-02 18:00:54.841205"]]
+  [1m[35m (117.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Brazil"], ["created_at", "2016-03-02 18:00:54.968357"], ["updated_at", "2016-03-02 18:00:54.968357"]]
+  [1m[35m (147.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Turkey"], ["created_at", "2016-03-02 18:00:55.125114"], ["updated_at", "2016-03-02 18:00:55.125114"]]
+  [1m[35m (125.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Gabon"], ["created_at", "2016-03-02 18:00:55.262996"], ["updated_at", "2016-03-02 18:00:55.262996"]]
+  [1m[35m (95.0ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Swaziland"], ["created_at", "2016-03-02 18:00:55.370452"], ["updated_at", "2016-03-02 18:00:55.370452"]]
+  [1m[35m (133.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.3ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Maldives"], ["created_at", "2016-03-02 18:00:55.515642"], ["updated_at", "2016-03-02 18:00:55.515642"]]
+  [1m[35m (138.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Uzbekistan"], ["created_at", "2016-03-02 18:00:55.662306"], ["updated_at", "2016-03-02 18:00:55.662306"]]
+  [1m[35m (136.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Turks and Caicos Islands"], ["created_at", "2016-03-02 18:00:55.808461"], ["updated_at", "2016-03-02 18:00:55.808461"]]
+  [1m[35m (136.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Mozambique"], ["created_at", "2016-03-02 18:00:55.953432"], ["updated_at", "2016-03-02 18:00:55.953432"]]
+  [1m[35m (139.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Macao"], ["created_at", "2016-03-02 18:00:56.101633"], ["updated_at", "2016-03-02 18:00:56.101633"]]
+  [1m[35m (124.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.5ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Nepal"], ["created_at", "2016-03-02 18:00:56.235802"], ["updated_at", "2016-03-02 18:00:56.235802"]]
+  [1m[35m (125.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Paraguay"], ["created_at", "2016-03-02 18:00:56.370107"], ["updated_at", "2016-03-02 18:00:56.370107"]]
+  [1m[35m (127.3ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Montserrat"], ["created_at", "2016-03-02 18:00:56.514732"], ["updated_at", "2016-03-02 18:00:56.514732"]]
+  [1m[35m (126.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "China"], ["created_at", "2016-03-02 18:00:56.649457"], ["updated_at", "2016-03-02 18:00:56.649457"]]
+  [1m[35m (126.5ms)[0m  commit transaction
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Palestinian Territory"], ["created_at", "2016-03-02 18:00:56.784755"], ["updated_at", "2016-03-02 18:00:56.784755"]]
+  [1m[35m (136.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Vanuatu"], ["created_at", "2016-03-02 18:00:56.928716"], ["updated_at", "2016-03-02 18:00:56.928716"]]
+  [1m[35m (116.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Rwanda"], ["created_at", "2016-03-02 18:00:57.052949"], ["updated_at", "2016-03-02 18:00:57.052949"]]
+  [1m[35m (125.9ms)[0m  commit transaction
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Congo"], ["created_at", "2016-03-02 18:00:57.188424"], ["updated_at", "2016-03-02 18:00:57.188424"]]
+  [1m[35m (127.4ms)[0m  commit transaction
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Falkland Islands (Malvinas)"], ["created_at", "2016-03-02 18:00:57.325495"], ["updated_at", "2016-03-02 18:00:57.325495"]]
+  [1m[35m (135.1ms)[0m  commit transaction
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "albums" ("album_name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["album_name", "Greece"], ["created_at", "2016-03-02 18:00:57.470444"], ["updated_at", "2016-03-02 18:00:57.470444"]]
+  [1m[35m (136.2ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.9ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "album_views" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:57.639086"], ["updated_at", "2016-03-02 18:00:57.639086"]]
+  [1m[36m (99.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mAlbum Load (0.7ms)[0m  SELECT "albums".* FROM "albums"
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "album_views" ("created_at", "updated_at") VALUES (?, ?)[0m  [["created_at", "2016-03-02 18:00:57.754371"], ["updated_at", "2016-03-02 18:00:57.754371"]]
+  [1m[35m (132.6ms)[0m  commit transaction
+  [1m[36mAlbum Load (0.7ms)[0m  [1mSELECT "albums".* FROM "albums"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.8ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "album_views" ("created_at", "updated_at") VALUES (?, ?)  [["created_at", "2016-03-02 18:00:57.899039"], ["updated_at", "2016-03-02 18:00:57.899039"]]
+  [1m[36m (133.6ms)[0m  [1mcommit transaction[0m

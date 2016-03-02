@@ -12,16 +12,13 @@ Photo.delete_all
 Album.delete_all
 
 20.times do
-  User.create(f_name: Faker::Name.first_name, l_name: Faker::Name.last_name,
-  b_day: Faker::Date.birthday(min_age = 10, max_age = 30),
-  f_book: "true", default_loc: Faker::Address.city)
+  User.create(name: Faker::Name.name, password_digest: Faker::Number.number(6))
   Friend.create(user_id: User.all.sample)
 end
 
 
 100.times do
-  Photo.create(url: Faker::Internet.url('mappies'),
-  x_coord: Faker::Address.latitude, y_coord: Faker::Address.longitude,
+  Photo.create(xcoord: Faker::Address.latitude, ycoord: Faker::Address.longitude,
   album_id: Album.all.sample)
 end
 

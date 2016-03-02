@@ -1,6 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+<<<<<<< HEAD
   f_name: MyString
   l_name: MyString
   b_day: 2016-02-18
@@ -13,3 +14,11 @@ two:
   b_day: 2016-02-18
   f_book: false
   default_loc: MyString
+=======
+  name: dave
+  password_digest: <%= BCrypt::Password.create('secret') %>
+
+two:
+  name: susannah
+  password_digest: <%= BCrypt::Password.create('secret') %>
+>>>>>>> 71755ea32eda3fbfb82daa8a3bc084f514e174de

@@ -1,5 +1,26 @@
 Rails.application.routes.draw do
 
+  get 'admin/index'
+
+  get 'sessions/new'
+  post 'sessions/new', to:"sessions#create"
+
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+  post 'sessions/destroy', to:"sessions#destroy"
+
+  get 'admin' =>'admin#index'
+  controller :sessions do
+      get 'login' => :new
+      post 'login' => :create
+      delete 'logout' => :destroy
+  end
+
+  resources :users
+  resources :users
+
   get 'account/settings'
 
   get 'landing/show'
@@ -17,7 +38,7 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
-  
+
   resources :album_views
   resources :friends
   resources :albums
@@ -33,7 +54,7 @@ Rails.application.routes.draw do
 
  # get '/', to:"mapperies#landing"
 
-  get '/login', to:"login#login"
+  get 'login', to:"users#index"
 
 
   get '/main', to:"main#show_map"

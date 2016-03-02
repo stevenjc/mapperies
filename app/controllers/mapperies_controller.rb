@@ -1,6 +1,6 @@
 class MapperiesController < ApplicationController
-
-
+  #also don't need to login???
+  skip_before_action :authorize, only[:landing, :login]
 
   def landing
   end
@@ -21,6 +21,3 @@ class MapperiesController < ApplicationController
 	puts ""
   end
 end
-
-
-

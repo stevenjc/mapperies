@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'landing/show'
 
 
+  resources :friends
+  resources :photos
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 

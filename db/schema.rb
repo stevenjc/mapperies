@@ -11,34 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225211308) do
+ActiveRecord::Schema.define(version: 20160301185314) do
 
   create_table "album_views", force: :cascade do |t|
-    t.integer  "album_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "album_id"
+    t.integer "user_id"
   end
 
   create_table "albums", force: :cascade do |t|
-    t.string   "album_name"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "album_name"
+    t.integer "user_id"
+  end
+
+  create_table "friends", force: :cascade do |t|
+    t.integer "friender_id"
+    t.integer "friendee_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string  "url"
+    t.float   "x_coord"
+    t.float   "y_coord"
+    t.integer "album_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "f_name"
-    t.string   "l_name"
-    t.date     "b_day"
-    t.boolean  "f_book"
-    t.string   "default_loc"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email"
-    t.string   "encrypted_password", limit: 128
-    t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128
+    t.string  "f_name"
+    t.string  "l_name"
+    t.date    "b_day"
+    t.boolean "f_book"
+    t.string  "default_loc"
+    t.string  "email"
+    t.string  "encrypted_password", limit: 128
+    t.string  "confirmation_token", limit: 128
+    t.string  "remember_token",     limit: 128
   end
 
   add_index "users", ["email"], name: "index_users_on_email"

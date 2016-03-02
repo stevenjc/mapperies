@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :users
+  resources :users
   get 'account/settings'
 
   get 'landing/show'

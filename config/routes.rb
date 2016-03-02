@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  get 'sessions/new'
+  post 'sessions/new', to:"sessions#create"
+
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+  post 'sessions/destroy', to:"sessions#destroy"
+
+  get 'admin' =>'admin#index'
+  controller :sessions do
+      get 'login' => :new
+      post 'login' => :create
+      delete 'logout' => :destroy
+  end
+
   resources :users
   resources :users
   get 'account/settings'
@@ -15,7 +33,7 @@ Rails.application.routes.draw do
 
  # get '/', to:"mapperies#landing"
 
-  get '/login', to:"users#index"
+  get 'login', to:"users#index"
 
   get '/main', to:"main#show_map"
 

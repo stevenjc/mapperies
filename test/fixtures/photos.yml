@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  url: MyString
+  x_coord: 1.5
+  y_coord: 1.5
   album_id: 1
-  xcoord: 1
-  ycoord: 1
 
 two:
+  url: MyString
+  x_coord: 1.5
+  y_coord: 1.5
   album_id: 1
-  xcoord: 1
-  ycoord: 1

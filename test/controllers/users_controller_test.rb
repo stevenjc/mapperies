@@ -19,8 +19,10 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to users_path
   end
 
+
   test "should show the user" do
       get :show, id: @user
       assert_response :success
   end
+
 end

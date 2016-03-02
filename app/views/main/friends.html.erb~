@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +48,7 @@
                                 <i class="fa fa-cloud fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Album 1</strong>
+                                    <strong>Friend 1</strong>
                                 </h4>
                                 
                                 <a href="#" class="btn btn-light">Boston</a>
@@ -60,7 +61,7 @@
                                 <i class="fa fa-compass fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Album 2</strong>
+                                    <strong>Friend 2</strong>
                                 </h4>
                                 <a href="#" class="btn btn-light">New York</a>
                             </div>
@@ -72,7 +73,7 @@
                                 <i class="fa fa-flask fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Album 3</strong>
+                                    <strong>Friend 3</strong>
                                 </h4>
 
                                 <a href="#" class="btn btn-light">Paris</a>
@@ -85,7 +86,7 @@
                                 <i class="fa fa-shield fa-stack-1x text-primary"></i>
                             </span>
                                 <h4>
-                                    <strong>Album 4</strong>
+                                    <strong>Friend 4</strong>
                                 </h4>
 
                                 <a href="#" class="btn btn-light">Rome</a>
@@ -101,3 +102,4 @@
         <!-- /.container -->
     </section>
 
+>>>>>>> bootstrap

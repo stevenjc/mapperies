@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,7 +36,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>My Friends</h2>
+                    <h2>My Albums</h2>
                     <hr class="small">
                     <div class="row">
                         <div class="col-md-6">
@@ -79,3 +80,4 @@
 
 
 
+>>>>>>> bootstrap

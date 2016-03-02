@@ -13,10 +13,18 @@
 
 ActiveRecord::Schema.define(version: 20160302013910) do
 
-  create_table "albums", force: :cascade do |t|
+  create_table "album_views", force: :cascade do |t|
+    t.integer  "album_id"
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "albums", force: :cascade do |t|
+    t.string   "album_name"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "friends", force: :cascade do |t|
@@ -38,13 +46,6 @@ ActiveRecord::Schema.define(version: 20160302013910) do
     t.string   "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-  end
-
-  create_table "views", force: :cascade do |t|
-    t.integer  "album_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end

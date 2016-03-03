@@ -42,7 +42,7 @@ group :development, :test do
 end
 
 group :development do
-  
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -70,12 +70,11 @@ group :production do
 end
 
 #not working...
-#gem 'pry-rails'
-#gem 'better_errors'
-#gem 'awesome_print'
-#gem 'hirb'
-#gem 'faker'
+gem 'pry-rails'
+gem 'better_errors'
+gem 'awesome_print'
+gem 'hirb'
+gem 'faker'
 gem 'bootstrap-sass', '3.2.0.0'
 gem 'autoprefixer-rails'
-#gem 'clearance', '~> 1.5'
-
+gem 'clearance', '~> 1.5'

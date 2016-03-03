@@ -4,7 +4,6 @@ class CreateAlbumViews < ActiveRecord::Migration
       t.integer :album_id
       t.integer :user_id
 
-      t.timestamps null: false
     end
   end
 end

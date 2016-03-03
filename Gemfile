@@ -24,12 +24,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'pry-rails'
-gem 'better_errors'
-gem 'awesome_print'
-gem 'hirb'
-gem 'faker'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,11 +34,15 @@ gem 'faker'
 # gem 'capistrano-rails', group: :development
 
 #Clearence gem for auth
-gem 'clearance', '~> 1.5'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+	gem 'byebug'
+end
+
+group :development do
+  
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -67,5 +65,12 @@ group :production do
 end
 
 #not working...
+#gem 'pry-rails'
+#gem 'better_errors'
+#gem 'awesome_print'
+#gem 'hirb'
+#gem 'faker'
 gem 'bootstrap-sass', '3.2.0.0'
 gem 'autoprefixer-rails'
+#gem 'clearance', '~> 1.5'
+

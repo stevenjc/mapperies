@@ -75,6 +75,18 @@
         </ul>
     </nav>
 
+    <div class= "photos">
+      <div class="container">
+        <div class="photo row">
+          <%= @photos.each do |p| %>
+          <div class = "single photo">
+            <%= image_url p.url %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
     <!-- Header -->
     <header id="top" class="header">
         <div class="text-vertical-center">

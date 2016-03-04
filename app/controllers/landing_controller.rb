@@ -1,4 +1,5 @@
 class LandingController < ApplicationController
-  def show
+  def index
+    @photos = Photo.all
   end
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'account/settings'
 
-  get 'landing/show'
+  get 'landing/index'
 
 
   resources :friends
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
-  
+
   resources :album_views
   resources :friends
   resources :albums
@@ -28,9 +28,9 @@ Rails.application.routes.draw do
 
 
 
-  get 'landing/show'
+  get 'landing/index'
 
-   get '/landing', to:"landing#show"
+   get '/landing', to:"landing#index"
 
 
  # get '/', to:"mapperies#landing"
@@ -48,7 +48,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-   root 'landing#show'
+   root 'landing#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

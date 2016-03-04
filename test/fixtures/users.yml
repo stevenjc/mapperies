@@ -2,12 +2,21 @@
 
 
 one:
+<<<<<<< HEAD
   f_name: Dave
   l_name: Matthews
   b_day: 2016-02-18
   f_book: false
   default_loc: Boston
   email: dmat@gmail.com
+=======
+  f_name: Steven
+  l_name: Colon
+  b_day: 2016-02-18
+  f_book: false
+  default_loc: MyString
+  email: stevenjc@brandeis.edu
+>>>>>>> authentication
 
 two:
   f_name: MyString

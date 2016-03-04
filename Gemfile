@@ -6,8 +6,7 @@ ruby "2.2.4"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -24,12 +23,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'pry-rails'
-gem 'better_errors'
-gem 'awesome_print'
-gem 'hirb'
-gem 'faker'
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -40,11 +33,15 @@ gem 'faker'
 # gem 'capistrano-rails', group: :development
 
 #Clearence gem for auth
-gem 'clearance', '~> 1.5'
+
 
 group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+	gem 'byebug'
+end
+
+group :development do
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -53,6 +50,11 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :development do
+    # Access an IRB console on exception pages or by using <%= console %> in views
+    gem 'web-console', '~> 2.0'
 end
 
 group :production do
@@ -67,5 +69,12 @@ group :production do
 end
 
 #not working...
-gem 'bootstrap-sass', '3.2.0.0'
+gem 'pry-rails'
+gem 'better_errors'
+gem 'awesome_print'
+gem 'hirb'
+gem 'faker'
+gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'sass-rails', '4.0.3'
+gem 'clearance', '~> 1.5'

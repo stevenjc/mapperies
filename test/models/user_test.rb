@@ -1,20 +1,25 @@
-require 'test_helper'
+require_relative '../test_helper'
 
-class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+describe User do
+  before do
+      User.destroy_all
+      @steven = User.create(
+          first_name: "Steven",
+          last_name: "Colon",
+          birthday: 2016-02-18,
+          f_book: false,
+          default_loc: "MyString",
+          email: "stevenjc@brandeis.edu")
+  end
 
-
-  test "should save" do
-    user = users(:one)
-    assert user.save
+  it "should save" do
+    assert_not @steven.save
 
   end
 
-  test "shouldn't save" do
-    user = users(:one)
-    user.save
-    assert_not user.save
+  it "shouldn't save" do
+
+    @steven.save
+    assert_not @steven.save
   end
 end

@@ -1,16 +1,16 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  f_name: Steven
-  l_name: Colon
-  b_day: 2016-02-18
+  first_name: Steven
+  last_name: Colon
+  birthday: 2016-02-18
   f_book: false
   default_loc: MyString
   email: stevenjc@brandeis.edu
 
 two:
-  f_name: MyString
-  l_name: MyString
-  b_day: 2016-02-18
+  first_name: MyString
+  last_name: MyString
+  birthday: 2016-02-18
   f_book: false
   default_loc: MyString

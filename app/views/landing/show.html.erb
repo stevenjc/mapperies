@@ -83,12 +83,16 @@
             <br>
 	    <a href="#map" class="btn btn-dark btn-lg">Learn how it works!</a>
 	    <br>
-
-            <a href="login#login" class="btn btn-dark btn-lg">Login</a>
+        <%if signed_in? %>
+            <%= button_to "Logout", "clearance/sessions#destroy" , {class: "btn btn-dark btn-lg"}%>
+        <%else%>
+            <a href="/login" class="btn btn-dark btn-lg">Login</a>
+        <% end %>
         </div>
     </header>
 
     <!-- Map -->
+<!--
     <section id="map" class="map">
         <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
         <br />
@@ -97,6 +101,8 @@
         </small>
         </iframe>
     </section>
+-->
+
  <!-- About -->
 
 

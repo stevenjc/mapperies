@@ -7,7 +7,7 @@
 	    <a href="#map" class="btn btn-dark btn-lg">Learn how it works!</a>
 	    <br>
         <%if signed_in? %>
-            <%= button_to "Logout", "clearance/sessions#destroy" , {class: "btn btn-dark btn-lg"}%>
+            <%= button_to "Logout", "sign_out" ,{class: "btn btn-dark btn-lg", :method => :delete}%>
         <%else%>
             <a href="/login" class="btn btn-dark btn-lg">Login</a>
         <% end %>

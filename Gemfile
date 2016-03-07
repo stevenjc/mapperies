@@ -72,6 +72,7 @@ end
 gem 'pry-rails'
 gem 'better_errors'
 gem 'awesome_print'
+gem 'minitest-rails'
 gem 'hirb'
 gem 'faker'
 gem 'bootstrap-sass'

@@ -1,40 +1,46 @@
-require 'test_helper'
+require_relative '../test_helper'
 
-class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
-<<<<<<< HEAD
-    describe user_save do
-        before do
-            User.destroy_all
+describe User do
+    before do
+      User.destroy_all
+      @steven = User.create(
+          first_name: "Steven",
+          last_name: "Colon",
+          birthday: 2016-02-18,
+          f_book: false,
+          default_loc: "MyString",
+          email: "stevenjc@brandeis.edu",
+          password: "bad")
+      @copy = User.create(
+          first_name: "Steven",
+          last_name: "Colon",
+          birthday: 2016-02-18,
+          f_book: false,
+          default_loc: "MyString",
+          email: "stevenjc@brandeis.edu",
+          password: "bad")
 
-        end
-        test "should save" do
-            user = users(:one)
-            assert user.save, "User has been saved"
-        end
-
-        test "should not save" do
-            user = users(:one)
-            user.save
-            assert_not user.save, "Email already in db"
-        end
+     @steven_different_email = User.create(
+         first_name: "Steven",
+         last_name: "Colon",
+         birthday: 2016-02-18,
+         f_book: false,
+         default_loc: "MyString",
+         email: "steven@brandeis.edu",
+         password: "bad")
     end
 
-=======
+    it "should save" do
+        assert @steven.save, "Steven Record saved"
+    end
 
+    it "duplicate emails, dont save" do
+        @steven.save
+        assert_not @copy.save, "Record not saved since duplicate accounts found"
+    end
 
-  test "should save" do
-    user = users(:one)
-    assert user.save
-
-  end
-
-  test "shouldn't save" do
-    user = users(:one)
-    user.save
-    assert_not user.save
-  end
->>>>>>> authentication
+    it "Account with only different email should save" do
+        @steven.save
+        assert @steven_different_email.save, "Steven saved an account with a different email"
+    end
 end

@@ -37,6 +37,9 @@
     </head>
    <body>
      <div id="content">
+     <!-- not on landing and login pages -->
+     <!--< unless controller_name == "landing" or controller_name == "account" %>-->
+     <% if @nav_bar %>
          <nav id="sidebar-wrapper">
             <ul class="sidebar-nav">
 		<a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
@@ -65,6 +68,8 @@
         <div>
             <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
         </div>
+    <% end %>
+        <!--< end %>-->
 
          <header id="top" class="header">
              <div class="text-vertical-center">

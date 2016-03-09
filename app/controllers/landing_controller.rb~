@@ -1,4 +1,6 @@
 class LandingController < ApplicationController
-	def show_map
-	end
+    @nav_bar = true
+    def show
+
+    end
 end

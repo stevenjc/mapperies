@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
+    <title>Mapperies</title>
 
     <!-- Bootstrap Core CSS -->
     <!--<link href="/public/stylesheets/bootstrap.min.css" rel="stylesheet"> -->
@@ -78,9 +78,11 @@
     <div class= "photos">
       <div class="container">
         <div class="photo row">
-          <%= @photos.each do |p| %>
+          <% @brandeisLinks.each do |a| %>
           <div class = "single photo">
-            <%= image_url p.url %>
+            <img src="
+            <%= a %>
+            " alt="This is an image" width="100px" height="100px">
           </div>
           <% end %>
         </div>
@@ -100,15 +102,37 @@
         </div>
     </header>
 
-    <!-- Map -->
+    <!-- Map
     <section id="map" class="map">
         <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
         <br />
         <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
+            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Brandeis,+University.,+South+Street,+Waltham,+MA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
         </small>
         </iframe>
-    </section>
+    </section>-->
+<!--  <div id="map"></div>
+        <%= javascript_include_tag  :all, :recursive => true %>
+        <%= javascript_include_tag "/app/assets/javascripts/map.js" %>
+        <%= javascript_include_tag "/app/assets/javascripts/async.js" %>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap"
+        async defer></script>
+        <div id="map-container">
+        <div id="map-canvas"></div>
+-->
+
+        <div id="map"></div>
+        <script>
+          var map;
+          function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 8
+            });
+          }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap"
+        async defer></script>
  <!-- About -->
 
 

@@ -38,11 +38,11 @@ end
 end
 
 Album.create(album_name: "Landing", user: User.all.sample)
-Photo.create(url:"http://imgur.com/zdfrc05", x_coord:"42.3650583", y_coord:"-71.2597494", album: Album.first)
-Photo.create(url:"http://imgur.com/1a0BNE5", x_coord:"42.3673724", y_coord:"-71.2556464", album: Album.first)
-Photo.create(url:"http://imgur.com/4NpP12w", x_coord:"42.3684466", y_coord:"-71.2604612", album: Album.first)
-Photo.create(url:"http://imgur.com/kJ1F9A5", x_coord:"42.3691451", y_coord:"-71.2572575", album: Album.first)
-Photo.create(url:"http://imgur.com/wchzPTV", x_coord:"42.3657889", y_coord:"-71.2601062", album: Album.first)
+Photo.create(url:"http://imgur.com/zdfrc05.jpg", x_coord:"42.3650583", y_coord:"-71.2597494", album_id: 666)
+Photo.create(url:"http://imgur.com/1a0BNE5.jpg", x_coord:"42.3673724", y_coord:"-71.2556464", album_id: 666)
+Photo.create(url:"http://imgur.com/4NpP12w.jpg", x_coord:"42.3684466", y_coord:"-71.2604612", album_id: 666)
+Photo.create(url:"http://imgur.com/kJ1F9A5.jpg", x_coord:"42.3691451", y_coord:"-71.2572575", album_id: 666)
+Photo.create(url:"http://imgur.com/wchzPTV.jpg", x_coord:"42.3657889", y_coord:"-71.2601062", album_id: 666)
 
 
 

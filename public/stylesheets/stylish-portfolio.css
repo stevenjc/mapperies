@@ -237,3 +237,6 @@ hr.small {
 footer {
     padding: 100px 0;
 }
+#map {
+  height: 100%;
+}

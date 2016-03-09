@@ -1,7 +1,5 @@
 class MainController < ApplicationController
-  def friends
-  end
-
-  def albums
+  def index
+	@nav_bar = true	
   end
 end

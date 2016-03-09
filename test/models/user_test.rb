@@ -43,5 +43,4 @@ describe User do
         @steven.save
         assert @steven_different_email.save, "Steven saved an account with a different email"
     end
-
 end

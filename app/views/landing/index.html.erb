@@ -20,6 +20,9 @@
 
     <title>Mapperies</title>
 
+    <!-- Make sure gon is active on the page -->
+    <%= include_gon %>
+
     <!-- Bootstrap Core CSS -->
     <!--<link href="/public/stylesheets/bootstrap.min.css" rel="stylesheet"> -->
     <%= stylesheet_link_tag "bootstrap.min" %>
@@ -102,37 +105,26 @@
         </div>
     </header>
 
-    <!-- Map
-    <section id="map" class="map">
-        <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe>
-        <br />
-        <small>
-            <a href="https://maps.google.com/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Brandeis,+University.,+South+Street,+Waltham,+MA&amp;aq=0&amp;oq=twitter&amp;sll=28.659344,-81.187888&amp;sspn=0.128789,0.264187&amp;ie=UTF8&amp;hq=Twitter,+Inc.,+Market+Street,+San+Francisco,+CA&amp;t=m&amp;z=15&amp;iwloc=A"></a>
-        </small>
-        </iframe>
-    </section>-->
-<!--  <div id="map"></div>
-        <%= javascript_include_tag  :all, :recursive => true %>
-        <%= javascript_include_tag "/app/assets/javascripts/map.js" %>
-        <%= javascript_include_tag "/app/assets/javascripts/async.js" %>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap"
-        async defer></script>
-        <div id="map-container">
-        <div id="map-canvas"></div>
--->
+    <!-- Map -->
 
-        <div id="map"></div>
-        <script>
+       <div id="map"></div>
+        <!-- <script>
           var map;
+          var coords =
+          <% @brandeisCoords %>;
           function initMap() {
+            var brandeis = {lat:42.3657, lng:-71.2597};
             map = new google.maps.Map(document.getElementById('map'), {
-              center: {lat: -34.397, lng: 150.644},
-              zoom: 8
+              center: brandeis,
+              zoom: 17
             });
+            for (c in coords){
+              addMarker(c, map);
+            }
+          )
           }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap"
-        async defer></script>
+        </script> -->
+
  <!-- About -->
 
 
@@ -181,6 +173,12 @@
     <%= javascript_include_tag "/js/jquery.js" %>
 
     <%= javascript_include_tag "/js/bootstrap.min.js" %>
+
+    <!-- link api key -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap"
+    async defer></script>
+
+    <%= javascript_include_tag "/js/map.js" %>
 
     <!-- Custom Theme JavaScript -->
     <script>

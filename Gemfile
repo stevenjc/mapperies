@@ -42,7 +42,7 @@ group :development, :test do
 end
 
 group :development do
-  
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -74,3 +74,4 @@ gem 'bootstrap-sass', '3.2.0.0'
 gem 'autoprefixer-rails'
 #gem 'clearance', '~> 1.5'
 
+gem 'gon' #used to allow rails/ruby and javascript to share data

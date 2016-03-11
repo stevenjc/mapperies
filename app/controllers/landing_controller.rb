@@ -1,6 +1,5 @@
 class LandingController < ApplicationController
-    
-    def show
 
+    def show
     end
 end

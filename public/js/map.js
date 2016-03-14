@@ -1,22 +1,31 @@
 
 var map;
 var coords = gon.brandeisCoords;
-var brandeis = {lat:42.3657, lng:-71.2597};
-alert(brandeis);
-alert(coords);
+var brandeis = gon.brandeis;
+var brandeisCoords = {lat:42.3657, lng:-71.2597};
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: brandeis,
-    zoom: 17
+    center: brandeisCoords,
+    zoom: 16
   });
-  for (c in coords){
-    alert(coords[c]);
-  //alert(brandeis);
-    var marker = new google.maps.Marker({
-      position: Object(coords[c]),
-      map: map,
-      title: "h5+89587ello"
-    })
+  for (i=0;i<coords.length;i++){
+    addMarker(i, map);
   }
 
+}
+function addMarker(int, map){
+  var LngLnt = {lat:brandeis[int].x_coord, lng:brandeis[int].y_coord};
+
+  var image = {
+    url: brandeis[int].url,
+    size: new google.maps.Size(25,25)
+  //  origin: new google.maps.Point(0,0)
+  }
+
+  var marker= new google.maps.Marker({
+    position: LngLnt,
+    map:map,
+    icon: image
+  })
 }

@@ -19,17 +19,40 @@ function addMarker(int, map){
 
   var image = {
     url: brandeis[int].url,
-    size: new google.maps.Size(25,25)
+    scaledSize: new google.maps.Size(25,25)
   //  origin: new google.maps.Point(0,0)
   }
 
   var marker= new google.maps.Marker({
     position: LngLnt,
     map:map,
-    icon: image
+    icon: image,
+    zIndex: 1
   });
-  marker.addListener('click', gotoAlbum)
+  marker.addListener('click', markerClick);
 }
+
+function markerClick(){
+  if(this.getIcon().scaledSize= new google.maps.Size(25,25)){
+    this.setVisible(false);
+    var image = {
+      url: this.getIcon().url,
+      scaledSize: new google.maps.Size(75,75)
+    }
+    var marker = new google.maps.Marker({
+      position: this.getPosition(),
+      map:this.getMap(),
+      icon:image,
+      zIndex:1
+    })
+    marker.addListener('click', gotoAlbum);
+
+}else if(this.getIcon().scaledSize= new google.maps.Size(75,75)) {
+  alert("uo!");
+  gotoAlbum();
+}
+}
+
 function gotoAlbum(){
   window.location.href = "main/albums";
 }

@@ -78,19 +78,7 @@
         </ul>
     </nav>
 
-    <div class= "photos">
-      <div class="container">
-        <div class="photo row">
-          <% @brandeisLinks.each do |a| %>
-          <div class = "single photo">
-            <img src="
-            <%= a %>
-            " alt="This is an image" width="100px" height="100px">
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Header -->
     <header id="top" class="header">
@@ -108,22 +96,6 @@
     <!-- Map -->
 
        <div id="map"></div>
-        <!-- <script>
-          var map;
-          var coords =
-          <% @brandeisCoords %>;
-          function initMap() {
-            var brandeis = {lat:42.3657, lng:-71.2597};
-            map = new google.maps.Map(document.getElementById('map'), {
-              center: brandeis,
-              zoom: 17
-            });
-            for (c in coords){
-              addMarker(c, map);
-            }
-          )
-          }
-        </script> -->
 
  <!-- About -->
 

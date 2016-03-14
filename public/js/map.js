@@ -27,5 +27,9 @@ function addMarker(int, map){
     position: LngLnt,
     map:map,
     icon: image
-  })
+  });
+  marker.addListener('click', gotoAlbum)
+}
+function gotoAlbum(){
+  window.location.href = "main/albums";
 }

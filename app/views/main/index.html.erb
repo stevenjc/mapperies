@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <%= include_gon %>
-  <% stylesheet_link_tag "/stylesheets/show_map.css" %>
-</head>
-
-<body>
 <h1> user's map </h1>
 <div id="map">this is the map</div>
 
@@ -13,6 +5,3 @@
 <%= javascript_include_tag "/js/bootstrap.min.js" %>
 <%= javascript_include_tag "/js/map.js" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
-</body>
-
-</html>

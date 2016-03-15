@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160301185314) do
+ActiveRecord::Schema.define(version: 20160315085133) do
 
   create_table "album_views", force: :cascade do |t|
     t.integer "album_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20160301185314) do
   create_table "albums", force: :cascade do |t|
     t.string  "album_name"
     t.integer "user_id"
+    t.string  "url"
   end
 
   create_table "friends", force: :cascade do |t|
@@ -36,9 +37,9 @@ ActiveRecord::Schema.define(version: 20160301185314) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "first_name"
-    t.string  "last_name"
-    t.date    "birthday"
+    t.string  "f_name"
+    t.string  "l_name"
+    t.date    "b_day"
     t.boolean "f_book"
     t.string  "default_loc"
     t.string  "email"

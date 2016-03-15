@@ -28,7 +28,7 @@ end
 end
 
 20.times do
-  Album.create(album_name: Faker::Address.country, user: User.all.sample)
+  Album.create(album_name: Faker::Address.country, user: User.all.sample, url: Faker::Internet.url('mappies'))
 end
 
 100.times do

@@ -2,10 +2,12 @@
 <html>
 <head>
   <title>Mapperies</title>
+  <%= Gon::Base.render_data %>
+  <%= include_gon %>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= include_gon %>
+
   <% stylesheet_link_tag "/stylesheets/show_map.css" %>
 </head>
 <body>

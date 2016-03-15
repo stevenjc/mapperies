@@ -78,5 +78,7 @@ gem 'faker'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'sass-rails', '4.0.3'
+gem "less-rails"
+gem "therubyracer"
 gem 'clearance', '~> 1.5'
 gem 'gon'

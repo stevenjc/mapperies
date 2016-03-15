@@ -36,49 +36,52 @@
 
     </head>
    <body>
-     <div id="content">
-     <!-- not on landing and login pages -->
-     <!--< unless controller_name == "landing" or controller_name == "account" %>-->
-     <% if @nav_bar %>
-         <nav id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-		<a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
-                <li class="sidebar-brand">
-                    <a href="#top"  onclick = $("#menu-close").click(); >Mapperies</a>
-                </li>
-                <li>
-                    <a href="account/settings" onclick = $("#menu-close").click(); >Account</a>
-                </li>
-               <!-- <li>
-                    <a href="/map" onclick = $("#menu-close").click(); >Landing Page</a>
-                </li>-->
-                <li>
-                    <a href="/albums" onclick = $("#menu-close").click(); >Albums</a>
-                </li>
-                <li>
-                    <a href="/friends" onclick = $("#menu-close").click(); >Friends</a>
+   <div id="content">
+   <!-- not on landing and login pages -->
+   <!--< unless controller_name == "landing" or controller_name == "account" %>-->
+   <% if @nav_bar %>
+     <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+    <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+        <li class="sidebar-brand">
+          <a href="/main"  onclick = $("#menu-close").click(); >Mapperies</a>
+        </li>
+        <li>
+          <a href="account/settings" onclick = $("#menu-close").click(); >Account</a>
+        </li>
+         <!-- <li>
+          <a href="/map" onclick = $("#menu-close").click(); >Landing Page</a>
+        </li>-->
+        <li>
+          <a href="/albums" onclick = $("#menu-close").click(); >Albums</a>
+        </li>
+        <li>
+          <a href="/friends" onclick = $("#menu-close").click(); >Friends</a>
 
-                </li>
-                <li>
+        </li>
+        <li>
 
-                    <a href="/login" onclick = $("#menu-close").click(); >Logout</a>
-                </li>
-            </ul>
-        </nav>
-        <div>
-            <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
-        </div>
-    <% end %>
-        <!--< end %>-->
+          <!--<a href="/login" onclick = $("#menu-close").click(); >Logout</a>-->
+         <a href="javascript:logout.click();" id="logout"> Logout </a>
+          <%= button_to "Logout", "sign_out", :method => :delete %> 
+         
+        </li>
+      </ul>
+    </nav>
+    <div>
+      <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    </div>
+  <% end %>
+    <!--< end %>-->
 
-         <header id="top" class="header">
-             <div class="text-vertical-left">
-                <img src="/img/mapperies.gif" alt="Mapperies" style="width:130px;height:100px;">
-
-                 <%= yield %>
-             </div>
-         </header>
-     </div>
+     <header id="top" class="header"> <!--give this header a different class-->
+      <div class="text-vertical-left">
+        <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:130px;height:100px;"> </a>
+      </div>
+         <%= yield %>
+       
+     </header>
+   </div>
 
      <footer>
          <div class="container">
@@ -151,6 +154,12 @@
             }
         });
     });
+
+      var form=document.getElementById("logout").nextElementSibling;// grabs the form
+      var logout=form.children[1];// grabs the submit button
+      form.style.display="none";// hides the form
+    
+
     </script>
    </body>
  </html>

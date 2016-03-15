@@ -1,5 +1,5 @@
 class MainController < ApplicationController
-  def index
+  def show_map
 	@nav_bar = true	
   end
 end

@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   has_many :frienders, through: :friender_follows, source: :friender
   has_many :friendee_friends, foreign_key: :friender_id, class_name: "Friend"
   has_many :friendees, through: :friendee_friends, source: :friendee
+
+  validates :password, length: {minimum: 6, too_short: "must be at least six characters long"}
 end

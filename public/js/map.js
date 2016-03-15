@@ -53,5 +53,5 @@ function markerClick(){
 }
 
 function gotoAlbum(){
-  window.location.href = "main/albums";
+  window.location.href = "/albums";
 }

@@ -78,14 +78,27 @@
                             </div>
                         </div>
 
+                        <h1>My Albums</h1>
+                        <table class="data-list">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th colspan="3"></th>
+                            </tr>
+                          </thead>
 
-                        <%= @albums.each do |record| %>
-                          <div>
-                            <%= puts record.inspect %>
-                          </div>
-                        <% end %>
+                          <tbody>
+                            <% @albums.each do |album| %>
+                            <tr>
+                              <td><%= album.album_name %></td>
+                              <td><%= link_to 'Show', album %></td>
+                              <td><%= link_to 'Edit', edit_album_path(album) %></td>
+                              <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                            </tr>
+                            <% end %>
+                          </tbody>
+                        </table>
 
-                    </div>
                     <!-- /.row (nested) -->
                     <a href="#" class="btn btn-dark">View More Items</a>
                 </div>

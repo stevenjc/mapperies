@@ -18,6 +18,8 @@ helper UsersHelper
      first_name = user_params.delete(:first_name)
      last_name = user_params.delete(:last_name)
      birthday = user_params.delete(:birthday)
+     user_name = user_params.delete(:user_name)
+
 
 
      Clearance.configuration.user_model.new(user_params).tap do |user|
@@ -26,6 +28,7 @@ helper UsersHelper
        user.first_name = first_name
        user.last_name = last_name
        user.birthday = birthday
+       user.user_name = user_name
      end
    end
 end

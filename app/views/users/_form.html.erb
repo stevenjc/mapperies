@@ -2,9 +2,9 @@
   <%= form.label :email %>
   <%= form.text_field :email, type: 'email' %>
 </div>
-<%error_list(:email).to_a.each do |msg|%>
-    <%= render :layout =>'layouts/sign_up_alert' do %>
-        <%msg%>
+<%error_list(:email).each do |msg|%>
+    <%= render :layout =>'layouts/alert' do %>
+        <%'Email ' + msg%>
     <%end%>
 <%end%>
 
@@ -13,9 +13,9 @@
   <%= form.label :password %>
   <%= form.password_field :password %>
 </div>
-<%error_list(:password).to_a.each do |msg|%>
-    <%= render :layout =>'layouts/sign_up_alert' do %>
-        <%msg%>
+<%error_list(:password).each do |msg|%>
+    <%= render :layout =>'layouts/alert' do %>
+        <%'Password ' + msg%>
     <%end%>
 <%end%>
 

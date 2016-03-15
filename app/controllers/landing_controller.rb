@@ -6,5 +6,4 @@ class LandingController < ApplicationController
 		#	@nav_bar = true
 		end
 	end
-    
 end

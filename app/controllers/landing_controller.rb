@@ -5,5 +5,6 @@ class LandingController < ApplicationController
 			redirect_to '/main'
 		#	@nav_bar = true
 		end
+	end
     
 end

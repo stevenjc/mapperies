@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315085133) do
+ActiveRecord::Schema.define(version: 20160315201510) do
 
   create_table "album_views", force: :cascade do |t|
     t.integer "album_id"
@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(version: 20160315085133) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string  "f_name"
-    t.string  "l_name"
     t.date    "b_day"
     t.boolean "f_book"
     t.string  "default_loc"
@@ -46,6 +44,7 @@ ActiveRecord::Schema.define(version: 20160315085133) do
     t.string  "encrypted_password", limit: 128
     t.string  "confirmation_token", limit: 128
     t.string  "remember_token",     limit: 128
+    t.string  "user_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

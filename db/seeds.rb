@@ -10,18 +10,16 @@ require 'faker'
 User.delete_all
 Photo.delete_all
 Album.delete_all
+Friend.delete_all
+AlbumView.delete_all
 
-20.times do
-  User.create(f_name: Faker::Name.first_name, l_name: Faker::Name.last_name,
-  b_day: Faker::Date.birthday(min_age = 10, max_age = 30),
-  f_book: "true", default_loc: Faker::Address.city,
-  email: Faker::Internet.email, encrypted_password: Faker::Number.number(6),
-  confirmation_token: Faker::Number.number(3), remember_token: Faker::Number.number(3))
-  #t.string  "email"
-  #t.string  "encrypted_password", limit: 128
-  #t.string  "confirmation_token", limit: 128
-  #t.string  "remember_token",
-end
+#20.times do
+#  User.create(f_name: Faker::Name.first_name, l_name: Faker::Name.last_name,
+#  b_day: Faker::Date.birthday(min_age = 10, max_age = 30),
+#  f_book: "true", default_loc: Faker::Address.city,
+#  email: Faker::Internet.email, encrypted_password: Faker::Number.number(6),
+#  confirmation_token: Faker::Number.number(3), remember_token: Faker::Number.number(3))
+#end
 
 20.times do
     Friend.create(friender: User.all.sample, friendee: User.all.sample)

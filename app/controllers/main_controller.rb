@@ -1,7 +1,7 @@
 class MainController < ApplicationController
   before_action :require_login
 
-  def show_map
+  def index
 	@nav_bar = true
   @brandeis = Photo.where(:album_id => '666')
   @brandeisLinks = []

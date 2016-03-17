@@ -6,7 +6,7 @@ var brandeisCoords = {lat:42.3657, lng:-71.2597};
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: brandeisCoords,
+    center: {lat:42.3657, lng:-71.2597},
     zoom: 16
   });
   for (i=0;i<coords.length;i++){
@@ -53,5 +53,5 @@ function markerClick(){
 }
 
 function gotoAlbum(){
-  window.location.href = "main/albums";
+  window.location.href = "/albums";
 }

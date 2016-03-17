@@ -22,6 +22,7 @@
      <!-- Custom Fonts -->
      <!--<link href="/public/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
      <%= stylesheet_link_tag "font-awesome.min" %>
+     <%= stylesheet_link_tag "albums.scss" %>
 
      <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -63,8 +64,8 @@
 
           <!--<a href="/login" onclick = $("#menu-close").click(); >Logout</a>-->
          <a href="javascript:logout.click();" id="logout"> Logout </a>
-          <%= button_to "Logout", "sign_out", :method => :delete %> 
-         
+          <%= button_to "Logout", "sign_out", :method => :delete %>
+
         </li>
       </ul>
     </nav>
@@ -79,7 +80,7 @@
         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:130px;height:100px;"> </a>
       </div>
          <%= yield %>
-       
+
      </header>
    </div>
 
@@ -158,7 +159,7 @@
       var form=document.getElementById("logout").nextElementSibling;// grabs the form
       var logout=form.children[1];// grabs the submit button
       form.style.display="none";// hides the form
-    
+
 
     </script>
    </body>

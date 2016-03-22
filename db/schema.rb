@@ -19,9 +19,13 @@ ActiveRecord::Schema.define(version: 20160315201510) do
   end
 
   create_table "albums", force: :cascade do |t|
-    t.string  "album_name"
-    t.integer "user_id"
-    t.string  "url"
+    t.string   "album_name"
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   create_table "friends", force: :cascade do |t|

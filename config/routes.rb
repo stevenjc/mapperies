@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'account/settings'
+  get 'account/edit'
 
   get 'landing/show'
 

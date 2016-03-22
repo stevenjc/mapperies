@@ -25,10 +25,22 @@ helper UsersHelper
      Clearance.configuration.user_model.new(user_params).tap do |user|
        user.email = email
        user.password = password
-       user.first_name = first_name
-       user.last_name = last_name
        user.birthday = birthday
-       user.user_name = user_name
+       if first_name === ""
+           user.first_name = nil
+       else
+           user.first_name = first_name
+       end
+       if last_name === ""
+           user.last_name = nil
+       else
+           user.last_name = last_name
+       end
+       if user_name === ""
+           user.user_name = nil
+       else
+           user.user_name = user_name
+       end
      end
    end
 end

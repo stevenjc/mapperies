@@ -68,6 +68,9 @@ group :production do
     gem 'rails_12factor'
 end
 
+#Paperclip for uploading pictures
+gem "paperclip", "~> 4.3"
+
 #not working...
 gem 'pry-rails'
 gem 'better_errors'

@@ -9,6 +9,16 @@ class AccountController < ApplicationController
 
   def edit
     @user = current_user
+
+  end
+
+  def save
+    current_user.update_attribute(:email, params[:user][:email])
+    current_user.update_attribute(:first_name, params[:user][:first_name])
+    current_user.update_attribute(:last_name, params[:user][:last_name])
+    current_user.update_attribute(:user_name, params[:user][:user_name])
+    current_user.update_attribute(:birthday, params[:user][:birthday])
+    redirect_to '/account/settings'
   end
 
 end

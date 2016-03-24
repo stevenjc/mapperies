@@ -3,7 +3,7 @@
         <div class="panel panel-success" id="settings-start">
             <div class="panel-heading">
               <h3 class="panel-title">Account Settings</h3>
-              <a class="btn btn-danger" href="" role="button">Edit</a>
+              <a class="btn btn-danger" href="edit" role="button">Edit</a>
             </div>
             <div class="panel-body">
                 <ul class="list-group">
@@ -21,7 +21,7 @@
                     </li>
                     <li class='list-group-item'>
                         Full Name:
-                        <% if @user.first_name or @user.last_name%>
+                        <% if @user.first_name and @user.last_name%>
                             <%=@user.first_name + " " + @user.last_name%>
                         <%else%>
                             <%=@attribute_not_found_message%>

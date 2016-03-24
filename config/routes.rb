@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'account/settings'
-  get 'account/edit'
+
 
   get 'landing/show'
 
@@ -26,7 +25,11 @@ Rails.application.routes.draw do
   resources :albums
   resources :photos
   resources :users
+  resources :accounts
 
+  get 'account/settings'
+  get 'account/edit'
+  patch 'account/save'
 
 
   get 'landing/show'

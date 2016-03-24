@@ -6,8 +6,7 @@ ruby "2.2.4"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5.1'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -36,13 +35,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #Clearence gem for auth
 
 
-group :development, :test do
+group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
 	gem 'byebug'
 end
 
 group :development do
-  
+
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
@@ -51,6 +50,11 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :development do
+    # Access an IRB console on exception pages or by using <%= console %> in views
+    gem 'web-console', '~> 2.0'
 end
 
 group :production do
@@ -65,12 +69,14 @@ group :production do
 end
 
 #not working...
-#gem 'pry-rails'
-#gem 'better_errors'
-#gem 'awesome_print'
-#gem 'hirb'
-#gem 'faker'
-gem 'bootstrap-sass', '3.2.0.0'
+gem 'pry-rails'
+gem 'better_errors'
+gem 'awesome_print'
+gem 'minitest-rails'
+gem 'hirb'
+gem 'faker'
+gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'sass-rails', '4.0.3'
 gem 'clearance', '~> 1.5'
-
+gem 'gon'

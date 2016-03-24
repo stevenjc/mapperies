@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315201510) do
+ActiveRecord::Schema.define(version: 20160324042840) do
 
   create_table "album_views", force: :cascade do |t|
     t.integer "album_id"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20160315201510) do
     t.integer "friender_id"
     t.integer "friendee_id"
   end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "popular_model_id"
+    t.string   "popular_model_type"
+    t.integer  "friend_id"
+    t.string   "friend_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "friendships", ["friend_id", "friend_type"], name: "index_friendships_on_friend_id_and_friend_type"
+  add_index "friendships", ["popular_model_id", "popular_model_type"], name: "index_friendships_on_popular_model_id_and_popular_model_type"
 
   create_table "photos", force: :cascade do |t|
     t.string  "url"

@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   get '/albums', to:"albums#index"
 
   get '/friends', to:"friends#index"
+  post '/friends/results', to:"friends#results"
+  get '/friends/results', to:"friends#results"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

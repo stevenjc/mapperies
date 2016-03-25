@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   validates :password, length: {minimum: 6, too_short: "must be at least six characters long"}
 
-  #@test = User.find(2)
-  #@test2 = User.find(3)
-  #@test.befriend @test2
+ # @test = User.find(1)
+ # @test2 = User.find(2)
+ # @test.befriend @test2
 end

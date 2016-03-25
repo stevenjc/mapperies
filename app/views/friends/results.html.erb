@@ -40,24 +40,33 @@
 
 </head>
 <body>
- 
-	<td> <% @users.each do |u| %></td>
-	<tr> 
-		<td> <% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?-->
-			<td> <%= u.first_name %> <%= u.last_name %></td>
-			<td><% end %></td>
-	</tr>
-	<td><% end %></td>
+<%= form_tag("/friends/results", method: "post") do %>
+        <%=label_tag(:s, "Search:") %>
+        <%= text_field_tag(:s) %>
+        <%= submit_tag("Search") %>
+    <% end %>  
+
+<% @results = Array.new %>
+<% @users.each do |u| %>
+	<% if u.first_name.include?(@name) || u.last_name.include?(@name) %><!--downcase?-->
+		<% @results.push(u) %>
+    <% end %>
+ <% end %>
+
+
 <section id="services" class="services bg-primary">
         <div class="container">
 
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
                 <h2> Results </h2>
+                <% if @results.empty? %>
+                	<td> There are no results </td>
+                <% end %>
                 <hr class="small">
 
                     <div class="row">
-                               <td> <% @users.each do |u| %></td>
+                               <td> <% @results.each do |u| %></td>
 
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
@@ -72,7 +81,7 @@
                                     <td><% end %></td>
                             </tr>
                                 </h4>
-                                <a href="#" class="btn btn-light">See Albums</a>
+                                <a href="#" class="btn btn-light">Add as Friend</a>
                             </div>
                         </div>
                                                 <td><% end %></td>

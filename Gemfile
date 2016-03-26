@@ -80,6 +80,5 @@ gem 'hirb'
 gem 'faker'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-
 gem 'clearance', '~> 1.5'
 gem 'gon'

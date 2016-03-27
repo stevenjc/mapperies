@@ -49,6 +49,8 @@
         <%= submit_tag("Search") %>
     <% end %>  
     <%= @friends === nil %>
+    
+
     <section id="services" class="services bg-primary">
         <div class="container">
 
@@ -78,7 +80,17 @@
                                 <%= User.find(u.friend_id).last_name %><%#= User.find(u).first_name %> <%#= User.find(u).last_name %></td>
                                         </tr>
                                         </h4>
-                                        <a href="#" class="btn btn-light">See Albums</a>
+                                        <!--<div class="albums">-->
+                                        <div style="background-color:blue"><!--needs to go to css -->
+
+                                        <span class="expand"><a href="#" class="btn btn-light">See Albums</a></span>
+                                        <!--<span class="expand">See Albums</span>-->
+                                        <ul>
+                                            <li><span>Album 1</span></li>
+                                            <li><span>Album 2</span></li>
+                                            <li><span>Album 3</span></li>
+                                        </ul>
+                                       </div>
                                     </div>
                                 </div>
                             <td><% end %></td>
@@ -97,3 +109,15 @@
         </div>
         <!-- /.container -->
     </section>
+
+<!--Need to put this in a different place  -->
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+//hide or collapsed initially.
+$('#services').find('ul').hide();
+$('#services').find("span.expand").click(function(e){
+    $(this).parent().children('ul').toggle();
+});
+});
+</script>

@@ -58,10 +58,9 @@
                 <hr class="small">
 
                     <div class="row">
-                    <%= @friendships == nil %>
-                        <td> <% if @friendships != nil %></td>
+                        <td> <% if Popular::Friendship.where(popular_model_id:current_user.id) != nil %></td>
                             <% current_user_friends = Popular::Friendship.where(popular_model_id:current_user.id) %>
-                            <% @p.each do |u| %>
+                            <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
                                 
 
                             <%# @all_users.find(current_user_friends.friend_id).each do |u| %>

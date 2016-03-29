@@ -73,7 +73,7 @@ gem 'minitest-rails'
 gem 'hirb'
 gem 'faker'
 gem "less-rails"
-gem 'bootstrap'
+gem 'sass-rails'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 gem 'clearance', '~> 1.5'

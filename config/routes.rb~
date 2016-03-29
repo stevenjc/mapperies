@@ -1,25 +1,25 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-=======
+
   get 'account/settings'
 
   get 'landing/show'
->>>>>>> bootstrap
 
-
+  resources :friends
+  resources :photos
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
-  resource :session, controller: "clearance/sessions", only: [:create]
+  resource :session, controller: "sessions", only: [:create]
 
-  resources :users, controller: "clearance/users", only: [:create] do
+  resources :users, controller: "users", only: [:create] do
     resource :password,
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
   end
 
-  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
-  get "/sign_up" => "clearance/users#new", as: "sign_up"
-  
+  get "/sign_in" => "sessions#new", as: "sign_in"
+  delete "/sign_out" => "sessions#destroy", as: "sign_out"
+  get "/sign_up" => "users#new", as: "sign_up"
+
+
   resources :album_views
   resources :friends
   resources :albums
@@ -37,12 +37,11 @@ Rails.application.routes.draw do
 
   get '/login', to:"login#login"
 
+  get '/main', to:"main#index"
 
-  get '/main', to:"main#show_map"
+  get '/albums', to:"albums#index"
 
-  get '/main/albums', to:"main#albums"
-
-  get '/main/friends', to:"main#friends"
+  get '/friends', to:"users#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -72,9 +72,10 @@ gem 'awesome_print'
 gem 'minitest-rails'
 gem 'hirb'
 gem 'faker'
+
+gem 'bootstrap'
 gem "less-rails"
 gem 'sass-rails'
-gem 'bootstrap'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 gem 'clearance', '~> 1.5'

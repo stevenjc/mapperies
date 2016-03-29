@@ -11,59 +11,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221225138) do
+ActiveRecord::Schema.define(version: 20160324042840) do
 
   create_table "album_views", force: :cascade do |t|
-    t.integer  "album_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "album_id"
+    t.integer "user_id"
   end
 
   create_table "albums", force: :cascade do |t|
-    t.string   "album_name"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "album_name"
+    t.integer "user_id"
+    t.string  "url"
   end
 
   create_table "friends", force: :cascade do |t|
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer "friender_id"
+    t.integer "friendee_id"
   end
 
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "popular_model_id"
+    t.string   "popular_model_type"
+    t.integer  "friend_id"
+    t.string   "friend_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean "did_accept"
+  end
+
+  add_index "friendships", ["friend_id", "friend_type"], name: "index_friendships_on_friend_id_and_friend_type"
+  add_index "friendships", ["popular_model_id", "popular_model_type"], name: "index_friendships_on_popular_model_id_and_popular_model_type"
+
   create_table "photos", force: :cascade do |t|
-    t.integer  "album_id"
-    t.integer  "xcoord"
-    t.integer  "ycoord"
-    t.string   "url"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "url"
+    t.float   "x_coord"
+    t.float   "y_coord"
+    t.integer "album_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "f_name"
-    t.string   "l_name"
-    t.date     "b_day"
-    t.boolean  "f_book"
-    t.string   "default_loc"
-    t.integer  "album_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "first_name"
+    t.string  "last_name"
+    t.date    "birthday"
+    t.boolean "f_book"
+    t.string  "default_loc"
+    t.string  "email"
+    t.string  "encrypted_password", limit: 128
+    t.string  "confirmation_token", limit: 128
+    t.string  "remember_token",     limit: 128
+    t.string  "user_name"
   end
 
-  create_table "views", force: :cascade do |t|
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "email"
-    t.string   "encrypted_password", limit: 128
-    t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"
 
 end

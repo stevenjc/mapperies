@@ -38,6 +38,10 @@ class FriendsController < ApplicationController
 				friend = @all_users.find(params[:friend].to_i)
 	    		@friends = [friend]#@add_friend #params here?
 	    		current_user.befriend friend
+	    			puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+	    			puts Friendship.all
+	    			puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+
 	    		#friend.befriend current_user #will need to have an accept
 	    		#puts "testing:::::::::::::::::::::::::::::::::::"
 				@friendships = Popular::Friendship.where(popular_model_id:current_user.id)

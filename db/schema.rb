@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160324042840) do
     t.string   "popular_model_type"
     t.integer  "friend_id"
     t.string   "friend_type"
+    t.boolean  "did_accept"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

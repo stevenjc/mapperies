@@ -4,7 +4,7 @@ class PopularMigration < ActiveRecord::Migration
 
       t.references :popular_model, polymorphic: true
       t.references :friend, polymorphic: true
-
+      t.boolean :did_accept
       t.timestamps
     end
 

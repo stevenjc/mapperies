@@ -9,6 +9,9 @@ helper UsersHelper
 
   def index
     @users = User.all
+    @test = User.find(1)
+    @test2 = User.find(2)
+    @test.befriend @test2
   end
 
 

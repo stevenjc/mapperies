@@ -62,7 +62,7 @@ group :production do
 
     #Gem to enable features such as static asset serving and logging on Heroku
     gem 'rails_12factor'
-	gem "less-rails"
+
 	gem "therubyracer"
 end
 
@@ -72,6 +72,7 @@ gem 'awesome_print'
 gem 'minitest-rails'
 gem 'hirb'
 gem 'faker'
+gem "less-rails"
 gem 'bootstrap'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'

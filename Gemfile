@@ -52,10 +52,6 @@ group :development do
   gem 'spring'
 end
 
-group :development do
-    # Access an IRB console on exception pages or by using <%= console %> in views
-    gem 'web-console', '~> 2.0'
-end
 
 group :production do
     #Postgres SQL gem
@@ -71,7 +67,6 @@ group :production do
 	gem "therubyracer"
 end
 
-#not working...
 gem 'pry-rails'
 gem 'better_errors'
 gem 'awesome_print'

@@ -1,0 +1,27 @@
+<div>
+    <%= form_for @user, url: {action: "save"}, html: {class: "edit_form"} do |f| %>
+        <%=label_tag :Email%>
+        <div class = "form-group">
+            <%= f.text_field :email%>
+        </div>
+        <%=label_tag :First_Name%>
+        <div class = "form-group">
+            <%= f.text_field :first_name%>
+        </div>
+        <%=label_tag :Last_Name%>
+        <div class = "form-group">
+            <%= f.text_field :last_name%>
+        </div>
+        <%=label_tag :User_Name%>
+        <div class = "form-group">
+            <%= f.text_field :user_name%>
+        </div>
+        <%=label_tag :Birthday%>
+        <div class = "form-group">
+            <%= f.date_field :birthday%>
+        </div>
+
+        <%= f.submit "Edit" %>
+
+    <% end %>
+</div>

@@ -66,6 +66,9 @@ group :production do
 
     #Gem to enable features such as static asset serving and logging on Heroku
     gem 'rails_12factor'
+	gem 'sass-rails', '4.0.3'
+	gem "less-rails"
+	gem "therubyracer"
 end
 
 #not working...
@@ -77,8 +80,6 @@ gem 'hirb'
 gem 'faker'
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
-gem 'sass-rails', '4.0.3'
-gem "less-rails"
-gem "therubyracer"
+
 gem 'clearance', '~> 1.5'
 gem 'gon'

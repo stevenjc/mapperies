@@ -1,52 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Stylish Portfolio - Start Bootstrap Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <%= stylesheet_link_tag "bootstrap.min" %>
-
-
-    <!-- Custom CSS -->
-    <!--<link href="css/stylish-portfolio.css" rel="stylesheet">-->
-    <%= stylesheet_link_tag "stylish-portfolio" %>
-
-
-    <!-- Custom Fonts -->
-    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-    <%= stylesheet_link_tag "font-awesome.min" %>
-
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
  <!-- About -->
     <section id="login" class="login">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>This is where the user's settings will be</h2>
-                </div>
+        <div class="panel panel-success" id="settings-start">
+            <div class="panel-heading">
+              <h3 class="panel-title">Account Settings</h3>
+              <a class="btn btn-danger" href="edit" role="button">Edit</a>
             </div>
-            <!-- /.row -->
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class='list-group-item'>
+                        Email:
+                        <%=@user.email%>
+                    </li>
+                    <li class='list-group-item'>
+                        User Name:
+                        <%if @user.user_name %>
+                            <%=@user.user_name%>
+                        <%else%>
+                            <%=@attribute_not_found_message%>
+                        <%end%>
+                    </li>
+                    <li class='list-group-item'>
+                        Full Name:
+                        <% if @user.first_name and @user.last_name%>
+                            <%=@user.first_name + " " + @user.last_name%>
+                        <%else%>
+                            <%=@attribute_not_found_message%>
+                        <%end%>
+                    </li>
+                    <li class='list-group-item'>
+                        Birthday:
+                        <% if @user.birthday%>
+                            <%=@user.birthday%>
+                        <%else%>
+                            <%=@attribute_not_found_message%>
+                        <%end%>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <!-- /.container -->
+
    </section>

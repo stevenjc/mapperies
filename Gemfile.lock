@@ -47,9 +47,9 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.3.5)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.2.19)
+    bootstrap (4.0.0.alpha3)
+      autoprefixer-rails (>= 6.0.3)
+      sass (>= 3.4.19)
     builder (3.2.2)
     byebug (8.2.2)
     clearance (1.12.1)
@@ -78,6 +78,8 @@ GEM
     execjs (2.6.0)
     faker (1.6.3)
       i18n (~> 0.5)
+    font-awesome-rails (4.5.0.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     gon (6.0.1)
@@ -126,6 +128,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.18.4)
+    popular (0.7.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -169,12 +172,13 @@ GEM
       json (~> 1.4)
     ref (2.0.0)
     request_store (1.3.0)
-    sass (3.2.19)
-    sass-rails (4.0.3)
+    sass (3.4.21)
+    sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
-      sass (~> 3.2.0)
-      sprockets (~> 2.8, <= 2.11.0)
-      sprockets-rails (~> 2.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -220,11 +224,12 @@ DEPENDENCIES
   autoprefixer-rails
   awesome_print
   better_errors
-  bootstrap-sass
+  bootstrap
   byebug
   clearance (~> 1.5)
   coffee-rails (~> 4.1.0)
   faker
+  font-awesome-rails
   gon
   hirb
   jbuilder (~> 2.0)
@@ -233,10 +238,11 @@ DEPENDENCIES
   minitest-rails
   paperclip
   pg
+  popular
   pry-rails
   rails (= 4.2.5.1)
   rails_12factor
-  sass-rails (= 4.0.3)
+  sass-rails
   sdoc (~> 0.4.0)
   spring
   sqlite3

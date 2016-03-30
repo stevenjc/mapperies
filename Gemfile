@@ -52,10 +52,6 @@ group :development do
   gem 'spring'
 end
 
-group :development do
-    # Access an IRB console on exception pages or by using <%= console %> in views
-    gem 'web-console', '~> 2.0'
-end
 
 group :production do
     #Postgres SQL gem
@@ -66,21 +62,26 @@ group :production do
 
     #Gem to enable features such as static asset serving and logging on Heroku
     gem 'rails_12factor'
-	gem 'sass-rails', '4.0.3'
-	gem "less-rails"
+
 	gem "therubyracer"
 end
 
-#not working...
 gem 'pry-rails'
 gem 'better_errors'
 gem 'awesome_print'
 gem 'minitest-rails'
 gem 'hirb'
 gem 'faker'
-gem 'bootstrap-sass'
-gem 'autoprefixer-rails'
 
+gem 'bootstrap'
+gem "less-rails"
+gem 'sass-rails'
+gem 'autoprefixer-rails'
+gem 'font-awesome-rails'
 gem 'clearance', '~> 1.5'
 gem 'gon'
+<<<<<<< HEAD
 gem 'paperclip'
+=======
+gem 'popular'
+>>>>>>> a88e7babd35b8e929a354d07e52b4dd5fd010a2b

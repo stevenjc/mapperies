@@ -52,6 +52,41 @@
     
 
     <section id="services" class="services bg-primary">
+
+        <div class="container">
+        <% if Popular::Friendship.all != [] && !Popular::Friendship.where(friend_id:current_user.id).empty? && Popular::Friendship.where(did_accept:nil) %>
+            <%= User.find(current_user).first_name %> <%= User.find(current_user).last_name %>
+            wants to friend you. Do you accept? 
+
+            <!--create button and set did_accept to true-->
+            current user: <%= current_user.first_name %>
+            <br />
+            <%= @friend_request_array == [] %>
+            <%= @friend_request_array %>
+            <br />
+            each one:
+            <br />
+           <!-- <%# if @friend_request_array != [] %>
+
+                <%# @friend_request_array.each do |f| %>
+                    <%#= f.first_name %>
+                <%# end %>
+            <%# end %>-->
+
+
+           <!-- <form action="">
+                <input type="button" value="Accept Friend Request" onclick=""/>-->
+
+                <!--<button onclick="accept()"> Accept Friend Request </button>-->
+                <button onclick="test()"> Accept Friend Request </button>
+            <!-- </form>
+             <%# if @did_accept %>
+                woohoo
+            <%# end %>-->
+
+        <% end %>
+        </div>
+
         <div class="container">
 
             <div class="row text-center">
@@ -60,7 +95,7 @@
                 <hr class="small">
 
                     <div class="row">
-                        <td> <% if Popular::Friendship.where(popular_model_id:current_user.id) != nil %></td>
+                        <td> <% if Popular::Friendship.where(popular_model_id:current_user.id) != nil && Popular::Friendship.where(did_accept:true) %></td> <!-- && Popular::Friendship.where(did_accept:true) **add this** -->
                             <% current_user_friends = Popular::Friendship.where(popular_model_id:current_user.id) %>
                             <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
                                 
@@ -120,4 +155,8 @@ $('#services').find("span.expand").click(function(e){
     $(this).parent().children('ul').toggle();
 });
 });
+
+function accept(){
+    @did_accept = true;
+}
 </script>

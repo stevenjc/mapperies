@@ -38,9 +38,9 @@ class FriendsController < ApplicationController
 				friend = @all_users.find(params[:friend].to_i)
 	    		@friends = [friend]#@add_friend #params here?
 	    		current_user.befriend friend
-	    			puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
-	    			puts Friendship.all
-	    			puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+	    			#puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+	    			#puts Friendship.all
+	    			#puts "&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
 
 	    		#friend.befriend current_user #will need to have an accept
 	    		#puts "testing:::::::::::::::::::::::::::::::::::"
@@ -58,21 +58,38 @@ class FriendsController < ApplicationController
 					puts "#{u.friend_id}"
 				end
 				#puts "#{p}"
+				puts ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+				friend_requests = Popular::Friendship.where(friend_id:current_user.id)
+				#u_id = Popular::Friendship.find(u.id)
+				#puts User.find(u_id).first_name
+				#puts u.empty?
+				@friend_request_array = Array.new
+				friend_requests.each do |f|
+					#display this instead of what's in the view now!
+					@friend_request_array.push(User.find(f.friend_id))
+				end
 
-				u = Popular::Friendship.where(id:current_user)[0]
+				#when user clicks on accept friend request
+				#@did_accept = false
+				#if @did_accept
+					#f.update_attribute(:did_accept, true)
+				#end
+
+				#puts u.where(friend_id:current_user)
+				puts ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
 				#puts User.find(u).first_name
 				puts "and then "
 				u2 = Popular::Friendship.where(friend_id:friend)[0]
-				puts User.find(u).first_name
+				#puts User.find(u).first_name
 
 				puts "all friendships:"
-				puts User.find(Popular::Friendship.where(id:current_user)[0]).first_name
+				#puts User.find(Popular::Friendship.where(id:current_user)[0]).first_name
 				#puts User.find(Popular::Friendship.where(friend_id:friend)[0]).first_name
 
 				#puts Popular::Friendship.where(friend_id:friend)
 				#puts Popular::Friendship.find(u)
 
-				puts User.where(first_name:"testing2")[0].first_name
+				#puts User.where(first_name:"testing2")[0].first_name
 				#puts User.find(User.where(first_name:"testing2").first_name)
 
 				puts User.find(current_user).first_name

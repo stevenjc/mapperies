@@ -50,6 +50,7 @@
 <% @users.each do |u| %>
 	<% if u.first_name.include?(@name) || u.last_name.include?(@name) %><!--downcase?-->
 		<% @results.push(u) %>
+		<%= Popular::Friendship.where(popular_model_id:current_user.id).where(friend_id:u.id).empty? %>
     <% end %>
  <% end %>
 

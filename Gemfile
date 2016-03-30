@@ -83,3 +83,4 @@ gem 'autoprefixer-rails'
 
 gem 'clearance', '~> 1.5'
 gem 'gon'
+gem 'paperclip'

@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   def index
-    @photos = Photo.all(:limit =>15)
+    @photos = Photo.all
   end
 
   def show
@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photos = Photo.new(params[:photo])
+    @photos = Photo.new(params[:image])
     if @photos.save
       flash[:notice] = "Successfully uploaded photo"
       redirect_to @photos
@@ -41,4 +41,7 @@ class PhotosController < ApplicationController
     flash[:notice] = "Successfully deleted photo"
     redirect_to photos_url
   end
+
+  def photo_params
+    params.require(:image)
 end

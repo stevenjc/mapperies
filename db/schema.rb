@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160315201510) do
+ActiveRecord::Schema.define(version: 20160329202850) do
 
   create_table "album_views", force: :cascade do |t|
     t.integer "album_id"
@@ -30,10 +30,14 @@ ActiveRecord::Schema.define(version: 20160315201510) do
   end
 
   create_table "photos", force: :cascade do |t|
-    t.string  "url"
-    t.float   "x_coord"
-    t.float   "y_coord"
-    t.integer "album_id"
+    t.string   "url"
+    t.float    "x_coord"
+    t.float    "y_coord"
+    t.integer  "album_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photos = Photo.new(params[:image])
+    @photos = Photo.new(params[:image], :album_id =>"85")
     if @photos.save
       flash[:notice] = "Successfully uploaded photo"
       redirect_to @photos

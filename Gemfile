@@ -80,8 +80,5 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 gem 'clearance', '~> 1.5'
 gem 'gon'
-<<<<<<< HEAD
 gem 'paperclip'
-=======
 gem 'popular'
->>>>>>> a88e7babd35b8e929a354d07e52b4dd5fd010a2b

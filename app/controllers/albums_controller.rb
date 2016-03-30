@@ -4,10 +4,30 @@ class AlbumsController < ApplicationController
 
   def index
 	@nav_bar = true
-    @albums = Album.all
+    @albums = Album.where(user_id: current_user.id)
   end
 
   def show
+      @album = Album.find(params[:id])
+  end
+
+  def new
+    @album = Album.new(:user_id => current_user.id, :album_name => "New York")
+  end
+
+  def create
+    @album = Album.new(:user_id => current_user.id, :album_name => "New York")
+
+    if @album.save
+      redirect_to :action => 'index'
+    else
+      render :action => 'new'
+    end
+  end
+
+  def delete
+    Album.find(params[:id]).destroy
+    redirect_to :action => 'index'
   end
 
   private
@@ -16,8 +36,5 @@ class AlbumsController < ApplicationController
     @album = Album.find(params[:id])
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def album_params
-    params.require(:subject).permit(:name)
-  end
+
 end

@@ -44,4 +44,5 @@ class PhotosController < ApplicationController
 
   def photo_params
     params.require(:image)
+  end
 end

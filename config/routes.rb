@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   get 'landing/show'
 
-  resources :friends
-  resources :photos
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
 
@@ -22,9 +20,12 @@ Rails.application.routes.draw do
 
   resources :album_views
   resources :friends
-  resources :albums
-  resources :photos
+  resources :albums do
+    resources :photos
+  end
   resources :users
+  post 'albums/create'
+
   resources :accounts
 
   get 'account/settings'

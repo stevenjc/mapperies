@@ -10,7 +10,6 @@ require 'faker'
 User.delete_all
 Photo.delete_all
 Album.delete_all
-Friend.delete_all
 AlbumView.delete_all
 
 #20.times do
@@ -21,9 +20,6 @@ AlbumView.delete_all
 #  confirmation_token: Faker::Number.number(3), remember_token: Faker::Number.number(3))
 #end
 
-20.times do
-    Friend.create(friender: User.all.sample, friendee: User.all.sample)
-end
 
 20.times do
   Album.create(album_name: Faker::Address.country, user: User.all.sample, url: Faker::Internet.url('mappies'))
@@ -36,11 +32,6 @@ Photo.create(url:"http://imgur.com/4NpP12w.jpg", x_coord:"42.3684466", y_coord:"
 Photo.create(url:"http://imgur.com/kJ1F9A5.jpg", x_coord:"42.3691451", y_coord:"-71.2572575", album_id: 666)
 Photo.create(url:"http://imgur.com/wchzPTV.jpg", x_coord:"42.3657889", y_coord:"-71.2601062", album_id: 666)
 
-100.times do
-  Photo.create(url: Faker::Internet.url('mappies'),
-  x_coord: Faker::Address.latitude, y_coord: Faker::Address.longitude,
-  album: Album.all.sample)
-end
 
 3.times do
   AlbumView.create(album: Album.all.sample, user: User.all.sample)

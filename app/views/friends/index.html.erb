@@ -58,17 +58,44 @@
             <% if @get_friend_reqs %>
                 <% @get_friend_reqs.each do |f| %>
       
-                <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
-                    <form>
-                        <% @did_accept = true %>
-                        <input type="submit" value="Submit">
-                    </form>
+                
                     <div>
-                    <button onclick=""> Accept Friend Request <% @did_accept=true %> </button> 
-                    </div>                   
+                        <% if !f.did_accept %>
+                        <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
+                    
+                        <%= form_tag("/friends", :action => "index", method: "get") do %>
+                            <%= hidden_field_tag(:accept, f.id) %>
+                            <br />
+                            <%= submit_tag("Accept as Friend") %>
+                        <% end %>
+                        <% end %>    
+                    </div>         
                 <% end %>
                <!-- <#% end %>-->
             <% end %>
+
+            <div>
+            Testing did_accept:
+            <br />
+            <% if @get_friend_reqs %>
+                <% @get_friend_reqs.each do |f| %>
+                    <%= f.did_accept %>
+                    you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
+                <% end %>
+            <% end %>
+            </div>
+
+            <div>
+            Testing did_accept:
+            <br />
+
+            <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
+            <%= u.did_accept %>
+            <% if u.did_accept %>
+                    <%= User.find(u.friend_id).first_name %> <%= User.find(u.friend_id).last_name %> accepted your request!
+            <% end %>
+            <% end %>
+            </div>
 
             <%= Popular::Friendship.where(did_accept:true) == [] %>
 

@@ -41,7 +41,7 @@
 
 <!-- Navigation -->
 <!--<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>-->
-
+<%= button_to 'Create New Album', "/albums/create", :method=>:post %>
 <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="row">
@@ -49,34 +49,7 @@
                     <h2>My Albums</h2>
                     <hr class="small">
                     <div class="row">
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/img/portfolio-1.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/img/portfolio-2.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/img/portfolio-3.jpg">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="portfolio-item">
-                                <a href="#">
-                                    <img class="img-portfolio img-responsive" src="/img/portfolio-4.jpg">
-                                </a>
-                            </div>
-                        </div>
+
 
                         <h1>My Albums</h1>
                         <table id="data-list-background-white">
@@ -88,17 +61,22 @@
                           </thead>
 
                           <tbody>
-                            <% @albums.each do |album| %>
-                            <!--%= render :layout =>'layouts/listbackground' do %-->
-                            <tr>
-                              <td><div><%= album.album_name %></div></td>
-                              <td><%= link_to 'Show', album %></td>
-                              <td><%= link_to 'Edit', edit_album_path(album) %></td>
-                              <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                            </tr>
+                            <% if @albums.blank? %>
+                              <p>Don't have any albums</p>
+                            <% else %>
+                              <% @albums.each do |album| %>
+                              <!--%= render :layout =>'layouts/listbackground' do %-->
+                              <tr>
+                                <td><div><%= album.album_name %></div></td>
+                                <td><%= link_to 'Show', album %></td>
+                                <td><%= link_to 'Edit', edit_album_path(album) %></td>
+                                <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                              </tr>
+                              <% end %>
                             <% end %>
                           </tbody>
                         </table>
+
 
                     <!-- /.row (nested) -->
                     <a href="#" class="btn btn-dark">View More Items</a>

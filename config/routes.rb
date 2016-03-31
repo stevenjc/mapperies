@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'albums/create'
+
   resources :users
 
 

@@ -17,7 +17,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to new_photo_path, notice: 'Photo Uploaded!' }
+        format.html { redirect_to albums_path, notice: 'Photo Uploaded!' }
         format.json { render :show, status: :created, location: @photo }
       else
         format.html { render :new }

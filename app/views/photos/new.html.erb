@@ -1,7 +1,7 @@
 <h1> Upload Photo to current album...</h1>
 
-<%= image_tag @photo.image.url(:med) %>
-<%= @photo.image.url(:med) %>
+<!-- <%= image_tag @photo.image.url(:med) %>
+<%= @photo.image.url(:med) %> -->
 
 <%= form_for @photo, html: {multipart: true} do |f| %>
 <!--

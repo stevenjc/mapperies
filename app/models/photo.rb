@@ -4,6 +4,10 @@ class Photo < ActiveRecord::Base
                   :path => ":rails_root/public/img/albums/:album_id/:basename.:extension"}
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
+    Paperclip.interpolates :album_id do |attachment|
+      attachment.inatance.album_id
+    end
+
   belongs_to :album
 
 end

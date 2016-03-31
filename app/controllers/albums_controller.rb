@@ -10,9 +10,9 @@ class AlbumsController < ApplicationController
   def new
     @album = Album.new
   end
-  
+
   def create
-    @album = Album.new(album_params)
+    @album = Album.new()
 
     respond_to do |format|
       if @album.save
@@ -35,7 +35,7 @@ class AlbumsController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def album_params
-    params.require(:subject).permit(:name, :cover)
-  end
+  # def album_params
+    # params.require(:subject).permit(:name, :cover)
+  # end
 end

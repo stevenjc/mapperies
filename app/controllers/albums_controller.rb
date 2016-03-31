@@ -13,11 +13,11 @@ class AlbumsController < ApplicationController
   end
 
   def new
-    @album = Album.new(:user_id => current_user.id, :album_name => "New York")
+    @album = Album.new()
   end
 
   def create
-    @album = Album.new(:user_id => current_user.id, :album_name => "New York")
+    @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name])
 
     if @album.save
       redirect_to :action => 'index'

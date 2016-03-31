@@ -14,10 +14,13 @@
 
 <% if @photos.blank? %>
   <p> You don't have any photos yet </p>
-  <p> <%= current_user.id %> </p>
+  <p> Your ID: <%= current_user.id %> </p>
 <% else %>
-  <h2><% @photos.count %></h2>
+  <h2>You have: <% @photos.count %> photos!</h2>
+  <p>well you have some photos, we just don't know how many...</p>
 <% end %>
+
+<%= button_to 'Upload Photos!', new_photo_path %>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

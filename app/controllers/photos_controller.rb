@@ -11,10 +11,10 @@ class PhotosController < ApplicationController
     @photo = Photo.new(album_id: params[:id], url: params[:photo][:url], image: params[:photo][:image])
     #db_attr: params[:something]
 
-    puts @photo.image.url(:med)
-    puts @photo.album_id
-    puts @photo.image
-    gets
+    # puts @photo.image.url(:med)
+    # puts @photo.album_id
+    # puts @photo.image
+    # gets
 
     respond_to do |format|
       if @photo.save
@@ -32,9 +32,9 @@ class PhotosController < ApplicationController
   end
 
   private
-  def photo_params
-    params.require(:photo).permit(:album_id, :url, :image)
-  end
+  # def photo_params
+    # params.require(:photo).permit(:album_id, :url, :image)
+  # end
 
 #coming from the master...
   # def edit

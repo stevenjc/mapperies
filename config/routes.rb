@@ -24,10 +24,13 @@ Rails.application.routes.draw do
   resources :albums do
     member do
       resources :photos
+      post 'photos/new'
     end
   end
+#WHY POST ../new ARE NECESSARY???
 
   post 'albums/create'
+  post 'albums/new'
 
   resources :users
   resources :accounts

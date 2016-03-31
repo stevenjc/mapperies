@@ -12,7 +12,7 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    @album = Album.new()
+    @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name])
 
     respond_to do |format|
       if @album.save
@@ -28,20 +28,6 @@ class AlbumsController < ApplicationController
   def show
       @album = Album.find(params[:id])
       @photos = Photo.where(album_id: params[:id])
-  end
-
-  def new
-    @album = Album.new()
-  end
-
-  def create
-    @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name])
-
-    if @album.save
-      redirect_to :action => 'index'
-    else
-      render :action => 'new'
-    end
   end
 
   def delete

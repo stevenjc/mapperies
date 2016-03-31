@@ -73,9 +73,10 @@
                 <% end %>
                <!-- <#% end %>-->
             <% end %>
-
             <div>
-            Testing did_accept:
+                current user: <%= current_user.first_name %>
+            </div>
+            <div>
             <br />
             <% if @get_friend_reqs %>
                 <% @get_friend_reqs.each do |f| %>
@@ -95,17 +96,22 @@
                     <%= User.find(u.friend_id).first_name %> <%= User.find(u.friend_id).last_name %> accepted your request!
             <% end %>
             <% end %>
+            <div>
+                <% @all_friends = Array.new %>
+                User's friends: <br />
+                <% @user_friender.each do |f| %>
+                    <% if f.did_accept %>
+                        <%= User.find(f.friend_id).first_name %>
+                        <% @all_friends.push(User.find(f.friend_id).first_name) %>
+                    <% end %>
+                <% end %>
+                <% @user_friendee.each do |f| %>
+                    <% if f.did_accept %>
+                        <%= User.find(f.popular_model_id).first_name %>
+                        <% @all_friends.push(User.find(f.popular_model_id).first_name) %>
+                    <% end %>
+                <% end %>
             </div>
-
-            <%= Popular::Friendship.where(did_accept:true) == [] %>
-
-            <% Popular::Friendship.where(did_accept:true).each do |a| %>
-                id is: <%= a.id %>
-                <%= User.find(a.id).first_name %>
-            <% end %>
-
-        </div>
-
         <div class="container">
 
             <div class="row text-center">
@@ -114,13 +120,16 @@
                 <hr class="small">
 
                     <div class="row">
-                        <td> <% if Popular::Friendship.where(popular_model_id:current_user.id) != nil && Popular::Friendship.where(did_accept:true) %></td> <!-- && Popular::Friendship.where(did_accept:true) **add this** -->
-                            <% current_user_friends = Popular::Friendship.where(popular_model_id:current_user.id) %>
-                            <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
+                        <td> 
+
+                     <!--   <#% if Popular::Friendship.where(popular_model_id:current_user.id) != nil && Popular::Friendship.where(did_accept:true) %></td> 
+                            <#% current_user_friends = Popular::Friendship.where(popular_model_id:current_user.id) %>
+                            <#% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>-->
                                 
 
                             <%# @all_users.find(current_user_friends.friend_id).each do |u| %>
-                                
+                            <% if @all_friends %>
+                            <% @all_friends.each do |f| %>
                                 <div class="col-md-3 col-sm-6">
                                     <div class="service-item">
                                         <span class="fa-stack fa-4x">
@@ -130,8 +139,9 @@
                                         <h4>
                                         <tr>
                                         <td> 
-                                        <%= User.find(u.friend_id).first_name %>
-                                <%= User.find(u.friend_id).last_name %><%#= User.find(u).first_name %> <%#= User.find(u).last_name %></td>
+                                        <!--<%#= User.find(u.friend_id).first_name %>
+                                <%#= User.find(u.friend_id).last_name %><%#= User.find(u).first_name %> <%#= User.find(u).last_name %></td> -->
+                                    <%= f %>
                                         </tr>
                                         </h4>
                                         <!--<div class="albums">-->

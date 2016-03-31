@@ -8,20 +8,14 @@ class FriendsController < ApplicationController
 
     @get_friend_reqs = Popular::Friendship.where(friend_id:current_user)
 
+    @user_friender = Popular::Friendship.where(popular_model_id:current_user)
+    @user_friendee = Popular::Friendship.where(friend_id:current_user)
+
     if params[:accept]
     	puts Popular::Friendship.find(params[:accept].to_i)
     	Popular::Friendship.find(params[:accept].to_i).update_attribute(:did_accept, true)
     	puts Popular::Friendship.find(params[:accept].to_i)
 
-		# if @did_accept
-		# 	f.update_attribute(:did_accept, true)
-		# end
-
-		# puts "checking did_accept---------------------------"
-		# puts @did_accept
-
-		# puts "end----------------------------------------------------------"
-		# end
     end
 
     if params[:friend]
@@ -45,12 +39,6 @@ class FriendsController < ApplicationController
   def results
   	@users = User.all
   	@name = params[:s]
-  	#@user = User.find(3) #one user to test
-  	#@course_result = params[:s]
-  	puts "-------------------------"
-  	puts params
-  	puts params[:s]
-  	puts "-------------------------"
   end
 
 end

@@ -11,6 +11,7 @@
 
      <title>Mapperies</title>
 
+     <%= stylesheet_link_tag "application" %>
      <!-- Bootstrap Core CSS -->
      <!--<link href="/public/stylesheets/bootstrap.min.css" rel="stylesheet"> -->
      <%= stylesheet_link_tag "bootstrap.min" %>
@@ -22,8 +23,6 @@
      <!-- Custom Fonts -->
      <!--<link href="/public/stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
      <%= stylesheet_link_tag "font-awesome.min" %>
-     <%= stylesheet_link_tag "albums.scss" %>
-
      <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -76,7 +75,7 @@
     <!--< end %>-->
 
      <header id="top" class="header"> <!--give this header a different class-->
-      <div class="text-vertical-left">
+      <div class="text-vertical-left img-responsive">
         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:130px;height:100px;"> </a>
       </div>
          <%= yield %>
@@ -162,5 +161,6 @@
 
 
     </script>
+
    </body>
  </html>

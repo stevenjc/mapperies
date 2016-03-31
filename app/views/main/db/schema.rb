@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329214755) do
+ActiveRecord::Schema.define(version: 20160315201510) do
 
   create_table "album_views", force: :cascade do |t|
     t.integer "album_id"
@@ -33,28 +33,15 @@ ActiveRecord::Schema.define(version: 20160329214755) do
     t.integer "friendee_id"
   end
 
-  create_table "friendships", force: :cascade do |t|
-    t.integer  "popular_model_id"
-    t.string   "popular_model_type"
-    t.integer  "friend_id"
-    t.string   "friend_type"
-    t.boolean  "did_accept"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "friendships", ["friend_id", "friend_type"], name: "index_friendships_on_friend_id_and_friend_type"
-  add_index "friendships", ["popular_model_id", "popular_model_type"], name: "index_friendships_on_popular_model_id_and_popular_model_type"
-
   create_table "photos", force: :cascade do |t|
-    t.string   "url"
-    t.float    "x_coord"
-    t.float    "y_coord"
-    t.integer  "album_id"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string  "url"
+    t.float   "x_coord"
+    t.float   "y_coord"
+    t.integer "album_id"
+    t.string  "image_file_name"
+    t.string  "image_content_type"
+    t.integer "image_file_size"
+    t.date    "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

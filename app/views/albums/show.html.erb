@@ -3,10 +3,21 @@
 <p>
   <strong>Name:</strong>
   <%= @album.album_name %>
-
-  <%= image_tag @album.cover.url %>
-
 </p>
+
+<p><%= image_tag @album.cover.url %></p>
+
+ <!-- <%= form_tag "create", controller: "photos", method: "post"  do %>
+  <%= file_field_tag 'image' %>
+  <%= submit_tag("Upload") %>
+<% end %> -->
+
+<% if @photos.blank? %>
+  <p> You don't have any photos yet </p>
+  <p> <%= current_user.id %> </p>
+<% else %>
+  <h2><% @photos.count %></h2>
+<% end %>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

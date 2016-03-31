@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
 
   def index
 	@nav_bar = true
-    @albums = Album.all
+    @albums = Album.where(user_id: current_user.id)
   end
 
   def new
@@ -26,6 +26,27 @@ class AlbumsController < ApplicationController
   end
 
   def show
+      @album = Album.find(params[:id])
+      @photos = Photo.where(album_id: params[:id])
+  end
+
+  def new
+    @album = Album.new()
+  end
+
+  def create
+    @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name])
+
+    if @album.save
+      redirect_to :action => 'index'
+    else
+      render :action => 'new'
+    end
+  end
+
+  def delete
+    Album.find(params[:id]).destroy
+    redirect_to :action => 'index'
   end
 
   private

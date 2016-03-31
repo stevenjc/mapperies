@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   def index
+    @photos = Photo.all
   end
 
   def new
@@ -27,12 +28,34 @@ class PhotosController < ApplicationController
   end
 
   def show
+    @photos = Photo.find(params[:id])
   end
 
   private
-
   def photo_params
     params.require(:photo).permit(:album_id, :url, :image)
   end
+
+#coming from the master...
+  # def edit
+  #   @photos = Photo.find(params[:id])
+  # end
+  #
+  # def update
+  #   @photos = Photo.find(params[:id])
+  #   if @photos.update_attributes(params[:photo])
+  #     flash[:notice] = "Successfully updated photo"
+  #     redirect_to @photos
+  #   else
+  #     render :action => 'edit'
+  #   end
+  # end
+  #
+  # def destroy
+  #   @photos = Photo.find(params[:id])
+  #   @photos.destroy
+  #   flash[:notice] = "Successfully deleted photo"
+  #   redirect_to photos_url
+  # end
 
 end

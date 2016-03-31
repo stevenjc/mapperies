@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'account/settings'
+
 
   get 'landing/show'
 
@@ -30,7 +30,11 @@ Rails.application.routes.draw do
   post 'albums/create'
 
   resources :users
+  resources :accounts
 
+  get 'account/settings'
+  get 'account/edit'
+  patch 'account/save'
 
 
   get 'landing/show'
@@ -46,7 +50,13 @@ Rails.application.routes.draw do
 
   get '/albums', to:"albums#index"
 
+  get 'friends/index'
   get '/friends', to:"friends#index"
+  post '/friends/index'
+  post '/friends', to:"friends#index"
+  get '/friends/results', to:"friends#results"
+  post '/friends/results', to:"friends#results"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

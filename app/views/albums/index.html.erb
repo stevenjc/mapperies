@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,7 +40,9 @@
 
 <!-- Navigation -->
 <!--<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>-->
+
 <%= button_to 'Create New Album', "/albums/create", :method=>:post %>
+
 <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="row">
@@ -51,6 +52,7 @@
                     <div class="row">
 
 
+<<<<<<< HEAD
                         <h1>My Albums</h1>
                         <table id="data-list-background-white">
                           <thead>
@@ -63,21 +65,36 @@
                           <tbody>
                             <% if @albums.blank? %>
                               <p>Don't have any albums</p>
+=======
+
+
+                          <tbody>
+                            <% if @albums.blank? %>
+                            <p> You don't have any albums yet </p>
+                            <p> <%= current_user.id %> </p>
+>>>>>>> master
                             <% else %>
                               <% @albums.each do |album| %>
                               <!--%= render :layout =>'layouts/listbackground' do %-->
                               <tr>
                                 <td><div><%= album.album_name %></div></td>
                                 <td><%= link_to 'Show', album %></td>
+<<<<<<< HEAD
                                 <td><%= link_to 'Edit', edit_album_path(album) %></td>
                                 <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+=======
+>>>>>>> master
                               </tr>
                               <% end %>
                             <% end %>
                           </tbody>
                         </table>
+<<<<<<< HEAD
 
 
+=======
+                      <br>
+>>>>>>> master
                     <!-- /.row (nested) -->
                     <a href="#" class="btn btn-dark">View More Items</a>
                 </div>

@@ -54,62 +54,29 @@
     <section id="services" class="services bg-primary">
 
         <div class="container">
-        <% !Popular::Friendship.where(friend_id:current_user.id).empty? %> 
-            <!--if Popular::Friendship.all != [], if Popular::Friendship.all != []  just 2nd one, 1st and 3rd I don't think are doing anything  -->
-            <% if @friend && !Popular::Friendship.where(popular_model_id:current_user.id).empty? %>
-            <% if @friend == current_user %>            
-
-            <%= @friend.first_name %> <%= @friend.last_name %>
-            wants to friend you. Do you accept? 
-            <div>
-            current user: <%= current_user.first_name %>
-            True or false: <%= @friend.first_name == current_user.first_name %>
-            <br />
-            <div> <%= current_user.first_name %> </div>
-            <div>
-            <%= User.find(current_user.id).first_name %> <%= User.find(current_user.id).first_name %>
-            wants to friend you. Do you accept?
-            <!--<button onclick="accept()"> Accept Friend Request </button>-->
-            </div>
-
-            <% end %>
-            <% end %>
-            <!--create button and set did_accept to true-->
-            
-
-            each one:
-            <br />
-
-           <% if @friend_request_array   %> <!-- != [] -->
-
-                <% @friend_request_array.each do |f| %>
-                    <% if current_user == f %>
-                    <%= f.first_name %> <%= f.last_name %> 
-                    <button onclick="alert('Hello World')"> Accept Friend Request <% @did_accept=true %> <% @did_accept = true %> </button>
-                <% end %>
-                <% end %>
-            <% end %>
-            <div>
-            <%= @did_accept %>
-            </div>
-
+        <br />
             <% if @get_friend_reqs %>
                 <% @get_friend_reqs.each do |f| %>
-                    <%= f %>
-                    <%= User.find(f.id).first_name %>
+      
+                <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
+                    <form>
+                        <% @did_accept = true %>
+                        <input type="submit" value="Submit">
+                    </form>
+                    <div>
+                    <button onclick=""> Accept Friend Request <% @did_accept=true %> </button> 
+                    </div>                   
                 <% end %>
+               <!-- <#% end %>-->
             <% end %>
 
-           <!-- <form action="">
-                <input type="button" value="Accept Friend Request" onclick=""/>-->
+            <%= Popular::Friendship.where(did_accept:true) == [] %>
 
-                <!--<button onclick="test()"> Accept Friend Request </button>-->
-            <!-- </form>
-             <%# if @did_accept %>
-                woohoo
-            <%# end %>-->
+            <% Popular::Friendship.where(did_accept:true).each do |a| %>
+                id is: <%= a.id %>
+                <%= User.find(a.id).first_name %>
+            <% end %>
 
-        <%# end %>
         </div>
 
         <div class="container">

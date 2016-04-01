@@ -33,6 +33,8 @@ class FriendsController < ApplicationController
 
 	end
 
+	
+
 	@all_friends = Array.new
 	@user_friender = Popular::Friendship.where(popular_model_id:current_user)
     @user_friendee = Popular::Friendship.where(friend_id:current_user)

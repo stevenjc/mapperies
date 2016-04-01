@@ -47,9 +47,7 @@
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
-    <% end %>  
-    <%= @friends === nil %>
-    
+    <% end %>      
 
     <section id="services" class="services bg-primary">
 
@@ -71,29 +69,34 @@
                         <% end %>    
                     </div>         
                 <% end %>
-               <!-- <#% end %>-->
             <% end %>
+   
             <div>
-                current user: <%= current_user.first_name %>
-            </div>
-            <div>
-            <br />
             <% if @get_friend_reqs %>
                 <% @get_friend_reqs.each do |f| %>
-                    <%= f.did_accept %>
-                    you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
+
+                    <!--From _alert.html.erb -->
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
+                    </div>  
+
                 <% end %>
             <% end %>
             </div>
 
-            Testing did_accept:
             <br />
 
             <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
-            <%= u.did_accept %>
-            <% if u.did_accept %>
+                <% if u.did_accept %>
+                
+                <!--From _alert.html.erb -->
+                    <div class="alert alert-warning alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <%= User.find(u.friend_id).first_name %> <%= User.find(u.friend_id).last_name %> accepted your request!
-            <% end %>
+                    </div> 
+                        
+                <% end %>
             <% end %>
 
         <div class="container">
@@ -106,7 +109,6 @@
                         <td> 
                             <% if @all_friends %>
                                 <% @all_friends.each do |f| %>
-                                    <%= f.id %>
                                     <div class="col-md-3 col-sm-6">
                                     <div class="service-item">
 

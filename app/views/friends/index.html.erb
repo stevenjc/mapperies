@@ -53,14 +53,14 @@
 
         <div class="container">
         <br />
+            <!--Shows friend requests-->
             <% if @get_friend_reqs %>
                 <% @get_friend_reqs.each do |f| %>
-      
-                
                     <div>
                         <% if !f.did_accept %>
                         <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
                     
+                        <!--Option to accept friend request-->
                         <%= form_tag("/friends", :action => "index", method: "get") do %>
                             <%= hidden_field_tag(:accept, f.id) %>
                             <br />
@@ -72,24 +72,25 @@
             <% end %>
    
             <div>
+            <!--When user accepts friend request, shows alert-->         
             <% if @get_friend_reqs %>
                 <% @get_friend_reqs.each do |f| %>
+                    <% if f.did_accept %>
 
-                    <!--From _alert.html.erb -->
-                    <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
-                    </div>  
-
+                        <!--From _alert.html.erb -->
+                        <div class="alert alert-warning alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
+                        </div>  
+                    <% end %>
                 <% end %>
             <% end %>
             </div>
 
-            <br />
-
+            <!--When friend accepts user's request, shows alert-->
             <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
                 <% if u.did_accept %>
-                
+
                 <!--From _alert.html.erb -->
                     <div class="alert alert-warning alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

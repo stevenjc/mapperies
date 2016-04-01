@@ -56,12 +56,20 @@ class FriendsController < ApplicationController
      	puts "***********************************"
      	puts current_user.first_name
      	puts params[:remove]
+     	Popular::Friendship.where(popular_model_id:current_user).each do |p|
+     		puts p.id
+     		puts p.popular_model_id
+     		puts User.find(p.popular_model_id).first_name
+     		puts User.find(p.friend_id).first_name
+
+     	end
+
      	puts "***********************************"
-     	if Popular::Friendship.where(popular_model_id:current_user) && 
-     		Popular::Friendship.where(friend_id:(params[:remove].to_i))
+     	if !Popular::Friendship.where(popular_model_id:current_user) && 
+     		!Popular::Friendship.where(friend_id:(params[:remove].to_i))
      		current_user.unfriend (User.find(params[:remove].to_i))
-     	elsif Popular::Friendship.where(popular_model_id:(params[:remove].to_i)) && 
-     		Popular::Frienship.where(friend_id:current_user)
+     	elsif !Popular::Friendship.where(popular_model_id:(params[:remove].to_i)).empty? && 
+     		!Popular::Friendship.where(friend_id:current_user).empty?
      		User.find(params[:remove].to_i).unfriend current_user
      	end	
     end

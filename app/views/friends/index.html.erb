@@ -96,22 +96,7 @@
                     <%= User.find(u.friend_id).first_name %> <%= User.find(u.friend_id).last_name %> accepted your request!
             <% end %>
             <% end %>
-            <div>
-                <% @all_friends = Array.new %>
-                User's friends: <br />
-                <% @user_friender.each do |f| %>
-                    <% if f.did_accept %>
-                        <%= User.find(f.friend_id).first_name %>
-                        <% @all_friends.push(User.find(f.friend_id).first_name) %>
-                    <% end %>
-                <% end %>
-                <% @user_friendee.each do |f| %>
-                    <% if f.did_accept %>
-                        <%= User.find(f.popular_model_id).first_name %>
-                        <% @all_friends.push(User.find(f.popular_model_id).first_name) %>
-                    <% end %>
-                <% end %>
-            </div>
+
         <div class="container">
 
             <div class="row text-center">
@@ -121,17 +106,21 @@
 
                     <div class="row">
                         <td> 
-
-                     <!--   <#% if Popular::Friendship.where(popular_model_id:current_user.id) != nil && Popular::Friendship.where(did_accept:true) %></td> 
-                            <#% current_user_friends = Popular::Friendship.where(popular_model_id:current_user.id) %>
-                            <#% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>-->
-                                
-
-                            <%# @all_users.find(current_user_friends.friend_id).each do |u| %>
                             <% if @all_friends %>
-                            <% @all_friends.each do |f| %>
-                                <div class="col-md-3 col-sm-6">
+                                <% @all_friends.each do |f| %>
+                                    <%= f.id %>
+                                    <div style = "background-color:green">
+                                    <div class="col-md-3 col-sm-6">
                                     <div class="service-item">
+                                        <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                    <%#= label_tag(:user, u.first_name) %>
+                                    <% u = f.id %>
+                                    <%= hidden_field_tag(:remove, u) %>
+                                    <br />
+                                    <%= submit_tag("Remove Friend") %>
+
+                                    <% end %>
+                                    </div>
                                         <span class="fa-stack fa-4x">
                                             <i class="fa fa-circle fa-stack-2x"></i>
                                             <i class="fa fa-cloud fa-stack-1x text-primary"></i>
@@ -139,9 +128,7 @@
                                         <h4>
                                         <tr>
                                         <td> 
-                                        <!--<%#= User.find(u.friend_id).first_name %>
-                                <%#= User.find(u.friend_id).last_name %><%#= User.find(u).first_name %> <%#= User.find(u).last_name %></td> -->
-                                    <%= f %>
+                                            <%= f.first_name %>
                                         </tr>
                                         </h4>
                                         <!--<div class="albums">-->

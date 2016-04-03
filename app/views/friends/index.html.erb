@@ -69,6 +69,7 @@
                             <%= submit_tag("Accept as Friend") %>
                         <% end %>
 
+                        <!--Option to decline friend request-->
                         <%= form_tag("/friends", :action => "index", method: "get") do %>
                             <%= hidden_field_tag(:reject, f_request) %>
                             <%= submit_tag("Decline") %>
@@ -108,8 +109,8 @@
                 <% end %>
             <% end %>
 
+        <!-- Displays the user's friends -->
         <div class="container">
-
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
                 <h2> My Friends </h2>
@@ -122,13 +123,17 @@
                                     <div class="service-item">
 
                                     <!--Removing a friend -->
-                                    <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                   <!-- <%#= form_tag("/friends", :action => "index", method: "get") do %>-->
+
+
+                                    <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return confirm("Are you sure?");' ) do %>
                                         <% u = f.id %>
 
 
-                                            <%= hidden_field_tag(:remove, u) %>
-                                            <br />
-                                        <%= submit_tag "Remove Friend", :onclick => "return confirm('Are you sure?')" %>
+                                        <%= hidden_field_tag(:remove, u) %>
+                                        <br />
+                                       <%= submit_tag "Remove Friend" %> <!--,:onclick => "return confirm('Are you sure?')" %>-->
+
                                        <!-- <input type="submit" value="Remove Friend" onclick="return confirm('Are you sure?')"-->
                                     <% end %>
                                     

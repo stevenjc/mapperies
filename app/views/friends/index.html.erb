@@ -116,9 +116,12 @@
                                     <!--Removing a friend -->
                                     <%= form_tag("/friends", :action => "index", method: "get") do %>
                                         <% u = f.id %>
-                                        <%= hidden_field_tag(:remove, u) %>
-                                        <br />
-                                        <%= submit_tag("Remove Friend") %>
+
+
+                                            <%= hidden_field_tag(:remove, u) %>
+                                            <br />
+                                        <%= submit_tag "Remove Friend", :onclick => "return confirm('Are you sure?')" %>
+                                       <!-- <input type="submit" value="Remove Friend" onclick="return confirm('Are you sure?')"-->
                                     <% end %>
                                     
 

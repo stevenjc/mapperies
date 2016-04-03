@@ -17,6 +17,10 @@ class FriendsController < ApplicationController
 	if params[:accept]
     	Popular::Friendship.find(params[:accept].to_i).update_attribute(:did_accept, true)
     end
+    #If friend rejects request
+    if params[:reject]
+    	User.find(params[:reject].to_i).unfriend current_user
+    end
 
     #Updating all user's friends
 	@all_friends = Array.new

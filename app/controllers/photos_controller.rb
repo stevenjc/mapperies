@@ -1,23 +1,27 @@
+
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
   end
 
   def show
-    @photos = Photo.find(params[:id])
+    @photo = Photo.find(params[:id])
   end
 
   def new
-    @photos = Photo.new
+    @photos = Photo.new()
   end
 
   def create
-    @photos = Photo.new(params[:image], :album_id =>"85")
-    if @photos.save
+    @photo = Photo.new(album_id: params[:album_id])
+    @album = Album.where(id: params[:album_id])
+
+    if @photo.save
       flash[:notice] = "Successfully uploaded photo"
-      redirect_to @photos
+      redirect_to "@photos"
     else
-      render :action => "new"
+      flash[:notice] = "Something went wrong when uploading your image"
+      render new_album_photo_path
     end
   end
 
@@ -43,6 +47,6 @@ class PhotosController < ApplicationController
   end
 
   def photo_params
-    params.require(:image)
+    params.require(:image).permit(:album_id)
   end
 end

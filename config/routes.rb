@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   resources :albums do
     resources :photos
   end
+
+    post "photos/create"
+
+
   resources :users
   post 'albums/create'
 

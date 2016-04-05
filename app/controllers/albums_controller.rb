@@ -8,8 +8,9 @@ class AlbumsController < ApplicationController
   end
 
   def show
-      @album = Album.find(params[:id])
-      @photos = Photo.where(album_id: params[:id])
+    @photo = Photo.new(:album_id => params[:id])
+    @album = Album.find(params[:id])
+    @photos = Photo.where(:album_id => params[:id])
   end
 
   def new

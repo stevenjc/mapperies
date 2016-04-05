@@ -4,16 +4,16 @@
   <%= @album.album_name %>
 </p>
 
-<%= form_tag "create", controller: "photos", method: "post"  do %>
-  <%= file_field_tag 'image' %>
+<%= form_for [@album, @photo], :html=>{:multipart => true} do |f| %>
+  <%= f.file_field :image %>
+  <%= f.number_field :album, value: (params[:id])%><br>
   <%= submit_tag("Upload") %>
 <% end %>
 
 <% if @photos.blank? %>
   <p> You don't have any photos yet </p>
-  <p> <%= current_user.id %> </p>
 <% else %>
-  <h2><% @photos.count %></h2>
+  <h2><% @photos.length %></h2>
 <% end %>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |

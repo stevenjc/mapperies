@@ -8,6 +8,7 @@ class PhotosController < ApplicationController
   end
 
   def create
+    u =
     @photo = Photo.new(album_id: params[:id], url: params[:photo][:url], image: params[:photo][:image])
     #db_attr: params[:something]
 
@@ -18,7 +19,7 @@ class PhotosController < ApplicationController
 
     respond_to do |format|
       if @photo.save
-        format.html { redirect_to albums_path, notice: 'Photo Uploaded!' }
+        format.html { redirect_to album_path, notice: 'Photo Uploaded!' }
         format.json { render :show, status: :created, location: @photo }
       else
         format.html { render :new }

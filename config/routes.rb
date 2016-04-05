@@ -27,7 +27,12 @@ Rails.application.routes.draw do
       post 'photos/new'
     end
   end
-#WHY POST ../new ARE NECESSARY???
+
+
+    post "photos/create"
+
+
+  resources :users
 
   post 'albums/create'
   post 'albums/new'

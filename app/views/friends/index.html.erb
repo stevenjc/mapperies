@@ -83,8 +83,10 @@
             <div>
             <!--When user accepts friend request, shows alert-->         
             <% if @get_friend_reqs %>
+                <% friend_shown_array = Array.new %>
                 <% @get_friend_reqs.each do |f| %>
                     <% if f.did_accept %>
+                        <% friend_shown_array.push(f) %>
 
                         <!--From _alert.html.erb -->
                         <div class="alert alert-warning alert-dismissible" role="alert">
@@ -93,6 +95,12 @@
                         </div>  
                     <% end %>
                 <% end %>
+
+                <!--Remove accepted requests after they're shown-->
+                <% friend_shown_array.each do |f| %>
+                    <!--<#% @get_friend_reqs.delete(f) %>-->
+
+                <% end #maybe this needs to be a separate clicking action in the alert??%>
             <% end %>
             </div>
 
@@ -126,9 +134,9 @@
                                    <!-- <%#= form_tag("/friends", :action => "index", method: "get") do %>-->
 
 
-                                    <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return confirm("Are you sure?");' ) do %>
-                                        <% u = f.id %>
 
+                                    <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return remove_friend()') do %>
+                                        <% u = f.id %>
 
                                         <%= hidden_field_tag(:remove, u) %>
                                         <br />
@@ -182,4 +190,11 @@ $('#services').find("span.expand").click(function(e){
 });
 
 
+</script>
+<script type="text/javascript">
+function remove_friend(){
+    confirm('Are you sure?')
+    if (confirm('Are you sure?')) {
+         window.location.reload();
+    }
 </script>

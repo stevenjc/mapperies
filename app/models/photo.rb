@@ -3,6 +3,7 @@ class Photo < ActiveRecord::Base
                   # :url  => ":rails_root/app/assets/images/users/:id/:style/:basename.:extension",
                   # :url => ":rails_root/public/img/albums/:album_id/:basename.:extension",
                   # :url  => "/assets/photos/:id/:style/:basename.:extension",
+                  :url =>  "/system/:attachment/:album_id/:style/:basename.:extension", 
                   :path => ":rails_root/public/img/albums/:album_id/:basename.:extension"}
     validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 

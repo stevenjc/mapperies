@@ -41,7 +41,7 @@
 
 <!-- Navigation -->
 <!--<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>-->
-<%= button_to 'Create New Album', "/albums/create", :method=>:post %>
+<%= button_to 'Create New Album', "/albums/new", :method=>:get %>
 <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="row">
@@ -55,15 +55,16 @@
 
                           <tbody>
                             <% if @albums.blank? %>
-                            <p> You don't have any albums yet </p>
-                            <p> <%= current_user.id %> </p>
+                              <p> You don't have any albums yet </p>
+                              <p> <%= current_user.id %> </p>
                             <% else %>
-                              <% @albums.each do |album| %>
-                              <!--%= render :layout =>'layouts/listbackground' do %-->
-                              <tr>
-                                <td><div><%= album.album_name %></div></td>
-                                <td><%= link_to 'Show', album %></td>
-                              </tr>
+                              <p> <%= @albums.length%> </p>
+                                <% @albums.each do |album| %>
+                                <!--%= render :layout =>'layouts/listbackground' do %-->
+                                <tr>
+                                  <td><div><%= album.album_name %></div></td>
+                                  <td><%= link_to 'Show', album %></td>
+                                </tr>
                               <% end %>
                             <% end %>
                           </tbody>

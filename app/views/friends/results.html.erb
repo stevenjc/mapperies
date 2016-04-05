@@ -48,7 +48,7 @@
 
 <% @results = Array.new %>
 <% @users.each do |u| %>
-	<% if u.first_name.include?(@name) || u.last_name.include?(@name) %><!--downcase?-->
+	<% if u.first_name.include?(@name) || u.last_name.include?(@name) %>
 		<% @results.push(u) %>
     <% end %>
  <% end %>
@@ -62,7 +62,6 @@
                 	<% if @results.empty? %>
                 		<td> There are no results </td>
                 	<% end %>
-                	<%= @result %>
                 	<hr class="small">
 
                     <div class="row">

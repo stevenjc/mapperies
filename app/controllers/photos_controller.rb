@@ -8,7 +8,7 @@ class PhotosController < ApplicationController
   end
 
   def create
-    @photo = Photo.new(album_id: params[:id], url: params[:photo][:url], image: params[:photo][:image])
+    @photo = Photo.new(album_id: params[:id], url: params[:url], image: params[:photo][:image])
     #db_attr: params[:something]
 
     # puts @photo.image.url(:med)

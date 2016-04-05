@@ -5,7 +5,13 @@
   <%= @album.album_name %>
 </p>
 
-<p><%= image_tag @album.cover.url %></p>
+<% if @photos.blank? %>
+  <p> You don't have any photos yet </p>
+<% else %>
+  <% @photos.each do |p| %>
+    <p><%=image_tag p.image.url(:med) %></p>
+  <% end %>
+<% end %>
 
  <!-- <%= form_tag "create", controller: "photos", method: "post"  do %>
   <%= file_field_tag 'image' %>

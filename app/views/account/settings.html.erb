@@ -2,7 +2,7 @@
     <section id="login" class="login">
         <div class="panel panel-success col-md-14" id="settings-start">
 
-            <a id="edit_button" class="btn btn-danger" href="edit" role="button">
+            <a id="edit_button" class="btn btn-warning" href="edit" role="button">
                 <i class="fa fa-pencil-square-o"></i>
             </a>
 
@@ -43,6 +43,10 @@
                         <%end%>
                     </li>
                 </ul>
+
+                <%= button_tag role: "button", class: "btn btn-danger", id: "delete_button" do %>
+                    <i class="fa fa-exclamation-triangle"></i>  Delete Account
+                <% end %>
             </div>
         </div>
 

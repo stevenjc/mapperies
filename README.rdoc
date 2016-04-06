@@ -1,4 +1,9 @@
 {<img src="https://codeclimate.com/github/stevenjc/mapperies/badges/gpa.svg" />}[https://codeclimate.com/github/stevenjc/mapperies]
+
+
+{<img src="https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master" />}[
+https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master]
+
 == README
 
 This README would normally document whatever steps are necessary to get the

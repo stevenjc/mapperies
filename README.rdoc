@@ -1,8 +1,8 @@
 {<img src="https://codeclimate.com/github/stevenjc/mapperies/badges/gpa.svg" />}[https://codeclimate.com/github/stevenjc/mapperies]
 
 
-{https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master}[
-https://codeship.com/projects/YOUR_PROJECT_UUID/status?branch=master]
+{<img src = "https://codeship.com/projects/02b79250-d818-0133-f61e-2a00185afc36/status?branch=master"}[
+https://codeship.com/projects/02b79250-d818-0133-f61e-2a00185afc36/status?branch=master]
 
 == README
 

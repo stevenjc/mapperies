@@ -53,6 +53,11 @@
 
         <div class="container">
         <br />
+        <button class="btn btn-warning" type="button" data-toggle="collapse" data-target="#friend-request-list" aria-expanded="false" aria-controls="friend-request-list">
+          Friend Requests
+        </button>
+        <div class="collapse" id="friend-request-list">
+          <div>
             <!--Shows friend requests-->
             <% if @get_friend_reqs %>
                 <% @get_friend_reqs.each do |f| %>
@@ -96,7 +101,8 @@
                     </div>
                 <% end %>
             <% end %>
-
+          </div>
+        </div>
             <div>
             <!--When user accepts friend request, shows alert-->
             <% if @get_friend_reqs %>

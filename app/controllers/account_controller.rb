@@ -24,13 +24,13 @@ class AccountController < ApplicationController
     current_user.update_attribute(:last_name, params[:user][:last_name])
     current_user.update_attribute(:user_name, params[:user][:user_name])
     current_user.update_attribute(:birthday, params[:user][:birthday])
-    redirect_to '/account/settings'
+    redirect_to account_settings_url
   end
 
   def delete
     @user = current_user
     @user.destroy
-    redirect_to '/'
+    redirect_to root_url
   end
 
   def empty_to_nil param

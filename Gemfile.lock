@@ -71,6 +71,8 @@ GEM
     commonjs (0.2.7)
     daemons (1.2.3)
     debug_inspector (0.0.2)
+    deep_copy (0.0.2)
+      activerecord (>= 2.3)
     email_validator (1.6.0)
       activemodel
     erubis (2.7.0)
@@ -167,7 +169,7 @@ GEM
       activesupport (= 4.2.5.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (11.1.1)
+    rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
     ref (2.0.0)
@@ -228,6 +230,7 @@ DEPENDENCIES
   byebug
   clearance (~> 1.5)
   coffee-rails (~> 4.1.0)
+  deep_copy
   faker
   font-awesome-rails
   gon

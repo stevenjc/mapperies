@@ -58,13 +58,13 @@
                 <% @get_friend_reqs.each do |f| %>
                     <div>
                         <% if !f.did_accept %>
-                        <% f_request = f.popular_model_id #for decline/reject%>
+                            <% f_request = f.popular_model_id #for decline %>
 
-                        <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
-                    
-                        <!--Option to accept friend request-->
-                        <%= form_tag("/friends", :action => "index", method: "get") do %>
-                            <%= hidden_field_tag(:accept, f.id) %>
+                            <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
+                        
+                            <!--Option to accept friend request-->
+                            <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                <%= hidden_field_tag(:accept, f.id) %>
                             <br />
                             <%= submit_tag("Accept as Friend") %>
                         <% end %>
@@ -81,28 +81,38 @@
             <% end %>
    
             <div>
+
             <!--When user accepts friend request, shows alert-->         
-            <% if @get_friend_reqs %>
-                <% friend_shown_array = Array.new %>
-                <% @get_friend_reqs.each do |f| %>
+            <% if @friend_shown_array %>
+                
+
+                <% @friend_shown_array.each do |f| %>
                     <% if f.did_accept %>
-                        <% friend_shown_array.push(f) %>
 
                         <!--From _alert.html.erb -->
                         <div class="alert alert-warning alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
                         </div>  
+
+                        <% @friend_shown_array.delete(f) %>
+
                     <% end %>
                 <% end %>
 
                 <!--Remove accepted requests after they're shown-->
-                <% friend_shown_array.each do |f| %>
-                    <!--<#% @get_friend_reqs.delete(f) %>-->
+                Clone:
+                <% @friend_shown_array.each do |f| %>   
+                    <%= f %>
+                <% end %>
+                Original:
+                <% @get_friend_reqs.each do |u4| %>
+                            <%= u4 %>
+                        <% end %> 
+                
 
-                <% end #maybe this needs to be a separate clicking action in the alert??%>
             <% end %>
-            </div>
+
 
             <!--When friend accepts user's request, shows alert-->
             <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
@@ -152,7 +162,7 @@
                                         <i class="fa fa-cloud fa-stack-1x text-primary"></i>
                                     </span>
                                     <h4> <tr> 
-                                        <%= f.first_name %>
+                                        <%= f.first_name %> <%= f.last_name %>
                                     </tr> </h4>
 
                                     <!--Expand to see a friend's albums-->

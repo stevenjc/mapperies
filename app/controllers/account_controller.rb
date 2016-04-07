@@ -34,8 +34,10 @@ class AccountController < ApplicationController
   end
 
   def empty_to_nil param
-    if param == ""
+    if param === ""
       return nil
+    else
+      param
     end
   end
 

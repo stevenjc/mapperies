@@ -13,6 +13,8 @@
  *= require_tree .
  */
 @import "bootstrap";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
 @import "main.scss";
 @import "account.scss";
 @import "friends.scss";

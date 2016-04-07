@@ -7,7 +7,9 @@
 
 <% if @photos.blank? %>
   <p> You don't have any photos yet </p>
+  <p> Your ID: <%= current_user.id %> </p>
 <% else %>
+  <h2>You have <% @photos.count %> photos!</h2>
   <% @photos.each do |p| %>
     <p><%=image_tag p.image.url(:med) %></p>
   <% end %>
@@ -17,14 +19,6 @@
   <%= file_field_tag 'image' %>
   <%= submit_tag("Upload") %>
 <% end %> -->
-
-<% if @photos.blank? %>
-  <p> You don't have any photos yet </p>
-  <p> Your ID: <%= current_user.id %> </p>
-<% else %>
-  <h2>You have: <% @photos.count %> photos!</h2>
-  <p>well you have some photos, we just don't know how many...</p>
-<% end %>
 
 <%= button_to 'Upload Photos!', new_photo_path %>
 

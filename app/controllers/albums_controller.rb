@@ -31,6 +31,7 @@ class AlbumsController < ApplicationController
   end
 
   def delete
+    #identify the user first...
     Album.find(params[:id]).destroy
     redirect_to :action => 'index'
   end

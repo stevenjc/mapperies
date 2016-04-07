@@ -13,9 +13,9 @@
  *= require_tree .
  */
 @import "bootstrap";
-@import "main.scss";
-@import "account.scss";
-@import "friends.scss";
+@import "/main.scss";
+@import "/account.scss";
+@import "/friends.scss";
 
 
 

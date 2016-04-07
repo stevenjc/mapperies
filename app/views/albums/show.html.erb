@@ -12,7 +12,7 @@
   <h2>You have <%= @photos.count %> photos!</h2>
   <% @photos.each do |p| %>
     <%= image_tag p.image.url(:small, timastamp:false) %>
-    <img  src = "/system/photos/images/000/000/008/original/pond.jpg">
+    <!-- <img  src = " /system/images/5/original/pond.jpg"> -->
     <%= p.image.url %>
   <% end %>
 <% end %>

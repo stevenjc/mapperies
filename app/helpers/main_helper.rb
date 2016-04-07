@@ -6,7 +6,7 @@ module MainHelper
         elsif current_user.first_name
             return current_user.first_name
         else
-            current_user.first_name
+            return current_user.email
         end
     end
 end

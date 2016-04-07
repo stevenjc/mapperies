@@ -1,6 +1,7 @@
 class AccountController < ApplicationController
   before_action :require_login
 
+
   def settings
     @nav_bar = true
     @user = current_user
@@ -13,6 +14,11 @@ class AccountController < ApplicationController
   end
 
   def save
+    params[:user][:first_name] = empty_to_nil params[:user][:first_name]
+    params[:user][:last_name] = empty_to_nil params[:user][:last_name]
+    params[:user][:user_name] = empty_to_nil params[:user][:user_name]
+
+
     current_user.update_attribute(:email, params[:user][:email])
     current_user.update_attribute(:first_name, params[:user][:first_name])
     current_user.update_attribute(:last_name, params[:user][:last_name])
@@ -25,6 +31,12 @@ class AccountController < ApplicationController
     @user = current_user
     @user.destroy
     redirect_to '/'
+  end
+
+  def empty_to_nil param
+    if param == ""
+      return nil
+    end
   end
 
 end

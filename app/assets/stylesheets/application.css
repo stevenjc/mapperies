@@ -15,6 +15,9 @@
 @import "bootstrap";
 @import "main.scss";
 @import "account.scss";
+@import "friends.scss";
+
+
 
 #icon{
     margin-bottom: 20px;

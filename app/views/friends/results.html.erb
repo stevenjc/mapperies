@@ -44,7 +44,7 @@
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
-    <% end %>  
+    <% end %>
 
 <% @results = Array.new %>
 <% @users.each do |u| %>
@@ -80,13 +80,13 @@
                                 	<i class="fa fa-cloud fa-stack-1x text-primary"></i>
                             	</span>
                                 <h4>
-                                    <tr> <td> <% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?-->	
+                                    <tr> <td> <% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?-->
 
                                     	  		<td> <%= u.first_name %> <%= u.last_name %></td>
  										<td><% end %></td>
                            			</tr>
                                 </h4>
-                        
+
                                 <%= form_tag("/friends", :action => "index", method: "get") do %>
                                 	<%#= label_tag(:user, u.first_name) %>
 									<%= hidden_field_tag(:friend, u.id) %>

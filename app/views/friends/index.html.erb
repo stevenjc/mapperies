@@ -47,7 +47,7 @@
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
-    <% end %>      
+    <% end %>
 
     <section id="services" class="services bg-primary">
 
@@ -58,30 +58,47 @@
                 <% @get_friend_reqs.each do |f| %>
                     <div>
                         <% if !f.did_accept %>
-                        <% f_request = f.popular_model_id #for decline/reject%>
+                          <% f_request = f.popular_model_id #for decline/reject%>
+                          <div>
+                            <div class="col-sm-4 col-md-2">
+                              <div class="thumbnail">
 
-                        <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
-                    
-                        <!--Option to accept friend request-->
-                        <%= form_tag("/friends", :action => "index", method: "get") do %>
-                            <%= hidden_field_tag(:accept, f.id) %>
-                            <br />
-                            <%= submit_tag("Accept as Friend") %>
+                            <!-- profile picture    <img src="..." alt="..."> -->
+                                <div class="caption">
+                                  <h3>
+                                    <%= User.find(f.popular_model_id).first_name %>
+                                    <br/>
+                                    <%= User.find(f.popular_model_id).last_name %>
+                                  </h3>
+                                  <p>has sent you a friend request</p>
+                                  <p>
+                                    <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                        <%= hidden_field_tag(:accept, f.id) %>
+                                        <br />
+                                        <%= button_tag(type: 'submit', class: "btn btn-primary", id: "friend-accept") do %>
+                                            <i class="fa fa-check"></i>
+                                        <% end %>
+                                    <% end %>
+                                    <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                        <%= hidden_field_tag(:reject, f_request) %>
+                                        <%= button_tag(type: 'submit', class: "btn btn-danger", id: "friend-decline") do %>
+                                            <i class="fa fa-times"></i>
+                                        <% end %>
+                                    <% end %>
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
                         <% end %>
 
-                        <!--Option to decline friend request-->
-                        <%= form_tag("/friends", :action => "index", method: "get") do %>
-                            <%= hidden_field_tag(:reject, f_request) %>
-                            <%= submit_tag("Decline") %>
-                        <% end %>
-
-                        <% end %>    
-                    </div>         
+                    </div>
                 <% end %>
             <% end %>
-   
+
             <div>
-            <!--When user accepts friend request, shows alert-->         
+            <!--When user accepts friend request, shows alert-->
             <% if @get_friend_reqs %>
                 <% friend_shown_array = Array.new %>
                 <% @get_friend_reqs.each do |f| %>
@@ -92,7 +109,7 @@
                         <div class="alert alert-warning alert-dismissible" role="alert">
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
-                        </div>  
+                        </div>
                     <% end %>
                 <% end %>
 
@@ -112,8 +129,8 @@
                     <div class="alert alert-warning alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <%= User.find(u.friend_id).first_name %> <%= User.find(u.friend_id).last_name %> accepted your request!
-                    </div> 
-                        
+                    </div>
+
                 <% end %>
             <% end %>
 
@@ -124,7 +141,7 @@
                 <h2> My Friends </h2>
                 <hr class="small">
                     <div class="row">
-                        <td> 
+                        <td>
                             <% if @all_friends %>
                                 <% @all_friends.each do |f| %>
                                     <div class="col-md-3 col-sm-6">
@@ -144,14 +161,14 @@
 
                                        <!-- <input type="submit" value="Remove Friend" onclick="return confirm('Are you sure?')"-->
                                     <% end %>
-                                    
+
 
                                     <!-- Listing all friends -->
                                     <span class="fa-stack fa-4x">
                                         <i class="fa fa-circle fa-stack-2x"></i>
                                         <i class="fa fa-cloud fa-stack-1x text-primary"></i>
                                     </span>
-                                    <h4> <tr> 
+                                    <h4> <tr>
                                         <%= f.first_name %>
                                     </tr> </h4>
 

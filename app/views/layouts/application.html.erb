@@ -62,10 +62,8 @@
 
         </li>
         <li>
+          <a onclick = $("#menu-close").click(); data-toggle = "modal" data-target = "#confirm_logout"><i class="fa fa-sign-out fa-2x"><span class="sidebar_text">Log Out</span></i></a>
 
-          <!--<a href="/login" onclick = $("#menu-close").click(); >Logout</a>-->
-         <a href="javascript:logout.click();" id="logout"> Logout </a>
-          <%= button_to "Logout", "sign_out", :method => :delete %>
 
         </li>
       </ul>
@@ -83,6 +81,20 @@
          <%= yield %>
 
      </header>
+     <!--Modal Alert to Confirm Logout -->
+     <div class="modal fade" tabindex="-1" role="dialog" id="confirm_logout">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+             <h4 class="modal-title">Are sure you want to continue?</h4>
+           </div>
+           <div class="modal-footer">
+             <%= button_to "Logout", "sign_out" ,{class: "btn btn-danger", :method => :delete}%>
+           </div>
+         </div><!-- /.modal-content -->
+       </div><!-- /.modal-dialog -->
+     </div><!-- /.modal -->
    </div>
 
      <footer>
@@ -139,28 +151,6 @@
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
     });
-
-    // Scrolls to the selected menu item on the page
-    $(function() {
-        $('a[href*=#]:not([href=#])').click(function() {
-            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
-
-                var target = $(this.hash);
-                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-                if (target.length) {
-                    $('html,body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            }
-        });
-    });
-
-      var form=document.getElementById("logout").nextElementSibling;// grabs the form
-      var logout=form.children[1];// grabs the submit button
-      form.style.display="none";// hides the form
-
 
     </script>
 

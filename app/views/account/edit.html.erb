@@ -30,13 +30,28 @@
             <%= f.date_field :birthday%>
         </div>
 
-        <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+        <%= button_tag(type: 'button', class: "btn btn-primary", "data-toggle"=> "modal", "data-target"=> "#confirm_edit") do %>
             <i class="fa fa-pencil-square-o fa-2x"></i>
         <% end %>
 
         <a href="/account/settings" class="btn btn-warning">
             <i class="fa fa-times fa-2x"></i>
         </a>
+
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="confirm_edit">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Are you want to save changes?</h4>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="confirm_edit_button">Save changes</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
 
 

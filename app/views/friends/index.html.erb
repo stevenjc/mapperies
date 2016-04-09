@@ -145,21 +145,12 @@
                 <div class="col-lg-10 col-lg-offset-1">
                   <h2> My Friends </h2>
                   <hr class="small">
-                    <div class="row">
-                      <td>
-                        <% if @all_friends %>
-                          <% @all_friends.each do |f| %>
-                            <div class="col-md-3 col-sm-6">
+                  <% if @all_friends %>
+                    <% @all_friends.each do |f| %>
+                        <div>
+                          <td>
+                            <div class="col-md-3 col-sm-3">
                               <div class="service-item">
-
-                                <!--Removing a friend -->
-                               <!-- <%#= form_tag("/friends", :action => "index", method: "get") do %>-->
-
-
-
-
-
-
                                 <!-- Listing all friends -->
                                 <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" class="img-responsive img-rounded"  alt="Profile Picture">
                                 <h4> <tr>
@@ -167,14 +158,36 @@
                                 </tr> </h4>
 
                               <!--Expand to see a friend's albums-->
-                                <div style="background-color:blue"><!--needs to go to css -->
-                                  <span class="expand"><class="btn btn-light">See Albums</a></span>
-                                  <ul>
-                                    <!--This is where the user's albums will go -->
-                                    <li><span>Album 1</span></li>
-                                    <li><span>Album 2</span></li>
-                                    <li><span>Album 3</span></li>
-                                  </ul>
+                              <div class="friend-album-list">
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" alt="...">
+                                  </a>
+                                  United States of America
+                                </div>
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" alt="...">
+                                  </a>
+                                  Boston
+                                </div>
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" alt="...">
+                                  </a>
+                                  South America
+                                </div>
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" alt="...">
+                                  </a>
+                                  Soviet Union
+                                </div>
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" alt="...">
+                                  </a>
+                                  Germany
                                 </div>
                               </div>
                               <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return remove_friend()') do %>
@@ -185,10 +198,10 @@
                                 <% end %>
                               <% end %>
                             </div>
-                          <% end %>
-                        <% end %>
-                      </td>
-                    </div>
+                          </td>
+                        </div>
+                      <% end %>
+                    <% end %>
                   </hr>
                 </div>
             </div>
@@ -210,9 +223,49 @@ $('#services').find("span.expand").click(function(e){
 
 </script>
 <script type="text/javascript">
-function remove_friend(){
+  function remove_friend(){
     confirm('Are you sure?')
     if (confirm('Are you sure?')) {
          window.location.reload();
-    }
+  }}
+
+  $(document).ready(function(){
+    $('.friend-album-list').slick({
+      lazyLoad: 'ondemand',
+      dots: false,
+      arrows: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      slidesToScroll: 2,
+      centerMode: true,
+      adaptiveHeight: false,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+          }
+        }
+      ]
+    });
+  });
 </script>

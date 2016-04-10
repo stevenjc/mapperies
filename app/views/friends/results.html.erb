@@ -48,8 +48,11 @@
 
 <% @results = Array.new %>
 <% @users.each do |u| %>
-	<% if u.first_name.include?(@name) || (u.last_name && u.last_name.include?(@name)) %>
-		<% @results.push(u) %>
+	<% if u.first_name.downcase.include?(@name.downcase) || (u.last_name && u.last_name.downcase.include?(@name.downcase)) %> <!--First name is required, but last is not-->
+         <!--Exclude self, exclude if already has person as friend -->
+        <% if u.id != current_user.id && Popular::Friendship.where(popular_model_id:current_user.id).where(friend_id:u.id).empty? %>
+		  <% @results.push(u) %>
+        <% end %>
     <% end %>
  <% end %>
 
@@ -67,8 +70,8 @@
                     <div class="row">
                     	<td> <% @results.each do |u| %></td>
 
-                             <!--Exclude self, exclude if already has person as friend -->
-							<% if u.id != current_user.id && Popular::Friendship.where(popular_model_id:current_user.id).where(friend_id:u.id).empty? %>
+                            
+							
 								<%#= Popular::Friendship.where(popular_model_id:current_user).where(friend_id:u.id) %>
 
 
@@ -80,27 +83,29 @@
                                 	<i class="fa fa-cloud fa-stack-1x text-primary"></i>
                             	</span>
                                 <h4>
-                                    <tr> <td> <% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?-->	
+                                   <!-- <tr> <td> <#% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?  repeated from above-->
 
                                     	  		<td> <%= u.first_name %> <%= u.last_name %></td>
+
+
+                                                <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                    <%#= label_tag(:user, u.first_name) %>
+                                    <%= hidden_field_tag(:friend, u.id) %>
+                                    <br />
+                                    <%= submit_tag("Add as Friend") %>
  										<td><% end %></td>
                            			</tr>
                                 </h4>
                         
-                                <%= form_tag("/friends", :action => "index", method: "get") do %>
-                                	<%#= label_tag(:user, u.first_name) %>
-									<%= hidden_field_tag(:friend, u.id) %>
-									<br />
-									<%= submit_tag("Add as Friend") %>
+                                
 
-                                <% end %>
+                              <!--  <#% end %>-->
                         <%#= button_to 'Add as Friend222222222', {:action => "index", :user => u.first_name} , :method => :post %>
 
                             </div>
                         </div>
                     <% end %>
 
-                    <% end %>
                     </div>
 <%#= form_tag("/friends#index", method: "post") do %>
                         	<!--<a href="#" class="btn btn-light">Add as Friend</a>-->

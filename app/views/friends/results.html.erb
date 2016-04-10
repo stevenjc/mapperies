@@ -56,7 +56,6 @@
     <% end %>
  <% end %>
 
-
 <section id="services" class="services bg-primary">
         <div class="container">
             <div class="row text-center">
@@ -69,55 +68,27 @@
 
                     <div class="row">
                     	<td> <% @results.each do |u| %></td>
-
-                            
-							
-								<%#= Popular::Friendship.where(popular_model_id:current_user).where(friend_id:u.id) %>
-
-
                         <div class="col-md-3 col-sm-6">
-
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
                                 	<i class="fa fa-circle fa-stack-2x"></i>
                                 	<i class="fa fa-cloud fa-stack-1x text-primary"></i>
                             	</span>
                                 <h4>
-                                   <!-- <tr> <td> <#% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?  repeated from above-->
+                        	  		<td> <%= u.first_name %> <%= u.last_name %></td>
 
-                                    	  		<td> <%= u.first_name %> <%= u.last_name %></td>
-
-
-                                                <%= form_tag("/friends", :action => "index", method: "get") do %>
-                                    <%#= label_tag(:user, u.first_name) %>
+                                    <%= form_tag("/friends", :action => "index", method: "get") do %>
                                     <%= hidden_field_tag(:friend, u.id) %>
                                     <br />
                                     <%= submit_tag("Add as Friend") %>
  										<td><% end %></td>
                            			</tr>
                                 </h4>
-                        
-                                
-
-                              <!--  <#% end %>-->
-                        <%#= button_to 'Add as Friend222222222', {:action => "index", :user => u.first_name} , :method => :post %>
-
                             </div>
                         </div>
                     <% end %>
-
                     </div>
-<%#= form_tag("/friends#index", method: "post") do %>
-                        	<!--<a href="#" class="btn btn-light">Add as Friend</a>-->
-                        	<!--grab that user-->
-                        	<%# @add_friend = u %>
-                        	<%#= hidden_field_tag 'add_friend', @user %>
-                        	<%#= submit_tag("Add as Friend") %>
-                        	<%#= button_to 'Add as Friend', {:controller => "friends", :action => "index", :user => "this is a test"} , :method=>:post %>
-                        <td><%# end %></td>
                 </hr>
-
-
                     </div>
                     <!-- /.row (nested) -->
                 </div>
@@ -127,5 +98,4 @@
         </div>
         <!-- /.container -->
     </section>
-
 </body>

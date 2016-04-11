@@ -47,131 +47,128 @@
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
-    <% end %>      
+    <% end %>
 
     <section id="services" class="services bg-primary">
 
+      <% if @get_friend_reqs.size >= 1 %>
         <div class="container">
-        <br />
-            <!--Shows friend requests-->
-            <% if @get_friend_reqs %>
-                <% @get_friend_reqs.each do |f| %>
-                    <div>
-                        <% if !f.did_accept %>
-                        <% f_request = f.popular_model_id #for decline/reject%>
-
-                        <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
-                    
-                        <!--Option to accept friend request-->
-                        <%= form_tag("/friends", :action => "index", method: "get") do %>
-                            <%= hidden_field_tag(:accept, f.id) %>
-                            <br />
-                            <%= submit_tag("Accept as Friend") %>
-                        <% end %>
-
-                        <!--Option to decline friend request-->
-                        <%= form_tag("/friends", :action => "index", method: "get") do %>
-                            <%= hidden_field_tag(:reject, f_request) %>
-                            <%= submit_tag("Decline") %>
-                        <% end %>
-
-                        <% end %>    
-                    </div>         
-                <% end %>
-            <% end %>
-   
+          <br />
+          <button class="btn col-md-offset-11 col-md-1" type="button" data-toggle="collapse" data-target="#friend-request-list" aria-expanded="false" aria-controls="friend-request-list" id="friend-request-toggle">
+            <%=@get_friend_reqs.size%> <i class="fa fa-user-plus"></i>
+          </button>
+          <div class="collapse" id="friend-request-list">
             <div>
-            <!--When user accepts friend request, shows alert-->         
-            <% if @get_friend_reqs %>
-                <% friend_shown_array = Array.new %>
-                <% @get_friend_reqs.each do |f| %>
-                    <% if f.did_accept %>
-                        <% friend_shown_array.push(f) %>
+              <!--Shows friend requests-->
+                  <% @get_friend_reqs.each do |f| %>
+                      <div>
+                          <% if !f.did_accept %>
+                            <% f_request = f.popular_model_id #for decline/reject%>
+                            <div>
+                              <div class="col-sm-4 col-md-2">
+                                <div class="thumbnail">
 
+                                  <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" alt="Profile Picture">
+                                  <div class="caption">
+                                    <h3>
+                                      <%= User.find(f.popular_model_id).first_name %>
+                                      <br/>
+                                      <%= User.find(f.popular_model_id).last_name %>
+                                    </h3>
+                                    <p>has sent you a friend request</p>
+                                    <p>
+                                      <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                          <%= hidden_field_tag(:accept, f.id) %>
+                                          <br />
+                                          <%= button_tag(type: 'submit', class: "btn btn-primary", id: "friend-accept") do %>
+                                              <i class="fa fa-check"></i>
+                                          <% end %>
+                                      <% end %>
+                                      <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                          <%= hidden_field_tag(:reject, f_request) %>
+                                          <%= button_tag(type: 'submit', class: "btn btn-danger", id: "friend-decline") do %>
+                                              <i class="fa fa-times"></i>
+                                          <% end %>
+                                      <% end %>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          <% end %>
+
+                      </div>
+                  <% end %>
+            </div>
+        </div>
+      <% end %>
+
+      <div>
+      <!--When user accepts friend request, shows alert-->
+      <!-- Displays a notification to user when friend accepts request -->
+        <% @friend_shown_array = Popular::Friendship.where(popular_model_id:current_user.id) %>
+            <%= @friend_shown_array == nil %>
+            <% if @friend_shown_array %>    
+                <% @friend_shown_array.each do |f| %>
+                    <% if f.did_accept %>
+                        <% Popular::Friendship.find(f).update_attribute(:did_accept, false) %> <!--Needed to keep track of which ones were already shown -->
+                        
                         <!--From _alert.html.erb -->
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
-                        </div>  
+                        <%= render :layout =>'layouts/alert' do %>
+                          You accepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
+                        <%end%>
                     <% end %>
                 <% end %>
-
-                <!--Remove accepted requests after they're shown-->
-                <% friend_shown_array.each do |f| %>
-                    <!--<#% @get_friend_reqs.delete(f) %>-->
-
-                <% end #maybe this needs to be a separate clicking action in the alert??%>
             <% end %>
-            </div>
-
-            <!--When friend accepts user's request, shows alert-->
-            <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
-                <% if u.did_accept %>
-
-                <!--From _alert.html.erb -->
-                    <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <%= User.find(u.friend_id).first_name %> <%= User.find(u.friend_id).last_name %> accepted your request!
-                    </div> 
-                        
-                <% end %>
-            <% end %>
+        </div>
 
         <!-- Displays the user's friends -->
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
-                <h2> My Friends </h2>
-                <hr class="small">
+                  <h2> My Friends </h2>
+                  <hr class="small">
                     <div class="row">
-                        <td> 
-                            <% if @all_friends %>
-                                <% @all_friends.each do |f| %>
-                                    <div class="col-md-3 col-sm-6">
-                                    <div class="service-item">
+                      <td>
+                        <% if @all_friends %>
+                          <% @all_friends.each do |f| %>
+                            <div class="col-md-3 col-sm-6">
+                              <div class="service-item">
 
-                                    <!--Removing a friend -->
-                                   <!-- <%#= form_tag("/friends", :action => "index", method: "get") do %>-->
+                                <!--Removing a friend -->
+                               <!-- <%#= form_tag("/friends", :action => "index", method: "get") do %>-->
 
+                                <!-- Listing all friends -->
+                                <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" class="img-responsive img-rounded"  alt="Profile Picture">
+                                <h4> <tr>
+                                    <%= f.first_name %> <%=f.last_name%>
+                                </tr> </h4>
 
-
-                                    <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return remove_friend()') do %>
-                                        <% u = f.id %>
-
-                                        <%= hidden_field_tag(:remove, u) %>
-                                        <br />
-                                       <%= submit_tag "Remove Friend" %> <!---,:onclick => "return confirm('Are you sure?')" %>-->
-
-                                       <!-- <input type="submit" value="Remove Friend" onclick="return confirm('Are you sure?')"-->
-                                    <% end %>
-                                    
-
-                                    <!-- Listing all friends -->
-                                    <span class="fa-stack fa-4x">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                                    </span>
-                                    <h4> <tr> 
-                                        <%= f.first_name %>
-                                    </tr> </h4>
-
-                                    <!--Expand to see a friend's albums-->
-                                    <div style="background-color:blue"><!--needs to go to css -->
-                                    <span class="expand"><class="btn btn-light">See Albums</a></span>
-                                    <ul>
-                                        <!--This is where the user's albums will go -->
-                                        <li><span>Album 1</span></li>
-                                        <li><span>Album 2</span></li>
-                                        <li><span>Album 3</span></li>
-                                    </ul>
-                                    </div>
-                                    </div>
-                                    </div>
+                              <!--Expand to see a friend's albums-->
+                                <div style="background-color:blue"><!--needs to go to css -->
+                                  <span class="expand"><class="btn btn-light">See Albums</a></span>
+                                  <ul>
+                                    <!--This is where the user's albums will go -->
+                                    <li><span>Album 1</span></li>
+                                    <li><span>Album 2</span></li>
+                                    <li><span>Album 3</span></li>
+                                  </ul>
+                                </div>
+                              </div>
+                              <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return remove_friend()') do %>
+                                <% u = f.id %>
+                                <%= hidden_field_tag(:remove, u) %>
+                                <%= button_tag(type: 'submit', class: "btn btn-danger", id: "friend-remove") do %>
+                                  <i class="fa fa-user-times"></i>
                                 <% end %>
-                            <% end %>
-                        </td>
+                              <% end %>
+                            </div>
+                          <% end %>
+                        <% end %>
+                      </td>
                     </div>
-                </hr>
+                  </hr>
                 </div>
             </div>
         </div>

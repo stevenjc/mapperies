@@ -4,7 +4,8 @@ class FriendsController < ApplicationController
   def index
 	@nav_bar = true
     @all_users = User.all
-    @get_friend_reqs = Popular::Friendship.where(friend_id:current_user)
+    @friend_reqs = Popular::Friendship.where(friend_id:current_user.id)
+
 
     #When one user friends another
     if params[:friend]
@@ -16,7 +17,9 @@ class FriendsController < ApplicationController
 	#When the friend accepts the request
 	if params[:accept]
     	Popular::Friendship.find(params[:accept].to_i).update_attribute(:did_accept, true)
+        #@friend_shown_array = Popular::Friendship.where(popular_model_id:current_user.id).to_a.clone
     end
+
     #If friend rejects request
     if params[:reject]
     	User.find(params[:reject].to_i).unfriend current_user
@@ -29,14 +32,14 @@ class FriendsController < ApplicationController
     
     #might need to check if user friender/friendee is null
     @user_friender.each do |f|
-    if f.did_accept
+    if f.did_accept != nil
     		User.find(f.friend_id).first_name
         	@all_friends.push(User.find(f.friend_id))
     	end
     end
     
     @user_friendee.each do |f|
-    	if f.did_accept
+    	if f.did_accept != nil
             User.find(f.popular_model_id).first_name
             @all_friends.push(User.find(f.popular_model_id))
         end

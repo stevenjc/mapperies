@@ -1,3 +1,29 @@
 // Place all the styles related to the Account controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+#edit_button{
+    float: right;
+}
+
+#account_edit_form{
+    text-align: center;
+    font-family: "Times New Roman";
+}
+
+#account_edit_header{
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.account_edit_form_label{
+    font-family: "sans-serif";
+    color: #000000;
+    font-weight: 900;
+}
+
+#confirm_edit_button{
+}

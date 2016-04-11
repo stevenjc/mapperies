@@ -4,10 +4,36 @@ class AlbumsController < ApplicationController
 
   def index
 	@nav_bar = true
-    @albums = Album.all
+    @albums = Album.where(user_id: current_user.id)
+  end
+
+  def new
+    @album = Album.new
+  end
+
+  def create
+    @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name])
+
+    respond_to do |format|
+      if @album.save
+        format.html { redirect_to @album, notice: 'Album was successfully created.' }
+        format.json { render :show, status: :created, location: @album }
+      else
+        format.html { render :new }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show
+      @album = Album.find(params[:id])
+      @photos = Photo.where(album_id: params[:id])
+  end
+
+  def delete
+    #identify the user first...
+    Album.find(params[:id]).destroy
+    redirect_to :action => 'index'
   end
 
   private
@@ -17,7 +43,7 @@ class AlbumsController < ApplicationController
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
-  def album_params
-    params.require(:subject).permit(:name)
-  end
+  # def album_params
+    # params.require(:subject).permit(:name, :cover)
+  # end
 end

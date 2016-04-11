@@ -1,7 +1,26 @@
 <p id="notice"><%= notice %></p>
+
 <p>
   <strong>Name:</strong>
   <%= @album.album_name %>
 </p>
+
+<% if @photos.blank? %>
+  <p> You don't have any photos yet </p>
+  <p> Your ID: <%= current_user.id %> </p>
+<% else %>
+  <h2>You have <% @photos.count %> photos!</h2>
+  <% @photos.each do |p| %>
+    <p><%=image_tag p.image.url(:med) %></p>
+  <% end %>
+<% end %>
+
+ <!-- <%= form_tag "create", controller: "photos", method: "post"  do %>
+  <%= file_field_tag 'image' %>
+  <%= submit_tag("Upload") %>
+<% end %> -->
+
+<%= button_to 'Upload Photos!', new_photo_path %>
+
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

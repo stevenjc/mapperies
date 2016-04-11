@@ -3,3 +3,4 @@ tmp/*
 log/development.log
 *~
 *.sqlite3
+public/assets/*

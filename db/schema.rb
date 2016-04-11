@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160324042840) do
+ActiveRecord::Schema.define(version: 20160329214755) do
 
   create_table "album_views", force: :cascade do |t|
     t.integer "album_id"
@@ -19,9 +19,13 @@ ActiveRecord::Schema.define(version: 20160324042840) do
   end
 
   create_table "albums", force: :cascade do |t|
-    t.string  "album_name"
-    t.integer "user_id"
-    t.string  "url"
+    t.string   "album_name"
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   create_table "friends", force: :cascade do |t|
@@ -43,10 +47,14 @@ ActiveRecord::Schema.define(version: 20160324042840) do
   add_index "friendships", ["popular_model_id", "popular_model_type"], name: "index_friendships_on_popular_model_id_and_popular_model_type"
 
   create_table "photos", force: :cascade do |t|
-    t.string  "url"
-    t.float   "x_coord"
-    t.float   "y_coord"
-    t.integer "album_id"
+    t.string   "url"
+    t.float    "x_coord"
+    t.float    "y_coord"
+    t.integer  "album_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

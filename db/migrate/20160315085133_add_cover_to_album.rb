@@ -3,5 +3,6 @@ class AddCoverToAlbum < ActiveRecord::Migration
     change_table :albums do |t|
       t.string :url
     end
+    add_attachment :albums, :cover
   end
 end

@@ -1,27 +1,59 @@
-<div>
-    <%= form_for @user, url: {action: "save"}, html: {class: "edit_form"} do |f| %>
-        <%=label_tag :Email%>
+<div id="account_edit_header" class="page-header">
+    <h1>Editing Account: <%=current_user.email%></h1>
+</div>
+
+<div class="col-md-12">
+    <%= form_for @user, url: {action: "save"}, html: {id: "account_edit_form"} do |f| %>
+
+        <%=label_tag :Email, "Email", class: "account_edit_form_label"%>
         <div class = "form-group">
             <%= f.text_field :email%>
         </div>
-        <%=label_tag :First_Name%>
+
+        <%=label_tag :First_Name, "First Name", class: "account_edit_form_label"%>
         <div class = "form-group">
             <%= f.text_field :first_name%>
         </div>
-        <%=label_tag :Last_Name%>
+
+        <%=label_tag :Last_Name, "Last Name", class: "account_edit_form_label"%>
         <div class = "form-group">
             <%= f.text_field :last_name%>
         </div>
-        <%=label_tag :User_Name%>
+
+        <%=label_tag :User_Name, "User Name", class: "account_edit_form_label"%>
         <div class = "form-group">
             <%= f.text_field :user_name%>
         </div>
-        <%=label_tag :Birthday%>
+
+        <%=label_tag :Birthday, "Birthday", class: "account_edit_form_label"%>
         <div class = "form-group">
             <%= f.date_field :birthday%>
         </div>
 
-        <%= f.submit "Edit" %>
+        <%= button_tag(type: 'button', class: "btn btn-primary", "data-toggle"=> "modal", "data-target"=> "#confirm_edit") do %>
+            <i class="fa fa-pencil-square-o fa-2x"></i>
+        <% end %>
+
+        <a href="/account/settings" class="btn btn-warning">
+            <i class="fa fa-times fa-2x"></i>
+        </a>
+
+
+        <div class="modal fade" tabindex="-1" role="dialog" id="confirm_edit">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Are sure you want to save changes?</h4>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="confirm_edit_button">Save changes</button>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
 
     <% end %>
 </div>

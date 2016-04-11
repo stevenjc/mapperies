@@ -1,11 +1,6 @@
-<h1> Upload Photo</h1>
+<h1> Upload Photo to current album...</h1>
 
-<%= form_for @photos, html: {multipart: true} do |f| %>
-
-  <div class="form-group">
-    <%= f.label :album_id %>
-    <%= f.text_field :album_id %>
-  </div>
+<%= form_for @photo, html: {multipart: true} do |f| %>
 
   <div class="form-group">
     <%= f.label :image %>

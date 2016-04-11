@@ -1,6 +1,8 @@
 <%= include_gon %>
-<h1> user's map </h1>
-<div id="map">this is the map</div>
+<div id="main_header" class="col-mid-8">
+    <h1> <%=user_identifier%>'s Default Map </h1>
+</div>
+<div id="map" class="col-mid-12">this is the map</div>
 
 <%= javascript_include_tag "/js/jquery.js" %>
 <%= javascript_include_tag "/js/bootstrap.min.js" %>

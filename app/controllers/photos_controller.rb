@@ -1,52 +1,61 @@
-
 class PhotosController < ApplicationController
   def index
     @photos = Photo.all
   end
 
-  def show
-    @photo = Photo.find(params[:id])
-  end
-
   def new
-    @photos = Photo.new()
+    @photo = Photo.new
   end
 
   def create
-    @photo = Photo.new(album_id: params[:album_id])
-    @album = Album.where(id: params[:album_id])
+    @photo = Photo.new(album_id: params[:id], url: params[:url], image: params[:photo][:image])
+    #db_attr: params[:something]
 
-    if @photo.save
-      flash[:notice] = "Successfully uploaded photo"
-      redirect_to "@photos"
-    else
-      flash[:notice] = "Something went wrong when uploading your image"
-      render new_album_photo_path
+    # puts @photo.image.url(:med)
+    # puts @photo.album_id
+    # puts @photo.image
+    # gets
+
+    respond_to do |format|
+      if @photo.save
+        format.html { redirect_to albums_path+'/'+(params[:id]), notice: 'Photo Uploaded!' }
+        format.json { render :show, status: :created, location: @photo }
+      else
+        format.html { render :new }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
     end
   end
 
-  def edit
+  def show
     @photos = Photo.find(params[:id])
   end
 
-  def update
-    @photos = Photo.find(params[:id])
-    if @photos.update_attributes(params[:photo])
-      flash[:notice] = "Successfully updated photo"
-      redirect_to @photos
-    else
-      render :action => 'edit'
-    end
-  end
+  private
+  # def photo_params
+    # params.require(:photo).permit(:album_id, :url, :image)
+  # end
 
-  def destroy
-    @photos = Photo.find(params[:id])
-    @photos.destroy
-    flash[:notice] = "Successfully deleted photo"
-    redirect_to photos_url
-  end
+#coming from the master...
+  # def edit
+  #   @photos = Photo.find(params[:id])
+  # end
+  #
+  # def update
+  #   @photos = Photo.find(params[:id])
+  #   if @photos.update_attributes(params[:photo])
+  #     flash[:notice] = "Successfully updated photo"
+  #     redirect_to @photos
+  #   else
+  #     render :action => 'edit'
+  #   end
+  # end
+  #
+  # def destroy
+  #   @photos = Photo.find(params[:id])
+  #   @photos.destroy
+  #   flash[:notice] = "Successfully deleted photo"
+  #   redirect_to photos_url
+  # end
 
-  def photo_params
-    params.require(:image).permit(:album_id)
-  end
 end

@@ -1,10 +1,17 @@
  <!-- About -->
     <section id="login" class="login">
-        <div class="panel panel-success" id="settings-start">
+        <div class="panel panel-success col-md-14" id="settings-start">
+
+            <a id="edit_button" class="btn btn-warning" href="edit" role="button">
+                <i class="fa fa-pencil-square-o"></i>
+            </a>
+
             <div class="panel-heading">
+
               <h3 class="panel-title">Account Settings</h3>
-              <a class="btn btn-danger" href="edit" role="button">Edit</a>
+
             </div>
+
             <div class="panel-body">
                 <ul class="list-group">
                     <li class='list-group-item'>
@@ -36,6 +43,10 @@
                         <%end%>
                     </li>
                 </ul>
+
+                <%= button_tag role: "button", class: "btn btn-danger", id: "delete_button" do %>
+                    <i class="fa fa-exclamation-triangle"></i>  Delete Account
+                <% end %>
             </div>
         </div>
 

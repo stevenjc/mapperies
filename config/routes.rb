@@ -20,9 +20,14 @@ Rails.application.routes.draw do
 
   resources :album_views
   resources :friends
+
   resources :albums do
-    resources :photos
+    member do
+      resources :photos
+      post 'photos/new'
+    end
   end
+
 
     post "photos/create"
 
@@ -30,11 +35,13 @@ Rails.application.routes.draw do
   resources :users
 
   post 'albums/create'
+  post 'albums/new'
 
+  resources :users
   resources :accounts
 
-  get 'account/settings'
-  get 'account/edit'
+  get 'account/settings', as: "account_settings"
+  get 'account/edit', as: "account_edit"
   patch 'account/save'
 
 

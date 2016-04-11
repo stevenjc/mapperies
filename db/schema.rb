@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160331185344) do
+ActiveRecord::Schema.define(version: 20160329214755) do
 
   create_table "album_views", force: :cascade do |t|
     t.integer "album_id"
@@ -19,9 +19,13 @@ ActiveRecord::Schema.define(version: 20160331185344) do
   end
 
   create_table "albums", force: :cascade do |t|
-    t.string  "album_name"
-    t.integer "user_id"
-    t.string  "url"
+    t.string   "album_name"
+    t.integer  "user_id"
+    t.string   "url"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   create_table "friends", force: :cascade do |t|

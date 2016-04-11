@@ -67,7 +67,7 @@
                     <div class="row">
                     	<td> <% @results.each do |u| %></td>
 
-                             <!--Exclude self, exclude if already has person as friend -->
+                             <!--Exclude self, exclude if already has person as friend-->
 							<% if u.id != current_user.id && Popular::Friendship.where(popular_model_id:current_user.id).where(friend_id:u.id).empty? %>
 								<%#= Popular::Friendship.where(popular_model_id:current_user).where(friend_id:u.id) %>
 

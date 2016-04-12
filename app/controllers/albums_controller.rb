@@ -3,7 +3,8 @@ class AlbumsController < ApplicationController
   before_action :set_album, only: [:show]
 
   def index
-	@nav_bar = true
+	  @nav_bar = true
+    # Grab all the albums of the current user
     @albums = Album.where(user_id: current_user.id)
   end
 
@@ -12,8 +13,8 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    # Create a new album where it is tied to the current user
     @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name])
-
     respond_to do |format|
       if @album.save
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
@@ -25,7 +26,9 @@ class AlbumsController < ApplicationController
     end
   end
 
+  # Grab all the photos in the current album to show them
   def show
+      @photo = Photo.new
       @album = Album.find(params[:id])
       @photos = Photo.where(album_id: params[:id])
   end

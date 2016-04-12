@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   get '/friends/results', to:"friends#results"
   post '/friends/results', to:"friends#results"
 
+  get '/mobile', to: "main#mobile"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

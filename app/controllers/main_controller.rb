@@ -13,4 +13,9 @@ class MainController < ApplicationController
   gon.brandeisCoords= @brandeisCoords
   gon.brandeis = @brandeis
   end
+
+  def mobile
+    @nav_bar=true
+
+  end
 end

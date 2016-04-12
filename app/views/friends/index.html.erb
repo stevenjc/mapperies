@@ -51,18 +51,25 @@
 
     <section id="services" class="services bg-primary">
 
-      <% if @get_friend_reqs.size >= 1 %>
+    <% @show_friend_reqs = Array.new %> <!--To show num of friends -->
+    <% @get_friend_reqs.each do |f| %>
+        <% if f.did_accept == nil %>
+            <% @show_friend_reqs.push(f) %>
+        <% end %>
+    <% end %>
+
+      <% if @show_friend_reqs %>
         <div class="container">
           <br />
           <button class="btn col-md-offset-11 col-md-1" type="button" data-toggle="collapse" data-target="#friend-request-list" aria-expanded="false" aria-controls="friend-request-list" id="friend-request-toggle">
-            <%=@get_friend_reqs.size%> <i class="fa fa-user-plus"></i>
+            <%=@show_friend_reqs.size%> <i class="fa fa-user-plus"></i>
           </button>
           <div class="collapse" id="friend-request-list">
             <div>
               <!--Shows friend requests-->
-                  <% @get_friend_reqs.each do |f| %>
+                  <% @show_friend_reqs.each do |f| %>
                       <div>
-                          <% if !f.did_accept %>
+                          <!--<#% if f.did_accept != nil || f.did_accept != false %>--> 
                             <% f_request = f.popular_model_id #for decline/reject%>
                             <div>
                               <div class="col-sm-4 col-md-2">
@@ -96,7 +103,7 @@
                               </div>
                             </div>
 
-                          <% end %>
+                          <!--<#% end %>-->
 
                       </div>
                   <% end %>
@@ -116,7 +123,7 @@
                         
                         <!--From _alert.html.erb -->
                         <%= render :layout =>'layouts/alert' do %>
-                          You accepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
+                          <%= User.find(f.friend_id).first_name %> <%= User.find(f.friend_id).last_name %>'s accepted your friend request!
                         <%end%>
                     <% end %>
                 <% end %>

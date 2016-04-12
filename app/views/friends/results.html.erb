@@ -39,8 +39,9 @@
     <![endif]-->
 
 </head>
+
 <body>
-<%= form_tag("/friends/results", method: "post") do %>
+    <%= form_tag("/friends/results", method: "post") do %>
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
@@ -67,8 +68,7 @@
                 	<hr class="small">
 
                     <div class="row">
-                    	<td> <% @results.each do |u| %></td>
-
+                    <td> <% @results.each do |u| %></td>
                         <div class="col-md-3 col-sm-6">
                             <div class="service-item">
                                 <span class="fa-stack fa-4x">
@@ -76,21 +76,22 @@
                                 	<i class="fa fa-cloud fa-stack-1x text-primary"></i>
                             	</span>
                                 <h4>
-                        	  		<td> <%= u.first_name %> <%= u.last_name %></td>
+                    	  		<td> <%= u.first_name %> <%= u.last_name %></td>
 
-                                    <tr> <td> <% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?-->
+                                <tr> <td> <% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?-->
                                     <%= form_tag("/friends", :action => "index", method: "get") do %>
-                                    <%= hidden_field_tag(:friend, u.id) %>
-                                    <br />
-                                    <%= submit_tag("Add as Friend") %>
- 										<td><% end %></td>
-                           			</tr>
+                                        <%= hidden_field_tag(:friend, u.id) %>
+                                        <br />
+                                        <%= submit_tag("Add as Friend") %>
+									<td><% end %></td>
+                                <% end %>
+                       			</tr>
                                 </h4>
                             </div>
                         </div>
                     <% end %>
                     </div>
-                </hr>
+                    </hr>
                     </div>
                     <!-- /.row (nested) -->
                 </div>

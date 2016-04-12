@@ -4,7 +4,7 @@ class FriendsController < ApplicationController
   def index
 	@nav_bar = true
     @all_users = User.all
-    @friend_reqs = Popular::Friendship.where(friend_id:current_user.id)
+    @get_friend_reqs = Popular::Friendship.where(friend_id:current_user.id)
 
 
     #When one user friends another

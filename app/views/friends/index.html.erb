@@ -38,7 +38,7 @@
     <![endif]-->
 
 </head>
-<!-- Navigation -->
+<!-- Navigation --->
 <!--<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>-->
 
 <!-- Services -->
@@ -47,131 +47,154 @@
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
-    <% end %>      
+    <% end %>
 
     <section id="services" class="services bg-primary">
 
+    <% @show_friend_reqs = Array.new %> <!--To show num of friends -->
+    <% @get_friend_reqs.each do |f| %>
+        <% if f.did_accept == nil %>
+            <% @show_friend_reqs.push(f) %>
+        <% end %>
+    <% end %>
+
+      <% if @show_friend_reqs %>
         <div class="container">
-        <br />
-            <!--Shows friend requests-->
-            <% if @get_friend_reqs %>
-                <% @get_friend_reqs.each do |f| %>
-                    <div>
-                        <% if !f.did_accept %>
-                        <% f_request = f.popular_model_id #for decline/reject%>
-
-                        <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %> has sent you a friend request: 
-                    
-                        <!--Option to accept friend request-->
-                        <%= form_tag("/friends", :action => "index", method: "get") do %>
-                            <%= hidden_field_tag(:accept, f.id) %>
-                            <br />
-                            <%= submit_tag("Accept as Friend") %>
-                        <% end %>
-
-                        <!--Option to decline friend request-->
-                        <%= form_tag("/friends", :action => "index", method: "get") do %>
-                            <%= hidden_field_tag(:reject, f_request) %>
-                            <%= submit_tag("Decline") %>
-                        <% end %>
-
-                        <% end %>    
-                    </div>         
-                <% end %>
-            <% end %>
-   
+          <br />
+          <button class="btn col-md-offset-11 col-md-1" type="button" data-toggle="collapse" data-target="#friend-request-list" aria-expanded="false" aria-controls="friend-request-list" id="friend-request-toggle">
+            <%=@show_friend_reqs.size%> <i class="fa fa-user-plus"></i>
+          </button>
+          <div class="collapse" id="friend-request-list">
             <div>
-            <!--When user accepts friend request, shows alert-->         
-            <% if @get_friend_reqs %>
-                <% friend_shown_array = Array.new %>
-                <% @get_friend_reqs.each do |f| %>
+              <!--Shows friend requests-->
+                  <% @show_friend_reqs.each do |f| %>
+                      <div>
+                          <!--<#% if f.did_accept != nil || f.did_accept != false %>-->
+                            <% f_request = f.popular_model_id #for decline/reject%>
+                            <div>
+                              <div class="col-sm-4 col-md-2">
+                                <div class="thumbnail">
+
+                                  <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" alt="Profile Picture">
+                                  <div class="caption">
+                                    <h3>
+                                      <%= User.find(f.popular_model_id).first_name %>
+                                      <br/>
+                                      <%= User.find(f.popular_model_id).last_name %>
+                                    </h3>
+                                    <p>has sent you a friend request</p>
+                                    <p>
+                                      <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                          <%= hidden_field_tag(:accept, f.id) %>
+                                          <br />
+                                          <%= button_tag(type: 'submit', class: "btn btn-primary", id: "friend-accept") do %>
+                                              <i class="fa fa-check"></i>
+                                          <% end %>
+                                      <% end %>
+                                      <%= form_tag("/friends", :action => "index", method: "get") do %>
+                                          <%= hidden_field_tag(:reject, f_request) %>
+                                          <%= button_tag(type: 'submit', class: "btn btn-danger", id: "friend-decline") do %>
+                                              <i class="fa fa-times"></i>
+                                          <% end %>
+                                      <% end %>
+                                    </p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                          <!--<#% end %>-->
+
+                      </div>
+                  <% end %>
+            </div>
+        </div>
+      <% end %>
+
+      <div>
+      <!--When user accepts friend request, shows alert-->
+      <!-- Displays a notification to user when friend accepts request -->
+        <% @friend_shown_array = Popular::Friendship.where(popular_model_id:current_user.id) %>
+            <%= @friend_shown_array == nil %>
+            <% if @friend_shown_array %>
+                <% @friend_shown_array.each do |f| %>
                     <% if f.did_accept %>
-                        <% friend_shown_array.push(f) %>
+                        <% Popular::Friendship.find(f).update_attribute(:did_accept, false) %> <!--Needed to keep track of which ones were already shown -->
 
                         <!--From _alert.html.erb -->
-                        <div class="alert alert-warning alert-dismissible" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    you acccepted <%= User.find(f.popular_model_id).first_name %> <%= User.find(f.popular_model_id).last_name %>'s friend request!
-                        </div>  
+                        <%= render :layout =>'layouts/alert' do %>
+                          <%= User.find(f.friend_id).first_name %> <%= User.find(f.friend_id).last_name %>'s accepted your friend request!
+                        <%end%>
                     <% end %>
                 <% end %>
-
-                <!--Remove accepted requests after they're shown-->
-                <% friend_shown_array.each do |f| %>
-                    <!--<#% @get_friend_reqs.delete(f) %>-->
-
-                <% end #maybe this needs to be a separate clicking action in the alert??%>
             <% end %>
-            </div>
-
-            <!--When friend accepts user's request, shows alert-->
-            <% Popular::Friendship.where(popular_model_id:current_user.id).each do |u| %>
-                <% if u.did_accept %>
-
-                <!--From _alert.html.erb -->
-                    <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <%= User.find(u.friend_id).first_name %> <%= User.find(u.friend_id).last_name %> accepted your request!
-                    </div> 
-                        
-                <% end %>
-            <% end %>
+        </div>
 
         <!-- Displays the user's friends -->
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-10 col-lg-offset-1">
-                <h2> My Friends </h2>
-                <hr class="small">
-                    <div class="row">
-                        <td> 
-                            <% if @all_friends %>
-                                <% @all_friends.each do |f| %>
-                                    <div class="col-md-3 col-sm-6">
-                                    <div class="service-item">
+                  <h2> My Friends </h2>
+                  <hr class="small">
+                  <% if @all_friends %>
+                    <% @all_friends.each do |f| %>
+                        <div>
+                          <td>
+                            <div class="col-md-3 col-sm-3">
+                              <div class="service-item">
 
-                                    <!--Removing a friend -->
-                                   <!-- <%#= form_tag("/friends", :action => "index", method: "get") do %>-->
+                                <!-- Listing all friends -->
+                                <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" class="img-responsive img-rounded"  alt="Profile Picture">
+                                <h4> <tr>
+                                    <%= f.first_name %> <%=f.last_name%>
+                                </tr> </h4>
 
-
-
-                                    <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return remove_friend()') do %>
-                                        <% u = f.id %>
-
-                                        <%= hidden_field_tag(:remove, u) %>
-                                        <br />
-                                       <%= submit_tag "Remove Friend" %> <!--,:onclick => "return confirm('Are you sure?')" %>-->
-
-                                       <!-- <input type="submit" value="Remove Friend" onclick="return confirm('Are you sure?')"-->
-                                    <% end %>
-                                    
-
-                                    <!-- Listing all friends -->
-                                    <span class="fa-stack fa-4x">
-                                        <i class="fa fa-circle fa-stack-2x"></i>
-                                        <i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                                    </span>
-                                    <h4> <tr> 
-                                        <%= f.first_name %>
-                                    </tr> </h4>
-
-                                    <!--Expand to see a friend's albums-->
-                                    <div style="background-color:blue"><!--needs to go to css -->
-                                    <span class="expand"><class="btn btn-light">See Albums</a></span>
-                                    <ul>
-                                        <!--This is where the user's albums will go -->
-                                        <li><span>Album 1</span></li>
-                                        <li><span>Album 2</span></li>
-                                        <li><span>Album 3</span></li>
-                                    </ul>
-                                    </div>
-                                    </div>
-                                    </div>
+                              <!--Expand to see a friend's albums-->
+                              <div class="friend-album-list">
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh4VdRL4EcSj8soaw00LjK2qCrA4aJiLcL4xm6F5sgyBG6ePLIrA" alt="...">
+                                  </a>
+                                  United States of America
+                                </div>
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/03/9b/2f/47/boston.jpg" alt="...">
+                                  </a>
+                                  Boston
+                                </div>
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="http://d32np4uylixs8c.cloudfront.net/~/media/images/itinerary%20assets/trip%20gallery%20module%20images/south%20america/es2011_img1.jpg?mw=262&revisionid=14_58_2010" alt="...">
+                                  </a>
+                                  South America
+                                </div>
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="data:image/jpeg;base64,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" alt="...">
+                                  </a>
+                                  Soviet Union
+                                </div>
+                                <div>
+                                  <a class="thumbnail">
+                                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRXh0r_Ifw5HEXy-OuKEUB7s0cd8_kjX_BMbXw6cZusgLiLwKKSw" alt="...">
+                                  </a>
+                                  Germany
+                                </div>
+                              </div>
+                              <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return remove_friend()') do %>
+                                <% u = f.id %>
+                                <%= hidden_field_tag(:remove, u) %>
+                                <%= button_tag(type: 'submit', class: "btn btn-danger", id: "friend-remove") do %>
+                                  <i class="fa fa-user-times"></i>
                                 <% end %>
-                            <% end %>
-                        </td>
-                    </div>
-                </hr>
+                              <% end %>
+                            </div>
+                          </td>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </hr>
                 </div>
             </div>
         </div>
@@ -192,9 +215,49 @@ $('#services').find("span.expand").click(function(e){
 
 </script>
 <script type="text/javascript">
-function remove_friend(){
+  function remove_friend(){
     confirm('Are you sure?')
     if (confirm('Are you sure?')) {
          window.location.reload();
-    }
+  }}
+
+  $(document).ready(function(){
+    $('.friend-album-list').slick({
+      lazyLoad: 'ondemand',
+      dots: false,
+      arrows: false,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      slidesToScroll: 2,
+      centerMode: true,
+      adaptiveHeight: false,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true,
+          }
+        }
+      ]
+    });
+  });
 </script>

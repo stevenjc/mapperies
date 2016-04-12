@@ -1,6 +1,8 @@
 // Place all the styles related to the Account controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
 
 #edit_button{
     float: right;
@@ -21,4 +23,7 @@
     font-family: "sans-serif";
     color: #000000;
     font-weight: 900;
+}
+
+#confirm_edit_button{
 }

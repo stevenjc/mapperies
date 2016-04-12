@@ -15,29 +15,20 @@
   <% end %>
 <% end %>
 
- <!-- <%= form_tag "create", controller: "photos", method: "post"  do %>
-  <%= file_field_tag 'image' %>
-  <%= submit_tag("Upload") %>
-<% end %> -->
-
-<% if @photos.blank? %>
-  <p> You don't have any photos yet </p>
-  <p> Your ID: <%= current_user.id %> </p>
-<% end %>
-
 
 
 <%= form_for @photo, html: {multipart: true} do |f| %>
   <div class="form-group">
     <%= f.label :image %>
-    <%= f.file_field :image %>
+    <!-- <%= f.file_field :image %> -->
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
   </div>
 
   <%= f.submit 'Upload' %>
 <% end %>
 
-
-<%= button_to 'Upload Photos!', new_photo_path %>
+<!--Link to new_album_photo_path  -->
+<!-- <%= button_to 'Upload Photos!', new_photo_path %> -->
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

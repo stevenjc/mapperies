@@ -49,9 +49,6 @@ Rails.application.routes.draw do
 
    get '/landing', to:"landing#show"
 
-
- # get '/', to:"mapperies#landing"
-
   get '/login', to:"login#login"
 
   get '/main', to:"main#index"
@@ -62,8 +59,9 @@ Rails.application.routes.draw do
   get '/friends', to:"friends#index"
   post '/friends/index'
   post '/friends', to:"friends#index"
-  get '/friends/results', to:"friends#results"
-  post '/friends/results', to:"friends#results"
+  get 'friends/results' 
+  #get '/results', to:"friends#results"
+  post 'friends/results'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

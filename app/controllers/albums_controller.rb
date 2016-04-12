@@ -33,7 +33,7 @@ class AlbumsController < ApplicationController
       @photos = Photo.where(album_id: params[:id])
   end
 
-  def delete
+  def edit
     #identify the user first...
     Album.find(params[:id]).destroy
     redirect_to :action => 'index'

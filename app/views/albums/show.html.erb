@@ -13,9 +13,12 @@
   <% end %>
 </p>
 
+<p> test </p>
+<%= @test == nil %> <!-- If private-, if @test is empty: only user can see it, else, Show who album is shared with-->
+
 <p> Change privacy settings:
 <%= form_tag("albums/show", method: "get")  do %>
-  <%= select_tag(:option, options_for_select(["Public", "Private"], selected: :option)) %>
+  <%= select_tag(:option, options_for_select(["Public", "Private"], selected: :option)) %> <!-- change so it's the current option!! -->
 <%= submit_tag("Update") %>
 <% end %>
 </p>

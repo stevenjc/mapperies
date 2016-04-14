@@ -14,6 +14,8 @@ class AlbumsController < ApplicationController
 
   def new
     @album = Album.new
+    @users = User.all
+
   end
 
   def create
@@ -24,11 +26,18 @@ class AlbumsController < ApplicationController
       access = false
     end
 
+    #Need to create an album view for each friend
+    @test = params[:friends]
+      puts "###-----------------------------"
+      puts @test
+      puts "--------------------------" 
+
+
     # Create a new album where it is tied to the current user
     @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name], :isPublic => access)
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'Album was successfully created.' }
+        format.html { redirect_to album_path(@album, :test => params[:friends]), notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new }
@@ -42,6 +51,10 @@ class AlbumsController < ApplicationController
       @photo = Photo.new
       @album = Album.find(params[:id])
       @photos = Photo.where(album_id: params[:id])
+      @test = params[:test]
+      puts "-----------------------------"
+      puts @test
+      puts "--------------------------" 
 
       if params[:option]
         if params[:option] == "Public"
@@ -50,7 +63,6 @@ class AlbumsController < ApplicationController
           @album.update_attribute(:isPublic, false)
         end
       end
-
   end
 
   def delete

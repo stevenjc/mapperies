@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "sessions", only: [:create]
 
+  resources :users
   resources :users, controller: "users", only: [:create] do
     resource :password,
       controller: "clearance/passwords",
@@ -21,35 +22,33 @@ Rails.application.routes.draw do
   resources :album_views
   resources :friends
 
+  get '/albums', to: 'albums#index'
   resources :albums do
+    collection do
+      post 'create'
+      post 'new'
+    end
     member do
       post 'photos/new'
-      resources :photos do
-        member do
-          get 'edit', to: "photos#edit"
-          post 'update'
-          # delete 'delete'
-        end
-      end
     end
   end
 
   resources :photos do
     member do
       get 'edit', to: "photos#edit"
-      # delete 'delete'
+      post 'update'
+      # delete 'update'
+      # get 'update'
+      # get 'destroy', to: "photos#destroy"
+      # delete 'destroy'
     end
   end
 
   # post "photos/create"
-  # post "photos/destroy"
 
-  resources :users
 
-  post 'albums/create'
-  post 'albums/new'
 
-  resources :users
+
   resources :accounts
 
   get 'account/settings', as: "account_settings"

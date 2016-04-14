@@ -1,10 +1,13 @@
 <p id="notice"><%= notice %></p>
 <p>
   <strong>Name the new album:</strong>
+
+  <p> Also, choose if you would like to make it public or private, public meaning any of your friends can see the album, and private meaning you can limit viewing and/or uploading to specific users (or just yourself) </p>
 </p>
 
 <%= form_tag "create", method: "post"  do %>
   <%= text_field_tag 'album_name' %>
+  <%= select_tag(:option, options_for_select(["Public", "Private"], selected: :option)) %>
   <%= submit_tag("Create") %>
 <% end %>
 

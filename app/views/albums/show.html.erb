@@ -5,9 +5,25 @@
   <%= @album.album_name %>
 </p>
 
+<p> You're album is: 
+  <% if @album.isPublic %> 
+    Public
+  <% else %>
+    Private
+  <% end %>
+</p>
+
+<p> Change privacy settings:
+<%= form_tag("albums/show", method: "get")  do %>
+  <%= select_tag(:option, options_for_select(["Public", "Private"], selected: :option)) %>
+<%= submit_tag("Update") %>
+<% end %>
+</p>
+
 <% if @photos.blank? %>
   <p> You don't have any photos yet </p>
   <p> Your ID: <%= current_user.id %> </p>
+
 <% else %>
   <h2>You have <% @photos.count %> photos!</h2>
   <% @photos.each do |p| %>

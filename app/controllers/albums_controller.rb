@@ -42,6 +42,15 @@ class AlbumsController < ApplicationController
       @photo = Photo.new
       @album = Album.find(params[:id])
       @photos = Photo.where(album_id: params[:id])
+
+      if params[:option]
+        if params[:option] == "Public"
+          @album.update_attribute(:isPublic, true)
+        elsif param[:option] == "Private"
+          @album.update_attribute(:isPublic, false)
+        end
+      end
+
   end
 
   def delete

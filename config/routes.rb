@@ -74,6 +74,17 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'landing#show'
 
+  #Routes for API
+  namespace :api do
+    namespace :v1 do
+      resources :users do
+        resources :albums do
+          resources :photos
+        end
+      end
+    end
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -2,7 +2,7 @@ class Api::V1::PhotosController < Api::V1::BaseController
 
   def show
     begin
-      photo = Photo.where( id: params[:id], album_id: params[:album_id])
+      photo = Photo.find( id: params[:id], album_id: params[:album_id])
       render json: photo.to_json
     rescue
       render :json => { :errors => "No Photo Found" }, :status => 422

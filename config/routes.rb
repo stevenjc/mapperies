@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   #Routes for API
   namespace :api do
     namespace :v1 do
+      resource :session, controller: "sessions", only: [:create]
       resources :users do
         resources :albums do
           resources :photos

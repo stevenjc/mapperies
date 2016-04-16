@@ -4,8 +4,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     begin
       user = User.find params[:id]
       render json: user.to_json
-    rescue
-        render :json => { :errors => "Invalid User ID" }, :status => 422
+
     end
   end
 
@@ -13,4 +12,11 @@ class Api::V1::UsersController < Api::V1::BaseController
     users = User.all
     render json: users.to_json
   end
+
+  def create
+    user = User.create!(email: params[:email], password: params[:password], first_name: params[:first_name])
+    render json: user.to_json
+  end
+
+
 end

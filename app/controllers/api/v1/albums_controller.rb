@@ -1,12 +1,12 @@
 class Api::V1::AlbumsController < Api::V1::BaseController
 
   def show
-    begin
       album = Album.where( id: params[:id], user_id: params[:user_id])
-      render json: album.to_json
-    rescue
-      render :json => { :errors => "No Albums Found" }, :status => 422
-    end
+      if not album.empty?
+        render json: album.to_json
+      else
+        render :json => { :errors => "No Album Found" }, :status => 422
+      end
   end
 
   def index

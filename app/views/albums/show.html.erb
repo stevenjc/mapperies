@@ -14,7 +14,7 @@
 </p>
 
 <p> test </p>
-<%= @test == nil %> <!-- If private-, if @test is empty: only user can see it, else, Show who album is shared with-->
+<%= @friends_shared == nil %> <!-- If private-, if @friends_shared is empty: only user can see it, else, Show who album is shared with-->
 
 <p> Change privacy settings:
 <%= form_tag("albums/show", method: "get")  do %>

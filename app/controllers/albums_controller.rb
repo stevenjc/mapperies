@@ -19,25 +19,43 @@ class AlbumsController < ApplicationController
   end
 
   def create
-    #for public/private
+    #Determine public/private access of album
     if params[:option] == "Public"
       access = true
     elsif params[:option] == "Private"
       access = false
     end
 
-    #Need to create an album view for each friend
-    @test = params[:friends]
-      puts "###-----------------------------"
-      puts @test
-      puts "--------------------------" 
-
-
     # Create a new album where it is tied to the current user
     @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name], :isPublic => access)
+    
+    #Need to create an album view for each friend
+  if params[:friends] 
+     #album id stays empty if it's just view access, 
+    #if upload is granted, then it will be updated when the friend wants 
+    #to add to it - in the friends page (but the permissions will have to be checked)
+    
+    @owner = AlbumView.new(:user_id => current_user.id)
+
+    params[:friends].each do |f| #right now same permission at once--see if i can change this!
+      if params[:access] == "0"
+        @album_view = AlbumView.new(:user_id => f, :view_upload_access => 0)
+        @album_view.save
+      elsif params[:access] == "1"
+        @album_view = AlbumView.new(:user_id => f, :view_upload_access => 1)
+        @album_view.save
+      end
+    end
+  end
+
+
     respond_to do |format|
       if @album.save
-        format.html { redirect_to album_path(@album, :test => params[:friends]), notice: 'Album was successfully created.' }
+        @album_view.update_attribute(:album_view_id, @album.id)
+        @owner.update_attribute(:album_id, @album.id) #for owner, album_view_id=album_id
+        @owner.update_attribute(:album_view_id, @album.id)
+
+        format.html { redirect_to album_path(@album, :friends_shared => params[:friends]), notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new }
@@ -46,15 +64,14 @@ class AlbumsController < ApplicationController
     end
   end
 
+  
+
   # Grab all the photos in the current album to show them
   def show
       @photo = Photo.new
       @album = Album.find(params[:id])
       @photos = Photo.where(album_id: params[:id])
-      @test = params[:test]
-      puts "-----------------------------"
-      puts @test
-      puts "--------------------------" 
+      @friends_shared = params[:friends_shared]
 
       if params[:option]
         if params[:option] == "Public"

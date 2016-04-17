@@ -54,6 +54,7 @@ class AlbumsController < ApplicationController
         @album_view.update_attribute(:album_view_id, @album.id)
         @owner.update_attribute(:album_id, @album.id) #for owner, album_view_id=album_id
         @owner.update_attribute(:album_view_id, @album.id)
+        @owner.update_attribute(:view_upload_access, 1)
 
         format.html { redirect_to album_path(@album, :friends_shared => params[:friends]), notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }

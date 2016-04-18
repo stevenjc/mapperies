@@ -18,7 +18,7 @@
 
 <p> Change privacy settings:
 <%= form_tag("albums/show", method: "get")  do %>
-  <%= select_tag(:option, options_for_select(["Public", "Private"], selected: :option)) %> <!-- change so it's the current option!! -->
+  <%= select_tag("opts", options_for_select(["Public", "Private"], selected: @pub_private)) %> <!-- change so it's the current option!! -->
 <%= submit_tag("Update") %>
 <% end %>
 </p>

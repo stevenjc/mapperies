@@ -74,6 +74,12 @@ class AlbumsController < ApplicationController
       @photos = Photo.where(album_id: params[:id])
       @friends_shared = params[:friends_shared]
 
+      if @album.isPublic
+        @pub_private = "Public"
+      else
+        @pub_private = "Private"
+      end
+
       if params[:opts]
         if params[:opts] == "Public"
           @album.update_attribute(:isPublic, true)

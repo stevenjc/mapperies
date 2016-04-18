@@ -20,7 +20,11 @@ Rails.application.routes.draw do
 
 
   resources :album_views
-  resources :friends
+  resources :friends do
+    member do
+      get 'albums'
+    end
+  end
 
   get '/albums', to: 'albums#index'
   resources :albums do
@@ -70,10 +74,9 @@ Rails.application.routes.draw do
   get '/friends', to:"friends#index"
   post '/friends/index'
   post '/friends', to:"friends#index"
-  get 'friends/results' 
+  get 'friends/results'
   #get '/results', to:"friends#results"
   post 'friends/results'
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

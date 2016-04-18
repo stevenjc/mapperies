@@ -56,7 +56,7 @@
 	<% if u.first_name.downcase.include?(@name.downcase) || (u.last_name && u.last_name.downcase.include?(@name.downcase) || u.email.downcase.include?(@name.downcase)) %> <!--First name is required, but last is not-->
          <!--Exclude self, exclude if already has person as friend-->
         <% if u.id != current_user.id && (!(u.friended_by? current_user) && !(current_user.friended_by?(u))) %>
-		  <% @results.push(u) %>
+		        <% @results.push(u) %>
         <% end %>
     <% end %>
  <% end %>
@@ -82,13 +82,12 @@
                                 <h4>
                     	  		<td> <%= u.first_name %> <%= u.last_name %></td>
 
-                                <tr> <td> <% if u.first_name.include?(@name) || u.last_name.include?(@name) %> <td><!--downcase?-->
+                                <tr>
                                     <%= form_tag("/friends", :action => "index", method: "get") do %>
                                         <%= hidden_field_tag(:friend, u.id) %>
                                         <br />
                                         <%= submit_tag("Add as Friend") %>
-									<td><% end %></td>
-                                <% end %>
+									                      <td><% end %></td>
                        			</tr>
                                 </h4>
                             </div>
@@ -106,4 +105,3 @@
         <!-- /.container -->
     </section>
 </body>
-

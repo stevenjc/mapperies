@@ -12,10 +12,13 @@ class PhotosController < ApplicationController
       params[:images].each { |image|
         @photo = Photo.new(album_id: params[:id], url: params[:url], image: image)
         @photo.save
+        puts params
+        gets
       }
     end
     respond_to do |format|
       if @photo.save
+
         format.html { redirect_to albums_path+'/'+(params[:id]), notice: 'Photo Uploaded!' }
         format.json { render :show, status: :created, location: @photo }
       else

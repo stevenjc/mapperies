@@ -1,29 +1,44 @@
+<%= javascript_include_tag "/js/change_to_edit.js" %>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @album.album_name %>
-</p>
 
+<%= form_for @album, action: :edit_name, html: {multipart: true, hidden:true} do |f| %>
+  <input id="a_name" name="a_name" type="text" hidden="true" value="<%= @album.album_name%>"/>
+  <%= f.submit 'Save', :id=>"submit_album_name_edit"%>
+<% end %>
+
+
+<div id="update_album_info">
+  <ul id="album_name_parent">
+    <p id="album_name">
+      <%= @album.album_name%></p>
+      <!--Image to link to editing the name of the album  -->
+      <!-- <%= image_tag("edit.png", size:"10x10")%> -->
+  </ul>
+  <div id="change_album_name">
+    <button id="edit_name" onclick="edit()">Edit</button>
+  </div>
+
+  <!-- Show map to allow user to define default location for their album -->
+  <div id="map" style="height:300px;width:300px;" class="col-mid-12">this is the map</div>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
+  <%= javascript_include_tag "/js/map_choose_default_location.js" %>
+</div>
+<!--Check to see if there are photos, then display the photos in the album  -->
 <% if @photos.blank? %>
   <p> You don't have any photos yet </p>
-  <p> Your ID: <%= current_user.id %> </p>
 <% else %>
-  <h2>You have <% @photos.count %> photos!</h2>
   <% @photos.each do |p| %>
     <p><%=image_tag p.image.url(:med) %></p>
   <% end %>
 <% end %>
 
-
-
+<!--Form to upload multiple photos  -->
 <%= form_for @photo, html: {multipart: true} do |f| %>
   <div class="form-group">
-    <%= f.label :image %>
-    <!-- <%= f.file_field :image %> -->
     <%= file_field_tag "images[]", type: :file, multiple: true %>
   </div>
-
   <%= f.submit 'Upload' %>
 <% end %>
 
@@ -32,3 +47,4 @@
 
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>
+.

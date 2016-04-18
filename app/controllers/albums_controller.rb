@@ -39,6 +39,11 @@ class AlbumsController < ApplicationController
     redirect_to :action => 'index'
   end
 
+  def update
+    Album.find(params[:id]).update(:album_name=> params[:a_name]);
+    redirect_to :action => 'show'
+  end
+
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_album

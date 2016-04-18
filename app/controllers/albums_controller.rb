@@ -6,6 +6,10 @@ class AlbumsController < ApplicationController
 	  @nav_bar = true
     # Grab all the albums of the current user
     @albums = Album.where(user_id: current_user.id)
+
+    #albums-views
+    #decide who to share albums with
+    #then upon choosing a user, create albums-view--> connects album with friend?
   end
 
   def new
@@ -13,8 +17,15 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    #for public/private
+    if params[:option] == "Public"
+      access = true
+    elsif params[:option] == "Private"
+      access = false
+    end
+
     # Create a new album where it is tied to the current user
-    @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name])
+    @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name], :isPublic => access)
     respond_to do |format|
       if @album.save
         format.html { redirect_to @album, notice: 'Album was successfully created.' }
@@ -33,7 +44,7 @@ class AlbumsController < ApplicationController
       @photos = Photo.where(album_id: params[:id])
   end
 
-  def delete
+  def edit
     #identify the user first...
     Album.find(params[:id]).destroy
     redirect_to :action => 'index'

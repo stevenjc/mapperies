@@ -31,7 +31,8 @@
 <% else %>
   <% @photos.each do |p| %>
     <p><%=image_tag p.image.url(:med) %></p>
-  <% end %>
+    <%= link_to 'Edit', edit_photo_path%>
+    <% end %>
 <% end %>
 
 <!--Form to upload multiple photos  -->

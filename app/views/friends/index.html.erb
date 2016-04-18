@@ -43,7 +43,7 @@
 
 <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <%= form_tag("/friends/results", method: "post") do %>
+    <%= form_tag(friends_results_path, method: "post") do %>
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
@@ -123,7 +123,7 @@
 
                         <!--From _alert.html.erb -->
                         <%= render :layout =>'layouts/alert' do %>
-                          <%= User.find(f.friend_id).first_name %> <%= User.find(f.friend_id).last_name %>'s accepted your friend request!
+                          <%= User.find(f.friend_id).first_name %> <%= User.find(f.friend_id).last_name %> has accepted your friend request!
                         <%end%>
                     <% end %>
                 <% end %>

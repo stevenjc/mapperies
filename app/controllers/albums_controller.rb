@@ -20,9 +20,9 @@ class AlbumsController < ApplicationController
 
   def create
     #Determine public/private access of album
-    if params[:option] == "Public"
+    if params[:opts] == "Public"
       access = true
-    elsif params[:option] == "Private"
+    elsif params[:opts] == "Private"
       access = false
     end
 
@@ -74,10 +74,10 @@ class AlbumsController < ApplicationController
       @photos = Photo.where(album_id: params[:id])
       @friends_shared = params[:friends_shared]
 
-      if params[:option]
-        if params[:option] == "Public"
+      if params[:opts]
+        if params[:opts] == "Public"
           @album.update_attribute(:isPublic, true)
-        elsif param[:option] == "Private"
+        elsif params[:opts] == "Private"
           @album.update_attribute(:isPublic, false)
         end
       end

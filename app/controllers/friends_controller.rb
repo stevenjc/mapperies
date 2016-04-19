@@ -72,6 +72,22 @@ class FriendsController < ApplicationController
   def albums
     @nav_bar = true
     @albums = Album.where(user_id: params[:id], isPublic: true)
+    @galleries = Array.new
+    others = Album.where(user_id: params[:id], isPublic: false)
+    others.each do |a|
+        views = AlbumView.where(album_id: a.id)
+        # puts views
+        # gets
+        views.each do |v|
+          if AlbumView.where(album_view_id: v.album_view_id, user_id: current_user.id)
+            # puts a
+            # gets
+            @galleries.push(a)
+          end
+        end
+    end
+    # puts @galleries.first.class
+    # gets
   end
 
   # def show

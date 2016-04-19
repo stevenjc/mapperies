@@ -12,15 +12,29 @@
                           <tbody>
                             <p>Your ID is: <%= current_user.id %> </p>
                             <p>The friend you are looking at is: <%= params[:id] %></p>
-                            <% if @albums.blank? %>
-                            <p> This friend doesn't have any albums yet </p>
-                            <% else %>
+                            <% if @albums.blank? && @galleries.blank? %>
+                              <p> This friend doesn't have any albums yet </p>
+                            <% end %>
+
+                            <div>
+                            <p>Albums</p>
+                            <% if !@albums.blank? %>
                               <% @albums.each do |album| %>
-                              <!--%= render :layout =>'layouts/listbackground' do %-->
+                              <!-- %= render :layout =>'layouts/listbackground' do % -->
                               <tr>
-                                <td><div><%= album.album_name %></div></td>
-                                <td><%= link_to 'See', album %></td>
-                                
+                                <%= album.album_name %>
+                                <%= link_to 'See', album %>
+                              </tr>
+                              <% end %>
+                            <% end %>
+                          </div>
+
+                            <p>Galleries</p>
+                            <% if !@galleries.blank? %>
+                              <% @galleries.each do |gallery| %>
+                              <tr>
+                                <%= gallery.album_name %>
+                                <%= link_to 'See', gallery %>
                               </tr>
                               <% end %>
                             <% end %>

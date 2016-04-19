@@ -122,17 +122,11 @@ class AlbumsController < ApplicationController
       #Update access of a friend already shared with
       if params[:change_access]
         #find album_view and update the access
-        puts "111111111111111111111111111"
         AlbumView.where(album_view_id:@album.id).each do |av|
-          puts "222222222222222222222222222222222"
           if av.user_id == params[:friend].to_i
-            puts av.user_id
-            puts params[:change_access]
               if params[:change_access] == "View Only"
-                puts "4444444444444444444"
                 av.update_attribute(:view_upload_access, 0)
               elsif params[:change_access] == "View and Upload"
-                puts "5555555555555555555555555555555"
                 av.update_attribute(:view_upload_access, 1)
               end
           end

@@ -8,6 +8,7 @@
   <%= f.submit 'Save', :id=>"submit_album_name_edit"%>
 <% end %>
 
+<%= image_tag @album.cover.url(:med) %>
 
 <div id="update_album_info">
   <ul id="album_name_parent">

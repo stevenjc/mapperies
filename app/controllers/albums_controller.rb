@@ -30,13 +30,13 @@ class AlbumsController < ApplicationController
 
     # Create a new album where it is tied to the current user
     @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name], :isPublic => access)
-    
+
     #Need to create an album view for each friend
-  if params[:friends] 
-     #album id stays empty if it's just view access, 
-    #if upload is granted, then it will be updated when the friend wants 
+  if params[:friends]
+     #album id stays empty if it's just view access,
+    #if upload is granted, then it will be updated when the friend wants
     #to add to it - in the friends page (but the permissions will have to be checked)
-    
+
     @owner = AlbumView.new(:user_id => current_user.id)
 
     params[:friends].each do |f| #right now same permission at once--see if i can change this!
@@ -67,7 +67,7 @@ class AlbumsController < ApplicationController
     end
   end
 
-  
+
 
   # Grab all the photos in the current album to show them
   def show
@@ -98,36 +98,41 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    #why is it deleting under edit?????
-    #identify the user first...
+    # why is it deleting under edit?????
+    # identify the user first...
     # Album.find(params[:id]).destroy
     # redirect_to :action => 'index'
     @album = Album.find(params[:id])
   end
 
   def update
-    puts params
-    gets
-    if params[:cover]
-        @album = Album.find(params[:id])
-        @album.update(cover: params[:cover])
+    # puts params
+
+     if params[:album][:cover]
+       @album = Album.find(params[:id])
+        @album.update_attribute(:cover, params[:album][:cover])
         @album.save
-    end
+     end
+
+
     respond_to do |format|
       if @album.save
-        format.html { redirect_to albums_path+'/'+ @album.id, notice: 'Cover Updated!!' }
+        gets
+        format.html { redirect_to albums_path, notice: 'Cover Updated!!' }
         format.json { render :show, status: :created, location: @album }
       else
-        format.html { render :new }
+        format.html { redirect_to album_path }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
 
-  def update
-    Album.find(params[:id]).update(:album_name=> params[:a_name]);
-    redirect_to :action => 'show'
-  end
+  # def update
+  #   Album.find(params[:id]).update(:album_name=> params[:a_name]);
+  #   redirect_to :action => 'show'
+  # end
 
   private
   # Use callbacks to share common setup or constraints between actions.

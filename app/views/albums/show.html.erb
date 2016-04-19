@@ -25,9 +25,17 @@
       <%= select_tag("opts", options_for_select(["Public", "Private"], selected: @pub_private)) %> <!--Need Javascript here when switching from public/private -->
 
       <% @friends_shared = Array.new %>
+      <% @friend_access = Hash.new %>
       <% AlbumView.where(album_view_id:@album.id).each do |av| %>
         <% if av.user_id != current_user.id %>
           <% @friends_shared.push(av.user_id) %>
+          <% @access = nil %>
+          <% if av.view_upload_access == 0 %>
+            <% @access = "View Only" %>
+          <% elsif av.view_upload_access == 1 %>
+            <% @access = "View and Upload" %>
+          <% end %>
+          <% @friend_access[av.user_id] = @access %>
         <% end %>
       <% end %>
 
@@ -40,9 +48,11 @@
               <% if @friends_shared.include? f.id %>
                 <div> <%= f.first_name %> <%= f.last_name %> 
                 <!--show which view the friend has, and give option to change that setting -->
-                  <!--<#%= form_tag(album_path, method: "get") do %>-->
+                    <%= select_tag("change_access", options_for_select(["View Only", "View and Upload"], selected: @friend_access[f.id])) %>
+                    <%= hidden_field_tag(:friend, f.id) %> 
+                   
                     <%= link_to "Unshare", {:controller => "albums", :action => "show", :unshare => f}, method: "get" %>
-                  <!--<#% end %>--> </div>
+                  </div>
                   
               <% else %>
                 <!--copied from new -->

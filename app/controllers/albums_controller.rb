@@ -99,17 +99,15 @@ class AlbumsController < ApplicationController
         #puts "----------------------------------------"
         #redirect_to :action => 'create', params[:friends] => params[:friends], params[:access] => params[:access]
         #copied from above:
-        params[:friends].each do |f| #right now same permission at once--see if i can change this!
-        if params[:access] == "0"
-          @album_view = AlbumView.new(:user_id => f, :view_upload_access => 0, :album_view_id => @album.id)
-          @album_view.save
-        elsif params[:access] == "1"
-          @album_view = AlbumView.new(:user_id => f, :view_upload_access => 1, :album_view_id => @album.id)
-          @album_view.save
+          params[:friends].each do |f| #right now same permission at once--see if i can change this!
+            if params[:access] == "0"
+              @album_view = AlbumView.new(:user_id => f, :view_upload_access => 0, :album_view_id => @album.id)
+              @album_view.save
+            elsif params[:access] == "1"
+              @album_view = AlbumView.new(:user_id => f, :view_upload_access => 1, :album_view_id => @album.id)
+              @album_view.save
+            end
         end
-    end
-
-
       end
 
       #Remove friend from AlbumView db
@@ -122,7 +120,24 @@ class AlbumsController < ApplicationController
       end
 
       #Update access of a friend already shared with
-
+      if params[:change_access]
+        #find album_view and update the access
+        puts "111111111111111111111111111"
+        AlbumView.where(album_view_id:@album.id).each do |av|
+          puts "222222222222222222222222222222222"
+          if av.user_id == params[:friend].to_i
+            puts av.user_id
+            puts params[:change_access]
+              if params[:change_access] == "View Only"
+                puts "4444444444444444444"
+                av.update_attribute(:view_upload_access, 0)
+              elsif params[:change_access] == "View and Upload"
+                puts "5555555555555555555555555555555"
+                av.update_attribute(:view_upload_access, 1)
+              end
+          end
+        end
+      end
 
   end
 

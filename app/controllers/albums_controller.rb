@@ -80,7 +80,9 @@ class AlbumsController < ApplicationController
       if params[:opts]
         if params[:opts] == "Public"
           @album.update_attribute(:isPublic, true)
+          #Need to delete from album-view...
         elsif params[:opts] == "Private"
+          #Need to add to album view
           @album.update_attribute(:isPublic, false)
         end
       end
@@ -91,6 +93,8 @@ class AlbumsController < ApplicationController
       else
         @pub_private = "Private"
       end
+
+      #add friends who are shared, and option for adding more friends (in view)
   end
 
   def edit

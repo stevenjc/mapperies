@@ -94,7 +94,36 @@ class AlbumsController < ApplicationController
         @pub_private = "Private"
       end
 
-      #add friends who are shared, and option for adding more friends (in view)
+      #Adding new friends - same as create
+      if params[:friends]
+        #puts "----------------------------------------"
+        #redirect_to :action => 'create', params[:friends] => params[:friends], params[:access] => params[:access]
+        #copied from above:
+        params[:friends].each do |f| #right now same permission at once--see if i can change this!
+        if params[:access] == "0"
+          @album_view = AlbumView.new(:user_id => f, :view_upload_access => 0, :album_view_id => @album.id)
+          @album_view.save
+        elsif params[:access] == "1"
+          @album_view = AlbumView.new(:user_id => f, :view_upload_access => 1, :album_view_id => @album.id)
+          @album_view.save
+        end
+    end
+
+
+      end
+
+      #Remove friend from AlbumView db
+      if params[:unshare]
+        AlbumView.where(album_view_id:@album.id).each do |av|
+          if av.user_id == params[:unshare].to_i
+            av.destroy
+          end
+        end
+      end
+
+      #Update access of a friend already shared with
+
+
   end
 
   def edit

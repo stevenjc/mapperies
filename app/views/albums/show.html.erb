@@ -20,6 +20,13 @@
     <button id="edit_name" onclick="edit()">Edit</button>
   </div>
 
+  <div> Change privacy settings:
+    <%= form_tag(album_path, method: "get")  do %>
+      <%= select_tag("opts", options_for_select(["Public", "Private"], selected: @pub_private)) %> <!-- change so it's the current option!! -->
+      <%= submit_tag("Update") %>
+    <% end %>
+  </div>
+
   <!-- Show map to allow user to define default location for their album -->
   <div id="map" style="height:300px;width:300px;" class="col-mid-12">this is the map</div>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
@@ -28,6 +35,7 @@
 <!--Check to see if there are photos, then display the photos in the album  -->
 <% if @photos.blank? %>
   <p> You don't have any photos yet </p>
+
 <% else %>
   <% @photos.each do |p| %>
     <p><%=image_tag p.image.url(:med) %></p>

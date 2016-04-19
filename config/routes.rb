@@ -41,13 +41,15 @@ Rails.application.routes.draw do
     end
   end
 
-  # post "photos/create"
-  # post "photos/destroy"
+  post "photos/create"
 
   resources :users
 
   post 'albums/create'
   post 'albums/new'
+
+  post 'album_view/new'
+  post 'album_view/create'
 
   resources :users
   resources :accounts

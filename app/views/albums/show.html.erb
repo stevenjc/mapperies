@@ -21,6 +21,8 @@
 
 
 <%= form_for @photo, html: {multipart: true} do |f| %>
+  <% params.merge(:id => @album.id)%>
+  <%= @album.id %>
   <div class="form-group">
     <%= f.label :image %>
     <!-- <%= f.file_field :image %> -->

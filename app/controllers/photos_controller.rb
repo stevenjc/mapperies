@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
-  def index
-    @photos = Photo.all
-  end
+  # def index
+  #   @photos = Photo.all
+  # end
 
   def new
     @photo = Photo.new
@@ -12,8 +12,8 @@ class PhotosController < ApplicationController
       params[:images].each { |image|
         @photo = Photo.new(album_id: params[:id], url: params[:url], image: image)
         @photo.save
-        puts params
-        gets
+        # puts params
+        # gets
       }
     end
     respond_to do |format|

@@ -45,9 +45,30 @@ class AlbumsController < ApplicationController
   end
 
   def edit
+    #why is it deleting under edit?????
     #identify the user first...
-    Album.find(params[:id]).destroy
-    redirect_to :action => 'index'
+    # Album.find(params[:id]).destroy
+    # redirect_to :action => 'index'
+    @album = Album.find(params[:id])
+  end
+
+  def update
+    puts params
+    gets
+    if params[:cover]
+        @album = Album.find(params[:id])
+        @album.update(cover: params[:cover])
+        @album.save
+    end
+    respond_to do |format|
+      if @album.save
+        format.html { redirect_to albums_path+'/'+ @album.id, notice: 'Cover Updated!!' }
+        format.json { render :show, status: :created, location: @album }
+      else
+        format.html { render :new }
+        format.json { render json: @album.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   private

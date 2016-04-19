@@ -70,6 +70,7 @@ class FriendsController < ApplicationController
   end
 
   def albums
+    @nav_bar = true
     @albums = Album.where(user_id: params[:id], isPublic: true)
   end
 

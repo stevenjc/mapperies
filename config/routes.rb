@@ -33,7 +33,10 @@ Rails.application.routes.draw do
       post 'new'
     end
     member do
-      post 'photos/new'
+      # resources :photos do
+        post 'photos/new'
+        post 'photos/create'
+      # end
     end
   end
 

@@ -16,14 +16,16 @@
 
   <div id="f1" style="display:none">
     <!--<form name="form1">-->
-        <select name="friends[]" multiple="multiple">
-            <% @users.each do |f| #helper for all friends%>
-            	<option onclick="test()", value= <%= f.id %> >
-            		<%= f.first_name %> <%= f.last_name %>
-            	</option>
+    	<% if get_friends %>
+	        <select name="friends[]" multiple="multiple">
+	            <% get_friends.each do |f| #helper for all friends%>
+	            	<option onclick="test()", value= <%= f.id %> >
+	            		<%= f.first_name %> <%= f.last_name %>
+	            	</option>
 
-            <% end %>
-        </select>
+	            <% end %>
+	        </select>
+	    <% end %>
     <!--</form>-->
 </div>
 

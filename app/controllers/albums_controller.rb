@@ -2,6 +2,8 @@ class AlbumsController < ApplicationController
   before_action :require_login
   before_action :set_album, only: [:show]
 
+  helper AlbumsHelper
+
   def index
 	  @nav_bar = true
     # Grab all the albums of the current user

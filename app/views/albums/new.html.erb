@@ -7,7 +7,35 @@
 
 <%= form_tag "create", method: "post"  do %>
   <%= text_field_tag 'album_name' %>
-  <%= select_tag(:option, options_for_select(["Public", "Private"], selected: :option)) %>
+  <%= select_tag("opts", options_for_select(["Public", "Private"], selected: :option), :onchange => "showFriends()") %>	
+
+ <!-- <select id = "opts", onchange="showFriends()">
+  	<option value="0">Public</option>
+  	<option value="1">Private</option>
+  </select>-->
+
+  <div id="f1" style="display:none">
+    <!--<form name="form1">-->
+    	<% if get_friends %>
+	        <select name="friends[]" multiple="multiple">
+	            <% get_friends.each do |f| #helper for all friends%>
+	            	<option onclick="test()", value= <%= f.id %> >
+	            		<%= f.first_name %> <%= f.last_name %>
+	            	</option>
+
+	            <% end %>
+	        </select>
+	    <% end %>
+    <!--</form>-->
+</div>
+
+<div id="access" style="display:none">
+	<select name="access">
+		<option value = "0">View Only</option>
+		<option value = "1">View and Upload</option>
+	</select>
+</div>
+
   <%= submit_tag("Create") %>
 <% end %>
 
@@ -26,3 +54,20 @@
 <script language="javascript">
     window.location.href = "/albums"
 </script> -->
+
+<script type="text/javascript">
+    function showFriends() {
+        var selopt = document.getElementById("opts").value;
+    	if (selopt == "Private") {
+            document.getElementById("f1").style.display = "block";
+        }
+        else {
+        	document.getElementById("f1").style.display = "none";
+
+        }
+    }
+
+    function test() {
+    	document.getElementById("access").style.display = "block";
+    }
+</script>

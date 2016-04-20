@@ -30,13 +30,13 @@ class AlbumsController < ApplicationController
 
     # Create a new album where it is tied to the current user
     @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name], :isPublic => access)
-    
+
     #Need to create an album view for each friend
-  if params[:friends] 
-     #album id stays empty if it's just view access, 
-    #if upload is granted, then it will be updated when the friend wants 
+  if params[:friends]
+     #album id stays empty if it's just view access,
+    #if upload is granted, then it will be updated when the friend wants
     #to add to it - in the friends page (but the permissions will have to be checked)
-    
+
     @owner = AlbumView.new(:user_id => current_user.id)
 
     params[:friends].each do |f| #right now same permission at once--see if i can change this!
@@ -53,11 +53,12 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        @album_view.update_attribute(:album_view_id, @album.id)
-        @owner.update_attribute(:album_id, @album.id) #for owner, album_view_id=album_id
-        @owner.update_attribute(:album_view_id, @album.id)
-        @owner.update_attribute(:view_upload_access, 1)
-
+        if params[:friends]
+          @album_view.update_attribute(:album_view_id, @album.id)
+          @owner.update_attribute(:album_id, @album.id) #for owner, album_view_id=album_id
+          @owner.update_attribute(:album_view_id, @album.id)
+          @owner.update_attribute(:view_upload_access, 1)
+        end
         format.html { redirect_to album_path(@album, :friends_shared => params[:friends]), notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
@@ -67,7 +68,7 @@ class AlbumsController < ApplicationController
     end
   end
 
-  
+
 
   # Grab all the photos in the current album to show them
   def show
@@ -104,7 +105,7 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    Album.find(params[:id]).update(:album_name=> params[:a_name]);
+    Album.find(params[:id]).update(:album_name=> params[:a_name], :defaultx=> params[:xcoord], :defaulty=>params[:ycoord]);
     redirect_to :action => 'show'
   end
 

@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20160329214755) do
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
     t.integer  "user_id"
+    t.float    "defaultx"
+    t.float    "defaulty"
     t.boolean  "isPublic"
     t.string   "url"
     t.string   "cover_file_name"

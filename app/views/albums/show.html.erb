@@ -4,7 +4,9 @@
 
 
 <%= form_for @album, action: :edit_name, html: {multipart: true, hidden:true} do |f| %>
-  <input id="a_name" name="a_name" type="text" hidden="true" value="<%= @album.album_name%>"/>
+  <input id="a_name" name="a_name" type="text" value="<%= @album.album_name%>"/>
+  <input id="xcoord" name="xcoord" type="text" value="<%= @album.defaultx%>"/>
+  <input id="ycoord" name="ycoord" type="text" value="<%= @album.defaulty%>"/>
   <%= f.submit 'Save', :id=>"submit_album_name_edit"%>
 <% end %>
 
@@ -13,8 +15,6 @@
   <ul id="album_name_parent">
     <p id="album_name">
       <%= @album.album_name%></p>
-      <!--Image to link to editing the name of the album  -->
-      <!-- <%= image_tag("edit.png", size:"10x10")%> -->
   </ul>
   <div id="change_album_name">
     <button id="edit_name" onclick="edit()">Edit</button>

@@ -17,16 +17,16 @@ function initMap() {
 function addMarker(int, map){
   var LngLnt = {lat: parseFloat(x_coords[int]), lng: parseFloat(y_coords[int])};
 
-  // var image = {
-  //   url: img[int].url,
-  //   scaledSize: new google.maps.Size(25,25)
-  // //  origin: new google.maps.Point(0,0)
-  // }
+  var image = {
+    url: img[int],
+    scaledSize: new google.maps.Size(25,25)
+  //  origin: new google.maps.Point(0,0)
+  }
 
   var marker= new google.maps.Marker({
     position: LngLnt,
     map:map,
-  //  icon: image,
+    icon: image,
     zIndex: 1
   });
 //  marker.addListener('click', markerClick);

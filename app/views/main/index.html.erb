@@ -8,10 +8,16 @@
 <%= javascript_include_tag "/js/bootstrap.min.js" %>
 <%= javascript_include_tag "/js/map.js" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
+
+<form>
+  <input id= "" name="" type="text"/>
+</form>
+
 <% if @unmapped.blank? %>
   <p> You don't have any photos yet </p>
 <% else %>
   <% @unmapped.each do |p| %>
-    <p><%=image_tag p.image.url(:med) %></p>
+    <p><%=image_tag p.image.url(:med), class:"unmapped_photo" %></p>
   <% end %>
 <% end %>
+<%= javascript_include_tag "/js/dragdrop.js" %>

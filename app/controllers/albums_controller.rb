@@ -76,14 +76,20 @@ class AlbumsController < ApplicationController
       @photos = Photo.where(album_id: params[:id])
       @friends_shared = params[:friends_shared]
 
-      #If user changes settings
+      #If user changes pub/private settings
       if params[:opts]
         if params[:opts] == "Public"
           @album.update_attribute(:isPublic, true)
-          #Need to delete from album-view...
+          #Delete from album view database
+          puts "testttttttttttttt"
+          AlbumView.where(album_view_id:@album.id).each do |av| 
+            av.destroy #make sure this is what I want to be doing...
+          puts "testingggggggggggggg"
+          end
         elsif params[:opts] == "Private"
-          #Need to add to album view
           @album.update_attribute(:isPublic, false)
+          #Create for owner - selected friends, if any, are added below
+          AlbumView.new(:user_id => current_user.id, :view_upload_access => 1, :album_id => @album.id, :album_view_id => @album.id)
         end
       end
 

@@ -81,10 +81,8 @@ class AlbumsController < ApplicationController
         if params[:opts] == "Public"
           @album.update_attribute(:isPublic, true)
           #Delete from album view database
-          puts "testttttttttttttt"
           AlbumView.where(album_view_id:@album.id).each do |av| 
             av.destroy #make sure this is what I want to be doing...
-          puts "testingggggggggggggg"
           end
         elsif params[:opts] == "Private"
           @album.update_attribute(:isPublic, false)
@@ -102,8 +100,6 @@ class AlbumsController < ApplicationController
 
       #Adding new friends - same as create
       if params[:friends]
-        #puts "----------------------------------------"
-        #redirect_to :action => 'create', params[:friends] => params[:friends], params[:access] => params[:access]
         #copied from above:
           params[:friends].each do |f| #right now same permission at once--see if i can change this!
             if params[:access] == "0"

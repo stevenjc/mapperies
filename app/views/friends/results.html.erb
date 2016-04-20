@@ -41,11 +41,15 @@
 </head>
 
 <body>
-    <%= form_tag("/friends/results", method: "post") do %>
+    <%= form_tag(friends_results_path, method: "post") do %>
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
     <% end %>
+
+<div>
+    <%= link_to 'Back to friends', "/friends" %>
+</div>
 
 <% @results = Array.new %>
 <% @users.each do |u| %>

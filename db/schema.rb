@@ -16,11 +16,14 @@ ActiveRecord::Schema.define(version: 20160329214755) do
   create_table "album_views", force: :cascade do |t|
     t.integer "album_id"
     t.integer "user_id"
+    t.integer "album_view_id"
+    t.integer "view_upload_access"
   end
 
   create_table "albums", force: :cascade do |t|
     t.string   "album_name"
     t.integer  "user_id"
+    t.boolean  "isPublic"
     t.string   "url"
     t.string   "cover_file_name"
     t.string   "cover_content_type"

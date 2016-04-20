@@ -1,0 +1,13 @@
+<h1>Edit Photo...</h1>
+  <%= image_tag @photo.image.url(:small) %>
+
+  <div>
+  <p>Put in the coordinates!</p>
+  <%= form_tag "update", method: "post"  do %>
+    <%= label_tag 'X:' %>
+    <%= text_field_tag 'x_coord' %>
+    <%= label_tag 'Y:' %>
+    <%= text_field_tag 'y_coord' %>
+    <%= submit_tag("Update") %>
+  <% end %>
+  </div>

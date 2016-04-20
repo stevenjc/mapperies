@@ -23,19 +23,33 @@ Rails.application.routes.draw do
 
   resources :albums do
     member do
-      resources :photos
       post 'photos/new'
+      resources :photos do
+        member do
+          get 'edit', to: "photos#edit"
+          post 'update'
+          # delete 'delete'
+        end
+      end
     end
   end
 
+  resources :photos do
+    member do
+      get 'edit', to: "photos#edit"
+      # delete 'delete'
+    end
+  end
 
-    post "photos/create"
-
+  post "photos/create"
 
   resources :users
 
   post 'albums/create'
   post 'albums/new'
+
+  post 'album_view/new'
+  post 'album_view/create'
 
   resources :users
   resources :accounts
@@ -49,9 +63,6 @@ Rails.application.routes.draw do
 
    get '/landing', to:"landing#show"
 
-
- # get '/', to:"mapperies#landing"
-
   get '/login', to:"login#login"
 
   get '/main', to:"main#index"
@@ -62,8 +73,9 @@ Rails.application.routes.draw do
   get '/friends', to:"friends#index"
   post '/friends/index'
   post '/friends', to:"friends#index"
-  get '/friends/results', to:"friends#results"
-  post '/friends/results', to:"friends#results"
+  get 'friends/results' 
+  #get '/results', to:"friends#results"
+  post 'friends/results'
 
   get '/mobile', to: "main#mobile"
 

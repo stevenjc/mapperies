@@ -29,13 +29,13 @@ class MainController < ApplicationController
   @id.each do |i|
     @temp = Photo.where(:album_id => Integer(i))
     @temp.each do |t|
-      @links.push(t.image.url)
       if t.x_coord == nil
         tempalbum = Album.find(Integer(i))
         @unmapped.push(t)
         @x_coord.push(tempalbum.defaultx)
         @y_coord.push(tempalbum.defaulty)
       else
+        @links.push(t.image.url)
         @x_coord.push(t.x_coord)
         @y_coord.push(t.y_coord)
       end

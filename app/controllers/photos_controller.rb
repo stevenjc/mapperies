@@ -39,15 +39,15 @@ class PhotosController < ApplicationController
   #   @photos = Photo.find(params[:id])
   # end
   #
-  # def update
-  #   @photos = Photo.find(params[:id])
-  #   if @photos.update_attributes(params[:photo])
-  #     flash[:notice] = "Successfully updated photo"
-  #     redirect_to @photos
-  #   else
-  #     render :action => 'edit'
-  #   end
-  # end
+  def update
+    @photos = Photo.find(params[:id])
+    if @photos.update_attributes(params[:photo])
+      flash[:notice] = "Successfully updated photo"
+      redirect_to @photos
+    else
+      render :action => 'edit'
+    end
+  end
   #
   # def destroy
   #   @photos = Photo.find(params[:id])

@@ -31,8 +31,11 @@ function initMap() {
         icon: icon,
         zIndex: 1
       })
-      input.value = document.getElementById(id).src;
     }
+    document.getElementById(id).hidden=true;
+    input.value="";
+    document.getElementById("x").value=loc[0];
+    document.getElementById("y").value=loc[1];
   });
 
   //Add all the current photos

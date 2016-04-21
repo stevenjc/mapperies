@@ -9,16 +9,21 @@
 <%= javascript_include_tag "/js/map.js" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
 
-<form>
+<%= form_for @albums[0], html: {multipart: true, hidden:true} do |f| %>
   <input id= "dragphoto" name="dragphoto" type="text"/>
-</form>
+  <input id= "x" name="x" type="text" />
+  <input id= "y" name="y" type="text" />
+
+<% end %>
 
 <% if @unmapped.blank? %>
-  <p> You don't have any photos yet </p>
 <% else %>
+  <h3> Your photos with no coordinates </h3>
+  <div style="display:inline-block;">
   <% @unmapped.each do |p| %>
-    <p><%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %></p>
+    <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %>
   <% end %>
+  </div>
 <% end %>
 
 <!-- At the bottom so it is executed only when the above code is run -->

@@ -22,12 +22,12 @@ function initMap() {
     position: dcoord,
     map:map,
     icon:default_marker
-  })
+  });
   var new_loc = new google.maps.Marker({
     position:dcoord,
     map:map,
     icon:new_marker
-  })
+  });
 
   map.addListener('click', function(e){
     //alert(e.latLng);
@@ -37,7 +37,7 @@ function initMap() {
     loc = loc.split(",");
     xcoord.value= loc[0];
     ycoord.value= loc[1];
-  })
+  });
 
 
 }

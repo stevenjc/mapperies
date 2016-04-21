@@ -10,14 +10,16 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
 
 <form>
-  <input id= "" name="" type="text"/>
+  <input id= "dragphoto" name="dragphoto" type="text"/>
 </form>
 
 <% if @unmapped.blank? %>
   <p> You don't have any photos yet </p>
 <% else %>
   <% @unmapped.each do |p| %>
-    <p><%=image_tag p.image.url(:med), class:"unmapped_photo" %></p>
+    <p><%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %></p>
   <% end %>
 <% end %>
+
+<!-- At the bottom so it is executed only when the above code is run -->
 <%= javascript_include_tag "/js/dragdrop.js" %>

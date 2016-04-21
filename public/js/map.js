@@ -3,17 +3,46 @@ var map;
 var x_coords = gon.x;
 var y_coords = gon.y;
 var img = gon.img;
+var input = document.getElementById("dragphoto");
+
 
 function initMap() {
+  //Make the map
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat:parseFloat(x_coords[0]), lng:parseFloat(y_coords[0])},
     zoom: 8
   });
+
+  //Add an event listener to the map to add picture when you drag a photo onto it
+  map.addListener('click', function(e){
+    var id =input.value;
+    var loc = e.latLng.toString();
+    loc = loc.substring(1, loc.length-1);
+    loc = loc.split(",");
+    if(id!=""){
+      var picture = document.getElementById(id);
+      var icon = {
+        url: picture.src,
+        scaledSize: new google.maps.Size(25,25)
+      }
+      var marker = new google.maps.Marker({
+        position: {lat: parseFloat(loc[0]), lng: parseFloat(loc[1])},
+        map: this,
+        icon: icon,
+        zIndex: 1
+      })
+      input.value = document.getElementById(id).src;
+    }
+  });
+
+  //Add all the current photos
   for (i=0;i<img.length;i++){
     addMarker(i, map);
-  }
+  };
 
-}
+};
+
+
 function addMarker(int, map){
   var LngLnt = {lat: parseFloat(x_coords[int]), lng: parseFloat(y_coords[int])};
 

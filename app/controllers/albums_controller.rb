@@ -77,14 +77,18 @@ class AlbumsController < ApplicationController
       @photos = Photo.where(album_id: params[:id])
       @friends_shared = params[:friends_shared]
 
-      #If user changes settings
+      #If user changes pub/private settings
       if params[:opts]
         if params[:opts] == "Public"
           @album.update_attribute(:isPublic, true)
-          #Need to delete from album-view...
+          #Delete from album view database
+          AlbumView.where(album_view_id:@album.id).each do |av| 
+            av.destroy #make sure this is what I want to be doing...
+          end
         elsif params[:opts] == "Private"
-          #Need to add to album view
           @album.update_attribute(:isPublic, false)
+          #Create for owner - selected friends, if any, are added below
+          AlbumView.new(:user_id => current_user.id, :view_upload_access => 1, :album_id => @album.id, :album_view_id => @album.id)
         end
       end
 
@@ -95,7 +99,43 @@ class AlbumsController < ApplicationController
         @pub_private = "Private"
       end
 
-      #add friends who are shared, and option for adding more friends (in view)
+      #Adding new friends - same as create
+      if params[:friends]
+        #copied from above:
+          params[:friends].each do |f| #right now same permission at once--see if i can change this!
+            if params[:access] == "0"
+              @album_view = AlbumView.new(:user_id => f, :view_upload_access => 0, :album_view_id => @album.id)
+              @album_view.save
+            elsif params[:access] == "1"
+              @album_view = AlbumView.new(:user_id => f, :view_upload_access => 1, :album_view_id => @album.id)
+              @album_view.save
+            end
+        end
+      end
+
+      #Remove friend from AlbumView db
+      if params[:unshare]
+        AlbumView.where(album_view_id:@album.id).each do |av|
+          if av.user_id == params[:unshare].to_i
+            av.destroy
+          end
+        end
+      end
+
+      #Update access of a friend already shared with
+      if params[:change_access]
+        #find album_view and update the access
+        AlbumView.where(album_view_id:@album.id).each do |av|
+          if av.user_id == params[:friend].to_i
+              if params[:change_access] == "View Only"
+                av.update_attribute(:view_upload_access, 0)
+              elsif params[:change_access] == "View and Upload"
+                av.update_attribute(:view_upload_access, 1)
+              end
+          end
+        end
+      end
+
   end
 
   def edit

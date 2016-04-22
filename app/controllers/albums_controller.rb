@@ -32,7 +32,7 @@ class AlbumsController < ApplicationController
     @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name], :isPublic => access)
     
     #Need to create an album view for each friend
-  if params[:friends] 
+  if !access && params[:friends] 
      #album id stays empty if it's just view access, 
     #if upload is granted, then it will be updated when the friend wants 
     #to add to it - in the friends page (but the permissions will have to be checked)
@@ -53,10 +53,12 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        @album_view.update_attribute(:album_view_id, @album.id)
-        @owner.update_attribute(:album_id, @album.id) #for owner, album_view_id=album_id
-        @owner.update_attribute(:album_view_id, @album.id)
-        @owner.update_attribute(:view_upload_access, 1)
+        if !access
+          @album_view.update_attribute(:album_view_id, @album.id)
+          @owner.update_attribute(:album_id, @album.id) #for owner, album_view_id=album_id
+          @owner.update_attribute(:album_view_id, @album.id)
+          @owner.update_attribute(:view_upload_access, 1)
+        end
 
         format.html { redirect_to album_path(@album, :friends_shared => params[:friends]), notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }

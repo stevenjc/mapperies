@@ -33,9 +33,9 @@ function initMap() {
       })
     }
     document.getElementById(id).hidden=true;
-    input.value="";
     document.getElementById("x").value=loc[0];
     document.getElementById("y").value=loc[1];
+    document.getElementById("submit").click()
   });
 
   //Add all the current photos

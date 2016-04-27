@@ -9,11 +9,11 @@
 <%= javascript_include_tag "/js/map.js" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
 
-<%= form_for @albums[0], html: {multipart: true, hidden:true} do |f| %>
+<%= form_for current_user, url:{action: "edit_pic", controller:"users"}, html: {multipart: true, hidden:false} do |f| %>
   <input id= "dragphoto" name="dragphoto" type="text"/>
   <input id= "x" name="x" type="text" />
   <input id= "y" name="y" type="text" />
-
+  <input id="submit" type="submit" />
 <% end %>
 
 <% if @unmapped.blank? %>

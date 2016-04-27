@@ -47,4 +47,26 @@ helper UsersHelper
        end
      end
    end
+
+
+  def update
+    if params[:id]="edit_pic"
+      @p = Photo.find(params[:dragphoto])
+      @a = Album.find(@p.album_id)
+      @u = User.find(@a.user_id)
+      if @u=current_user
+        puts "passed"
+        puts params[:x]
+        puts params[:y]
+        @p.update_attribute(:x_coord, params[:x])
+        @p.update_attribute(:y_coord, params[:y])
+      else
+        puts "failed"
+      end
+
+
+      redirect_to "/main"
+    end
+  end
+
 end

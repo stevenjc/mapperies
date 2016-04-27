@@ -1,4 +1,9 @@
-<%= button_to 'Create New Album', new_album_path %>
+<%= link_to 'Create New Album', action: "create", remote:true%>
+<br>
+<%= form_for Album.new, remote: true, :authenticity_token=> true, html: {multipart: true, hidden:false} do |f| %>
+  <%=f.submit 'New Album'%>
+<% end %>
+<p id="a"> Some sample text </p>
 
 <section id="portfolio" class="portfolio">
         <div class="container">
@@ -10,24 +15,9 @@
 
                       <table>
                           <tbody>
-                            <% if @albums.blank? %>
-                            <p> You don't have any albums yet </p>
-                            <p> <%= current_user.id %> </p>
-                            <% else %>
-                              <% @albums.each do |album| %>
-                              <!--%= render :layout =>'layouts/listbackground' do %-->
-                              <tr>
-                                <td><div><%= album.album_name %></div></td>
-                                <td><%= link_to 'See', album %></td>
-                                <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-                              </tr>
-                              <% end %>
-                            <% end %>
-
+                            <%= render "index" %>
                           </tbody>
                         </table>
-
                     <!-- /.row (nested) -->
                     <a href="#" class="btn btn-dark">View More Items</a>
                 </div>
@@ -37,3 +27,4 @@
         </div>
         <!-- /.container -->
     </section>
+    <div id="product-modal" class="modal fade"></div>

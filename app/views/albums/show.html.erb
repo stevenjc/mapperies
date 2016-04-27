@@ -1,20 +1,18 @@
+<%= javascript_include_tag "/js/jquery.js" %>
 <%= javascript_include_tag "/js/change_to_edit.js" %>
+<%= javascript_include_tag "/js/edit_name_ajax.js" %>
 
 <p id="notice"><%= notice %></p>
 
 
-<%= form_for @album, action: :edit_name, html: {multipart: true, hidden:true} do |f| %>
-  <input id="a_name" name="a_name" type="text" value="<%= @album.album_name%>"/>
-  <input id="xcoord" name="xcoord" type="text" value="<%= @album.defaultx%>"/>
-  <input id="ycoord" name="ycoord" type="text" value="<%= @album.defaulty%>"/>
-  <%= f.submit 'Save', :id=>"submit_album_name_edit"%>
-<% end %>
+<button id="xx">test</button>
 
+<%= render "form" %>
 
 <div id="update_album_info">
   <ul id="album_name_parent">
-    <p id="album_name">
-      <%= @album.album_name%></p>
+    <h3 id="album_name">
+      <%= @album.album_name%></h3>
   </ul>
   <div id="change_album_name">
     <button id="edit_name" onclick="edit()">Edit</button>
@@ -45,14 +43,14 @@
 
             <% get_friends.each do |f| %>
               <% if @friends_shared.include? f.id %>
-                <div> <%= f.first_name %> <%= f.last_name %> 
+                <div> <%= f.first_name %> <%= f.last_name %>
                 <!--show which access privilege the friend has, and give option to change that setting -->
                     <%= select_tag("change_access", options_for_select(["View Only", "View and Upload"], selected: @friend_access[f.id])) %>
-                    <%= hidden_field_tag(:friend, f.id) %> 
-                   
+                    <%= hidden_field_tag(:friend, f.id) %>
+
                     <%= link_to "Unshare", {:controller => "albums", :action => "show", :unshare => f}, method: "get" %>
                   </div>
-                  
+
               <% else %>
                 <!--copied from new -->
                 <select name="friends[]" multiple="multiple">
@@ -62,8 +60,8 @@
                     </option>
                   <% end %>
                 </select>
-              <% end %> 
-            <% end %> 
+              <% end %>
+            <% end %>
 
             <div id="access" style="display:none">
               <select name="access">

@@ -1,0 +1,6 @@
+<%= form_for @album, remote: true, :authenticity_token=> true, html: {multipart: true, hidden:false} do |f| %>
+  <input id="a_name" name="a_name" type="text" value="<%= @album.album_name%>"/>
+  <input id="xcoord" name="xcoord" type="text" value="<%= @album.defaultx%>"/>
+  <input id="ycoord" name="ycoord" type="text" value="<%= @album.defaulty%>"/>
+  <%= f.submit 'Save', :id=>"submit_album_name_edit"%>
+<% end %>

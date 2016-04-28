@@ -1,24 +1,56 @@
 
 var map;
-var coords = gon.brandeisCoords;
-var brandeis = gon.brandeis;
-var brandeisCoords = {lat:42.3657, lng:-71.2597};
+var x_coords = gon.x;
+var y_coords = gon.y;
+var img = gon.img;
+var input = document.getElementById("dragphoto");
+
 
 function initMap() {
+  //Make the map
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat:42.3657, lng:-71.2597},
-    zoom: 16
+    center: {lat:parseFloat(x_coords[0]), lng:parseFloat(y_coords[0])},
+    zoom: 8
   });
-  for (i=0;i<coords.length;i++){
-    addMarker(i, map);
-  }
 
-}
+  //Add an event listener to the map to add picture when you drag a photo onto it
+  map.addListener('click', function(e){
+    var id =input.value;
+    var loc = e.latLng.toString();
+    loc = loc.substring(1, loc.length-1);
+    loc = loc.split(",");
+    if(id!=""){
+      var picture = document.getElementById(id);
+      var icon = {
+        url: picture.src,
+        scaledSize: new google.maps.Size(25,25)
+      }
+      var marker = new google.maps.Marker({
+        position: {lat: parseFloat(loc[0]), lng: parseFloat(loc[1])},
+        map: this,
+        icon: icon,
+        zIndex: 1
+      })
+    }
+    document.getElementById(id).hidden=true;
+    document.getElementById("x").value=loc[0];
+    document.getElementById("y").value=loc[1];
+    document.getElementById("submit").click()
+  });
+
+  //Add all the current photos
+  for (i=0;i<img.length;i++){
+    addMarker(i, map);
+  };
+
+};
+
+
 function addMarker(int, map){
-  var LngLnt = {lat:brandeis[int].x_coord, lng:brandeis[int].y_coord};
+  var LngLnt = {lat: parseFloat(x_coords[int]), lng: parseFloat(y_coords[int])};
 
   var image = {
-    url: brandeis[int].url,
+    url: img[int],
     scaledSize: new google.maps.Size(25,25)
   //  origin: new google.maps.Point(0,0)
   }
@@ -29,7 +61,7 @@ function addMarker(int, map){
     icon: image,
     zIndex: 1
   });
-  marker.addListener('click', markerClick);
+//  marker.addListener('click', markerClick);
 }
 
 function markerClick(){

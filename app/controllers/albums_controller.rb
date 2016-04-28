@@ -2,6 +2,8 @@ class AlbumsController < ApplicationController
   before_action :require_login
   before_action :set_album, only: [:show]
 
+  respond_to :html, :js
+
   helper AlbumsHelper
 
   def index
@@ -22,21 +24,25 @@ class AlbumsController < ApplicationController
 
   def create
     #Determine public/private access of album
-    if params[:opts] == "Public"
-      access = true
-    elsif params[:opts] == "Private"
-      access = false
-    end
+    # if params[:opts] == "Public"
+    #   access = true
+    # elsif params[:opts] == "Private"
+    #   access = false
+    # end
+
+    #make private albums by default
+      access = false;
+
 
     # Create a new album where it is tied to the current user
-    @album = Album.new(:user_id => current_user.id, :album_name => params[:album_name], :isPublic => access)
-    
+    @album = Album.new(:user_id => current_user.id, :album_name => "Unnamed Album", :isPublic => access)
+
     #Need to create an album view for each friend
-  if params[:friends] 
+  if !access && params[:friends] 
      #album id stays empty if it's just view access, 
     #if upload is granted, then it will be updated when the friend wants 
     #to add to it - in the friends page (but the permissions will have to be checked)
-    
+
     @owner = AlbumView.new(:user_id => current_user.id)
 
     params[:friends].each do |f| #right now same permission at once--see if i can change this!
@@ -53,21 +59,26 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        @album_view.update_attribute(:album_view_id, @album.id)
-        @owner.update_attribute(:album_id, @album.id) #for owner, album_view_id=album_id
-        @owner.update_attribute(:album_view_id, @album.id)
-        @owner.update_attribute(:view_upload_access, 1)
-
+        if !access
+          @album_view.update_attribute(:album_view_id, @album.id)
+          @owner.update_attribute(:album_id, @album.id) #for owner, album_view_id=album_id
+          @owner.update_attribute(:album_view_id, @album.id)
+          @owner.update_attribute(:view_upload_access, 1)
+        end
+        
         format.html { redirect_to album_path(@album, :friends_shared => params[:friends]), notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
+        format.js { render :layout=>false}
       else
+        puts "===========================!!!=========================="
         format.html { render :new }
         format.json { render json: @album.errors, status: :unprocessable_entity }
+        format.js {render :layout=>false}
       end
     end
   end
 
-  
+
 
   # Grab all the photos in the current album to show them
   def show
@@ -81,7 +92,7 @@ class AlbumsController < ApplicationController
         if params[:opts] == "Public"
           @album.update_attribute(:isPublic, true)
           #Delete from album view database
-          AlbumView.where(album_view_id:@album.id).each do |av| 
+          AlbumView.where(album_view_id:@album.id).each do |av|
             av.destroy #make sure this is what I want to be doing...
           end
         elsif params[:opts] == "Private"
@@ -144,8 +155,16 @@ class AlbumsController < ApplicationController
   end
 
   def update
-    Album.find(params[:id]).update(:album_name=> params[:a_name]);
-    redirect_to :action => 'show'
+    @album = Album.find(params[:id])
+    @album.update(:album_name=> params[:a_name], :defaultx=> params[:xcoord], :defaulty=>params[:ycoord]);
+
+    if @album.save
+      redirect_to :action => 'show'
+    else
+      redirect_to :action => 'show'
+    end
+
+
   end
 
   private

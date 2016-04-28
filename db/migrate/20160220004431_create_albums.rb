@@ -3,6 +3,8 @@ class CreateAlbums < ActiveRecord::Migration
     create_table :albums do |t|
       t.string :album_name
       t.integer :user_id
+      t.float :defaultx
+      t.float :defaulty
       t.boolean :isPublic
     end
   end

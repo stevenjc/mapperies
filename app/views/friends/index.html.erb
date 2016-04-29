@@ -54,7 +54,7 @@
             <% @show_friend_reqs.push(f) %>
         <% end %>
     <% end %>
-      <% if not @show_friend_reqs%>
+      <% if not @show_friend_reqs.size == 0%>
         <div class="container">
           <br />
           <button class="btn col-md-offset-11 col-md-1" type="button" data-toggle="collapse" data-target="#friend-request-list" aria-expanded="false" aria-controls="friend-request-list" id="friend-request-toggle">
@@ -82,7 +82,6 @@
                                     <p>
                                       <%= form_tag("/friends", :action => "index", method: "get") do %>
                                           <%= hidden_field_tag(:accept, f.id) %>
-                                          <br />
                                           <%= button_tag(type: 'submit', class: "btn btn-primary", id: "friend-accept") do %>
                                               <i class="fa fa-check"></i>
                                           <% end %>

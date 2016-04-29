@@ -2,7 +2,7 @@ class FriendsController < ApplicationController
   before_action :require_login
 
   def index
-	@nav_bar = true
+    @nav_bar = true
     @all_users = User.all
     @get_friend_reqs = Popular::Friendship.where(friend_id:current_user.id)
 
@@ -69,7 +69,7 @@ class FriendsController < ApplicationController
   	@name = params[:s]
 
     @results = Array.new
-    
+
     @users.each do |user|
     	if user.first_name.downcase.include?(@name.downcase) || (user.last_name && user.last_name.downcase.include?(@name.downcase) || user.email.downcase.include?(@name.downcase))
         #First name is required, but last is not

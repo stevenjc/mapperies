@@ -79,7 +79,7 @@
                                       <%= User.find(f.popular_model_id).last_name %>
                                     </h3>
                                     <p>has sent you a friend request</p>
-                                    <p>
+                                    <div class="accept-decline-container">
                                       <%= form_tag("/friends", :action => "index", method: "get") do %>
                                           <%= hidden_field_tag(:accept, f.id) %>
                                           <%= button_tag(type: 'submit', class: "btn btn-primary", id: "friend-accept") do %>
@@ -92,7 +92,7 @@
                                               <i class="fa fa-times"></i>
                                           <% end %>
                                       <% end %>
-                                    </p>
+                                    </div>
                                   </div>
                                 </div>
                               </div>

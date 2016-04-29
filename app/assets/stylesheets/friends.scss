@@ -2,13 +2,12 @@
 @import "bootstrap/mixins";
 
 .accept-decline-container{
+  display: inline-block;
   .btn{
     display: inline-block;
     width: 60px;
   }
 }
-
-
 
 
 #friend-request-toggle{

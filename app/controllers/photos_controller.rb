@@ -21,8 +21,6 @@ class PhotosController < ApplicationController
         puts @photo.image.url(:original)
 
         @photo.save
-        e = Exiftool.new(@photo.image.url(:original))
-        puts e.to_hash
 
       }
     end

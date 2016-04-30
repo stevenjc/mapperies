@@ -87,10 +87,12 @@
   <p> You don't have any photos yet </p>
 
 <% else %>
+  <div style="display:inline-block;">
   <% @photos.each do |p| %>
-    <p><%=image_tag p.image.url(:med) %></p>
+    <%=image_tag p.image.url(:med) %>
     <%= link_to 'Edit', edit_photo_path%>
     <% end %>
+  </div>
 <% end %>
 
 <!--Form to upload multiple photos  -->

@@ -2,7 +2,17 @@
 <div id="main_header" class="col-mid-8">
     <h1> <%=user_identifier%>'s Default Map </h1>
 </div>
-<div id="map" class="col-mid-12">this is the map</div>
+<div id="map" style= "width:70%; float:left;" class="col-mid-12"></div>
+
+<% if @unmapped.blank? %>
+<% else %>
+  <h3> Your photos with no coordinates </h3>
+  <div id="photo_container" style="display:block; float:right;">
+  <% @unmapped.each do |p| %>
+    <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %>
+  <% end %>
+  </div>
+<% end %>
 
 <%= javascript_include_tag "/js/jquery.js" %>
 <%= javascript_include_tag "/js/bootstrap.min.js" %>
@@ -14,16 +24,6 @@
   <input id= "x" name="x" type="text" />
   <input id= "y" name="y" type="text" />
   <input id="submit" type="submit" />
-<% end %>
-
-<% if @unmapped.blank? %>
-<% else %>
-  <h3> Your photos with no coordinates </h3>
-  <div style="display:inline-block;">
-  <% @unmapped.each do |p| %>
-    <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %>
-  <% end %>
-  </div>
 <% end %>
 
 <!-- At the bottom so it is executed only when the above code is run -->

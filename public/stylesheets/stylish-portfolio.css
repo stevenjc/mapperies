@@ -226,9 +226,14 @@ hr.small {
     height: 500px;
 }
 
+#photo_container{
+    width:30%;
+}
+
 .unmapped_photo{
-  display:inline-block;
-  margin:10px;
+  float:inherit;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 @media(max-width:768px) {

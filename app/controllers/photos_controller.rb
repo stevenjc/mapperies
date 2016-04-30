@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  require 'exiftool'
+
   def index
     @photos = Photo.all
   end
@@ -11,7 +13,17 @@ class PhotosController < ApplicationController
     if params[:images]
       params[:images].each { |image|
         @photo = Photo.new(album_id: params[:id], url: params[:url], image: image)
+        puts "========================!!!==========================="
         @photo.save
+
+        url = @photo.image.url(:original)
+
+        puts @photo.image.url(:original)
+
+        @photo.save
+        e = Exiftool.new(@photo.image.url(:original))
+        puts e.to_hash
+
       }
     end
     respond_to do |format|

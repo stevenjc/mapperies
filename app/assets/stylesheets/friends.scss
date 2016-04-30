@@ -1,19 +1,15 @@
 @import "bootstrap/variables";
 @import "bootstrap/mixins";
 
-#friend-accept{
-  padding: 10px 20px;
-  display: block;
-  width: 130px;
-  margin: 10px auto 0px auto;
+.accept-decline-container{
+  .btn{
+    display: inline-block;
+    width: 60px;
+  }
 }
 
-#friend-decline{
-  padding: 10px 20px;
-  display: block;
-  width: 130px;
-  margin: 10px auto 0px auto;
-}
+
+
 
 #friend-request-toggle{
   font-family: "sans-serif";

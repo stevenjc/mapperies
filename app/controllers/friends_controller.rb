@@ -9,7 +9,7 @@ class FriendsController < ApplicationController
 
     #When one user friends another
     if params[:friend]
-		friend = @all_users.find(params[:friend].to_i)														
+		friend = @all_users.find(params[:friend].to_i)
 		current_user.befriend friend
 		#friend_requests = Popular::Friendship.where(popular_model_id:current_user.id)
 	end
@@ -29,7 +29,7 @@ class FriendsController < ApplicationController
 	@all_friends = Array.new
 	@user_friender = Popular::Friendship.where(popular_model_id:current_user)
     @user_friendee = Popular::Friendship.where(friend_id:current_user)
-    
+
     #might need to check if user friender/friendee is null
     @user_friender.each do |f|
     if f.did_accept != nil
@@ -37,7 +37,7 @@ class FriendsController < ApplicationController
         	@all_friends.push(User.find(f.friend_id))
     	end
     end
-    
+
     @user_friendee.each do |f|
     	if f.did_accept != nil
             User.find(f.popular_model_id).first_name
@@ -60,13 +60,25 @@ class FriendsController < ApplicationController
 	     			User.find(params[:remove].to_i).unfriend current_user
 	     		end
 	     	end
-		end	
+		end
     end
   end
 
   def results
   	@users = User.all
   	@name = params[:s]
+
+    @results = Array.new
+    
+    @users.each do |user|
+    	if user.first_name.downcase.include?(@name.downcase) || (user.last_name && user.last_name.downcase.include?(@name.downcase) || user.email.downcase.include?(@name.downcase))
+        #First name is required, but last is not
+        #Exclude self, exclude if already has person as friend
+        if user.id != current_user.id && (!(user.friended_by? current_user) && !(current_user.friended_by?(user)))
+          @results.push(user)
+        end
+      end
+    end
   end
 
 end

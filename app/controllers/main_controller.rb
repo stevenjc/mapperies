@@ -56,4 +56,8 @@ class MainController < ApplicationController
   # gon.brandeisCoords= @brandeisCoords
   # gon.brandeis = @brandeis
   end
+
+  def form
+    render :layout => false
+  end
 end

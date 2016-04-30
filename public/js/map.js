@@ -3,7 +3,7 @@ var map;
 var x_coords = gon.x;
 var y_coords = gon.y;
 var img = gon.img;
-var input = document.getElementById("dragphoto");
+
 
 
 function initMap() {
@@ -15,6 +15,11 @@ function initMap() {
 
   //Add an event listener to the map to add picture when you drag a photo onto it
   map.addListener('click', function(e){
+
+    //Grab form info from inside the iFrame
+    var content = iframeRef(document.getElementById("ifrm"));
+    var input = content.getElementById("dragphoto");
+
     var id =input.value;
     var loc = e.latLng.toString();
     loc = loc.substring(1, loc.length-1);
@@ -32,10 +37,16 @@ function initMap() {
         zIndex: 1
       })
     }
+    var content = iframeRef(document.getElementById("ifrm"));
+    var x = content.getElementById("x");
+    var y = content.getElementById("y");
+
     document.getElementById(id).hidden=true;
-    document.getElementById("x").value=loc[0];
-    document.getElementById("y").value=loc[1];
-    document.getElementById("submit").click()
+
+    x.value=loc[0];
+    y.value=loc[1];
+
+    content.getElementById("submit").click();
   });
 
   //Add all the current photos

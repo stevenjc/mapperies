@@ -38,9 +38,9 @@ class AlbumsController < ApplicationController
     @album = Album.new(:user_id => current_user.id, :album_name => "Unnamed Album", :isPublic => access)
 
     #Need to create an album view for each friend
-  if !access && params[:friends] 
-     #album id stays empty if it's just view access, 
-    #if upload is granted, then it will be updated when the friend wants 
+  if !access && params[:friends]
+     #album id stays empty if it's just view access,
+    #if upload is granted, then it will be updated when the friend wants
     #to add to it - in the friends page (but the permissions will have to be checked)
 
     @owner = AlbumView.new(:user_id => current_user.id)
@@ -65,12 +65,11 @@ class AlbumsController < ApplicationController
           @owner.update_attribute(:album_view_id, @album.id)
           @owner.update_attribute(:view_upload_access, 1)
         end
-        
+
         format.html { redirect_to album_path(@album, :friends_shared => params[:friends]), notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
         format.js { render :layout=>false}
       else
-        puts "===========================!!!=========================="
         format.html { render :new }
         format.json { render json: @album.errors, status: :unprocessable_entity }
         format.js {render :layout=>false}
@@ -159,12 +158,17 @@ class AlbumsController < ApplicationController
     @album.update(:album_name=> params[:a_name], :defaultx=> params[:xcoord], :defaulty=>params[:ycoord]);
 
     if @album.save
-      redirect_to :action => 'show'
+      redirect_to album_form_album_path
+
     else
-      redirect_to :action => 'show'
+      redirect_to album_form_album_path
+
     end
+  end
 
-
+  def form
+    @album = Album.find(params[:id])
+    render :layout => false
   end
 
   private

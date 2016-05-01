@@ -12,7 +12,7 @@ class FriendsController < ApplicationController
 		friend = @all_users.find(params[:friend].to_i)
 		current_user.befriend friend
 		#friend_requests = Popular::Friendship.where(popular_model_id:current_user.id)
-	end
+	  end
 
 	#When the friend accepts the request
 	if params[:accept]
@@ -69,7 +69,7 @@ class FriendsController < ApplicationController
   	@name = params[:s]
 
     @results = Array.new
-    
+
     @users.each do |user|
     	if user.first_name.downcase.include?(@name.downcase) || (user.last_name && user.last_name.downcase.include?(@name.downcase) || user.email.downcase.include?(@name.downcase))
         #First name is required, but last is not

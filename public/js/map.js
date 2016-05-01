@@ -3,13 +3,15 @@ var map;
 var x_coords = gon.x;
 var y_coords = gon.y;
 var img = gon.img;
-
-
+var default_loc ={lat: parseFloat(40.7), lng:parseFloat(-74)};
+if (x_coords[0]!=null){
+  default_loc = {lat:parseFloat(x_coords[0]), lng:parseFloat(y_coords[0])};
+}
 
 function initMap() {
   //Make the map
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat:parseFloat(x_coords[0]), lng:parseFloat(y_coords[0])},
+    center: default_loc,
     zoom: 8
   });
 
@@ -28,7 +30,7 @@ function initMap() {
       var picture = document.getElementById(id);
       var icon = {
         url: picture.src,
-        scaledSize: new google.maps.Size(25,25)
+        scaledSize: new google.maps.Size(40,40)
       }
       var marker = new google.maps.Marker({
         position: {lat: parseFloat(loc[0]), lng: parseFloat(loc[1])},
@@ -62,7 +64,7 @@ function addMarker(int, map){
 
   var image = {
     url: img[int],
-    scaledSize: new google.maps.Size(25,25)
+    scaledSize: new google.maps.Size(35,35)
   //  origin: new google.maps.Point(0,0)
   }
 
@@ -72,11 +74,11 @@ function addMarker(int, map){
     icon: image,
     zIndex: 1
   });
-//  marker.addListener('click', markerClick);
+  marker.addListener('click', markerClick);
 }
 
 function markerClick(){
-  if(this.getIcon().scaledSize= new google.maps.Size(25,25)){
+  if(this.getIcon().scaledSize= new google.maps.Size(35,35)){
     this.setVisible(false);
     var image = {
       url: this.getIcon().url,

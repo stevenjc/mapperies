@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160329214755) do
     t.date    "birthday"
     t.boolean "f_book"
     t.string  "default_loc"
+    t.integer "avatar_id"
     t.string  "email"
     t.string  "encrypted_password", limit: 128
     t.string  "confirmation_token", limit: 128

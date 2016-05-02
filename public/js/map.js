@@ -4,6 +4,7 @@ var x_coords = gon.x;
 var y_coords = gon.y;
 var img = gon.img;
 var albums = gon.albums;
+var color = gon.color;
 var default_loc ={lat: 37.09, lng:-74.5};
 changeWidth(x_coords);
 var colors=       [ "amber", "blue_grey", "blue", "brown", "cyan",
@@ -84,6 +85,11 @@ function addMarker(int, map){
     scaledSize: new google.maps.Size(35,35)
   //  origin: new google.maps.Point(0,0)
   };
+  alert(backgrounds[color[int]]);
+  var background = {
+    url: backgrounds[color[int]],
+    scaledSize: new google.maps.Size(40,40)
+  }
 
   var marker= new google.maps.Marker({
     position: LngLnt,
@@ -91,6 +97,14 @@ function addMarker(int, map){
     icon: image,
     zIndex: 1
   });
+
+  new google.maps.Marker({
+    position: LngLnt,
+    map:map,
+    icon: background,
+    zIndex: 0
+  });
+
   // alert(LngLnt.toString());
   marker.addListener('click', markerClick);
   return LngLnt;
@@ -129,9 +143,7 @@ function mean(x){
 function changeWidth(x){
   if(gon.unmapped.length>0){
     document.getElementById("map").style.width='65%';
-    alert("65");
   }else{
     document.getElementById("map").style.width='100%';
-    alert("100");
   }
 }

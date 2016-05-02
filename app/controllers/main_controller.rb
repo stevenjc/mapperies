@@ -18,7 +18,6 @@ class MainController < ApplicationController
   links=[];         #URL links matching the order of photo_ids
   albums=[];        #ID's of albums matching the order of photo_ids
   color=[];         #index of color outline for the album
-  color_map = Hash.new
 
   #grab all the albums of friends who have shared them
   AlbumView.where(:user_id =>current_user.id).each do |d|
@@ -54,12 +53,26 @@ class MainController < ApplicationController
     end
   end
 
+  i =1;
+  color_map = Hash.new
+  albums.each do |a|
+    if (color_map[a]==nil)
+      color_map[a]=i;
+      color.push(i);
+      i=i+1;
+    else
+      color.push(color_map[a])
+    end
+  end
+
 
   gon.x = x_coord
   gon.y = y_coord
   gon.img = links
   gon.albums = albums
-  gon.unmapped = @unmapped;
+  gon.unmapped = @unmapped
+  gon.color = color
+
 
   end
 

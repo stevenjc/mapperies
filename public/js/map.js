@@ -1,5 +1,6 @@
 
 var map;
+var big_marker=0;
 var x_coords = gon.x;
 var y_coords = gon.y;
 var img = gon.img;
@@ -114,9 +115,41 @@ function addMarker(int, map){
 }
 
 function markerClick(int){
+
+  if(big_marker!=0){
+    big_marker.setVisible(false);
+    big_marker.back.setVisible(false);
+    var image={
+      url: big_marker.getIcon().url,
+      scaledSize: new google.maps.Size(35,35),
+      anchor: new google.maps.Point(17.5,17.5)
+    };
+    var background_image={
+      url: big_marker.back.getIcon().url,
+      scaledSize: new google.maps.Size(40,40),
+      anchor: new google.maps.Point(20,20)
+    };
+    var background = new google.maps.Marker({
+      position: big_marker.getPosition(),
+      map: this.getMap(),
+      icon: background_image,
+      zIndex:0
+    });
+    var marker= new google.maps.Marker({
+      position: big_marker.getPosition(),
+      map: this.getMap(),
+      icon: image,
+      zIndex:1,
+      myData: this.myData,
+      back: background
+    });
+    marker.addListener('click', markerClick)
+  }
+
   if(this.getIcon().scaledSize= new google.maps.Size(35,35)){
     this.setVisible(false);
     this.back.setVisible(false);
+
     var image = {
       url: this.getIcon().url,
       scaledSize: new google.maps.Size(100,100),
@@ -142,13 +175,15 @@ function markerClick(int){
       icon:image,
       zIndex:1,
       myData: this.myData,
-      back: this.back
+      back: background
     });
+    big_marker= marker;
     marker.addListener('click', gotoAlbum);
-
-}else if(this.getIcon().scaledSize= new google.maps.Size(100,100)) {
+}
+else if(this.getIcon().scaledSize= new google.maps.Size(100,100)) {
   gotoAlbum();
 }
+
 }
 
 function gotoAlbum(){

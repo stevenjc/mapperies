@@ -36,7 +36,7 @@ class MainController < ApplicationController
     photo_ids = Photo.where(:album_id => Integer(i))
     photo_ids.each do |t|
       tempalbum = Album.find(Integer(i))
-      ##only show unmapped photos that belong to the user
+      #only show unmapped photos that belong to the user
       if (t.x_coord == nil) && (tempalbum.user_id==current_user.id)
         @unmapped.push(t)
       #ignore unmapped photos of the other users

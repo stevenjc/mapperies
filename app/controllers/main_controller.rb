@@ -53,7 +53,7 @@ class MainController < ApplicationController
     end
   end
 
-  i =1;
+  i =0;
   color_map = Hash.new
   albums.each do |a|
     if (color_map[a]==nil)

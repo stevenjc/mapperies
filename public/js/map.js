@@ -82,47 +82,68 @@ function addMarker(int, map){
 
   var image = {
     url: img[int],
-    scaledSize: new google.maps.Size(35,35)
-  //  origin: new google.maps.Point(0,0)
+    scaledSize: new google.maps.Size(35,35),
+    anchor: new google.maps.Point(17.5,17.5)
   };
-  alert(backgrounds[color[int]]);
   var background = {
     url: backgrounds[color[int]],
-    scaledSize: new google.maps.Size(40,40)
+    scaledSize: new google.maps.Size(40,40),
+    anchor: new google.maps.Point(20,20)
   }
 
-  var marker= new google.maps.Marker({
-    position: LngLnt,
-    map:map,
-    icon: image,
-    zIndex: 1
-  });
-
-  new google.maps.Marker({
+  var background =new google.maps.Marker({
     position: LngLnt,
     map:map,
     icon: background,
     zIndex: 0
   });
 
-  // alert(LngLnt.toString());
+  var marker= new google.maps.Marker({
+    position: LngLnt,
+    map:map,
+    icon: image,
+    zIndex: 1,
+    myData: albums[int],
+    back: background
+  });
+
+
+
   marker.addListener('click', markerClick);
   return LngLnt;
 }
 
-function markerClick(){
+function markerClick(int){
   if(this.getIcon().scaledSize= new google.maps.Size(35,35)){
     this.setVisible(false);
+    this.back.setVisible(false);
     var image = {
       url: this.getIcon().url,
-      scaledSize: new google.maps.Size(100,100)
-    }
+      scaledSize: new google.maps.Size(100,100),
+      anchor: new google.maps.Point(50,50)
+    };
+
+    var background_image={
+      url: this.back.getIcon().url,
+      scaledSize: new google.maps.Size(110,110),
+      anchor: new google.maps.Point(55,55)
+    };
+
+    var background= new google.maps.Marker({
+      position: this.getPosition(),
+      map:this.getMap(),
+      icon: background_image,
+      zIndex:0
+    });
+
     var marker = new google.maps.Marker({
       position: this.getPosition(),
       map:this.getMap(),
       icon:image,
-      zIndex:1
-    })
+      zIndex:1,
+      myData: this.myData,
+      back: this.back
+    });
     marker.addListener('click', gotoAlbum);
 
 }else if(this.getIcon().scaledSize= new google.maps.Size(100,100)) {
@@ -131,7 +152,7 @@ function markerClick(){
 }
 
 function gotoAlbum(){
-  window.location.href = "/albums";
+  window.location.href = "/albums/"+this.myData;
 }
 function mean(x){
   var result=0;

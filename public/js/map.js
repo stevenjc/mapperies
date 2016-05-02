@@ -4,14 +4,17 @@ var x_coords = gon.x;
 var y_coords = gon.y;
 var img = gon.img;
 var albums = gon.albums;
-var default_loc ={lat: parseFloat(mean(x_coords)), lng:parseFloat(mean(y_coords))};
-// var default_loc ={lat: parseFloat(0), lng:parseFloat(0)};
-
-var backgrounds = [ "amber", "blue_grey", "blue", "brown", "cyan",
+var default_loc ={lat: 37.09, lng:-74.5};
+changeWidth(x_coords);
+var colors=       [ "amber", "blue_grey", "blue", "brown", "cyan",
                     "deep_orange", "deep_purple", "green", "grey",
                     "indigo", "light_blue", "light_green", "lime",
-                    "orange", "pink", "purple", "red", "teal", "yellow"]
+                    "orange", "pink", "purple", "red", "teal", "yellow"];
+var backgrounds =[];
 
+for (var i = 0; i < colors.length; i++) {
+  backgrounds.push("../img/backgrounds/"+colors[i]+".png")
+};
 
 function initMap() {
   //Make the map
@@ -19,11 +22,7 @@ function initMap() {
     center: default_loc,
     zoom: 5
   });
-  var bounds = new google.maps.LatLngBounds(
-    // new google.maps.LatLng(parseFloat(Math.min(x_coords)), parseFloat(Math.min(y_coords))),
-    // new google.maps.LatLng(parseFloat(Math.max(x_coords)), parseFloat(Math.max(y_coords)))
-
-  );
+  var bounds = new google.maps.LatLngBounds();
 
   // alert(bounds.toString());
 
@@ -70,8 +69,9 @@ function initMap() {
     bounds.extend(addMarker(i, map));
   };
 
-  map.fitBounds(bounds);
-
+  if(img.length>0){
+    map.fitBounds(bounds);
+  };
 };
 
 
@@ -126,18 +126,12 @@ function mean(x){
   }
   return result/x.length;
 }
-
-function range(x){
-    var high,low;
-    for (var i = 0; i < x.length; i++) {
-      if(high==null){
-        high=x[i];
-        low=x[i];
-      }else if (x[i]>high) {
-        high=x[i];
-      }else if (x[i]<low) {
-        low=x[i];
-      }
-    }
-    return (high-low);
+function changeWidth(x){
+  if(gon.unmapped.length>0){
+    document.getElementById("map").style.width='65%';
+    alert("65");
+  }else{
+    document.getElementById("map").style.width='100%';
+    alert("100");
+  }
 }

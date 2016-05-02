@@ -17,6 +17,8 @@ class MainController < ApplicationController
   y_coord=[];       #Y-Coordinates matching the order of photo_ids
   links=[];         #URL links matching the order of photo_ids
   albums=[];        #ID's of albums matching the order of photo_ids
+  color=[];         #index of color outline for the album
+  color_map = Hash.new
 
   #grab all the albums of friends who have shared them
   AlbumView.where(:user_id =>current_user.id).each do |d|
@@ -30,6 +32,7 @@ class MainController < ApplicationController
   Album.where(:user_id => current_user.id).each do |a|
     album_ids.push(a.id)
   end
+
 
   # For each album, push all the photos and links into the arrays
   album_ids.each do |i|
@@ -56,6 +59,7 @@ class MainController < ApplicationController
   gon.y = y_coord
   gon.img = links
   gon.albums = albums
+  gon.unmapped = @unmapped;
 
   end
 

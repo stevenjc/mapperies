@@ -27,6 +27,10 @@ Rails.application.routes.draw do
   end
 
   get '/albums', to: 'albums#index'
+
+  get "/main/form" => "main#form", as: "main_form"
+  resources :main
+
   resources :albums do
     collection do
       post 'create'
@@ -37,6 +41,14 @@ Rails.application.routes.draw do
         post 'photos/new'
         post 'photos/create'
       # end
+      get 'form', as: "album_form"
+      resources :photos do
+        member do
+          get 'edit', to: "photos#edit"
+          post 'update'
+          # delete 'delete'
+        end
+      end
     end
   end
 
@@ -82,6 +94,7 @@ Rails.application.routes.draw do
   #get '/results', to:"friends#results"
   post 'friends/results'
 
+  post 'users/edit_pic'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

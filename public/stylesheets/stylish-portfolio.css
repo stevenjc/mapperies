@@ -226,6 +226,23 @@ hr.small {
     height: 500px;
 }
 
+#photo_container{
+    width:35%;
+    float: right;
+}
+
+.unmapped_photo{
+  float:inherit;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#update_album_info{
+  width:65%;
+  float: left;
+  display:inline-block;
+}
+
 @media(max-width:768px) {
     .map {
         height: 75%;

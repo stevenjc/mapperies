@@ -1,0 +1,6 @@
+<%= form_for current_user, url:{action: "edit_pic", controller:"users"}, html: {multipart: true, hidden:false, id:"form"} do |f| %>
+  <input id= "dragphoto" name="dragphoto" type="text"/>
+  <input id= "x" name="x" type="text" />
+  <input id= "y" name="y" type="text" />
+  <input id="submit" type="submit" />
+<% end %>

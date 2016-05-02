@@ -13,6 +13,7 @@ function edit(){
     input.type="text";
     input.value = name.innerHTML;
     input.id = "input_name";
+
     // Print the value in the box for texting
     // alert(name.innerHTML);
 
@@ -23,13 +24,16 @@ function edit(){
     // Add in the new text field
     parent.appendChild(input, parent.childNodes[0]);
     button.innerHTML="Submit";
+
   }
   //Change the buttons back to normal and submit the form to update the
   //name in the database
   else if (button.innerHTML=="Submit") {
-    var n= document.getElementById("a_name");
+    var content = iframeRef(document.getElementById("ifrm"));
+
+    var n= content.getElementById("a_name");
     var name = document.createElement("P");
-    var submit = document.getElementById("submit_album_name_edit");
+    var submit = content.getElementById("submit_album_name_edit");
     name.id="album_name";
     var input = document.getElementById("input_name");
 
@@ -46,7 +50,3 @@ function edit(){
     submit.click();
   }
 }
-
-$("#edit_name").change( function() {
-  $.ajax("/albums/edit_name")
-});

@@ -1,0 +1,4 @@
+$("#new_album").hide().after('<%= j render("form") %>')
+alert("###");
+$("#product-modal").html("<%= escape_javascript(render 'new') %>")
+$("#product-modal").modal("show")

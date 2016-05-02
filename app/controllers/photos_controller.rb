@@ -1,7 +1,9 @@
 class PhotosController < ApplicationController
-  # def index
-  #   @photos = Photo.all
-  # end
+  require 'exiftool'
+
+  def index
+    @photos = Photo.all
+  end
 
   def new
     @photo = Photo.new
@@ -11,9 +13,14 @@ class PhotosController < ApplicationController
     if params[:images]
       params[:images].each { |image|
         @photo = Photo.new(album_id: params[:id], url: params[:url], image: image)
+        puts "========================!!!==========================="
         @photo.save
-        # puts params
-        # gets
+
+        url = @photo.image.url(:original)
+
+        puts @photo.image.url(:original)
+
+        @photo.save
       }
     end
     respond_to do |format|
@@ -46,27 +53,31 @@ class PhotosController < ApplicationController
     @photo = Photo.find(params[:id])
   end
 
-  def update
-    @photo = Photo.find(params[:id])
-    if @photo.update(coordinaiton_params)
-      flash[:notice] = "Successfully updated photo"
-      redirect_to album_path(@photo.album_id)
-    else
-      render :action => 'edit'
-    end
-  end
-
   private
   # def photo_params
     # params.require(:photo).permit(:album_id, :url, :image)
   # end
 
-  def coordinaiton_params
-    params.permit(:x_coord, :y_coord)
-  end
-
 #coming from the master...
+  # def edit
+  #   @photos = Photo.find(params[:id])
+  # end
   #
+  def update
+    @photos = Photo.find(params[:id])
+    if @photos.update_attributes(params[:photo])
+      flash[:notice] = "Successfully updated photo"
+      redirect_to @photos
+    else
+      render :action => 'edit'
+    end
+  end
   #
+  # def destroy
+  #   @photos = Photo.find(params[:id])
+  #   @photos.destroy
+  #   flash[:notice] = "Successfully deleted photo"
+  #   redirect_to photos_url
+  # end
 
 end

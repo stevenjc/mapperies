@@ -1,106 +1,44 @@
-<!-- this may be temporary-->
+  <%= form_tag(friends_results_path, method: "post") do %>
+      <%=label_tag(:s, "Search:") %>
+      <%= text_field_tag(:s) %>
+      <%= submit_tag("Search") %>
+  <% end %>
 
-<!DOCTYPE html>
-<html lang="en">
+  <div>
+      <%= link_to 'Back to friends', "/friends" %>
+  </div>
 
-<head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-   <title>Stylish Portfolio - Start Bootstrap Theme</title>
-
-    <!-- Bootstrap Core CSS -->
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
-    <%= stylesheet_link_tag "bootstrap.min" %>
-
-
-    <!-- Custom CSS -->
-    <!--<link href="css/stylish-portfolio.css" rel="stylesheet">-->
-    <%= stylesheet_link_tag "stylish-portfolio" %>
-
-
-    <!-- Custom Fonts -->
-    <!--<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
-    <%= stylesheet_link_tag "font-awesome.min" %>
-
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-
-<body>
-    <%= form_tag(friends_results_path, method: "post") do %>
-        <%=label_tag(:s, "Search:") %>
-        <%= text_field_tag(:s) %>
-        <%= submit_tag("Search") %>
-    <% end %>
-
-<div>
-    <%= link_to 'Back to friends', "/friends" %>
-</div>
-
-<% @results = Array.new %>
-<% @users.each do |u| %>
-	<% if u.first_name.downcase.include?(@name.downcase) || (u.last_name && u.last_name.downcase.include?(@name.downcase) || u.email.downcase.include?(@name.downcase)) %> <!--First name is required, but last is not-->
-         <!--Exclude self, exclude if already has person as friend-->
-        <% if u.id != current_user.id && (!(u.friended_by? current_user) && !(current_user.friended_by?(u))) %>
-		        <% @results.push(u) %>
-        <% end %>
-    <% end %>
- <% end %>
-
-<section id="services" class="services bg-primary">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-lg-10 col-lg-offset-1">
-                <h2> Results </h2>
-                	<% if @results.empty? %>
-                		<td> There are no results</td>
-                	<% end %>
-                	<hr class="small">
-
-                    <div class="row">
-                    <td> <% @results.each do |u| %></td>
-                        <div class="col-md-3 col-sm-6">
-                            <div class="service-item">
-                                <span class="fa-stack fa-4x">
-                                	<i class="fa fa-circle fa-stack-2x"></i>
-                                	<i class="fa fa-cloud fa-stack-1x text-primary"></i>
-                            	</span>
-                                <h4>
-                    	  		<td> <%= u.first_name %> <%= u.last_name %></td>
-
-                                <tr>
-                                    <%= form_tag("/friends", :action => "index", method: "get") do %>
-                                        <%= hidden_field_tag(:friend, u.id) %>
-                                        <br />
-                                        <%= submit_tag("Add as Friend") %>
-									                      <td><% end %></td>
-                       			</tr>
-                                </h4>
-                            </div>
-                        </div>
-                    <% end %>
+  <section id="services" class="services bg-primary">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-lg-10 col-lg-offset-1">
+          <h2> Results </h2>
+        	<% if @results.empty? %>
+        		<td> There are no results</td>
+        	<% else %>
+          	<hr class="small">
+              <div class="row">
+                <% @results.each do |result| %>
+                  <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                      <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" alt="Profile Picture">
+                      <div class="caption">
+                        <h3><%= result.first_name %> <%= result.last_name %></h3>
+                        <p>
+                          <%= form_tag("/friends", :action => "index", method: "get") do %>
+                            <%= hidden_field_tag(:friend, result.id) %>
+                            <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
+                              <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                            <% end %>
+                          <%end%>
+                        </p>
+                      </div>
                     </div>
-                    </hr>
-                    </div>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.col-lg-10 -->
-            </div>
-            <!-- /.row -->
+                  </div>
+                <%end%>
+              </div>
+            </hr>
+          <%end%>
         </div>
         <!-- /.container -->
     </section>

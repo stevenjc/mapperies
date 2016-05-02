@@ -65,7 +65,7 @@ helper UsersHelper
       end
 
 
-      redirect_to "/main"
+      redirect_to "/main/form"
     end
   end
 

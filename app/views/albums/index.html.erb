@@ -1,8 +1,6 @@
-<%= link_to 'Create New Album', action: "create", remote:true%>
+<%= button_to 'Create New Album',  url:{action: "create", controller:"albums"}, remote:true%>
 <br>
-<%= form_for Album.new, remote: true, :authenticity_token=> true, html: {multipart: true, hidden:false} do |f| %>
-  <%=f.submit 'New Album'%>
-<% end %>
+
 <p id="a"> Some sample text </p>
 
 <section id="portfolio" class="portfolio">

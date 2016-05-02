@@ -12,7 +12,7 @@ class FriendsController < ApplicationController
 		friend = @all_users.find(params[:friend].to_i)
 		current_user.befriend friend
 		#friend_requests = Popular::Friendship.where(popular_model_id:current_user.id)
-	end
+	  end
 
 	#When the friend accepts the request
 	if params[:accept]

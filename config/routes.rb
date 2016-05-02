@@ -21,9 +21,13 @@ Rails.application.routes.draw do
   resources :album_views
   resources :friends
 
+  get "/main/form" => "main#form", as: "main_form"
+  resources :main
+
   resources :albums do
     member do
       post 'photos/new'
+      get 'form', as: "album_form"
       resources :photos do
         member do
           get 'edit', to: "photos#edit"

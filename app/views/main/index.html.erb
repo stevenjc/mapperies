@@ -31,5 +31,14 @@
   </div>
 </div>
 
+<%= javascript_include_tag "/js/jquery.js" %>
+<%= javascript_include_tag "/js/bootstrap.min.js" %>
+<%= javascript_include_tag "/js/map.js" %>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
+
+<!-- iFrame to the form to drag and drop pictures to remap them -->
+<iframe id="ifrm" src="/main/form" style="width:70%;" hidden=false></iframe>
+
+
 <!-- At the bottom so it is executed only when the above code is run -->
 <%= javascript_include_tag "/js/dragdrop.js" %>

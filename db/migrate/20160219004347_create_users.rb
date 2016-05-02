@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration
       t.date :birthday
       t.boolean :f_book
       t.string :default_loc
+      t.integer :avatar_id
 
     end
   end

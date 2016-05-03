@@ -151,13 +151,18 @@ hr.small {
 /* Header */
 
 .header {
-    background-color: #7E57C2
+    background-color: #5C6BC0
 
 }
 
 /* Middle of page */
 .primary {
-    background-color: #9575CD
+    background-color: #B0BEC5
+}
+
+/* Footer */
+.footer {
+    background-color: #7986CB
 }
 
 /* About */

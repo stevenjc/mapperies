@@ -4,3 +4,4 @@ log/development.log
 *~
 *.sqlite3
 public/assets/*
+log.txt

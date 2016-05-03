@@ -30,11 +30,19 @@
                           </div>
 
                             <p>Galleries</p>
-                            <% if !@galleries.blank? %>
-                              <% @galleries.each do |gallery| %>
+                            <% if !@galleries_viewonly.blank? %>
+                              <% @galleries_viewonly.each do |gallery| %>
                               <tr>
                                 <%= gallery.album_name %>
-                                <%= link_to 'See', gallery %>
+                                <%= link_to 'View', gallery %>
+                              </tr>
+                              <% end %>
+                            <% end %>
+                            <% if !@galleries_upload.blank? %>
+                              <% @galleries_upload.each do |gallery| %>
+                              <tr>
+                                <%= gallery.album_name %>
+                                <%= link_to 'Check', gallery %>
                               </tr>
                               <% end %>
                             <% end %>

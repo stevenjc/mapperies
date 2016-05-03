@@ -5,6 +5,7 @@ class PhotosController < ApplicationController
     @photos = Photo.all
   end
 
+
   def new
     @photo = Photo.new
   end
@@ -15,7 +16,6 @@ class PhotosController < ApplicationController
         @photo = Photo.new(album_id: params[:id], url: params[:url], image: image)
         puts "========================!!!==========================="
         @photo.save
-
         url = @photo.image.url(:original)
 
         puts @photo.image.url(:original)

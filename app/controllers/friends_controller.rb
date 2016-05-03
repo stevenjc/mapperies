@@ -84,17 +84,20 @@ class FriendsController < ApplicationController
   def albums
     @nav_bar = true
     @albums = Album.where(user_id: params[:id], isPublic: true)
-    @galleries = Array.new
+    @galleries_viewonly = Array.new
+    @galleries_upload = Array.new
     others = Album.where(user_id: params[:id], isPublic: false)
     others.each do |a|
         views = AlbumView.where(album_id: a.id)
-        # puts views
-        # gets
         views.each do |v|
-          if AlbumView.where(album_view_id: v.album_view_id, user_id: current_user.id)
-            # puts a
-            # gets
-            @galleries.push(a)
+          #view_upload_access 0->viewonly, 1->upload correct me if I'm wrong...
+          if AlbumView.where(album_view_id: v.album_view_id, user_id: current_user.id, view_upload_access: 1)
+            #myalbumid = v.album_id
+            #@galleries_upload.push(a)
+            #the one I look at
+            @galleries_upload.push(Album.where(id: v.album_id).first)
+          elsif AlbumView.where(album_view_id: v.album_view_id, user_id: current_user.id, view_upload_access: 0)
+            @galleries_viewonly.push(a)
           end
         end
     end

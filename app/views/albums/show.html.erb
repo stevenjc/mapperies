@@ -93,11 +93,6 @@
 
 <% else %>
   <h2>You have <%= @photos.count %> photos!</h2>
-  <% @photos.each do |photo| %>
-    <p><%=image_tag photo.image.url(:med) %></p>
-    <%= link_to 'Edit', edit_photo_path(photo)%>
-    <%= link_to 'Delete', photo, method: :delete, data: { confirm: 'Are you sure?' }%>
-    <%= button_to "Delete",  photo_path(photo), :method=>:delete, :class=>:destroy %>
 
   <div id="photo_container">
   <% @photos.each do |p| %>

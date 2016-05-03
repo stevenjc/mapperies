@@ -83,6 +83,7 @@ class AlbumsController < ApplicationController
 
   # Grab all the photos in the current album to show them
   def show
+      @nav_bar=true
       @photo = Photo.new
       @album = Album.find(params[:id])
       @photos = Photo.where(album_id: params[:id])

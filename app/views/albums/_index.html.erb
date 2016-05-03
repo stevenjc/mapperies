@@ -1,4 +1,3 @@
-
 <% if @albums.blank? %>
 <p>No albums yet </p>
 <p> <%= current_user.id %> </p>
@@ -6,16 +5,14 @@
   <% @albums.each do |album| %>
     <div class="col-sm-4 col-md-2">
       <div class="thumbnail">
-        <%if sample_photo(album.id)%>
-          <%=image_tag sample_photo(album.id).image.url(:med), id:"image"%>
-        <%end%>
-        <div class="caption">
-          <p id="album_name_listing">
-            <%= link_to album.album_name, :style=>'color: black;'%>
-          </p>
-          <p><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        </div>
+        <% if !sample_photo(album.first.id).nil?%>
+        <%=image_tag sample_photo(album.first.id).image.url(:med), id:"image"%>
+        <% end %>
       </div>
+        <div class="caption">
+          <p class="col-sm-2" id="album_name_listing"><%= link_to album.last, album.first, :style=>'color: black;'%></p>
+          <p class="col-sm-2"><%= link_to 'Destroy', album.first, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
     </div>
   <% end %>
 <% end %>

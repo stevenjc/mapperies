@@ -1,0 +1,61 @@
+<h3>Albums of Friend <% %> </h3>
+
+<section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>Friend's Albums</h2>
+                    <hr class="small">
+                    <div class="row">
+
+                      <table>
+                          <tbody>
+                            <p>Your ID is: <%= current_user.id %> </p>
+                            <p>The friend you are looking at is: <%= params[:id] %></p>
+                            <% if @albums.blank? && @galleries.blank? %>
+                              <p> This friend doesn't have any albums yet </p>
+                            <% end %>
+
+                            <div>
+                            <p>Albums</p>
+                            <% if !@albums.blank? %>
+                              <% @albums.each do |album| %>
+                              <!-- %= render :layout =>'layouts/listbackground' do % -->
+                              <tr>
+                                <%= album.album_name %>
+                                <%= link_to 'See', album %>
+                              </tr>
+                              <% end %>
+                            <% end %>
+                          </div>
+
+                            <p>Galleries</p>
+                            <% if !@galleries_viewonly.blank? %>
+                              <% @galleries_viewonly.each do |gallery| %>
+                              <tr>
+                                <%= gallery.album_name %>
+                                <%= link_to 'View', gallery %>
+                              </tr>
+                              <% end %>
+                            <% end %>
+                            <% if !@galleries_upload.blank? %>
+                              <% @galleries_upload.each do |gallery| %>
+                              <tr>
+                                <%= gallery.last %>
+                                <%= link_to 'Check', gallery.first %>
+                              </tr>
+                              <% end %>
+                            <% end %>
+
+                          </tbody>
+                        </table>
+
+                    <!-- /.row (nested) -->
+                    <a href="#" class="btn btn-dark">View More Items</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>

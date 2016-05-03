@@ -1,26 +1,12 @@
-    <!-- Header -->
-    <header id="top" class="header">
+    <section id="portfolio" class="primary">
         <div class="text-vertical-center">
             <h1>Mapperies</h1>
             <h3>See where you have traveled!</h3>
             <br>
-	    <a href="#map" class="btn btn-dark btn-lg">Learn how it works!</a>
-	    <br>
         <%if signed_in? %>
             <%= button_to "Logout", "sign_out" ,{class: "btn btn-dark btn-lg", :method => :delete}%>
         <%else%>
             <a href="/login" class="btn btn-dark btn-lg">Login</a>
         <% end %>
         </div>
-    </header>
-
-    <!-- Map -->
-        <div id="map"></div>
-    <%= javascript_include_tag "/js/jquery.js" %>
-
-        <%= javascript_include_tag "/js/bootstrap.min.js" %>
-
-        <!-- link api key -->
-        <%= javascript_include_tag "/js/map.js" %>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap"
-        async defer></script>
+    </section>

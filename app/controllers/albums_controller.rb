@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :require_login
-  before_action :set_album, only: [:show]
+  before_action :set_album, only: [:show, :destroy]
 
   respond_to :html, :js
 
@@ -9,8 +9,29 @@ class AlbumsController < ApplicationController
   def index
 	  @nav_bar = true
     # Grab all the albums of the current user
+    @albums = Array.new
+    a_ids = Array.new
+    #all albums with name and "hidden" ones
+    all_albums = Album.where(user_id: current_user.id)
+    all_albums.each do |a|
+      if a.album_name.eql?("*empty")
+        view = AlbumView.where(album_id: a.id).first
+        if !view.nil?
+          AlbumView.where(album_view_id: view.album_view_id).each do |v|
+            a_ids.push(v.album_id)
+          end
+          a_ids.each do |a_id|
+            if !Album.where(id: a_id).first.album_name.eql?("*empty")
+              @name = Album.where(id: a_id).first.album_name
+            end
+          end
+          @albums.push([a, @name])
+        end
+      else
+        @albums.push([a, a.album_name])
+      end
+    end
     @albums = Album.where(user_id: current_user.id)
-
     #albums-views
     #decide who to share albums with
     #then upon choosing a user, create albums-view--> connects album with friend?
@@ -36,6 +57,7 @@ class AlbumsController < ApplicationController
 
     #!!!!!#Changed
     # Create a new album where it is tied to the current user
+
     @album = Album.new(:user_id => current_user.id, :album_name => "Unnamed Album", :isPublic => access)
     #!!!!!#Changed
     @owner = AlbumView.new(:user_id => current_user.id)
@@ -86,6 +108,33 @@ class AlbumsController < ApplicationController
       @nav_bar=true
       @photo = Photo.new
       @album = Album.find(params[:id])
+      @albums = Array.new
+      @view_only = false
+
+      if @album.user_id != current_user.id
+        @is_view = true
+        @view_only = true
+      else
+        @is_view = false
+      end
+
+      #take out into private functions
+      a_ids = Array.new
+      if @album.album_name.eql?("*empty")
+        @is_view = true
+        view = AlbumView.where(album_id: @album.id).first
+        AlbumView.where(album_view_id: view.album_view_id).each do |v|
+          a_ids.push(v.album_id)
+        end
+        a_ids.each do |a_id|
+          if !Album.where(id: a_id).first.album_name.eql?( "*empty")
+            @album_name = Album.where(id: a_id).first.album_name
+          end
+        end
+      else
+        @album_name = @album.album_name
+      end
+
       @photos = Photo.where(album_id: params[:id])
       @friends_shared = params[:friends_shared]
 
@@ -137,12 +186,16 @@ class AlbumsController < ApplicationController
       #Update access of a friend already shared with
       if params[:change_access]
         #find album_view and update the access
-        AlbumView.where(album_view_id:@album.id).each do |av|
+        AlbumView.where(album_view_id: @album.id).each do |av|
           if av.user_id == params[:friend].to_i
               if params[:change_access] == "View Only"
                 av.update_attribute(:view_upload_access, 0)
+                Album.where(id: av.album_id, album_name: "*empty", user_id: params[:friend].to_i).destroy_all
+                av.update_attribute(:album_id, nil)
               elsif params[:change_access] == "View and Upload"
                 av.update_attribute(:view_upload_access, 1)
+                sharable = Album.create(album_name: "*empty", user_id: params[:friend].to_i, isPublic: false)
+                av.update_attribute(:album_id, sharable.id)
               end
           end
         end
@@ -151,22 +204,24 @@ class AlbumsController < ApplicationController
   end
 
   def edit
-    #identify the user first...
-    Album.find(params[:id]).destroy
-    redirect_to :action => 'index'
+    # why is it deleting under edit?????
+    # identify the user first...
+    # Album.find(params[:id]).destroy
+    # redirect_to :action => 'index'
+    @album = Album.find(params[:id])
   end
 
   def update
     @album = Album.find(params[:id])
     @album.update(:album_name=> params[:a_name], :defaultx=> params[:xcoord], :defaulty=>params[:ycoord]);
 
-    if @album.save
-      redirect_to album_form_album_path
 
-    else
-      redirect_to album_form_album_path
-
-    end
+    redirect_to album_form_album_path
+     # if @album.save
+    #   redirect_to album_form_album_path
+    # else
+    #   redirect_to album_form_album_path
+    # end
   end
 
   def form
@@ -233,6 +288,19 @@ class AlbumsController < ApplicationController
       gon.unmapped = @unmapped
       gon.color = color
   end
+
+  def destroy
+    @album.destroy
+    respond_to do |format|
+      format.html { redirect_to albums_path}
+      format.json { head :no_content }
+    end
+  end
+
+  # def update
+  #   Album.find(params[:id]).update(:album_name=> params[:a_name]);
+  #   redirect_to :action => 'show'
+  # end
 
   private
   # Use callbacks to share common setup or constraints between actions.

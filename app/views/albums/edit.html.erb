@@ -1,0 +1,13 @@
+<h1>Edit Album</h1>
+
+<%= image_tag @album.cover.url(:med) %>
+
+<%= form_for @album, :html => {:multipart => true} do |a| %>
+  <div class="form-group">
+    <%= a.label :cover %>
+    <%= a.file_field :cover %>
+    <!-- <#%= file_field_tag "cover", type: :file%> -->
+  </div>
+  <%= a.submit 'Upload Cover' %>
+
+<% end %>

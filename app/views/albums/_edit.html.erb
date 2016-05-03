@@ -2,15 +2,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-10">
-      <ul id="album_name_parent">
-        <h3 id="album_name" onclick="edit()">
-          <%= @album.album_name%>
-        </h3>
-      </ul>
       <div id="change_album_name">
         <button id="edit_name" onclick="edit()">Edit</button>
       </div>
     </div>
+  </div>
+</div>
 
 <!--Modal Alert to Change Privacy  -->
 <div class="modal fade" tabindex="-1" role="dialog" id="change_privacy">

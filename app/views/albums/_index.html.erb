@@ -1,14 +1,12 @@
 
 <% if @albums.blank? %>
-<p> You don't have any albums yet </p>
+<p>No albums yet </p>
 <p> <%= current_user.id %> </p>
 <% else %>
-  <p> <%= @albums.count %>
   <% @albums.each do |album| %>
   <!--%= render :layout =>'layouts/listbackground' do %-->
   <tr>
-    <td><div><%= album.last %></div></td>
-    <td><%= link_to 'See', album.first %></td>
+    <td class="col-sm-2" id="album_name_listing"><%= link_to album.last, album.first, :style=>'color: black;'%></td>
     <td><%= link_to 'Destroy', album.first, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
   <% end %>

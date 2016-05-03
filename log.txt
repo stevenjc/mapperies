@@ -1,0 +1,101 @@
+2016-05-03T21:14:45.293605+00:00 app[web.1]:     89:       </div>
+2016-05-03T21:14:45.293601+00:00 app[web.1]: ActionView::Template::Error (undefined method `user_name' for nil:NilClass):
+2016-05-03T21:14:45.293607+00:00 app[web.1]:   app/views/layouts/application.html.erb:88:in `_app_views_layouts_application_html_erb___4388841898802921176_70187839109200'
+2016-05-03T21:14:45.293604+00:00 app[web.1]:     88:         <div style="float:right;top:15px; right:100px;position:relative;"><%= user_identifier %></div>
+2016-05-03T21:14:45.293607+00:00 app[web.1]:   app/helpers/main_helper.rb:4:in `user_identifier'
+2016-05-03T21:14:45.293603+00:00 app[web.1]:     87:         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
+2016-05-03T21:14:45.293606+00:00 app[web.1]:     90:       <div style="width:100%;height:60px;">
+2016-05-03T21:14:45.293606+00:00 app[web.1]:     91:       </div>
+2016-05-03T21:14:45.293607+00:00 app[web.1]: 
+2016-05-03T21:14:45.293608+00:00 app[web.1]: 
+2016-05-03T21:14:45.295899+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=29b9747f-a3eb-457f-9fe1-ad2de26439fc fwd="54.227.18.175" dyno=web.1 connect=0ms service=134ms status=500 bytes=1683
+2016-05-03T21:14:55.311051+00:00 app[web.1]: Started GET "/" for 54.227.18.175 at 2016-05-03 21:14:55 +0000
+2016-05-03T21:14:55.317099+00:00 app[web.1]:   Rendered landing/show.html.erb within layouts/application (0.1ms)
+2016-05-03T21:14:55.354799+00:00 app[web.1]:     85:      <!--move this!-->
+2016-05-03T21:14:55.354800+00:00 app[web.1]:     86:       <div id="icon" style="width:100%;height:50px;background-color:#3F51B5;position:fixed;top:0px;z-index: 999">
+2016-05-03T21:14:55.352614+00:00 app[web.1]: Completed 500 Internal Server Error in 37ms (ActiveRecord: 0.0ms)
+2016-05-03T21:14:55.354804+00:00 app[web.1]:   app/helpers/main_helper.rb:4:in `user_identifier'
+2016-05-03T21:14:55.354803+00:00 app[web.1]:     89:       </div>
+2016-05-03T21:14:55.354803+00:00 app[web.1]:     90:       <div style="width:100%;height:60px;">
+2016-05-03T21:14:55.354805+00:00 app[web.1]:   app/views/layouts/application.html.erb:88:in `_app_views_layouts_application_html_erb___4388841898802921176_70187839109200'
+2016-05-03T21:14:55.354804+00:00 app[web.1]:     91:       </div>
+2016-05-03T21:14:55.354801+00:00 app[web.1]:     87:         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
+2016-05-03T21:14:55.364676+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=b3ce6879-5cdc-4d32-9d61-cc4914c332c1 fwd="54.227.18.175" dyno=web.1 connect=1ms service=48ms status=500 bytes=1683
+2016-05-03T21:14:55.354802+00:00 app[web.1]:     88:         <div style="float:right;top:15px; right:100px;position:relative;"><%= user_identifier %></div>
+2016-05-03T21:14:55.354791+00:00 app[web.1]: 
+2016-05-03T21:14:55.354806+00:00 app[web.1]: 
+2016-05-03T21:14:55.354807+00:00 app[web.1]: 
+2016-05-03T21:14:55.315427+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-03T21:14:55.354798+00:00 app[web.1]: ActionView::Template::Error (undefined method `user_name' for nil:NilClass):
+2016-05-03T21:15:05.367877+00:00 app[web.1]: Started GET "/" for 54.227.18.175 at 2016-05-03 21:15:05 +0000
+2016-05-03T21:15:05.389791+00:00 app[web.1]: Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+2016-05-03T21:15:05.371762+00:00 app[web.1]:   Rendered landing/show.html.erb within layouts/application (0.1ms)
+2016-05-03T21:15:05.390785+00:00 app[web.1]:     85:      <!--move this!-->
+2016-05-03T21:15:05.390788+00:00 app[web.1]:     87:         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
+2016-05-03T21:15:05.390786+00:00 app[web.1]:     86:       <div id="icon" style="width:100%;height:50px;background-color:#3F51B5;position:fixed;top:0px;z-index: 999">
+2016-05-03T21:15:05.390775+00:00 app[web.1]: 
+2016-05-03T21:15:05.390788+00:00 app[web.1]:     88:         <div style="float:right;top:15px; right:100px;position:relative;"><%= user_identifier %></div>
+2016-05-03T21:15:05.370886+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-03T21:15:05.390790+00:00 app[web.1]:     91:       </div>
+2016-05-03T21:15:05.390789+00:00 app[web.1]:     89:       </div>
+2016-05-03T21:15:05.390785+00:00 app[web.1]: ActionView::Template::Error (undefined method `user_name' for nil:NilClass):
+2016-05-03T21:15:05.390792+00:00 app[web.1]: 
+2016-05-03T21:15:05.390792+00:00 app[web.1]:   app/views/layouts/application.html.erb:88:in `_app_views_layouts_application_html_erb___4388841898802921176_70187839109200'
+2016-05-03T21:15:05.390790+00:00 app[web.1]:     90:       <div style="width:100%;height:60px;">
+2016-05-03T21:15:05.390791+00:00 app[web.1]:   app/helpers/main_helper.rb:4:in `user_identifier'
+2016-05-03T21:15:05.390793+00:00 app[web.1]: 
+2016-05-03T21:15:05.426316+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=47d495b6-2431-467e-9644-7041b066aef8 fwd="54.227.18.175" dyno=web.1 connect=1ms service=25ms status=500 bytes=1683
+2016-05-03T21:15:15.405718+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-03T21:15:15.403169+00:00 app[web.1]: Started GET "/" for 54.227.18.175 at 2016-05-03 21:15:15 +0000
+2016-05-03T21:15:15.406590+00:00 app[web.1]:   Rendered landing/show.html.erb within layouts/application (0.1ms)
+2016-05-03T21:15:15.419162+00:00 app[web.1]: 
+2016-05-03T21:15:15.419176+00:00 app[web.1]: ActionView::Template::Error (undefined method `user_name' for nil:NilClass):
+2016-05-03T21:15:15.419177+00:00 app[web.1]:     85:      <!--move this!-->
+2016-05-03T21:15:15.419178+00:00 app[web.1]:     86:       <div id="icon" style="width:100%;height:50px;background-color:#3F51B5;position:fixed;top:0px;z-index: 999">
+2016-05-03T21:15:15.419179+00:00 app[web.1]:     87:         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
+2016-05-03T21:15:15.419195+00:00 app[web.1]:     88:         <div style="float:right;top:15px; right:100px;position:relative;"><%= user_identifier %></div>
+2016-05-03T21:15:15.419197+00:00 app[web.1]:     90:       <div style="width:100%;height:60px;">
+2016-05-03T21:15:15.417990+00:00 app[web.1]: Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+2016-05-03T21:15:15.421394+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=025dfc34-c15e-4c84-859b-efdbf2a831c6 fwd="54.227.18.175" dyno=web.1 connect=1ms service=18ms status=500 bytes=1683
+2016-05-03T21:15:15.419197+00:00 app[web.1]:     91:       </div>
+2016-05-03T21:15:15.419200+00:00 app[web.1]: 
+2016-05-03T21:15:15.419199+00:00 app[web.1]:   app/views/layouts/application.html.erb:88:in `_app_views_layouts_application_html_erb___4388841898802921176_70187839109200'
+2016-05-03T21:15:15.419199+00:00 app[web.1]: 
+2016-05-03T21:15:15.419196+00:00 app[web.1]:     89:       </div>
+2016-05-03T21:15:15.419198+00:00 app[web.1]:   app/helpers/main_helper.rb:4:in `user_identifier'
+2016-05-03T21:15:25.484570+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=1f81b832-a957-4e01-afaa-237c5536f484 fwd="54.227.18.175" dyno=web.1 connect=0ms service=16ms status=500 bytes=1683
+2016-05-03T21:15:25.432494+00:00 app[web.1]: Started GET "/" for 54.227.18.175 at 2016-05-03 21:15:25 +0000
+2016-05-03T21:15:25.447161+00:00 app[web.1]:     85:      <!--move this!-->
+2016-05-03T21:15:25.447170+00:00 app[web.1]:     86:       <div id="icon" style="width:100%;height:50px;background-color:#3F51B5;position:fixed;top:0px;z-index: 999">
+2016-05-03T21:15:25.446069+00:00 app[web.1]: Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+2016-05-03T21:15:25.435009+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-03T21:15:25.447160+00:00 app[web.1]: ActionView::Template::Error (undefined method `user_name' for nil:NilClass):
+2016-05-03T21:15:25.435631+00:00 app[web.1]:   Rendered landing/show.html.erb within layouts/application (0.0ms)
+2016-05-03T21:15:25.447150+00:00 app[web.1]: 
+2016-05-03T21:15:25.447176+00:00 app[web.1]:     89:       </div>
+2016-05-03T21:15:25.447170+00:00 app[web.1]:     87:         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
+2016-05-03T21:15:25.447179+00:00 app[web.1]:     90:       <div style="width:100%;height:60px;">
+2016-05-03T21:15:25.447176+00:00 app[web.1]:     88:         <div style="float:right;top:15px; right:100px;position:relative;"><%= user_identifier %></div>
+2016-05-03T21:15:25.447179+00:00 app[web.1]:     91:       </div>
+2016-05-03T21:15:25.447180+00:00 app[web.1]:   app/views/layouts/application.html.erb:88:in `_app_views_layouts_application_html_erb___4388841898802921176_70187839109200'
+2016-05-03T21:15:25.447181+00:00 app[web.1]: 
+2016-05-03T21:15:25.447180+00:00 app[web.1]:   app/helpers/main_helper.rb:4:in `user_identifier'
+2016-05-03T21:15:25.447181+00:00 app[web.1]: 
+2016-05-03T21:15:35.475046+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=4a0284e4-a57b-4f07-971e-9622d2d943bf fwd="54.227.18.175" dyno=web.1 connect=1ms service=17ms status=500 bytes=1683
+2016-05-03T21:15:35.457500+00:00 app[web.1]: Started GET "/" for 54.227.18.175 at 2016-05-03 21:15:35 +0000
+2016-05-03T21:15:35.459935+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-03T21:15:35.460635+00:00 app[web.1]:   Rendered landing/show.html.erb within layouts/application (0.1ms)
+2016-05-03T21:15:35.472736+00:00 app[web.1]: 
+2016-05-03T21:15:35.471634+00:00 app[web.1]: Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+2016-05-03T21:15:35.472748+00:00 app[web.1]:     86:       <div id="icon" style="width:100%;height:50px;background-color:#3F51B5;position:fixed;top:0px;z-index: 999">
+2016-05-03T21:15:35.472746+00:00 app[web.1]: ActionView::Template::Error (undefined method `user_name' for nil:NilClass):
+2016-05-03T21:15:35.472748+00:00 app[web.1]:     85:      <!--move this!-->
+2016-05-03T21:15:35.472750+00:00 app[web.1]:     88:         <div style="float:right;top:15px; right:100px;position:relative;"><%= user_identifier %></div>
+2016-05-03T21:15:35.472752+00:00 app[web.1]:     91:       </div>
+2016-05-03T21:15:35.472752+00:00 app[web.1]:   app/helpers/main_helper.rb:4:in `user_identifier'
+2016-05-03T21:15:35.472753+00:00 app[web.1]: 
+2016-05-03T21:15:35.472751+00:00 app[web.1]:     90:       <div style="width:100%;height:60px;">
+2016-05-03T21:15:35.472749+00:00 app[web.1]:     87:         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
+2016-05-03T21:15:35.472750+00:00 app[web.1]:     89:       </div>
+2016-05-03T21:15:35.472754+00:00 app[web.1]: 
+2016-05-03T21:15:35.472753+00:00 app[web.1]:   app/views/layouts/application.html.erb:88:in `_app_views_layouts_application_html_erb___4388841898802921176_70187839109200'

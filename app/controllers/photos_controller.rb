@@ -5,7 +5,6 @@ class PhotosController < ApplicationController
     @photos = Photo.all
   end
 
-
   def new
     @photo = Photo.new
   end
@@ -13,18 +12,17 @@ class PhotosController < ApplicationController
   def create
     if params[:images]
       params[:images].each { |image|
-        @photo = Photo.new(album_id: params[:id], url: params[:url], image: image)
-        # puts "========================!!!==========================="
+        e= Exiftool.new(image.path)
+        @photo = Photo.new(album_id: params[:id], url: params[:url], image: image, x_coord:e[:gps_latitude] , y_coord:e[:gps_longitude])
+        puts "========================!!!==========================="
+        puts e[:gps_longitude]
+        puts e[:gps_latitude]
         @photo.save
-        url = @photo.image.url(:original)
-        # puts @photo.image.url(:original)
-        # @photo.save
+
       }
     end
     respond_to do |format|
-      # if @photo.save
-      # if all photos are successfully saved ==> how to implement???
-      if true
+      if @photo.save
         format.html { redirect_to albums_path+'/'+(params[:id]), notice: 'Photo Uploaded!' }
         format.json { render :show, status: :created, location: @photo }
       else
@@ -36,20 +34,6 @@ class PhotosController < ApplicationController
 
   def show
     @photos = Photo.find(params[:id])
-  end
-
-  def destroy
-    @photo = Photo.find(params[:id])
-    @photo.destroy
-    flash[:notice] = "Successfully deleted photo"
-    redirect_to album_path(@photo.album_id)
-    # puts "photo deleted"
-    # gets
-  end
-
-  def edit
-    puts "Hello"
-    @photo = Photo.find(params[:id])
   end
 
   private

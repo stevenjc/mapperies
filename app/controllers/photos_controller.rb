@@ -12,14 +12,11 @@ class PhotosController < ApplicationController
   def create
     if params[:images]
       params[:images].each { |image|
-        @photo = Photo.new(album_id: params[:id], url: params[:url], image: image)
+        e= Exiftool.new(image.path)
+        @photo = Photo.new(album_id: params[:id], url: params[:url], image: image, x_coord:e[:gps_longitude] , y_coord:e[:gps_latitude])
         puts "========================!!!==========================="
-        @photo.save
-
-        url = @photo.image.url(:original)
-
-        puts @photo.image.url(:original)
-
+        puts e[:gps_longitude]
+        puts e[:gps_latitude]
         @photo.save
 
       }

@@ -10,21 +10,23 @@
 <div class="container">
   <div class = "row">
     <% if @unmapped.blank? %>
-      <div id="map" class="col-md-12">this is the map</div>
+      <div id="map" class="col-md-12 col-sm-12 col-xs-12">this is the map</div>
     <% else %>
-      <div id="map" class="col-md-10">this is the map</div>
-      <div class="uncoordinated-photos" class="col-md-offset-10 col-md-2">
-        <%= form_for current_user, url:{action: "edit_pic", controller:"users"}, html: {multipart: true, hidden:false} do |f| %>
+      <div id="map" class="col-md-9 col-sm-10">this is the map</div>
+      <div class="uncoordinated-photos col-md-3 col-sm-3 " >
+        <%= form_for current_user, url:{action: "edit_pic", controller:"users"}, html: {multipart: true, hidden:true} do |f| %>
           <input id= "dragphoto" name="dragphoto" type="text"/>
           <input id= "x" name="x" type="text" />
           <input id= "y" name="y" type="text" />
           <input id="submit" type="submit" />
         <% end %>
-        <h3> Your photos with no coordinates </h3>
-        <div style="display:inline-block;">
-          <% @unmapped.each do |p| %>
-            <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %>
-          <% end %>
+        <div class="panel panel-primary"  >
+          <div class="panel-heading">Your Photos with No Coordinates</div>
+          <div class="panel-body">
+            <% @unmapped.each do |p| %>
+              <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>

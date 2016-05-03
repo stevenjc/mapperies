@@ -1,9 +1,14 @@
-<!--Form to upload multiple photos  -->
-<%= form_for @photo, html: {multipart: true} do |f| %>
-  <% params.merge(:id => @album.id)%>
-  <%= @album.id %>
-  <div class="form-group">
-    <%= file_field_tag "images[]", type: :file, multiple: true %>
+<div class ="row">
+  <div class ="col-md-12" id="upload_div">
+    <div class="collapse" id="photo_upload">
+      <h1> Upload Photos </h1>
+      <!--Form to upload multiple photos  -->
+      <%= form_for @photo, html: {multipart: true} do |f| %>
+        <div class="form-group">
+          <%= file_field_tag "images[]", type: :file, multiple: true, class: "upload_button"%>
+        </div>
+        <%= f.submit 'Upload' %>
+      <% end %>
+    </div>
   </div>
-  <%= f.submit 'Upload' %>
-<% end %>
+</div>

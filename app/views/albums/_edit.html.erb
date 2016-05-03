@@ -1,82 +1,10 @@
-<!-- Change album name -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-10">
-      <ul id="album_name_parent">
-        <h3 id="album_name" onclick="edit()">
-          <%= @album.album_name%>
-        </h3>
-      </ul>
-      <div id="change_album_name">
-        <button id="edit_name" onclick="edit()">Edit</button>
-      </div>
-    </div>
-
-<!--Modal Alert to Change Privacy  -->
-<div class="modal fade" tabindex="-1" role="dialog" id="change_privacy">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Select Privacy Setting for this Album</h4>
-      </div>
-      <div class="modal-footer">
-        <body onload="showFriends()">
-        <%= form_tag(album_path, method: "get")  do %>
-          <%= select_tag("opts", options_for_select(["Public", "Private"], selected: @pub_private), :onchange => "showFriends()") %> <!--Need Javascript here when switching from public/private -->
-        <div id="f1" style="display:none">
-          <% @friends_shared = Array.new %>
-          <% @friend_access = Hash.new %>
-          <% AlbumView.where(album_view_id:@album.id).each do |av| %>
-            <% if av.user_id != current_user.id %>
-              <% @friends_shared.push(av.user_id) %>
-              <% @access = nil %>
-              <% if av.view_upload_access == 0 %>
-                <% @access = "View Only" %>
-              <% elsif av.view_upload_access == 1 %>
-                <% @access = "View and Upload" %>
-              <% end %>
-              <% @friend_access[av.user_id] = @access %>
-            <% end %>
-          <% end %>
-
-            <% if @friends_shared %>
-
-                <% get_friends.each do |f| %>
-                  <% if @friends_shared.include? f.id %>
-                    <div> <%= f.first_name %> <%= f.last_name %>
-                    <!--show which access privilege the friend has, and give option to change that setting -->
-                        <%= select_tag("change_access", options_for_select(["View Only", "View and Upload"], selected: @friend_access[f.id])) %>
-                        <%= hidden_field_tag(:friend, f.id) %>
-
-                        <%= link_to "Unshare", {:controller => "albums", :action => "show", :unshare => f}, method: "get" %>
-                      </div>
-
-                  <% else %>
-                    <!--copied from new -->
-                    <select name="friends[]" multiple="multiple">
-                      <% get_friends.each do |f| %>
-                        <option onclick="test()", value= <%= f.id %> >
-                          <%= f.first_name %> <%= f.last_name %>
-                        </option>
-                      <% end %>
-                    </select>
-                  <% end %>
-                <% end %>
-
-                <div id="access" style="display:none">
-                  <select name="access">
-                    <option value = "0">View Only</option>
-                    <option value = "1">View and Upload</option>
-                  </select>
-                </div>
-
-              <!--<#% end %>-->
-            <% end %>
-        </div>
-            <%= submit_tag("Update") %>
-        <% end %>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<div id="change_album_name">
+  <button id="edit_name" onclick="edit()">Edit</button>
+</div>
+</div>
+<div class="col-md-2">
+  <%= render "upload_button" unless @view_only%>
+  <%= button_tag(type: 'button', class: "btn btn-warning", "data-toggle"=> "modal", "data-target"=> "#change_privacy") do %>
+      Privacy Settings
+  <% end %>
+</div>

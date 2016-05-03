@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :albums do
     member do
       post 'photos/new'
+      get '/map' => "albums#map", as:"map"
       get 'form', as: "album_form"
       resources :photos do
         member do

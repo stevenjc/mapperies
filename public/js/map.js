@@ -15,7 +15,7 @@ var colors=       [ "amber", "blue_grey", "blue", "brown", "cyan",
 var backgrounds =[];
 
 for (var i = 0; i < colors.length; i++) {
-  backgrounds.push("../img/backgrounds/"+colors[i]+".png")
+  backgrounds.push("../../img/backgrounds/"+colors[i]+".png")
 };
 
 function initMap() {
@@ -196,10 +196,13 @@ function mean(x){
   }
   return result/x.length;
 }
+
 function changeWidth(x){
   if(gon.unmapped.length>0){
-    document.getElementById("map").style.width='65%';
+    document.getElementById("map").style.width='60%';
+    document.getElementById("map").style.left="2.5%";
   }else{
-    document.getElementById("map").style.width='100%';
+    document.getElementById("map").style.width='95%';
+    document.getElementById("map").style.left="2.5%";
   }
 }

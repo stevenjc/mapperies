@@ -1,0 +1,33 @@
+<%= include_gon %>
+<div id="main_header" class="col-mid-8">
+    <h1> <%=user_identifier%>'s Default Map </h1>
+</div>
+
+<%=link_to "View as List", album_path %>
+
+<div id="map" style= "width:65%; float:left;" class="col-mid-12"></div>
+
+<% if @unmapped.blank? %>
+<% else %>
+  <h3> Your photos with no coordinates </h3>
+  <h5> Click the photo then on the map to give it coordinates </h5>
+  <div id="photo_container" style="display:block; float:right;">
+  <% counter=0 %>
+  <% @unmapped.each do |p| %>
+    <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id, data:{album: @unmapped_album[counter]} %>
+    <%counter=counter+1%>
+  <% end %>
+  </div>
+<% end %>
+
+<%= javascript_include_tag "/js/jquery.js" %>
+<%= javascript_include_tag "/js/bootstrap.min.js" %>
+<%= javascript_include_tag "/js/map.js" %>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
+
+<!-- iFrame to the form to drag and drop pictures to remap them -->
+<iframe id="ifrm" src="/main/form" hidden=false></iframe>
+
+
+<!-- At the bottom so it is executed only when the above code is run -->
+<%= javascript_include_tag "/js/dragdrop.js" %>

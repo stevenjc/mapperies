@@ -8,7 +8,7 @@ class MainController < ApplicationController
 
   #declare variables we will return to view
   @unmapped=[];
-
+  @unmapped_album=[];
 
   #declare local variables
   photo_ids=[];     #ID's of photos to be mapped
@@ -41,6 +41,7 @@ class MainController < ApplicationController
       #only show unmapped photos that belong to the user
       if (t.x_coord == nil) && (tempalbum.user_id==current_user.id)
         @unmapped.push(t)
+        @unmapped_album.push(i);
       #ignore unmapped photos of the other users
       elsif (t.x_coord ==nil)
       #For everything else, save the url, coordinates, and which album its from

@@ -7,7 +7,7 @@ var img = gon.img;
 var albums = gon.albums;
 var color = gon.color;
 var default_loc ={lat: 37.09, lng:-74.5};
-changeWidth(x_coords);
+changeWidth();
 var colors=       [ "amber", "blue_grey", "blue", "brown", "cyan",
                     "deep_orange", "deep_purple", "green", "grey",
                     "indigo", "light_blue", "light_green", "lime",
@@ -15,7 +15,7 @@ var colors=       [ "amber", "blue_grey", "blue", "brown", "cyan",
 var backgrounds =[];
 
 for (var i = 0; i < colors.length; i++) {
-  backgrounds.push("../img/backgrounds/"+colors[i]+".png")
+  backgrounds.push("../../img/backgrounds/"+colors[i]+".png")
 };
 
 function initMap() {
@@ -34,24 +34,40 @@ function initMap() {
     //Grab form info from inside the iFrame
     var content = iframeRef(document.getElementById("ifrm"));
     var input = content.getElementById("dragphoto");
+    var album = content.getElementById("album_id");
 
     var id =input.value;
     if(id>0){
+
       var loc = e.latLng.toString();
       loc = loc.substring(1, loc.length-1);
       loc = loc.split(",");
-      if(id!=""){
+      var latLng = {lat: parseFloat(loc[0]), lng: parseFloat(loc[1])};
+
+      if(id!="" && album.value!="null"){
         var picture = document.getElementById(id);
         var icon = {
           url: picture.src,
-          scaledSize: new google.maps.Size(35,35)
-        }
+          scaledSize: new google.maps.Size(35,35),
+          anchor: new google.maps.Point(17.5,17.5)
+        };
+        var background_image={
+          url: backgrounds[album.value],
+          scaledSize: new google.maps.Size(40,40),
+          anchor: new google.maps.Point(20,20)
+        };
+
         var marker = new google.maps.Marker({
-          position: {lat: parseFloat(loc[0]), lng: parseFloat(loc[1])},
+          position: latLng,
           map: this,
           icon: icon,
-          zIndex: 1
-        })
+          zIndex: 1,
+          animation: google.maps.Animation.DROP
+        });
+
+        setTimeout(delay(latLng, this, background_image), 1000);
+
+      //  marker.setAnimation(google.maps.Animation.DROP);
       }
       var content = iframeRef(document.getElementById("ifrm"));
       var x = content.getElementById("x");
@@ -105,9 +121,9 @@ function addMarker(int, map){
     icon: image,
     zIndex: 1,
     myData: albums[int],
-    back: background
+    back: background,
+    animation: google.maps.Animation.DROP
   });
-
 
 
   marker.addListener('click', markerClick);
@@ -196,10 +212,23 @@ function mean(x){
   }
   return result/x.length;
 }
-function changeWidth(x){
+
+function changeWidth(){
   if(gon.unmapped.length>0){
-    document.getElementById("map").style.width='65%';
+    document.getElementById("map").style.width='60%';
+    document.getElementById("map").style.left="2.5%";
   }else{
-    document.getElementById("map").style.width='100%';
+    document.getElementById("map").style.width='95%';
+    document.getElementById("map").style.left="2.5%";
   }
+}
+
+function delay(latLng, map, background_image){
+  new google.maps.Marker({
+    position: latLng,
+    map: map,
+    icon: background_image,
+    zIndex:0,
+    animation: google.maps.Animation.DROP
+  });
 }

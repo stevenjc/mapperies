@@ -7,12 +7,37 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Destroy', album_path(@album), method: :delete, data: { confirm: 'Are you sure?' } %>
-
-
 <%= image_tag @album.cover.url(:med) %>
+<!-- Show album name -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+      <ul id="album_name_parent">
+        <h3 id="album_name" onclick="edit()">
+          <%= @album.album_name%>
+        </h3>
+      </ul>
+    </div>
+  </div>
+</div>
 <iframe id="ifrm" src="/albums/<%= @album.id%>/form" style="width:70%;" hidden=true></iframe>
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10">
+      <ul id="album_name_parent">
+        <h3 id="album_name" onclick="edit()">
+          <%= @album.album_name%>
+        </h3>
+      </ul>
+      <% if not @is_view %>
+        <%= render "edit"%>
+      <% else %>
+        </div>
+        <div class="col-md-2">
+          <%= render "upload_button" unless @view_only%>
+        </div>
+      <%end%>
+  </div>
 <%= render "edit" unless @is_view %>
 
 
@@ -20,16 +45,17 @@
   <div id="photo_container">
     <!--Check to see if there are photos, then display the photos in the album  -->
     <% if @photos.blank? %>
-      <p> You don't have any photos yet </p>
+      <p> No photos yet </p>
     <% else %>
       <% @photos.each do |p| %>
         <span class="picture thumbnail col-md-1 col-md-offset-1">
           <%=image_tag p.image.url(:med), id:"image"%>
         </span>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+
+  <%= render "uploading" unless @view_only%>
 
   <div class = "row">
     <div class="col-md-12">
@@ -41,7 +67,10 @@
   </div>
 </div>
 
-<%= render "uploading" unless @view_only%>
+
+
+
+
 
 <!--Link to new_album_photo_path  -->
 <!-- <%= button_to 'Upload Photos!', new_photo_path %> -->

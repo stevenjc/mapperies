@@ -72,20 +72,22 @@
       </ul>
     </nav>
     <div>
-      <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+      <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="z-index: 1000;top: -3px;right:-2px;"><i class="fa fa-bars"></i></a>
     </div>
   <% end %>
     <!--< end %>-->
 
      <header id="top" class="header"> <!--give this header a different class-->
 
-      <div id="icon" style="width:100%;height:50px;background-color:green;position:fixed;top:0px;">
+     <!--move this!-->
+      <div id="icon" style="width:100%;height:50px;background-color:green;position:fixed;top:0px;z-index: 999">
         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
       </div>
       <div style="width:100%;height:60px;">
       </div>
          <%= yield %>
      </header>
+
      <!--Modal Alert to Confirm Logout -->
      <div class="modal fade" tabindex="-1" role="dialog" id="confirm_logout">
        <div class="modal-dialog">

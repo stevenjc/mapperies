@@ -179,7 +179,7 @@ class AlbumsController < ApplicationController
 
       #declare variables we will return to view
       @unmapped=[];
-
+      @unmapped_album=[];
 
       #declare local variables
       photo_ids=[];     #ID's of photos to be mapped
@@ -198,6 +198,7 @@ class AlbumsController < ApplicationController
       photo_ids.each do |t|
         #only show unmapped photos that belong to the user
         if (t.x_coord == nil) && (album.user_id==current_user.id)
+          @unmapped_album.push(params[:id])
           @unmapped.push(t)
         #ignore unmapped photos of the other users
         elsif (t.x_coord ==nil)

@@ -12,8 +12,10 @@
   <h3> Your photos with no coordinates </h3>
   <h5> Click the photo then on the map to give it coordinates </h5>
   <div id="photo_container" style="display:block; float:right;">
+  <% counter=0 %>
   <% @unmapped.each do |p| %>
-    <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %>
+    <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id, data:{album: @unmapped_album[counter]} %>
+    <%counter=counter+1%>
   <% end %>
   </div>
 <% end %>
@@ -24,7 +26,7 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
 
 <!-- iFrame to the form to drag and drop pictures to remap them -->
-<iframe id="ifrm" src="/main/form" style="width:70%;" hidden=false></iframe>
+<iframe id="ifrm" src="/main/form" hidden=false></iframe>
 
 
 <!-- At the bottom so it is executed only when the above code is run -->

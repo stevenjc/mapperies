@@ -11,6 +11,7 @@ function fillForm(){
   var content = iframeRef(document.getElementById("ifrm"));
   var inp = content.getElementById("dragphoto");
   inp.value = this.id;
+  content.getElementById("album_id").value=this.dataset.album;
 };
 
 function iframeRef( frameRef ) {

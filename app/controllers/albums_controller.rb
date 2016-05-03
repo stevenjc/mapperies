@@ -10,7 +10,6 @@ class AlbumsController < ApplicationController
 	  @nav_bar = true
     # Grab all the albums of the current user
     @albums = Album.where(user_id: current_user.id)
-
     #albums-views
     #decide who to share albums with
     #then upon choosing a user, create albums-view--> connects album with friend?

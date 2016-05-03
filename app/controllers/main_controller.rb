@@ -32,7 +32,6 @@ class MainController < ApplicationController
     end
 
 
-<<<<<<< HEAD
   # For each album, push all the photos and links into the arrays
   album_ids.each do |i|
     photo_ids = Photo.where(:album_id => Integer(i))
@@ -50,25 +49,6 @@ class MainController < ApplicationController
         x_coord.push(t.x_coord)
         y_coord.push(t.y_coord)
         albums.push(Integer(i))
-=======
-    # For each album, push all the photos and links into the arrays
-    album_ids.each do |i|
-      photo_ids = Photo.where(:album_id => Integer(i))
-      photo_ids.each do |t|
-        tempalbum = Album.find(Integer(i))
-        #only show unmapped photos that belong to the user
-        if (t.x_coord == nil) && (tempalbum.user_id==current_user.id)
-          @unmapped.push(t)
-        #ignore unmapped photos of the other users
-        elsif (t.x_coord ==nil)
-        #For everything else, save the url, coordinates, and which album its from
-        else
-          links.push(t.image.url)
-          x_coord.push(t.x_coord)
-          y_coord.push(t.y_coord)
-          albums.push(Integer(i))
-        end
->>>>>>> user_interface
       end
     end
     i = 0

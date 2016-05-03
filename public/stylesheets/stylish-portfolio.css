@@ -229,11 +229,6 @@ hr.small {
     height: 500px;
 }
 
-#photo_container{
-    width:35%;
-    float: right;
-}
-
 .unmapped_photo{
   float:inherit;
   margin-left: auto;

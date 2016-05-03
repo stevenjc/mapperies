@@ -25,7 +25,6 @@
       <%= button_tag(type: 'button', class: "btn btn-warning", "data-toggle"=> "modal", "data-target"=> "#change_privacy") do %>
           Privacy Settings
       <% end %>
-
     </div>
   </div>
   <!--Modal Alert to Change Privacy  -->
@@ -96,7 +95,6 @@
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->
-
   <div class = "row">
     <div  class="col-md-12" id="photo_container">
       <!--Check to see if there are photos, then display the photos in the album  -->
@@ -108,13 +106,15 @@
           <%=image_tag p.image.url(:med) %>
         <% end %>
       <% end %>
-      <!--Form to upload multiple photos  -->
-      <%= form_for @photo, html: {multipart: true} do |f| %>
-        <div class="form-group">
-          <%= file_field_tag "images[]", type: :file, multiple: true %>
-        </div>
-        <%= f.submit 'Upload' %>
-      <% end %>
+      <div class="photo_upload">
+        <!--Form to upload multiple photos  -->
+        <%= form_for @photo, html: {multipart: true} do |f| %>
+          <div class="form-group">
+            <%= file_field_tag "images[]", type: :file, multiple: true %>
+          </div>
+          <%= f.submit 'Upload' %>
+        <% end %>
+      </div>
     </div>
   </div>
 

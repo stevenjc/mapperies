@@ -5,11 +5,16 @@
 <% else %>
   <p> <%= @albums.count %>
   <% @albums.each do |album| %>
-  <!--%= render :layout =>'layouts/listbackground' do %-->
-  <tr>
-    <td><div><%= album.last %></div></td>
-    <td><%= link_to 'See', album.first %></td>
-    <td><%= link_to 'Destroy', album.first, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+    <!--%= render :layout =>'layouts/listbackground' do %-->
+    <div class="col-sm-4 col-md-2">
+      <div class="thumbnail">
+        <%=image_tag sample_photo(album.id).image.url(:med), id:"image"%>
+        <div class="caption">
+          <h3><%= album.album_name %></h3>
+          <p><%= link_to 'See', album %></p>
+          <p><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+      </div>
+    </div>
   <% end %>
 <% end %>

@@ -31,6 +31,7 @@ class AlbumsController < ApplicationController
         @albums.push([a, a.album_name])
       end
     end
+    @albums = Album.where(user_id: current_user.id)
     #albums-views
     #decide who to share albums with
     #then upon choosing a user, create albums-view--> connects album with friend?

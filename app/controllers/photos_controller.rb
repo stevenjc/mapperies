@@ -14,18 +14,17 @@ class PhotosController < ApplicationController
     if params[:images]
       params[:images].each { |image|
         @photo = Photo.new(album_id: params[:id], url: params[:url], image: image)
-        puts "========================!!!==========================="
+        # puts "========================!!!==========================="
         @photo.save
         url = @photo.image.url(:original)
-
-        puts @photo.image.url(:original)
-
-        @photo.save
+        # puts @photo.image.url(:original)
+        # @photo.save
       }
     end
     respond_to do |format|
-      if @photo.save
-
+      # if @photo.save
+      # if all photos are successfully saved ==> how to implement???
+      if true
         format.html { redirect_to albums_path+'/'+(params[:id]), notice: 'Photo Uploaded!' }
         format.json { render :show, status: :created, location: @photo }
       else

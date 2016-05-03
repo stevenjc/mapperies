@@ -7,9 +7,9 @@
   <% @albums.each do |album| %>
   <!--%= render :layout =>'layouts/listbackground' do %-->
   <tr>
-    <td><div><%= album.album_name %></div></td>
-    <td><%= link_to 'See', album %></td>
-    <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><div><%= album.last %></div></td>
+    <td><%= link_to 'See', album.first %></td>
+    <td><%= link_to 'Destroy', album.first, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
   </tr>
   <% end %>

@@ -1,0 +1,9 @@
+<!--Form to upload multiple photos  -->
+<%= form_for @photo, html: {multipart: true} do |f| %>
+  <% params.merge(:id => @album.id)%>
+  <%= @album.id %>
+  <div class="form-group">
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
+  </div>
+  <%= f.submit 'Upload' %>
+<% end %>

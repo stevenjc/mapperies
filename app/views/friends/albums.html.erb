@@ -41,8 +41,8 @@
                             <% if !@galleries_upload.blank? %>
                               <% @galleries_upload.each do |gallery| %>
                               <tr>
-                                <%= gallery.album_name %>
-                                <%= link_to 'Check', gallery %>
+                                <%= gallery.last %>
+                                <%= link_to 'Check', gallery.first %>
                               </tr>
                               <% end %>
                             <% end %>

@@ -91,18 +91,20 @@ class FriendsController < ApplicationController
         views = AlbumView.where(album_id: a.id)
         views.each do |v|
           #view_upload_access 0->viewonly, 1->upload correct me if I'm wrong...
-          if AlbumView.where(album_view_id: v.album_view_id, user_id: current_user.id, view_upload_access: 1)
-            #myalbumid = v.album_id
-            #@galleries_upload.push(a)
-            #the one I look at
-            @galleries_upload.push(Album.where(id: v.album_id).first)
-          elsif AlbumView.where(album_view_id: v.album_view_id, user_id: current_user.id, view_upload_access: 0)
-            @galleries_viewonly.push(a)
+          sharables = AlbumView.where(album_view_id: v.album_view_id, user_id: current_user.id)
+          if !sharables.blank?
+            sharables.each do |sharable|
+              if sharable.view_upload_access == 1
+                my_album = Album.where(id: sharable.album_id).first
+                name = a.album_name
+                @galleries_upload.push([my_album, name])
+              elsif sharable.view_upload_access == 0
+                @galleries_viewonly.push(a)
+              end
+            end
           end
         end
     end
-    # puts @galleries.first.class
-    # gets
   end
 
   # def show

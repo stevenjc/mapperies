@@ -9,3 +9,13 @@
     font-weight: bold;
     font-family: "Courier New";
 }
+
+.uncoordinated-photos{
+  text-align: center;
+  font-weight: bold;
+  font-family: "Courier New";
+  .unmapped_photo{
+    margin-bottom: 10px;
+    border:3px solid black;
+  }
+}

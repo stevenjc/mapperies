@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   before_action :require_login
-  before_action :set_album, only: [:show]
+  before_action :set_album, only: [:show, :destroy]
 
   respond_to :html, :js
 

@@ -4,7 +4,10 @@
 <%= javascript_include_tag "/js/change_to_edit.js" %>
 
 
+
 <p id="notice"><%= notice %></p>
+
+<%= link_to 'Destroy', album_path(@album), method: :delete, data: { confirm: 'Are you sure?' } %>
 
 
 <%= image_tag @album.cover.url(:med) %>

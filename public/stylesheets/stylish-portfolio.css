@@ -22,7 +22,7 @@ body {
     vertical-align: middle;
 }
 
-.text-vertical-center h1 {
+.text-vertical-center h1{
     margin: 0;
     padding: 0;
     font-size: 4.5em;
@@ -157,12 +157,24 @@ hr.small {
 
 /* Middle of page */
 .primary {
+    display: table;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
     background-color: #B0BEC5
 }
 
 /* Footer */
 .footer {
     background-color: #7986CB
+}
+
+#clearance.sign-in {
+    background-color: #B0BEC5
 }
 
 /* About */

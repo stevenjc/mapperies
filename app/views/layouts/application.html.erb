@@ -151,12 +151,14 @@
     $("#menu-close").click(function(e) {
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
+        $("#menu-toggle").show();
     });
 
     // Opens the sidebar menu
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#sidebar-wrapper").toggleClass("active");
+        $("#menu-toggle").hide();
     });
 
     </script>

@@ -13,7 +13,7 @@ class PhotosController < ApplicationController
     if params[:images]
       params[:images].each { |image|
         e= Exiftool.new(image.path)
-        @photo = Photo.new(album_id: params[:id], url: params[:url], image: image, x_coord:e[:gps_longitude] , y_coord:e[:gps_latitude])
+        @photo = Photo.new(album_id: params[:id], url: params[:url], image: image, x_coord:e[:gps_latitude] , y_coord:e[:gps_longitude])
         puts "========================!!!==========================="
         puts e[:gps_longitude]
         puts e[:gps_latitude]

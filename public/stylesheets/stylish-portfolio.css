@@ -151,15 +151,18 @@ hr.small {
 /* Header */
 
 .header {
-    display: table;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: url(/img/bg.jpg) no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    background-color: #5C6BC0
+
+}
+
+/* Middle of page */
+.primary {
+    background-color: #B0BEC5
+}
+
+/* Footer */
+.footer {
+    background-color: #7986CB
 }
 
 /* About */
@@ -226,11 +229,6 @@ hr.small {
     height: 500px;
 }
 
-#photo_container{
-    width:35%;
-    float: right;
-}
-
 .unmapped_photo{
   float:inherit;
   margin-left: auto;
@@ -252,5 +250,5 @@ hr.small {
 /* Footer */
 
 footer {
-    padding: 100px 0;
+    padding: 30px 0;
 }

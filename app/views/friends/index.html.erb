@@ -40,13 +40,15 @@
 
 <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
+    <div id="container" style="text-align: center"><!--"margin-left: 5cm;">-->
     <%= form_tag(friends_results_path, method: "post") do %>
         <%=label_tag(:s, "Search:") %>
         <%= text_field_tag(:s) %>
         <%= submit_tag("Search") %>
     <% end %>
+    </div>
 
-    <section id="services" class="services bg-primary">
+    <section id="services" class="services primary">
 
     <% @show_friend_reqs = Array.new %> <!--To show num of friends -->
     <% @get_friend_reqs.each do |f| %>
@@ -79,7 +81,7 @@
                                       <%= User.find(f.popular_model_id).last_name %>
                                     </h3>
                                     <p>has sent you a friend request</p>
-                                    <p>
+                                    <div class="accept-decline-container">
                                       <%= form_tag("/friends", :action => "index", method: "get") do %>
                                           <%= hidden_field_tag(:accept, f.id) %>
                                           <%= button_tag(type: 'submit', class: "btn btn-primary", id: "friend-accept") do %>
@@ -92,7 +94,7 @@
                                               <i class="fa fa-times"></i>
                                           <% end %>
                                       <% end %>
-                                    </p>
+                                    </div>
                                   </div>
                                 </div>
                               </div>

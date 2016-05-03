@@ -2,7 +2,7 @@ class FriendsController < ApplicationController
   before_action :require_login
 
   def index
-	@nav_bar = true
+    @nav_bar = true
     @all_users = User.all
     @get_friend_reqs = Popular::Friendship.where(friend_id:current_user.id)
 

@@ -14,7 +14,6 @@
                             <% else %>
                               <div>
                                 <% if !@albums.blank? %>
-                                <p>Albums</p>
                                   <% @albums.each do |album| %>
                                   <!-- %= render :layout =>'layouts/listbackground' do % -->
                                   <tr>
@@ -22,10 +21,6 @@
                                   </tr>
                                   <% end %>
                                 <% end %>
-                              </div>
-
-                              <div>
-                                <p>Galleries</p>
                                 <% if !@galleries_viewonly.blank? %>
                                   <% @galleries_viewonly.each do |gallery| %>
                                   <tr>

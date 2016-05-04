@@ -8,13 +8,13 @@
 
                       <table>
                           <tbody>
-                            <% if @albums.blank? && @galleries.blank? %>
+                            <% if @albums.blank? && @galleries_viewonly.blank? && @galleries_upload.blank? %>
                               <p> This friend doesn't have any albums yet </p>
 
                             <% else %>
                               <div>
-                                <p>Albums</p>
                                 <% if !@albums.blank? %>
+                                <p>Albums</p>
                                   <% @albums.each do |album| %>
                                   <!-- %= render :layout =>'layouts/listbackground' do % -->
                                   <tr>

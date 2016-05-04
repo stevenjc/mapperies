@@ -168,6 +168,15 @@ hr.small {
     background-color: #7986CB;
 }
 
+.sign-up {
+    text-align: left;
+    display: inline-block;
+}
+
+.other-links {
+    color: black;
+}
+
 #clearance.sign-in {
     background-color: #B0BEC5
 }

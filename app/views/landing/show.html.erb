@@ -1,12 +1,12 @@
-    <section id="portfolio" class="primary">
-        <div class="text-vertical-center">
-            <h1>Mapperies</h1>
-            <h3>See where you have traveled!</h3>
-            <br>
-        <%if signed_in? %>
-            <%= button_to "Logout", "sign_out" ,{class: "btn btn-dark btn-lg", :method => :delete}%>
-        <%else%>
-            <%= render partial: '/sessions/form' %>
-        <% end %>
-        </div>
-    </section>
+<section id="portfolio" class="primary">
+    <div class="text-vertical-center">
+        <h1>Mapperies</h1>
+        <h3>See where you have traveled!</h3>
+        <br>
+    <%if signed_in? %>
+        <%= button_to "Logout", "sign_out" ,{class: "btn btn-dark btn-lg", :method => :delete}%>
+    <%else%>
+        <%= render partial: '/sessions/form' %>
+    <% end %>
+    </div>
+</section>

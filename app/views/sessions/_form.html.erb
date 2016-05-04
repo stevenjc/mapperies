@@ -1,13 +1,22 @@
 <%= form_for :session, method: :get, url: landing_show_path do |form| %>
 <div class="sign-up">
-  <div class="text-field">
-    <%= form.label :email %>
-    <%= form.text_field :email, type: 'email' %>
+
+  <div class="email-field">
+    <div class="text-field">
+      <%= form.label :email %>
+    </div>
+    <div class="label-field">
+      <%= form.text_field :email, type: 'email' %>
+    </div>
   </div>
 
   <div class="password-field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+    <div class="text-field">
+      <%= form.label :password %>
+    </div>
+    <div class="label-field">
+      <%= form.password_field :password %>
+    </div>
   </div>
 </div>
   <div class="submit-field">

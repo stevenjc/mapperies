@@ -1,49 +1,53 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
-<%error_list(:email).each do |msg|%>
-    <%= render :layout =>'layouts/alert' do %>
-        <%'Email ' + msg%>
-    <%end%>
-<%end%>
-
-
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
-<%error_list(:password).each do |msg|%>
-    <%= render :layout =>'layouts/alert' do %>
-        <%'Password ' + msg%>
-    <%end%>
-<%end%>
-
-
-<div class="user-name-field">
-  <%= form.label :user_name %>
-  <%= form.text_field :user_name %>
-</div>
-
-<div class="first-name-field">
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name %>
-</div>
-
-<div class="last-name-field">
-  <%= form.label :last_name %>
-  <%= form.text_field :last_name %>
-</div>
-
-<div class="birthday-field">
-  <%= form.label :birthday%>
-  <%= form.date_field :birthday %>
-</div>
-
-
-
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being registered:</h2>
+<section id="portfolio" class="primary">
+  <div class="sign-up-text">
+  <div class="text-field">
+    <%= form.label :email %>
+    <%= form.text_field :email, type: 'email' %>
   </div>
-<% end %>
+  <%error_list(:email).each do |msg|%>
+      <%= render :layout =>'layouts/alert' do %>
+          <%'Email ' + msg%>
+      <%end%>
+  <%end%>
+
+
+  <div class="password-field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <%error_list(:password).each do |msg|%>
+      <%= render :layout =>'layouts/alert' do %>
+          <%'Password ' + msg%>
+      <%end%>
+  <%end%>
+
+
+  <div class="user-name-field">
+    <%= form.label :user_name %>
+    <%= form.text_field :user_name %>
+  </div>
+
+  <div class="first-name-field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div class="last-name-field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div class="birthday-field">
+    <%= form.label :birthday%>
+    <%= form.date_field :birthday %>
+  </div>
+
+
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being registered:</h2>
+    </div>
+  <% end %>
+  </div>
+</section>

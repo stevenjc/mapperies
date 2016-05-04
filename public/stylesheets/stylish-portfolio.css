@@ -148,11 +148,7 @@ hr.small {
     margin: 5px 5px 0 0;
 }
 
-/* Header */
 
-.header {
-    background-color: #5C6BC0;
-}
 
 /* Middle of page */
 .primary {
@@ -160,12 +156,27 @@ hr.small {
     position: relative;
     height: 90%;
     width: 100%;
-    background-color: #B0BEC5;
+    background-color: #8C9EFF;
 }
 
 .footer {
     height: 10%;
-    background-color: #B0BEC5;
+    background-color: #8C9EFF;
+}
+
+.email-field {
+    margin-bottom:10px;
+}
+
+.password-field {
+    margin-bottom: 10px;
+}
+.text-field {
+    text-align: center;
+}
+
+.label-field {
+    text-align: center;
 }
 
 .sign-up {
@@ -174,7 +185,7 @@ hr.small {
 }
 
 .other-links {
-    color: black;
+    text-align: center;
 }
 
 #clearance.sign-in {

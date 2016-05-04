@@ -13,10 +13,11 @@ var colors=       [ "amber", "blue_grey", "blue", "brown", "cyan",
                     "indigo", "light_blue", "light_green", "lime",
                     "orange", "pink", "purple", "red", "teal", "yellow"];
 var backgrounds =[];
-
 for (var i = 0; i < colors.length; i++) {
   backgrounds.push("../../img/backgrounds/"+colors[i]+".png")
 };
+
+$("#loader").hidden=false;
 
 function initMap() {
   //Make the map
@@ -81,6 +82,13 @@ function initMap() {
       content.getElementById("submit").click();
   }
   });
+
+  map.addListener('idle', function(){
+    $("#loader").fadeOut(1000);
+
+  });
+
+
 
   //Add all the current photos
   for (i=0;i<img.length;i++){

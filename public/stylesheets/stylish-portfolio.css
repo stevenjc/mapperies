@@ -264,3 +264,112 @@ hr.small {
 footer {
     padding: 30px 0;
 }
+
+.loader {
+  -webkit-filter: url("#goo");
+          filter: url("#goo");
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  background-color: white;
+
+}
+.loader::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: blue;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  -webkit-animation: scale 2.5s ease-in-out infinite;
+          animation: scale 2.5s ease-in-out infinite;
+}
+.loader div {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: blue;
+  top: 52%;
+  left: 46%;
+  -webkit-animation: move 2.5s ease-in-out infinite alternate;
+          animation: move 2.5s ease-in-out infinite alternate;
+}
+.loader div::after, .loader div::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: blue;
+}
+.loader div::before {
+  left: -75px;
+}
+.loader div::after {
+  left: 75px;
+}
+
+@-webkit-keyframes move {
+  0% {
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+  }
+  100% {
+    -webkit-transform: translateX(150px);
+            transform: translateX(150px);
+  }
+}
+
+@keyframes move {
+  0% {
+    -webkit-transform: translateX(-150px);
+            transform: translateX(-150px);
+  }
+  100% {
+    -webkit-transform: translateX(150px);
+            transform: translateX(150px);
+  }
+}
+@-webkit-keyframes scale {
+  10% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+  90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale {
+  10% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.25);
+            transform: scale(1.25);
+  }
+  90% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+
+
+svg {
+  position: absolute;
+  z-index: -100;
+  pointer-events: none;
+}

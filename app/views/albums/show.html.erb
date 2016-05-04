@@ -6,7 +6,7 @@
 
 
 <p id="notice"><%= notice %></p>
-
+<section id="portfolio" class="primary">
 
 <iframe id="ifrm" src="/albums/<%= @album.id%>/form" style="width:70%;" hidden=true></iframe>
 <div class="container-fluid">
@@ -65,7 +65,7 @@
 <!-- <%= button_to 'Upload Photos!', new_photo_path %> -->
 
 <%= link_to 'Back', albums_path %>
-
+</section>
 <!--copied from new, needs to go in js-->
 <script type="text/javascript">
     function test() {

@@ -1,18 +1,18 @@
-  <%= form_tag(friends_results_path, method: "post") do %>
-      <%=label_tag(:s, "Search:") %>
-      <%= text_field_tag(:s) %>
-      <%= submit_tag("Search") %>
-  <% end %>
-
+  <section id="portfolio" class="primary">
   <div>
       <%= link_to 'Back to friends', "/friends" %>
   </div>
-
-  <section id="portfolio" class="primary">
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-10 col-lg-offset-1">
           <h2> Results </h2>
+          <div id="container" style="text-align: center">
+            <%= form_tag(friends_results_path, method: "post") do %>
+                <%=label_tag(:s, "New Friend Search:") %>
+                <%= text_field_tag(:s) %>
+                <%= submit_tag "Search", :class => "btn btn-primary" %>
+            <% end %>
+          </div>
         	<% if @results.empty? %>
         		<td> There are no results</td>
         	<% else %>

@@ -38,13 +38,6 @@
 
 <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <div id="container" style="text-align: center"><!--"margin-left: 5cm;">-->
-    <%= form_tag(friends_results_path, method: "post") do %>
-        <%=label_tag(:s, "Search:") %>
-        <%= text_field_tag(:s) %>
-        <%= submit_tag("Search") %>
-    <% end %>
-    </div>
 
     <section id="services" class="services primary">
 
@@ -131,6 +124,14 @@
                 <div class="col-lg-10 col-lg-offset-1">
                   <h2> My Friends </h2>
                   <hr class="small">
+                  <div id="container" style="text-align: center"><!--"margin-left: 5cm;">-->
+                    <%= form_tag(friends_results_path, method: "post") do %>
+                        <%=label_tag(:s, "New Friend Search:") %>
+                        <%= text_field_tag(:s) %>
+                        <%= submit_tag "Search", :class => "btn btn-primary" %>
+                    <% end %>
+                  </div>
+
                   <% if @all_friends %>
                     <% @all_friends.each do |f| %>
                         <div>

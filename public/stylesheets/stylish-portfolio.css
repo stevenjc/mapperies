@@ -158,14 +158,14 @@ hr.small {
 .primary {
     display: table;
     position: relative;
-    height: 100%;
+    height: 90%;
     width: 100%;
     background-color: #B0BEC5;
 }
 
-/* Footer */
 .footer {
-    background-color: #7986CB;
+    height: 10%;
+    background-color: #B0BEC5;
 }
 
 .sign-up {

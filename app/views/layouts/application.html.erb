@@ -80,15 +80,16 @@
   <% end %>
     <!--< end %>-->
 
-     <header id="top" class="header"> <!--give this header a different class-->
+     <header id="top" class="header">
 
-     <!--move this!-->
       <div id="icon" style="width:100%;height:50px;background-color:#3F51B5;position:fixed;top:0px;z-index: 999">
+
         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
+
         <div style="float:right;top:15px; right:100px;position:relative;"><%= link_to user_identifier, account_settings_path, :style=>'color: black;' %></div>
       </div>
-      <div style="width:100%;height:80px;">
-      </div>
+
+      <div style="width:100%;height:80px;"></div>
          <%= yield %>
      </header>
 

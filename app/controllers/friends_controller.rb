@@ -65,6 +65,7 @@ class FriendsController < ApplicationController
   end
 
   def results
+    @nav_bar = true
   	@users = User.all
   	@name = params[:s]
 

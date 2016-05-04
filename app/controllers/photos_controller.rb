@@ -22,7 +22,8 @@ class PhotosController < ApplicationController
       }
     end
     respond_to do |format|
-      if @photo.save
+      # if @photo.save
+      if true
         format.html { redirect_to albums_path+'/'+(params[:id]), notice: 'Photo Uploaded!' }
         format.json { render :show, status: :created, location: @photo }
       else
@@ -34,6 +35,15 @@ class PhotosController < ApplicationController
 
   def show
     @photos = Photo.find(params[:id])
+  end
+
+  def destroy
+    @photo = Photo.find(params[:id])
+    album = @photo.album_id
+    @photo.destroy
+    flash[:notice] = "Successfully deleted photo"
+    # gets
+    redirect_to album_path(album)
   end
 
   private
@@ -56,11 +66,5 @@ class PhotosController < ApplicationController
     end
   end
   #
-  # def destroy
-  #   @photos = Photo.find(params[:id])
-  #   @photos.destroy
-  #   flash[:notice] = "Successfully deleted photo"
-  #   redirect_to photos_url
-  # end
 
 end

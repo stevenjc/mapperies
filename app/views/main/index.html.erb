@@ -1,3 +1,5 @@
+<%=render "layouts/preloader" %>
+
 <%= include_gon %>
 
 <section id="portfolio" class="primary">
@@ -5,6 +7,7 @@
 <div id="main_header" class="col-mid-8">
     <h1> <%=user_identifier%>'s Default Map </h1>
 </div>
+
 <div class="container">
   <div class = "row">
     <% if @unmapped.blank? %>

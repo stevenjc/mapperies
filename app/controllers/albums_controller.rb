@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :require_login
   before_action :set_album, only: [:show, :destroy]
+  before_action :avatar
 
   respond_to :html, :js
 
@@ -299,6 +300,10 @@ class AlbumsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_album
     @album = Album.find(params[:id])
+  end
+
+  def avatar
+    @avatar= Photo.find(current_user.avatar_id)
   end
 
   def find_album_name(album)

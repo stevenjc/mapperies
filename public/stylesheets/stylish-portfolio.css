@@ -161,10 +161,6 @@ hr.small {
     position: relative;
     width: 100%;
     height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
     background-color: #B0BEC5
 }
 

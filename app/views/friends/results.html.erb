@@ -29,7 +29,7 @@
                           <%= form_tag("/friends", :action => "index", method: "get") do %>
                             <%= hidden_field_tag(:friend, result.id) %>
                             <%= button_tag(type: 'submit', class: "btn btn-primary") do %>
-                              <i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i>
+                              <div>Add as Friend</div>
                             <% end %>
                           <%end%>
                         </p>

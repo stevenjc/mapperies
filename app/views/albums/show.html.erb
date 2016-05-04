@@ -7,19 +7,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @album.cover.url(:med) %>
-<!-- Show album name -->
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-10">
-      <ul id="album_name_parent">
-        <h3 id="album_name" onclick="edit()">
-          <%= @album.album_name%>
-        </h3>
-      </ul>
-    </div>
-  </div>
-</div>
+
 <iframe id="ifrm" src="/albums/<%= @album.id%>/form" style="width:70%;" hidden=true></iframe>
 <div class="container-fluid">
   <div class="row">
@@ -38,7 +26,6 @@
         </div>
       <%end%>
   </div>
-<%= render "edit" unless @is_view %>
 
 
 <div class = "row">

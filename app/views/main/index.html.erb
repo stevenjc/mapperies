@@ -5,11 +5,6 @@
 <div id="main_header" class="col-mid-8">
     <h1> <%=user_identifier%>'s Default Map </h1>
 </div>
-
-<%= javascript_include_tag "/js/jquery.js" %>
-<%= javascript_include_tag "/js/bootstrap.min.js" %>
-<%= javascript_include_tag "/js/map.js" %>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
 <div class="container">
   <div class = "row">
     <% if @unmapped.blank? %>
@@ -27,7 +22,7 @@
           <div class="panel-heading">Your Photos with No Coordinates</div>
           <div class="panel-body">
             <% @unmapped.each do |p| %>
-              <%=image_tag p.image.url(:med), class:"unmapped_photo", id: p.id %>
+              <%=image_tag p.image.url(:med), class:"unmapped_photo", onclick:"selected()", id: p.id %>
             <% end %>
           </div>
         </div>
@@ -47,3 +42,11 @@
 
 <!-- At the bottom so it is executed only when the above code is run -->
 <%= javascript_include_tag "/js/dragdrop.js" %>
+
+<script>
+  $('img').click(function(){
+   $('.selected').removeClass('selected'); // removes the previous selected class
+   $(this).addClass('selected'); // adds the class to the clicked image
+  });
+
+</script>

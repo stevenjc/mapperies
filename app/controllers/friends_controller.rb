@@ -95,7 +95,7 @@ class FriendsController < ApplicationController
           if !sharables.blank?
             sharables.each do |sharable|
               if sharable.view_upload_access == 1
-                my_album = Album.where(id: sharable.album_id).first
+                my_album = Album.find(id: sharable.album_id)
                 name = a.album_name
                 @galleries_upload.push([my_album, name])
               elsif sharable.view_upload_access == 0

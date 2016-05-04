@@ -46,7 +46,7 @@ Rails.application.routes.draw do
         member do
           get 'edit', to: "photos#edit"
           post 'update'
-          # delete 'delete'
+          delete 'delete', to: "photos#destroy"
         end
       end
     end

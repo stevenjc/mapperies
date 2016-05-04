@@ -37,6 +37,7 @@
       <% @photos.each do |p| %>
         <span class="picture thumbnail col-md-1 col-md-offset-1">
           <%=image_tag p.image.url(:med), id:"image"%>
+          <%= link_to 'Destroy', delete_photo_path(@album, p), method: :delete, data: { confirm: 'Are you sure?' }%>
         </span>
       <% end %>
     <% end%>

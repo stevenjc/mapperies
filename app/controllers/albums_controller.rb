@@ -15,14 +15,14 @@ class AlbumsController < ApplicationController
     all_albums = Album.where(user_id: current_user.id)
     all_albums.each do |a|
       if a.album_name.eql?("*empty")
-        view = AlbumView.where(album_id: a.id).first
+        view = AlbumView.find(album_id: a.id)
         if !view.nil?
           AlbumView.where(album_view_id: view.album_view_id).each do |v|
             a_ids.push(v.album_id)
           end
           a_ids.each do |a_id|
-            if !Album.where(id: a_id).first.album_name.eql?("*empty")
-              @name = Album.where(id: a_id).first.album_name
+            if !Album.find(id: a_id).album_name.eql?("*empty")
+              @name = Album.find(id: a_id).album_name
             end
           end
           @albums.push([a, @name])

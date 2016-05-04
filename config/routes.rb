@@ -73,7 +73,7 @@ Rails.application.routes.draw do
 
   get 'account/settings', as: "account_settings"
   get 'account/edit', as: "account_edit"
-  get 'account/sign_out', to: 'sessions#destroy'
+  delete 'account/sign_out', to: "sessions#destroy"
   patch 'account/save'
 
 

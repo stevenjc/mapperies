@@ -323,9 +323,9 @@ class AlbumsController < ApplicationController
   def find_all_photos(album)
     photos = Photo.none
     main_album = Album.where(album_name: find_album_name(album)).first
-    view_no = AlbumView.where(album_id: main_album.id).first.album_view_id
-    if !view_no.nil?
-      AlbumView.where(album_view_id: view_no, view_upload_access: 1).each do |v|
+    view = AlbumView.where(album_id: main_album.id).first
+    if !view.nil?
+      AlbumView.where(album_view_id: view.album_view_id, view_upload_access: 1).each do |v|
         if v.album_id != album.id
           photos += Photo.where(album_id: v.album_id)
         end

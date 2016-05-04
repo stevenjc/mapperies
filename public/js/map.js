@@ -1,12 +1,15 @@
 /*
   Map.js
     This file is used to generate the map on which the users photos are marked
+    as well as the ability to add new photos to the map by clicking on an
+    unmapped photo and then clicking on the map in a position
 
     Author: Ted McNulty
 */
 
 
 changeWidth();          //Modify the width of the image based on if there are unmapped photos
+makeLegend(gon.albums); //Create check boxes for each album in the map
 
 //Declare variables we will use
 
@@ -19,6 +22,7 @@ var albums = gon.albums;//Array which stores which album each image was in
 var color = gon.color;  //
 var default_loc = {lat: 37.09, lng:-74.5};  //keep a default location in case there are no images
 var backgrounds =[];    //URL links to the background images to organize photos by album
+var markers=[];         //references to the markers on the map
 
 //All the possible color backgrounds to organize the photos by album
 var colors=       [ "amber", "blue_grey", "blue", "brown", "cyan",
@@ -145,6 +149,16 @@ function addMarker(int, map){
     anchor: new google.maps.Point(20,20)
   };
 
+
+
+  //Create the border
+  var background =new google.maps.Marker({
+    position: LngLnt,
+    map:map,
+    icon: background,
+    zIndex: 0       //Make sure its behind the real image
+  });
+
   //Create the marker
   var marker= new google.maps.Marker({
     position: LngLnt, //Give it the coordinates from the DB
@@ -154,14 +168,6 @@ function addMarker(int, map){
     myData: albums[int], //Save into the marker which album it is from
     back: background,    //Save into the marker which border should be used
     animation: google.maps.Animation.DROP //Let the marker fall into place
-  });
-
-  //Create the border
-  var background =new google.maps.Marker({
-    position: LngLnt,
-    map:map,
-    icon: background,
-    zIndex: 0       //Make sure its behind the real image
   });
 
   //Allow the marker to be clicked on
@@ -176,8 +182,6 @@ function markerClick(int){
 
   //If the user has clicked on a marker previously, make the old one small again
   if(big_marker!=0){
-    big_marker.setVisible(false);     //make the marker invisible
-    big_marker.back.setVisible(false);//Make the border invisible
 
     var image={
       url: big_marker.getIcon().url,
@@ -189,28 +193,13 @@ function markerClick(int){
       scaledSize: new google.maps.Size(40,40),
       anchor: new google.maps.Point(20,20)
     };
-    var background = new google.maps.Marker({
-      position: big_marker.getPosition(),
-      map: this.getMap(),
-      icon: background_image,
-      zIndex:0
-    });
-    var marker= new google.maps.Marker({
-      position: big_marker.getPosition(),
-      map: this.getMap(),
-      icon: image,
-      zIndex:1,
-      myData: this.myData,
-      back: background
-    });
-    marker.addListener('click', markerClick)
+    big_marker.setIcon(image);
+    big_marker.back.setIcon(background_image);
   }
 
   //If the photo clicked on is small still make it large
-  if(this.getIcon().scaledSize= new google.maps.Size(35,35)){
-    this.setVisible(false);       //Make the marker invisible
-    this.back.setVisible(false);  //Make the marker border invisible
-
+  if(this!=big_marker){
+    alert("!!!!");
     var image = {
       url: this.getIcon().url,    //Keep the same image
       scaledSize: new google.maps.Size(100,100),  //But make it much larger
@@ -223,30 +212,18 @@ function markerClick(int){
       anchor: new google.maps.Point(55,55)
     };
 
-    var background= new google.maps.Marker({
-      position: this.getPosition(),
-      map:this.getMap(),
-      icon: background_image,
-      zIndex:0
-    });
-
-    var marker = new google.maps.Marker({
-      position: this.getPosition(),
-      map:this.getMap(),
-      icon:image,
-      zIndex:1,
-      myData: this.myData,
-      back: background
-    });
-
+    this.setIcon(image);
+    this.back.setIcon(background_image);
     //Set the marker we just clicked on as the most recently clicked marker
-    big_marker= marker;
+    big_marker= this;
   }
-
-  //If its already large, send the user to the album's page
-  else if(this.getIcon().scaledSize= new google.maps.Size(100,100)) {
+  else{
     window.location.href= "/albums/"+this.myData;
   }
+}
+
+function goToAlbum(){
+  window.location.href= "/albums/"+this.myData;
 }
 
 //Function to change the width of the map based on if there are unmapped photos
@@ -269,4 +246,16 @@ function makeMarker(latLng, map, background_image){
     zIndex:0,
     animation: google.maps.Animation.DROP
   });
+}
+
+function makeLegend(albums){
+  var album_list = document.getElementById("album_list");
+  var distinct=[];
+  for (var i = 0; i < albums.length; i++) {
+    // album_list.appendChild(document.createElement('input'))
+    if(!distinct.includes(albums[i])){
+      distinct.push(albums[i]);
+    }
+  }
+  alert(distinct);
 }

@@ -10,7 +10,15 @@ class AccountController < ApplicationController
 
   def edit
     @user = current_user
+    @photo=[];
+    albums = Album.where(current_user.id)
+    albums.each do |a|
+        # @photo.push(Photo.where(album_id: a.id))
 
+        Photo.where(album_id: a.id).each do |p|
+          @photo.push(p);
+        end
+    end
   end
 
   def save
@@ -24,6 +32,7 @@ class AccountController < ApplicationController
     current_user.update_attribute(:last_name, params[:user][:last_name])
     current_user.update_attribute(:user_name, params[:user][:user_name])
     current_user.update_attribute(:birthday, params[:user][:birthday])
+    current_user.update_attribute(:avatar_id, params[:user][:avatar_id])
     redirect_to account_settings_url
   end
 

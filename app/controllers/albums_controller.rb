@@ -11,26 +11,10 @@ class AlbumsController < ApplicationController
 	  @nav_bar = true
     # Grab all the albums of the current user
     @albums = Array.new
-    a_ids = Array.new
     #all albums with name and "hidden" ones
-    all_albums = Album.where(user_id: current_user.id)
-    all_albums.each do |a|
-      if a.album_name.eql?("*empty")
-        view = AlbumView.where(album_id: a.id).first
-        if !view.nil?
-          AlbumView.where(album_view_id: view.album_view_id).each do |v|
-            a_ids.push(v.album_id)
-          end
-          a_ids.each do |a_id|
-            if !Album.where(id: a_id).first.album_name.eql?("*empty")
-              @name = Album.where(id: a_id).first.album_name
-            end
-          end
-          @albums.push([a, @name])
-        end
-      else
-        @albums.push([a, a.album_name])
-      end
+    owned_albums = Album.where(user_id: current_user.id)
+    owned_albums.each do |a|
+        @albums.push([a, find_album_name(a)])
     end
     # @albums = Album.where(user_id: current_user.id)
     #albums-views
@@ -64,7 +48,7 @@ class AlbumsController < ApplicationController
     @owner = AlbumView.new(:user_id => current_user.id)
 
     #Need to create an album view for each friend
-  if !access && params[:friends]
+    if !access && params[:friends]
      #album id stays empty if it's just view access,
     #if upload is granted, then it will be updated when the friend wants
     #to add to it - in the friends page (but the permissions will have to be checked)
@@ -79,7 +63,6 @@ class AlbumsController < ApplicationController
       end
     end
   end
-
 
     respond_to do |format|
       if @album.save
@@ -109,7 +92,7 @@ class AlbumsController < ApplicationController
       @nav_bar=true
       @photo = Photo.new
       @album = Album.find(params[:id])
-      @albums = Array.new
+      @album_name = find_album_name(@album)
       @view_only = false
 
       if @album.user_id != current_user.id
@@ -118,25 +101,13 @@ class AlbumsController < ApplicationController
       else
         @is_view = false
       end
-
-      #take out into private functions
-      a_ids = Array.new
       if @album.album_name.eql?("*empty")
         @is_view = true
-        view = AlbumView.where(album_id: @album.id).first
-        AlbumView.where(album_view_id: view.album_view_id).each do |v|
-          a_ids.push(v.album_id)
-        end
-        a_ids.each do |a_id|
-          if !Album.where(id: a_id).first.album_name.eql?( "*empty")
-            @album_name = Album.where(id: a_id).first.album_name
-          end
-        end
-      else
-        @album_name = @album.album_name
       end
 
       @photos = Photo.where(album_id: params[:id])
+      @other_photos = find_all_photos(@album)
+
       @friends_shared = params[:friends_shared]
 
       #If user changes pub/private settings
@@ -150,7 +121,7 @@ class AlbumsController < ApplicationController
         elsif params[:opts] == "Private"
           @album.update_attribute(:isPublic, false)
           #Create for owner - selected friends, if any, are added below
-          AlbumView.new(:user_id => current_user.id, :view_upload_access => 1, :album_id => @album.id, :album_view_id => @album.id)
+          AlbumView.first_or_create(:user_id => current_user.id, :view_upload_access => 1, :album_id => @album.id, :album_view_id => @album.id)
         end
       end
 
@@ -291,7 +262,29 @@ class AlbumsController < ApplicationController
   end
 
   def destroy
+    #destroy related records in AlbumView & Album
+    views = AlbumView.where(album_id: @album.id)
+    if !views.empty?
+      views.each do |view|
+        uploaders = AlbumView.where(album_view_id: view.album_view_id, view_upload_access: 1)
+        if uploaders.size == 1
+        #which case all entries in the view should be deleted
+          AlbumView.where(album_view_id: view.id).destroy_all
+        else
+        #only delete THE entry
+          AlbumView.where(album_view_id: view.id, view_upload_access: 1, user_id: current_user.id).destroy_all
+          if !@album.album_name.eql?("*empty")
+            #if this is the name-holder, give the name to the next in album_id
+            view_name = @album.album_name
+            replacement_id = uploaders.where.not(user_id: current_user.id).first.album_id
+            Album.find(replacement_id).update(album_name: view_name)
+          end
+        end
+      end
+    end
+    #then destroy album itself
     @album.destroy
+
     respond_to do |format|
       format.html { redirect_to albums_path}
       format.json { head :no_content }
@@ -311,6 +304,39 @@ class AlbumsController < ApplicationController
 
   def avatar
     @avatar= Photo.find(current_user.avatar_id)
+  end
+
+  def find_album_name(album)
+    a_ids = Array.new
+    if album.album_name.eql?("*empty")
+      view = AlbumView.where(album_id: album.id).first
+      if !view.nil?
+        AlbumView.where(album_view_id: view.album_view_id).each do |v|
+          a_ids.push(v.album_id)
+        end
+      end
+      a_ids.each do |a_id|
+        if !Album.find(a_id).album_name.eql?( "*empty")
+          return Album.find(a_id).album_name
+        end
+      end
+    else
+      return album.album_name
+    end
+  end
+
+  def find_all_photos(album)
+    photos = Photo.none
+    main_album = Album.where(album_name: find_album_name(album)).first
+    view_no = AlbumView.where(album_id: main_album.id).first.album_view_id
+    if !view_no.nil?
+      AlbumView.where(album_view_id: view_no, view_upload_access: 1).each do |v|
+        if v.album_id != album.id
+          photos += Photo.where(album_id: v.album_id)
+        end
+      end
+    end
+    return photos
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

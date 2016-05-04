@@ -151,26 +151,30 @@ hr.small {
 /* Header */
 
 .header {
-    background-color: #5C6BC0
-
+    background-color: #5C6BC0;
 }
 
 /* Middle of page */
 .primary {
     display: table;
     position: relative;
-    width: 100%;
     height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    background-color: #B0BEC5
+    width: 100%;
+    background-color: #B0BEC5;
 }
 
 /* Footer */
 .footer {
-    background-color: #7986CB
+    background-color: #7986CB;
+}
+
+.sign-up {
+    text-align: left;
+    display: inline-block;
+}
+
+.other-links {
+    color: black;
 }
 
 #clearance.sign-in {

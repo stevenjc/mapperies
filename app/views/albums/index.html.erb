@@ -1,22 +1,26 @@
-        <div class="container-fluid">
-            <div class = "row">
-              <div class = "col-md-2 col-md-offset-10">
-                <%= button_to 'Create New Album',  url:{action: "create", controller:"albums"}, remote:true, class:"new_album_button"%>
-              </div>
-            </div>
-            <section id="portfolio" class="primary">
-              <div class="row">
-                  <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>Albums</h2>
+<%= button_to 'Create New Album',  url:{action: "create", controller:"albums"}, remote:true%>
+<br>
+
+<section id="portfolio" class="primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h2>My Albums</h2>
                     <hr class="small">
                     <div class="row">
-                      <%= render "index" %>
-                    </div>
-                  </div>
-                  <!-- /.col-lg-10 -->
-              </div>
-            </section>
+
+                      <table>
+                          <tbody>
+                            <%= render "index" %>
+                          </tbody>
+                        </table>
+                    <!-- /.row (nested) -->
+                    <a href="#" class="btn btn-dark">View More Items</a>
+                </div>
+                <!-- /.col-lg-10 -->
+            </div>
             <!-- /.row -->
         </div>
         <!-- /.container -->
+    </section>
     <div id="product-modal" class="modal fade"></div>

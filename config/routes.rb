@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  get "/sign_in" => "sessions#new", as: "sign_in"
+  get "sign_in", to: redirect("landing")
+  get "sign_in" => "sessions#new"
   delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "users#new", as: "sign_up"
 
@@ -45,7 +46,7 @@ Rails.application.routes.draw do
         member do
           get 'edit', to: "photos#edit"
           post 'update'
-          # delete 'delete'
+          delete 'delete', to: "photos#destroy"
         end
       end
     end
@@ -72,6 +73,7 @@ Rails.application.routes.draw do
 
   get 'account/settings', as: "account_settings"
   get 'account/edit', as: "account_edit"
+  delete 'account/sign_out', to: "sessions#destroy"
   patch 'account/save'
 
 

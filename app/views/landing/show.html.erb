@@ -6,7 +6,7 @@
         <%if signed_in? %>
             <%= button_to "Logout", "sign_out" ,{class: "btn btn-dark btn-lg", :method => :delete}%>
         <%else%>
-            <a href="/login" class="btn btn-dark btn-lg">Login</a>
+            <%= render partial: '/sessions/form' %>
         <% end %>
         </div>
     </section>

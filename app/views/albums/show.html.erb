@@ -6,7 +6,7 @@
 
 
 <p id="notice"><%= notice %></p>
-
+<section id="portfolio" class="primary">
 
 <iframe id="ifrm" src="/albums/<%= @album.id%>/form" style="width:70%;" hidden=true></iframe>
 <div class="container-fluid">
@@ -14,7 +14,7 @@
     <div class="col-md-10">
       <ul id="album_name_parent">
         <h3 id="album_name" onclick="edit()">
-          <%= @album.album_name%>
+          <%= @album_name%>
         </h3>
       </ul>
       <% if not @is_view %>
@@ -31,10 +31,16 @@
 <div class = "row">
   <div id="photo_container">
     <!--Check to see if there are photos, then display the photos in the album  -->
-    <% if @photos.blank? %>
+    <% if @photos.blank? && @other_photos.blank? %>
       <p> No photos yet </p>
     <% else %>
       <% @photos.each do |p| %>
+        <span class="picture thumbnail col-md-1 col-md-offset-1">
+          <%=image_tag p.image.url(:med), id:"image"%>
+          <%= link_to 'Destroy', delete_photo_path(@album, p), method: :delete, data: { confirm: 'Are you sure?' }%>
+        </span>
+      <% end %>
+      <% @other_photos.each do |p| %>
         <span class="picture thumbnail col-md-1 col-md-offset-1">
           <%=image_tag p.image.url(:med), id:"image"%>
         </span>
@@ -64,7 +70,7 @@
 <!-- <%= button_to 'Upload Photos!', new_photo_path %> -->
 
 <%= link_to 'Back', albums_path %>
-
+</section>
 <!--copied from new, needs to go in js-->
 <script type="text/javascript">
     function test() {

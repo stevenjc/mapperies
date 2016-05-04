@@ -45,8 +45,6 @@
 
 
    <div id="content">
-   <!-- not on landing and login pages -->
-   <!--< unless controller_name == "landing" or controller_name == "account" %>-->
    <% if @nav_bar %>
      <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
@@ -59,9 +57,6 @@
         <li>
           <a href="/account/settings" onclick = $("#menu-close").click();><i class="fa fa-user fa-fw fa-2x"><span class="sidebar_text">Account</span></i></a>
         </li>
-         <!-- <li>
-          <a href="/map" onclick = $("#menu-close").click(); >Landing Page</a>
-        </li>-->
         <li>
           <a href="/albums" onclick = $("#menu-close").click(); ><i class="fa fa fa-camera-retro fa-2x"><span class="sidebar_text">Albums</span></i></a>
         </li>
@@ -80,13 +75,13 @@
       <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="z-index: 1000;top: -3px;right:-2px;"><i class="fa fa-bars"></i></a>
     </div>
   <% end %>
-    <!--< end %>-->
 
-     <header id="top" class="header"> <!--give this header a different class-->
+     <header id="top" class="header">
 
-     <!--move this!-->
       <div id="icon" style="width:100%;height:50px;background-color:#3F51B5;position:fixed;top:0px;z-index: 999">
+
         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
+
         <div style="float:right;top:15px; right:100px;position:relative;">
           <% if signed_in? %>
             <% if @avatar %>
@@ -96,8 +91,8 @@
           <% end %>
         </div>
       </div>
-      <div style="width:100%;height:60px;">
-      </div>
+
+      <div style="width:100%;height:80px;"></div>
          <%= yield %>
      </header>
 
@@ -121,27 +116,6 @@
          <div class="container">
              <div class="row">
                  <div class="col-lg-10 col-lg-offset-1 text-center">
- <!--                    <h4><strong>Mapperies</strong>
-                     </h4>
-                     <p>Brandeis University</p>-->
-<!--
-                     <ul class="list-unstyled">
-                         <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
-                         <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
-                         </li>
-                     </ul>
-                     <br>
-                     <ul class="list-inline">
-                         <li>
-                             <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
-                         </li>
-                         <li>
-                             <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
-                         </li>
-                         <li>
-                             <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
-                         </li>
-                     </ul>-->
                      <hr class="small">
                      <p class="text-muted">Copyright &copy; Team Mapperies 2016</p>
                  </div>

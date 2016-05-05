@@ -45,7 +45,7 @@
                         <%= select_tag("change_access", options_for_select(["View Only", "View and Upload"], selected: @friend_access[f.id])) %>
                         <%= hidden_field_tag(:friend, f.id) %>
 
-                        <%= link_to "Unshare", {:controller => "albums", :action => "show", :unshare => f}, method: "get" %>
+                        <%= link_to "Unshare", {:controller => "albums", :action => "show", :unshare => f.id}, method: "get" %>
                       </div>
 
                   <% else %>

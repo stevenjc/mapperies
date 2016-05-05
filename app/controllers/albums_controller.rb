@@ -354,7 +354,9 @@ class AlbumsController < ApplicationController
     # puts main_album_view.id
     # gets
     AlbumView.where(album_view_id: main_album_view.album_view_id).each do |v|
-      if !Album.find(v.album_id).album_name.eql?("*empty")
+      # puts v.album_id.class
+      # gets
+      if !v.album_id.nil? && !Album.find(v.album_id).album_name.eql?("*empty")
         main_album_id = v.album_id
       end
     end

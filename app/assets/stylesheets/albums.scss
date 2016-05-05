@@ -73,3 +73,25 @@ table{
   align-content: center;
 
 }
+
+#main_header{
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family: "Courier New";
+}
+
+.uncoordinated-photos{
+  text-align: center;
+  font-weight: bold;
+  font-family: "Courier New";
+  .unmapped_photo{
+    margin-bottom: 10px;
+    border:3px solid black;
+  }
+  .selected{
+    box-shadow:0px 12px 22px 1px #333;
+    border:3px solid red;
+  }
+
+}

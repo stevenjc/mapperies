@@ -396,11 +396,15 @@ footer {
   }
 }
 
-#album_list > p{
-  margin-left: 0;
-  border: black 1px solid;
-
+#album_list > div{
+  width: inherit;
+  text-align: left;
 }
+
+#album_list > div >span{
+  font-size: 9px;
+}
+
 #album_list{
   list-style: none;
   display: inline;

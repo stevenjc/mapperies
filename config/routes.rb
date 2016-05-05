@@ -34,8 +34,8 @@ Rails.application.routes.draw do
 
   resources :albums do
     collection do
-      post 'create'
-      post 'new'
+      post 'create', as: "create_album"
+      post 'new', as: "new_album"
     end
     member do
       post 'photos/new'

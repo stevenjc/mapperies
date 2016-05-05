@@ -162,10 +162,13 @@ class AlbumsController < ApplicationController
               if params[:change_access] == "View Only"
                 av.update_attribute(:view_upload_access, 0)
                 Album.where(id: av.album_id, album_name: "*empty", user_id: params[:friend].to_i).destroy_all
-                #av.update_attribute(:album_id, nil)
+                av.update_attribute(:album_id, nil)
               elsif params[:change_access] == "View and Upload"
                 av.update_attribute(:view_upload_access, 1)
-                sharable = Album.create(album_name: "*empty", user_id: params[:friend].to_i, isPublic: false)
+                sharable = Album.where(album_name: "*empty", user_id: params[:friend].to_i, isPublic: false).first
+                if sharable.nil?
+                  sharable = Album.create(album_name: "*empty", user_id: params[:friend].to_i, isPublic: false)
+                end
                 av.update_attribute(:album_id, sharable.id)
               end
           end
@@ -337,13 +340,24 @@ class AlbumsController < ApplicationController
 
   def find_all_photos(album)
     photos = Photo.none
-    main_album = Album.where(album_name: find_album_name(album)).first
-    view = AlbumView.where(album_id: main_album.id).first
-    if !view.nil?
+    # main_album = Album.where(album_name: find_album_name(album)).first
+    # puts album.id
+    # gets
+    main_album_id = nil
+    main_album_view = AlbumView.where(album_id: album.id).first
+    AlbumView.where(album_view_id: main_album_view.id).each do |v|
+      if !Album.find(v.album_id).album_name.eql?("*empty")
+        main_album_id = v.album_id
+      end
+    end
+      if !main_album_id.nil?
+      view = AlbumView.where(album_id: main_album_id).first
+      if !view.nil?
       AlbumView.where(album_view_id: view.album_view_id, view_upload_access: 1).each do |v|
         if v.album_id != album.id
           photos += Photo.where(album_id: v.album_id)
         end
+      end
       end
     end
     return photos

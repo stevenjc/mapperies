@@ -35,12 +35,18 @@
         </div>
 
         <div class = "form-group">
-            <%=label_tag :avatar_id, "avatar", class: "account_edit_form_label"%>
-            <%= f.text_field :avatar_id, id:"avatar_id"%>
+        <%= f.text_field :avatar_id, id:"avatar_id", hidden: true%>
+            <%=label_tag :avatar_id, "Select Avatar", class: "account_edit_form_label"%>
+        
+        <br />
+
+        <% if @photo %>
+          <% @photo.each do |p| %>
+            <%=image_tag p.image.url(:med), id:p.id, class:"photo"%>
+          <%end %>
+        <% end %>
         </div>
-
-
-
+        <br>
 
         <%= button_tag(type: 'button', class: "btn btn-primary", "data-toggle"=> "modal", "data-target"=> "#confirm_edit") do %>
             Update
@@ -63,15 +69,6 @@
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-
-
-
     <% end %>
-    <% if @photo %>
-      <% @photo.each do |p| %>
-        <%=image_tag p.image.url(:med), id:p.id, class:"photo"%>
-      <%end %>
-    <% end %>
-    <br>
-</div>
+    </div>
 </section>

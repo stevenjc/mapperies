@@ -10,7 +10,7 @@ class AccountController < ApplicationController
   def edit
     @user = current_user
     @photo=[];
-    albums = Album.where(user_id=current_user.id)
+    albums = Album.where(user_id:current_user.id)
     albums.each do |a|
         # @photo.push(Photo.where(album_id: a.id))
 

@@ -78,9 +78,9 @@ class MainController < ApplicationController
       puts "+++++++++++++++=====================+++++++++"
       puts url
       url = url.to_s.delete 'http://s3.amazonaws.com/mapperies/app/public'
-      x[links[i]]=x_coord[i];
-      y[links[i]]=y_coord[i];
-      album_ids[links[i]]=albums[i];
+      x[url]=x_coord[i];
+      y[url]=y_coord[i];
+      album_ids[url]=albums[i];
     end
 
     gon.color_map = JSON.generate(color_map)

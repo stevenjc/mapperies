@@ -1,5 +1,6 @@
 <% if @albums.blank? %>
-  <h3 class="no_albums_header text-center"> Create a New Album to get Started </h3>
+  <h3 class="no_albums_header text-center"> No Albums Were Created </h3>
+  <%= image_tag "empty_album.jpg", class:"empty_album_image col-md-offset-4" %>
 <% else %>
   <% @albums.each do |album| %>
     <div class="col-sm-4 col-md-2">

@@ -43,23 +43,50 @@
     </head>
    <body>
    <div id="content">
-    <!-- Header -->
-    <header id="top" class="header">
-        <div class="col-md-2"><a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:104px;height:80px;"> </a></div>
-        <div class="col-md-2"><a href="/account/settings" onclick = $("#menu-close").click();><i class="fa fa-user fa-fw fa-2x"><span class="sidebar_text">Account</span></i></a></div>
-        <div class="col-md-2"><a href="/albums" onclick = $("#menu-close").click(); ><i class="fa fa fa-camera-retro fa-2x"><span class="sidebar_text">Albums</span></i></a></div>
-        <div class="col-md-2"><a href="/friends" onclick = $("#menu-close").click(); ><i class="fa fa-group fa-2x"><span class="sidebar_text">Friends</span></i></a></div>
-        <div class="col-md-2"><a onclick = $("#menu-close").click(); data-toggle = "modal" data-target = "#confirm_logout"><i class="fa fa-sign-out fa-2x"><span class="sidebar_text">Log Out</span></i></a></div>
+   <% if @nav_bar %>
+     <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+    <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+        <li class="sidebar-brand">
+          <a href="/main"  onclick = $("#menu-close").click();>
+              <i class="fa fa-home fa-fw"><span class="sidebar_text">Mapperies</span></i>
+          </a>
+        </li>
+        <li>
+          <a href="/account/settings" onclick = $("#menu-close").click();><i class="fa fa-user fa-fw fa-2x"><span class="sidebar_text">Account</span></i></a>
+        </li>
+        <li>
+          <a href="/albums" onclick = $("#menu-close").click(); ><i class="fa fa fa-camera-retro fa-2x"><span class="sidebar_text">Albums</span></i></a>
+        </li>
+        <li>
+          <a href="/friends" onclick = $("#menu-close").click(); ><i class="fa fa-group fa-2x"><span class="sidebar_text">Friends</span></i></a>
+
+        </li>
+        <li>
+          <a onclick = $("#menu-close").click(); data-toggle = "modal" data-target = "#confirm_logout"><i class="fa fa-sign-out fa-2x"><span class="sidebar_text">Log Out</span></i></a>
+
+
+        </li>
+      </ul>
+    </nav>
+    <div>
+      <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle" style="z-index: 1000;top: -3px;right:-2px;"><i class="fa fa-bars"></i></a>
+    </div>
+  <% end %>
+
+     <header id="top" class="header" style="width:100%;height:8%;background:linear-gradient(#37474F, #607D8B);position:fixed;top:0px;z-index: 999">
+
+        <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
 
           <% if signed_in? %>
             <% if @avatar %>
               <%= image_tag @avatar.image.url(:small) %>
             <% end %>
-            <a href="/account/settings" style="text-align:center"><%= user_identifier %></a>
+            <%= link_to user_identifier, account_settings_path, :style=>'color: black;' %>
           <% end %>
         </div>
       </div>
-        <!-- <div style="position:relative; width:100%; height:20%; background-color:#333;"></div> -->
+        <div style="position:relative;width:100%;height:7%;"></div>
          <%= yield %>
      </header>
 

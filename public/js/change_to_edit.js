@@ -2,7 +2,7 @@ function edit(){
   // Grab the album name field, its parent tag and create an input value
   // var parent = document.getElementById("album_name_parent");  //div which hold the name field
   // var button = document.getElementById("edit_name");
-
+  document.getElementById("change_notice").innerHTML= "";
   var field = document.getElementById("album_name");
   var name = document.getElementById("album_name").innerHTML;
   //Check that name field isn't already editing
@@ -17,7 +17,7 @@ function edit(){
       if (e.which == 13) {
         if (new_name.value==""){
           document.getElementById("album_name").innerHTML= name;
-            field.class="";
+          field.class="";
         }else {
           field.class="";
           document.getElementById("album_name").innerHTML= new_name.value;

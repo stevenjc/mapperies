@@ -62,7 +62,6 @@
                             <div>
                               <div class="col-sm-4 col-md-2">
                                 <div class="thumbnail">
-
                                   <div class="caption">
                                     <h3>
                                       <%= User.find(f.popular_model_id).first_name %>
@@ -143,7 +142,7 @@
 
                                 <!-- Listing all friends -->
                                 <% if f.avatar_id %>
-                                  <%= image_tag (Photo.find(f.avatar_id).image.url(:large)) %>
+                                  <%= image_tag (Photo.find(f.avatar_id).image.url(:small)) %>
                                 <% else %>
                                   <img src="/assets/no_photo_user.png" style="height:80%;width:80%;" alt="no-photo">
                                 <% end %>

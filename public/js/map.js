@@ -158,6 +158,10 @@ function initMap() {
         anchor: new google.maps.Point(17.5,17.5)
       };
 
+      alert(backgrounds);
+      alert(key);
+      alert(album_ids[key]);
+      alert(c[album_ids[key]]);
       alert(backgrounds[c[album_ids[key]]]);
 
        var background_image = {

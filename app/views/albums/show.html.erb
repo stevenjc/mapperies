@@ -1,6 +1,4 @@
 <%= javascript_include_tag "/js/jquery.js" %>
-<%= javascript_include_tag "/js/dragdrop.js" %>
-<%= javascript_include_tag "/js/map_choose_default_location.js" %>
 <%= javascript_include_tag "/js/change_to_edit.js" %>
 
 
@@ -51,14 +49,6 @@
 
   <%= render "uploading" unless @view_only%>
 
-  <div class = "row">
-    <div class="col-md-12">
-      <h3>Your album's default location is shown below</h3>
-      <h5>To change the default location, click where you would like to change it to, then click on the green marker to confirm</h5>
-      <!-- Show map to allow user to define default location for their album -->
-      <div id="map" style="height:300px;width:300px;" class="col-mid-12">Try refreshing the page to see the map</div>
-    </div>
-  </div>
 </div>
 
 

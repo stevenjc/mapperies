@@ -77,6 +77,8 @@ class MainController < ApplicationController
       gon.album_owner = album_owner
 
     end
+
+    @has_photos= album_ids.length>0
   end
 
   def form

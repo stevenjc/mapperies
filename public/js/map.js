@@ -9,7 +9,6 @@
 
 
 //Declare variables we will use
-
 var map;                //Map variable
 var big_marker=0;       //ID of the marker most recently clicked on
 var x_coords = gon.x;   //X coordinates for all the photos ready to be mapped
@@ -136,9 +135,14 @@ function initMap() {
   };
 
   //Once all the photos are mapped, change the zoom/center of the map
-  if(img.length>0){
+  if(img.length>1){
     map.fitBounds(bounds);
-  };
+  }
+  else if(img.length==1){
+    map.setZoom(5);
+    map.setCenter(new google.maps.LatLng(parseFloat(x_coords[0]), parseFloat(y_coords[0])));
+  }
+
   makeLegend(albums, backgrounds, markers); //Create check boxes for each album in the map
 
 };

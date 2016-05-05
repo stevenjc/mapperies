@@ -257,7 +257,7 @@ class AlbumsController < ApplicationController
       gon.y = y_coord
       gon.img = links
       gon.albums = albums
-      gon.unmapped = @unmapped
+      gon.unmapped = @unmapped.length>0
       gon.color = color
   end
 

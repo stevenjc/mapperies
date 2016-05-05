@@ -76,7 +76,7 @@ class MainController < ApplicationController
     for i in 0..(links.length)-1
       url = links[i]
       livesite = url.to_s.slice! 'http://s3.amazonaws.com/mapperies/app/public'
-      livesite = livesite.length!=nil
+      livesite = livesite!=nil
       x[url]=x_coord[i];
       y[url]=y_coord[i];
       album_ids[url]=albums[i];

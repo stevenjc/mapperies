@@ -35,18 +35,9 @@
     <![endif]-->
 
 </head>
-<!-- Navigation --->
-<!--<a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>-->
 
 <!-- Services -->
     <!-- The circle icons use Font Awesome's stacked icon classes. For more information, visit http://fontawesome.io/examples/ -->
-    <div id="container" style="text-align: center"><!--"margin-left: 5cm;">-->
-    <%= form_tag(friends_results_path, method: "post") do %>
-        <%=label_tag(:s, "Search:") %>
-        <%= text_field_tag(:s) %>
-        <%= submit_tag("Search") %>
-    <% end %>
-    </div>
 
     <section id="services" class="services primary">
 
@@ -59,9 +50,8 @@
       <% if not @show_friend_reqs.size == 0%>
         <div class="container">
           <br />
-          <button class="btn col-md-offset-11 col-md-1" type="button" data-toggle="collapse" data-target="#friend-request-list" aria-expanded="false" aria-controls="friend-request-list" id="friend-request-toggle">
-            <%=@show_friend_reqs.size%> <i class="fa fa-user-plus"></i>
-          </button>
+          <button class="btn col-md-offset-11 col-md-2" type="button" data-toggle="collapse" data-target="#friend-request-list" aria-expanded="false" aria-controls="friend-request-list" id="friend-request-toggle">
+            <%=@show_friend_reqs.size%> Friend Request(s) </button>
           <div class="collapse" id="friend-request-list">
             <div>
               <!--Shows friend requests-->
@@ -133,6 +123,14 @@
                 <div class="col-lg-10 col-lg-offset-1">
                   <h2> My Friends </h2>
                   <hr class="small">
+                  <div id="container" style="text-align: center"><!--"margin-left: 5cm;">-->
+                    <%= form_tag(friends_results_path, method: "post") do %>
+                        <%=label_tag(:s, "New Friend Search:") %>
+                        <%= text_field_tag(:s) %>
+                        <%= submit_tag "Search", :class => "btn btn-primary" %>
+                    <% end %>
+                  </div>
+
                   <% if @all_friends %>
                     <% @all_friends.each do |f| %>
                         <div>

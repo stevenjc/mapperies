@@ -19,12 +19,10 @@ body {
 .text-vertical-center {
     display: table-cell;
     text-align: center;
-    vertical-align: middle;
 }
 
 .text-vertical-center h1{
-    margin: 0;
-    padding: 0;
+    margin-top: 50px;
     font-size: 4.5em;
     font-weight: 700;
 }
@@ -148,11 +146,7 @@ hr.small {
     margin: 5px 5px 0 0;
 }
 
-/* Header */
 
-.header {
-    background-color: #5C6BC0;
-}
 
 /* Middle of page */
 .primary {
@@ -160,12 +154,32 @@ hr.small {
     position: relative;
     height: 90%;
     width: 100%;
-    background-color: #B0BEC5;
+    background-color:#8C9EFF;
 }
 
-.footer {
+.bottom {
     height: 10%;
-    background-color: #B0BEC5;
+    background-color: #8C9EFF;
+}
+
+.back-button {
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.email-field {
+    margin-bottom:10px;
+}
+
+.password-field {
+    margin-bottom: 10px;
+}
+.text-field {
+    text-align: center;
+}
+
+.label-field {
+    text-align: center;
 }
 
 .sign-up {
@@ -174,7 +188,7 @@ hr.small {
 }
 
 .other-links {
-    color: black;
+    text-align: center;
 }
 
 #clearance.sign-in {

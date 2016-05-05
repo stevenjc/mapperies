@@ -12,6 +12,11 @@
 
 #friend-request-toggle{
   font-family: "sans-serif";
-  background-color: #FF9933;
-  color: black;
+  background-color: #283593;
+  color: white;
+  background-size: 40px;
+}
+
+#friend-request-toggle:hover{
+	background-color:#1A237E;
 }

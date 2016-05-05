@@ -144,7 +144,7 @@
 
                                 <!-- Listing all friends -->
                                 <% if f.avatar_id %>
-                                  <%= Photo.find(f.avatar_id.image.url) %>  
+                                  <%= image_tag (Photo.find(f.avatar_id).image.url(:large)) %>  
                                 <% else %>
                                   <img src="/assets/no_photo_user.png" style="height:80%;width:80%;" alt="no-photo">
                                 <% end %>

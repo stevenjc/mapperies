@@ -223,6 +223,11 @@ hr.small {
     margin-bottom: 30px;
 }
 
+.image-position {
+  float:right;
+  margin-top: 10px;
+}
+
 /* Callout */
 
 .callout {

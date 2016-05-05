@@ -1,18 +1,19 @@
+
 <section id="portfolio" class="primary">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 col-lg-offset-1 text-center">
-                    <h2>My Albums</h2>
+                <div class="col-lg-11 col-lg-offset-1">
+                    <div class="row">
+                      <div class="albums_header">
+                        <br/>
+                        <%= button_tag 'Create New Album', class:"btn btn-primary col-md-offset-11 col-sm-offset-10",  url:{action: "create", controller:"albums"}, remote:true%>
+                        <h2 class="text-center">My Albums</h2>
+                      </div>
+                    </div>
                     <hr class="small">
                     <div class="row">
-
-                      <table>
-                          <tbody>
-                            <%= render "index" %>
-                          </tbody>
-                        </table>
-                    <!-- /.row (nested) -->
-                    <a href="#" class="btn btn-dark">View More Items</a>
+                      <%= render "index" %>
+                    </div>
                 </div>
                 <!-- /.col-lg-10 -->
             </div>

@@ -3,16 +3,19 @@
 <% else %>
   <% @albums.each do |album| %>
     <div class="col-sm-4 col-md-2">
-      <div class="thumbnail">
+      <div class="thumbnail text-center">
         <%if sample_photo(album.first.id)%>
-          <%=image_tag sample_photo(album.first.id).image.url(:med), id:"image"%>
+          <%=image_tag sample_photo(album.first.id).image.url(:med), id:"album_image"%>
+        <%else%>
+          <%=image_tag "480px-Placeholder.png", id:"placeholder"%>
         <%end%>
-        <div class="caption">
-          <p id="album_name_listing">
-            <%= link_to album.last, album.first, :style=>'color: black;'%>
+        <div class="caption overflow">
+          <p>
+            <%= link_to album.last, album.first, id: "album_name_listing"%>
           </p>
-          <p><%= link_to 'Destroy', album.first, method: :delete, data: { confirm: 'Are you sure?' } %></p>
         </div>
+        <br/>
+        <%= link_to 'Delete', album.first, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%>
       </div>
     </div>
   <% end %>

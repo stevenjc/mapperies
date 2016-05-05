@@ -97,6 +97,8 @@ class AlbumsController < ApplicationController
       if @album.user_id != current_user.id
         @is_view = true
         @view_only = true
+      elsif AlbumView.where(album_id: @album.id)
+        @is_view = true
       else
         @is_view = false
       end
@@ -106,6 +108,8 @@ class AlbumsController < ApplicationController
 
       @photos = Photo.where(album_id: params[:id])
       @other_photos = find_all_photos(@album)
+      # puts @other_photos
+      # gets
 
       @friends_shared = params[:friends_shared]
 
@@ -347,19 +351,23 @@ class AlbumsController < ApplicationController
     # gets
     main_album_id = nil
     main_album_view = AlbumView.where(album_id: album.id).first
-    AlbumView.where(album_view_id: main_album_view.id).each do |v|
+    # puts main_album_view.id
+    # gets
+    AlbumView.where(album_view_id: main_album_view.album_view_id).each do |v|
       if !Album.find(v.album_id).album_name.eql?("*empty")
         main_album_id = v.album_id
       end
     end
       if !main_album_id.nil?
-      view = AlbumView.where(album_id: main_album_id).first
-      if !view.nil?
-      AlbumView.where(album_view_id: view.album_view_id, view_upload_access: 1).each do |v|
-        if v.album_id != album.id
-          photos += Photo.where(album_id: v.album_id)
-        end
-      end
+        view = AlbumView.where(album_id: main_album_id).first
+        if !view.nil?
+          AlbumView.where(album_view_id: view.album_view_id, view_upload_access: 1).each do |v|
+            if v.album_id != album.id
+              photos += Photo.where(album_id: v.album_id)
+              puts "!!!!!!!"
+              gets
+            end
+          end
       end
     end
     return photos

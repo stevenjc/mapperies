@@ -1,0 +1,7 @@
+For the static page:
+Overview
+-same as the report
+
+Functionalities
+<p>The main functionality of this app as a photo organizer is creating albums and upload photos. User can also find their friends on Mapperies and share albums with them. Also every photo is labeled on a world map according their geo-location tag so the users can see where they and their friends have been to</p>
+<p>   -- that's why it's called Mapperies!</p> 

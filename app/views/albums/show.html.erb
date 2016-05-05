@@ -45,6 +45,7 @@
           <%= link_to 'Delete', delete_photo_path(@album, p), method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger"%>
         </span>
       <% end %>
+      <%= @other_photos.empty?%>
       <% @other_photos.each do |p| %>
         <span class="picture thumbnail col-md-2 col-md-offset-1">
           <%=image_tag p.image.url(:large), id:"image"%>

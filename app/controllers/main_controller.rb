@@ -77,7 +77,7 @@ class MainController < ApplicationController
       url = links[i]
       puts "+++++++++++++++=====================+++++++++"
       puts url
-      url = url.to_s.delete 'http://s3.amazonaws.com/mapperies/app/public'
+      url.to_s.slice! 'http://s3.amazonaws.com/mapperies/app/public'
       x[url]=x_coord[i];
       y[url]=y_coord[i];
       album_ids[url]=albums[i];

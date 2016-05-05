@@ -45,8 +45,8 @@
         </span>
       <% end %>
       <% @other_photos.each do |p| %>
-        <span class="picture thumbnail col-md-1 col-md-offset-1">
-          <%=image_tag p.image.url(:med), id:"image"%>
+        <span class="picture thumbnail col-md-2 col-md-offset-1">
+          <%=image_tag p.image.url(:large), id:"image"%>
         </span>
       <% end %>
     <% end%>

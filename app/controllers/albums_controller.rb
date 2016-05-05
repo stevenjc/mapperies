@@ -207,7 +207,8 @@ class AlbumsController < ApplicationController
   def map
     # Show the navigation bar
       @nav_bar = true
-
+      @album_name = Album.find(params[:id]).album_name
+      @owner = User.find(Album.find(params[:id]).user_id)
       #declare variables we will return to view
       @unmapped=[];
       @unmapped_album=[];

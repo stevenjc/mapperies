@@ -7,7 +7,7 @@
 
 <%= form_tag "create", method: "post"  do %>
   <%= text_field_tag 'album_name' %>
-  <%= select_tag("opts", options_for_select(["Public", "Private"], selected: :option), :onchange => "showFriends()") %>	
+  <%= select_tag("opts", options_for_select(["Public", "Private"], selected: :option), :onchange => "showFriends()") %>
 
  <!-- <select id = "opts", onchange="showFriends()">
   	<option value="0">Public</option>

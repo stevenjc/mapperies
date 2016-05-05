@@ -14,7 +14,8 @@
         <%= render "edit"%>
       <% else %>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3 col-md-offset-10">
+          <%= link_to "View Map" , map_album_path, class: "btn btn-primary"%>
           <%= render "upload_button" unless @view_only%>
         </div>
       <%end%>

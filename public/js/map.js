@@ -158,13 +158,15 @@ function initMap() {
         anchor: new google.maps.Point(17.5,17.5)
       };
 
-      alert(album_ids);
-      alert(c);
-      alert(backgrounds);
-      alert(key);
-      alert(album_ids[key]);
-      alert(c[album_ids[key]]);
-      alert(backgrounds[c[album_ids[key]]]);
+      console.log(album_ids);
+      console.log(gon.album_ids);
+      console.log(c);
+      console.log(gon.color_map);
+      console.log(backgrounds);
+      console.log(key);
+      console.log(album_ids[key]);
+      console.log(c[album_ids[key]]);
+      console.log(backgrounds[c[album_ids[key]]]);
 
        var background_image = {
          url: backgrounds[c[album_ids[key]]], //The background color will be nth color from the Array

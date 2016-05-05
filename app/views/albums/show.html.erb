@@ -68,20 +68,5 @@
 <%= link_to 'Back', albums_path %>
 </section>
 <!--copied from new, needs to go in js-->
-<script type="text/javascript">
-    function test() {
-      document.getElementById("access").style.display = "block";
-    }
-
-    function showFriends() {
-        var selopt = document.getElementById("opts").value;
-      if (selopt == "Private") {
-            document.getElementById("f1").style.display = "block";
-        }
-        else {
-          document.getElementById("f1").style.display = "none";
-
-        }
-    }
-</script>
+<%javascript_include_tag "albums.js" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>

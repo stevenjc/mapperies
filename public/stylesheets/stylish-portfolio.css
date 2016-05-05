@@ -182,6 +182,10 @@ hr.small {
     text-align: center;
 }
 
+.text-field {
+  text-align: center;
+}
+
 .sign-up {
     text-align: left;
     display: inline-block;

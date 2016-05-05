@@ -263,25 +263,28 @@ function makeMarker(latLng, map, background_image){
 function makeLegend(albums, backgrounds, markers){
   //get the parent div where the checkboxes should go
   var album_list = document.getElementById("album_list");
+  //list of unique albums that are being mapped
   var distinct=[];
-
+  //populate distinct
   for (var i = 0; i < albums.length; i++) {
     if(!distinct.includes(albums[i])){
       distinct.push(albums[i]);
     }
   }
+  //for each album, create a checkbox and add an event listener
+  //which would toggle the album's visiblity
   for (var i = 0; i < distinct.length; i++) {
-    var img = new Image();
-    img.src = backgrounds[distinct[i]];
+    var img = new Image();              //create a new image to put the color in
+    img.src = backgrounds[distinct[i]]; //give it the image scr
     img.style.height="20px";
     img.style.width="20px";
-    album_list.appendChild(img);
+    album_list.appendChild(img);        //Add it to the parent div
 
-    var checkbox = document.createElement('input');
+    var checkbox = document.createElement('input'); //Make a checkbox to toggle the album's visiblity
     checkbox.type="checkbox";
     checkbox.id = "legend_"+distinct[i];
-    checkbox.checked=true;
-    checkbox.value=distinct[i];
+    checkbox.checked=true;                          //true by default
+    checkbox.value=distinct[i];                     //store album_id in value for quick retrival
     checkbox.addEventListener('change', function(){
       for (var i = 0; i < markers.length; i++) {
 

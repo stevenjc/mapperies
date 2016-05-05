@@ -251,6 +251,21 @@ class AlbumsController < ApplicationController
         end
       end
 
+      x=Hash.new
+      y=Hash.new
+      album_ids=Hash.new
+
+      for i in 0..(links.length)
+        x[links[i]]=x_coord[i];
+        y[links[i]]=y_coord[i];
+        album_ids[links[i]]=albums[i];
+      end
+
+      gon.color_map = JSON.generate(color_map)
+      gon.x1 = JSON.generate(x)
+      gon.y1 = JSON.generate(y)
+      gon.album_ids = JSON.generate(album_ids)
+
 
       gon.x = x_coord
       gon.y = y_coord

@@ -1,9 +1,10 @@
 <%= javascript_include_tag "/js/setProfilePicture.js" %>
+<section id="portfolio" class="primary">
 
-
-<div id="account_edit_header" class="page-header">
+<div class="text-label-field">
     <h1>Editing Account: <%=current_user.email%></h1>
 </div>
+
 
 <div class="col-md-12">
     <%= form_for @user, url: {action: "save"}, html: {id: "account_edit_form"} do |f| %>
@@ -73,3 +74,4 @@
     <% end %>
     <br>
 </div>
+</section>

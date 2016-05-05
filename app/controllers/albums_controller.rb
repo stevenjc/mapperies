@@ -162,7 +162,7 @@ class AlbumsController < ApplicationController
               if params[:change_access] == "View Only"
                 av.update_attribute(:view_upload_access, 0)
                 Album.where(id: av.album_id, album_name: "*empty", user_id: params[:friend].to_i).destroy_all
-                av.update_attribute(:album_id, nil)
+                #av.update_attribute(:album_id, nil)
               elsif params[:change_access] == "View and Upload"
                 av.update_attribute(:view_upload_access, 1)
                 sharable = Album.create(album_name: "*empty", user_id: params[:friend].to_i, isPublic: false)

@@ -3,30 +3,28 @@
 
 
 
-
-<section id="portfolio" class="primary">
-<br/>
 <p id="notice"><%= notice %></p>
+<section id="portfolio" class="primary">
 
+<iframe id="ifrm" src="/albums/<%= @album.id%>/form" style="width:70%;" hidden=true></iframe>
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-10">
+      <ul id="album_name_parent">
+        <h3 id="album_name" onclick="edit()">
+          <%= @album_name%>
+        </h3>
+      </ul>
       <% if not @is_view %>
         <%= render "edit"%>
       <% else %>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-2">
           <%= render "upload_button" unless @view_only%>
         </div>
       <%end%>
-      <%= render "uploading" unless @view_only%>
-      <span id="album_name_parent">
-        <h3 id="album_name" onclick="edit()">
-          <%= @album_name%>
-        </h3>
-      </span>
   </div>
-<iframe id="ifrm" src="/albums/<%= @album.id%>/form" style="width:70%;" hidden=true></iframe>
+
 
 <div class = "row">
   <div id="photo_container">
@@ -36,7 +34,7 @@
     <% else %>
       <% @photos.each do |p| %>
         <span class="picture thumbnail col-md-1 col-md-offset-1">
-          <%=image_tag p.image.url(:large), id:"image"%>
+          <%=image_tag p.image.url(:med), id:"image"%>
           <%= link_to 'Destroy', delete_photo_path(@album, p), method: :delete, data: { confirm: 'Are you sure?' }%>
         </span>
       <% end %>
@@ -48,6 +46,8 @@
     <% end%>
     </div>
   </div>
+
+  <%= render "uploading" unless @view_only%>
 
 </div>
 

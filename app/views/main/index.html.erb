@@ -2,6 +2,7 @@
 
 <%= include_gon %>
 
+<div id="map_key" hidden=true></div>
 <section id="portfolio" class="primary">
 
 <div id="main_header" class="col-mid-8">
@@ -10,7 +11,7 @@
 
 <div class="container">
   <div class = "row">
-    <% if @unmapped.blank? %>
+    <% if @unmapped.blank? && !@show_legend %>
       <div id="map" class="col-md-12 col-sm-12 col-xs-12"></div>
     <% else %>
       <div id="map" class="col-md-9 col-sm-10"></div>
@@ -22,20 +23,19 @@
           <input id="submit" type="submit" />
         <% end %>
         <div class="panel panel-primary "  >
+          <div class="panel-heading">
+            <h3 id="mapped_albums_text"></h3>
+          </div>
+          <ul id="album_list"></ul>
           <div class="panel-heading">Your Photos with No Coordinates</div>
           <div class="panel-body">
             <% @unmapped.each do |p| %>
-              <%=image_tag p.image.url(:med), class:"unmapped_photo", onclick:"selected()", id: p.id %>
+              <%=image_tag p.image.url(:med), class:"unmapped_photo", onclick:"selected()", id: p.id, data: {:album =>p.album_id} %>
             <% end %>
           </div>
         </div>
       </div>
     <% end %>
-    <div class="panel-heading">
-      <h3 id="mapped_albums_text"></h3>
-    </div>
-      <div class="panel-body" id="album_list">
-    </div>
   </div>
 </div>
 </section>

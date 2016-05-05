@@ -1,4 +1,5 @@
 class MainController < ApplicationController
+  require 'json'
   before_action :require_login
   include AlbumsHelper
 
@@ -19,6 +20,7 @@ class MainController < ApplicationController
     album_names=Hash.new;   #Name of album matching the order of photo_ids
     album_owner=Hash.new;   #Name of Owner of album matching the order of photo_ids
     color=[];         #index of color outline for the album
+    color_map= Hash.new;
 
     #grab all the albums of friends who have shared them
     AlbumView.where(:user_id =>current_user.id).each do |d|
@@ -32,7 +34,6 @@ class MainController < ApplicationController
     Album.where(:user_id => current_user.id).each do |a|
       album_ids.push(a.id)
     end
-
 
     # For each album, push all the photos and links into the arrays
     album_ids.each do |i|
@@ -66,19 +67,32 @@ class MainController < ApplicationController
           color.push(color_map[a])
         end
       end
-
-      gon.x = x_coord
-      gon.y = y_coord
-      gon.img = links
-      gon.albums = albums
-      gon.unmapped = @unmapped.length>0
-      gon.color = color
-      gon.album_names = album_names
-      gon.album_owner = album_owner
-
     end
 
+    x=Hash.new
+    y=Hash.new
+    album_ids=Hash.new
+
+    for i in 0..(links.length)
+      x[links[i]]=x_coord[i];
+      y[links[i]]=y_coord[i];
+      album_ids[links[i]]=albums[i];
+    end
+
+    gon.color_map = JSON.generate(color_map)
+    gon.x1 = JSON.generate(x)
+    gon.y1 = JSON.generate(y)
+    gon.album_ids = JSON.generate(album_ids)
+
+    gon.img = links
+    gon.albums = albums
+    gon.unmapped = @unmapped.length>0
+    gon.color = color
+    gon.album_names = album_names
+    gon.album_owner = album_owner
     @has_photos= album_ids.length>0
+    @show_legend=album_ids.length>2
+    gon.show_legend=@show_legend
   end
 
   def form

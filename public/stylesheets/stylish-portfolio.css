@@ -388,6 +388,15 @@ footer {
   }
 }
 
+#album_list > p{
+  margin-left: 0;
+  border: black 1px solid;
+
+}
+#album_list{
+  list-style: none;
+  display: inline;
+}
 
 
 svg {

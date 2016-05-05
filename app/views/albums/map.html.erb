@@ -1,12 +1,14 @@
 <%=render "layouts/preloader" %>
 <%= include_gon %>
+<div id="map_key" hidden=true>../</div>
+
 <div id="main_header" class="col-mid-8">
     <h1> <%=user_identifier%>'s Default Map </h1>
 </div>
 
 <%=link_to "View as List", album_path %>
 
-<div id="map" style= "width:65%; float:left;" class="col-mid-12"></div>
+<div id="map" style= "width:65%; float:left;z-index:100" class="col-mid-12"></div>
 
 <% if @unmapped.blank? %>
 <% else %>

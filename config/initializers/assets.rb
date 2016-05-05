@@ -14,3 +14,4 @@ Rails.application.config.assets.compile = true
 
 Rails.application.config.assets.precompile += %w( albums.js )
 Rails.application.config.assets.precompile += %w( main.js )
+Rails.application.config.assets.precompile += %w( friends.js )

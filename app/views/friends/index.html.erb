@@ -144,11 +144,11 @@
 
                                 <!-- Listing all friends -->
                                 <% if f.avatar_id %>
-                                  <%= image_tag (Photo.find(f.avatar_id).image.url(:large)) %>  
+                                  <%= image_tag (Photo.find(f.avatar_id).image.url(:large)) %>
                                 <% else %>
                                   <img src="/assets/no_photo_user.png" style="height:80%;width:80%;" alt="no-photo">
                                 <% end %>
-                                
+
 
                               <!--Expand to see a friend's albums-->
                               <!--<div class="friend-album-list">
@@ -207,61 +207,4 @@
 
 <!--Need to put this in a different place  -->
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script type="text/javascript">
-$(function(){
-//hide or collapsed initially.
-$('#services').find('ul').hide();
-$('#services').find("span.expand").click(function(e){
-    $(this).parent().children('ul').toggle();
-});
-});
-
-
-</script>
-<script type="text/javascript">
-  function remove_friend(){
-    confirm('Are you sure?')
-    if (confirm('Are you sure?')) {
-         window.location.reload();
-  }}
-
-  $(document).ready(function(){
-    $('.friend-album-list').slick({
-      lazyLoad: 'ondemand',
-      dots: false,
-      arrows: false,
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      slidesToScroll: 2,
-      centerMode: true,
-      adaptiveHeight: false,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            infinite: true,
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            infinite: true,
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            infinite: true,
-          }
-        }
-      ]
-    });
-  });
-</script>
+<%javascript_include_tag "friends.js"%>

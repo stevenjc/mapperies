@@ -149,6 +149,8 @@ class AlbumsController < ApplicationController
       if params[:unshare]
         AlbumView.where(album_view_id:@album.id).each do |av|
           if av.user_id == params[:unshare].to_i
+            album_id = av.album_id
+            Album.find(album_id).destroy
             av.destroy
           end
         end

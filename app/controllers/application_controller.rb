@@ -9,11 +9,13 @@ class ApplicationController < ActionController::Base
     layout "application"
 
     def avatar
-    	if current_user.avatar_id
-    		@avatar= Photo.find(current_user.avatar_id)
-    	else
-    		nil
-    	end
+      if signed_in?
+      	if current_user.avatar_id
+      		@avatar= Photo.find(current_user.avatar_id)
+      	else
+      		nil
+      	end
+      end
   	end
 
 end

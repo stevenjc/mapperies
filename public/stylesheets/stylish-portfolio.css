@@ -160,7 +160,7 @@ hr.small {
 .bottom {
     height: 10%;
     background-color: #8C9EFF;
-}
+  }
 
 .back-button {
     margin-top: 10px;
@@ -178,12 +178,12 @@ hr.small {
 .password-field {
     margin-bottom: 10px;
 }
-.text-field {
+.text-label-field {
     text-align: center;
 }
 
-.label-field {
-    text-align: center;
+.text-field {
+  text-align: center;
 }
 
 .sign-up {
@@ -195,10 +195,13 @@ hr.small {
     text-align: center;
 }
 
-#clearance.sign-in {
-    background-color: #B0BEC5
+.password-field {
+  text-align: center;
 }
 
+.password-label {
+  text-align: center;
+}
 /* About */
 
 .about {

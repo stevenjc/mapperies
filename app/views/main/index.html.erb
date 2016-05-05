@@ -22,9 +22,6 @@
           <input id="submit" type="submit" />
         <% end %>
         <div class="panel panel-primary "  >
-          <div class="panel-heading">Albums current being mapped</div>
-            <div class="panel-body" id="album_list">
-            </div>
           <div class="panel-heading">Your Photos with No Coordinates</div>
           <div class="panel-body">
             <% @unmapped.each do |p| %>
@@ -34,6 +31,9 @@
         </div>
       </div>
     <% end %>
+    <div class="panel-heading">Albums current being mapped</div>
+      <div class="panel-body" id="album_list">
+    </div>
   </div>
 </div>
 </section>

@@ -8,9 +8,6 @@
 */
 
 
-changeWidth();          //Modify the width of the image based on if there are unmapped photos
-makeLegend(gon.albums); //Create check boxes for each album in the map
-
 //Declare variables we will use
 
 var map;                //Map variable
@@ -34,6 +31,9 @@ var colors=       [ "amber", "blue_grey", "blue", "brown", "cyan",
 for (var i = 0; i < colors.length; i++) {
   backgrounds.push("../../img/backgrounds/"+colors[i]+".png")
 };
+
+changeWidth();          //Modify the width of the image based on if there are unmapped photos
+
 
 //Allow the pre-loader to be visible on pages with maps
 $("#loader").hidden=false;
@@ -89,17 +89,25 @@ function initMap() {
           anchor: new google.maps.Point(20,20)      //Again, the image should centered around the coordinates
         };
 
+        var back = new google.maps.Marker({
+          position: latLng,
+          map: this,
+          icon: background_image,
+          zIndex:0,
+          animation: google.maps.Animation.DROP
+        });
+
         //Actually create the marker
         var marker = new google.maps.Marker({
           position: latLng,                       //Give it coordinates
           map: this,                              //It should be on the only map we have
           icon: icon,                             //The marker should be the image we made earlier
           zIndex: 1,                              //The marker should be above the border
-          animation: google.maps.Animation.DROP   //Make the image fall into position
+          animation: google.maps.Animation.DROP,   //Make the image fall into position
+          back:back
         });
 
-        //Make the border after 1 second
-        setTimeout(makeMarker(latLng, this, background_image), 1000);
+        markers.push(marker);
       }
 
       //Fill in the form with the coordinates where the user cliced
@@ -129,6 +137,8 @@ function initMap() {
   if(img.length>0){
     map.fitBounds(bounds);
   };
+  makeLegend(albums, backgrounds, markers); //Create check boxes for each album in the map
+
 };
 
 
@@ -143,8 +153,8 @@ function addMarker(int, map){
     anchor: new google.maps.Point(17.5,17.5)
   };
 
-  var background = {
-    url: backgrounds[color[int]], //The background color will be nth color from the Array
+  var background_image = {
+    url: backgrounds[albums[int]], //The background color will be nth color from the Array
     scaledSize: new google.maps.Size(40,40),
     anchor: new google.maps.Point(20,20)
   };
@@ -155,7 +165,7 @@ function addMarker(int, map){
   var background =new google.maps.Marker({
     position: LngLnt,
     map:map,
-    icon: background,
+    icon: background_image,
     zIndex: 0       //Make sure its behind the real image
   });
 
@@ -169,6 +179,8 @@ function addMarker(int, map){
     back: background,    //Save into the marker which border should be used
     animation: google.maps.Animation.DROP //Let the marker fall into place
   });
+
+  markers.push(marker);
 
   //Allow the marker to be clicked on
   marker.addListener('click', markerClick);
@@ -199,7 +211,6 @@ function markerClick(int){
 
   //If the photo clicked on is small still make it large
   if(this!=big_marker){
-    alert("!!!!");
     var image = {
       url: this.getIcon().url,    //Keep the same image
       scaledSize: new google.maps.Size(100,100),  //But make it much larger
@@ -248,14 +259,45 @@ function makeMarker(latLng, map, background_image){
   });
 }
 
-function makeLegend(albums){
+//Insert inputs to allow users to (un)check albums to remove them from the map
+function makeLegend(albums, backgrounds, markers){
+  //get the parent div where the checkboxes should go
   var album_list = document.getElementById("album_list");
   var distinct=[];
+
   for (var i = 0; i < albums.length; i++) {
-    // album_list.appendChild(document.createElement('input'))
     if(!distinct.includes(albums[i])){
       distinct.push(albums[i]);
     }
   }
-  alert(distinct);
+  for (var i = 0; i < distinct.length; i++) {
+    var img = new Image();
+    img.src = backgrounds[distinct[i]];
+    img.style.height="20px";
+    img.style.width="20px";
+    album_list.appendChild(img);
+
+    var checkbox = document.createElement('input');
+    checkbox.type="checkbox";
+    checkbox.id = "legend_"+distinct[i];
+    checkbox.checked=true;
+    checkbox.value=distinct[i];
+    checkbox.addEventListener('change', function(){
+      for (var i = 0; i < markers.length; i++) {
+
+        if(markers[i].myData==this.value){
+          if(markers[i].getVisible()==true){
+            markers[i].setVisible(false);
+            markers[i].back.setVisible(false);
+          }
+          else{
+            markers[i].setVisible(true);
+            markers[i].back.setVisible(true);
+          }
+        }
+      }
+    })
+    album_list.appendChild(checkbox);
+  }
+//  alert(distinct);
 }

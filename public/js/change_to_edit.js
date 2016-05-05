@@ -32,7 +32,7 @@ function edit(){
     var content = iframeRef(document.getElementById("ifrm"));
 
     var n= content.getElementById("a_name");
-    var name = document.createElement("P");
+    var name = document.createElement("P");   //!!!!!!!!!!!!!!!!
     var submit = content.getElementById("submit_album_name_edit");
     name.id="album_name";
     var input = document.getElementById("input_name");

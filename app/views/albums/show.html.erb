@@ -1,32 +1,32 @@
 <%= javascript_include_tag "/js/jquery.js" %>
-<%= javascript_include_tag "/js/dragdrop.js" %>
-<%= javascript_include_tag "/js/map_choose_default_location.js" %>
 <%= javascript_include_tag "/js/change_to_edit.js" %>
 
 
 
-<p id="notice"><%= notice %></p>
-<section id="portfolio" class="primary">
 
-<iframe id="ifrm" src="/albums/<%= @album.id%>/form" style="width:70%;" hidden=true></iframe>
+<section id="portfolio" class="primary">
+<br/>
+<p id="notice"><%= notice %></p>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-10">
-      <ul id="album_name_parent">
-        <h3 id="album_name" onclick="edit()">
-          <%= @album_name%>
-        </h3>
-      </ul>
       <% if not @is_view %>
         <%= render "edit"%>
       <% else %>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-6">
           <%= render "upload_button" unless @view_only%>
         </div>
       <%end%>
+      <%= render "uploading" unless @view_only%>
+      <span id="album_name_parent">
+        <h3 id="album_name" onclick="edit()">
+          <%= @album_name%>
+        </h3>
+      </span>
   </div>
-
+<iframe id="ifrm" src="/albums/<%= @album.id%>/form" style="width:70%;" hidden=true></iframe>
 
 <div class = "row">
   <div id="photo_container">
@@ -36,29 +36,19 @@
     <% else %>
       <% @photos.each do |p| %>
         <span class="picture thumbnail col-md-1 col-md-offset-1">
-          <%=image_tag p.image.url(:med), id:"image"%>
+          <%=image_tag p.image.url(:large), id:"image"%>
           <%= link_to 'Destroy', delete_photo_path(@album, p), method: :delete, data: { confirm: 'Are you sure?' }%>
         </span>
       <% end %>
-      <% @other_photos.each do |p| %>
+      <!-- <% @other_photos.each do |p| %>
         <span class="picture thumbnail col-md-1 col-md-offset-1">
           <%=image_tag p.image.url(:med), id:"image"%>
         </span>
-      <% end %>
+      <% end %> -->
     <% end%>
     </div>
   </div>
 
-  <%= render "uploading" unless @view_only%>
-
-  <div class = "row">
-    <div class="col-md-12">
-      <h3>Your album's default location is shown below</h3>
-      <h5>To change the default location, click where you would like to change it to, then click on the green marker to confirm</h5>
-      <!-- Show map to allow user to define default location for their album -->
-      <div id="map" style="height:300px;width:300px;" class="col-mid-12">Try refreshing the page to see the map</div>
-    </div>
-  </div>
 </div>
 
 

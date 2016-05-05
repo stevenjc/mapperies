@@ -9,7 +9,6 @@
 
 
 //Declare variables we will use
-
 var map;                //Map variable
 var big_marker=0;       //ID of the marker most recently clicked on
 var x_coords = gon.x;   //X coordinates for all the photos ready to be mapped
@@ -17,6 +16,8 @@ var y_coords = gon.y;   //Y coordinates for all the photos ready to be mapped
 var img = gon.img;      //URL links for all the photos ready to be mapped
 var albums = gon.albums;//Array which stores which album each image was in
 var color = gon.color;  //
+var album_names = gon.album_names;
+var album_owner = gon.album_owner;
 var default_loc = {lat: 37.09, lng:-74.5};  //keep a default location in case there are no images
 var backgrounds =[];    //URL links to the background images to organize photos by album
 var markers=[];         //references to the markers on the map
@@ -134,9 +135,14 @@ function initMap() {
   };
 
   //Once all the photos are mapped, change the zoom/center of the map
-  if(img.length>0){
+  if(img.length>1){
     map.fitBounds(bounds);
-  };
+  }
+  else if(img.length==1){
+    map.setZoom(5);
+    map.setCenter(new google.maps.LatLng(parseFloat(x_coords[0]), parseFloat(y_coords[0])));
+  }
+
   makeLegend(albums, backgrounds, markers); //Create check boxes for each album in the map
 
 };
@@ -239,7 +245,7 @@ function goToAlbum(){
 
 //Function to change the width of the map based on if there are unmapped photos
 function changeWidth(){
-  if(gon.unmapped.length>0){
+  if(gon.unmapped>0){
     document.getElementById("map").style.width='60%';
     document.getElementById("map").style.left="2.5%";
   }else{
@@ -271,36 +277,46 @@ function makeLegend(albums, backgrounds, markers){
       distinct.push(albums[i]);
     }
   }
-  //for each album, create a checkbox and add an event listener
-  //which would toggle the album's visiblity
-  for (var i = 0; i < distinct.length; i++) {
-    var img = new Image();              //create a new image to put the color in
-    img.src = backgrounds[distinct[i]]; //give it the image scr
-    img.style.height="20px";
-    img.style.width="20px";
-    album_list.appendChild(img);        //Add it to the parent div
+  if(distinct.length>1){
+    document.getElementById("mapped_albums_text").innerHTML="Albums currently on the map";
+    //for each album, create a checkbox and add an event listener
+    //which would toggle the album's visiblity
+    for (var i = 0; i < distinct.length; i++) {
+      var img = new Image();              //create a new image to put the color in
+      img.src = backgrounds[distinct[i]]; //give it the image scr
+      img.style.height="20px";
+      img.style.width="20px";
+      album_list.appendChild(img);        //Add it to the parent div
 
-    var checkbox = document.createElement('input'); //Make a checkbox to toggle the album's visiblity
-    checkbox.type="checkbox";
-    checkbox.id = "legend_"+distinct[i];
-    checkbox.checked=true;                          //true by default
-    checkbox.value=distinct[i];                     //store album_id in value for quick retrival
-    checkbox.addEventListener('change', function(){
-      for (var i = 0; i < markers.length; i++) {
+      var name = document.createElement("a");
+      name.href="/albums/"+distinct[i];
+      name.innerHTML=album_names[distinct[i]];
+      album_list.appendChild(name);
 
-        if(markers[i].myData==this.value){
-          if(markers[i].getVisible()==true){
-            markers[i].setVisible(false);
-            markers[i].back.setVisible(false);
-          }
-          else{
-            markers[i].setVisible(true);
-            markers[i].back.setVisible(true);
+      var owner = document.createElement("span");
+      owner.innerHTML=album_owner[distinct[i]];
+      album_list.appendChild(owner);
+
+      var checkbox = document.createElement('input'); //Make a checkbox to toggle the album's visiblity
+      checkbox.type="checkbox";
+      checkbox.id = "legend_"+distinct[i];
+      checkbox.checked=true;                          //true by default
+      checkbox.value=distinct[i];                     //store album_id in value for quick retrival
+      checkbox.addEventListener('change', function(){
+        for (var i = 0; i < markers.length; i++) {    //check each marker if it was in the toggled album
+          if(markers[i].myData==this.value){          //toggle the visiblity
+            if(markers[i].getVisible()==true){
+              markers[i].setVisible(false);
+              markers[i].back.setVisible(false);
+            }
+            else{
+              markers[i].setVisible(true);
+              markers[i].back.setVisible(true);
+            }
           }
         }
-      }
-    })
-    album_list.appendChild(checkbox);
+      })
+      album_list.appendChild(checkbox);             //add the checkbox to the parent div
+    }
   }
-//  alert(distinct);
 }

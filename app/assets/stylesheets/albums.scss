@@ -8,10 +8,17 @@ table{
   color: black;
 }
 
+.no_album_header{
+  text-align: center;
+  font-weight: bold;
+}
 #album_name{
   text-align: center;
   font-weight: bold;
-  font-family: "Courier New";
+}
+
+.empty_album_image{
+  width: 350px;
 }
 
 #album_name_listing{
@@ -21,6 +28,27 @@ table{
   color: black;
   font-family: "Courier New";
 }
+
+#placeholder, #album_image{
+  width: 100px;
+}
+#album_name_listing{
+  color:black;
+  text-align: center;
+}
+#album_name_listing:hover{
+  color:red;
+}
+
+.overflow {
+  max-height: 3.3em;  /* 4 lines as line-height is 1.1 */
+  height: 3.3em;      /* making it a multiple allows usage of overflow */
+  /**
+   * Required properties to achieve text-overflow
+   */
+  overflow: hidden;
+}
+
 
 #photo_container{
   padding-top: 50px;
@@ -32,17 +60,14 @@ table{
     padding-top: 5px;
   }
 }
-#upload_div{
-  padding-top: 50px;
-  padding-bottom:50px;
-  #photo_upload{
-    padding-top:10px;
-    padding-left: 10px;
-    padding-bottom: 10px;
-    background-color: gray;
-  }
+
+#photo_upload{
+  padding-top:10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
 }
-#photo-upload-toggle{
+
+#photo_upload{
   padding-left: 15px;
   padding-right: 15px;
 }

@@ -13,7 +13,7 @@
     <% if @unmapped.blank? %>
       <div id="map" class="col-md-12 col-sm-12 col-xs-12"></div>
     <% else %>
-      <div id="map" class="col-md-9 col-sm-10">this is the map</div>
+      <div id="map" class="col-md-9 col-sm-10"></div>
       <div class="uncoordinated-photos col-md-3 col-sm-3 col-md-offset-1" >
         <%= form_for current_user, url:{action: "edit_pic", controller:"users"}, html: {multipart: true, hidden:true} do |f| %>
           <input id= "dragphoto" name="dragphoto" type="text"/>
@@ -31,7 +31,9 @@
         </div>
       </div>
     <% end %>
-    <div class="panel-heading">Albums current being mapped</div>
+    <div class="panel-heading">
+      <h3 id="mapped_albums_text"></h3>
+    </div>
       <div class="panel-body" id="album_list">
     </div>
   </div>
@@ -39,7 +41,11 @@
 </section>
 <%= javascript_include_tag "/js/jquery.js" %>
 <%= javascript_include_tag "/js/bootstrap.min.js" %>
-<%= javascript_include_tag "/js/map.js" %>
+<% if @has_photos%>
+  <%= javascript_include_tag "/js/map.js" %>
+<% else %>
+  <%= javascript_include_tag "/js/initmap.js" %>
+<% end %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmZ0UjQy-J4ELU51wczIAqv9nlywKb4mA&callback=initMap" async defer></script>
 
 <!-- iFrame to the form to drag and drop pictures to remap them -->

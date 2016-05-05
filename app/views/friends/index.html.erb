@@ -75,13 +75,13 @@
                                       <%= form_tag("/friends", :action => "index", method: "get") do %>
                                           <%= hidden_field_tag(:accept, f.id) %>
                                           <%= button_tag(type: 'submit', class: "btn btn-primary", id: "friend-accept") do %>
-                                              <i class="fa fa-check"></i>
+                                              Accept <i class="fa fa-check"></i>
                                           <% end %>
                                       <% end %>
                                       <%= form_tag("/friends", :action => "index", method: "get") do %>
                                           <%= hidden_field_tag(:reject, f_request) %>
                                           <%= button_tag(type: 'submit', class: "btn btn-danger", id: "friend-decline") do %>
-                                              <i class="fa fa-times"></i>
+                                              Decline <i class="fa fa-times"></i>
                                           <% end %>
                                       <% end %>
                                     </div>
@@ -137,17 +137,21 @@
                           <td>
                             <div class="col-md-3 col-sm-3">
                               <div class="service-item">
-
-                                <!-- Listing all friends -->
-                                <img src="https://pbs.twimg.com/profile_images/2586664217/o78k5fogx5g3hdy6peai.jpeg" class="img-responsive img-rounded"  alt="Profile Picture">
                                 <h4> <tr>
                                     <%= f.first_name %> <%=f.last_name%>
                                 </tr> </h4>
 
-                              <p> <%= link_to 'See Albums!', albums_friend_path(:id => f.id), :style=>'color: black; font-size:medium;' %></h3></p>
+
+                                <!-- Listing all friends -->
+                                <% if f.avatar_id %>
+                                  <%= Photo.find(f.avatar_id.image.url) %>  
+                                <% else %>
+                                  <img src="/assets/no_photo_user.png" style="height:80%;width:80%;" alt="no-photo">
+                                <% end %>
+                                
 
                               <!--Expand to see a friend's albums-->
-                              <div class="friend-album-list">
+                              <!--<div class="friend-album-list">
                                 <div>
                                   <a class="thumbnail">
                                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh4VdRL4EcSj8soaw00LjK2qCrA4aJiLcL4xm6F5sgyBG6ePLIrA" alt="...">
@@ -178,12 +182,15 @@
                                   </a>
                                   Germany
                                 </div>
-                              </div>
+                              </div>-->
+                              <div class="space"></div>
+                              <p> <%= link_to 'View Albums', albums_friend_path(:id => f.id), :class => 'btn btn-primary', :style=>'color: white;' %></h3></p>
+
                               <%= form_tag("/friends", :action => "index", :method => "get", :onclick => 'return remove_friend()') do %>
                                 <% u = f.id %>
                                 <%= hidden_field_tag(:remove, u) %>
                                 <%= button_tag(type: 'submit', class: "btn btn-danger", id: "friend-remove") do %>
-                                  <i class="fa fa-user-times"></i>
+                                  Remove Friend
                                 <% end %>
                               <% end %>
                             </div>

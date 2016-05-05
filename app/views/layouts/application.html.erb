@@ -47,10 +47,10 @@
     <!-- <header id="top" class="header"> -->
       <nav class="navbar navbar-inverse navbar-static-top">
         <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:104px;height:80px;"> </a>
-        <a href="/account/settings" onclick = $("#menu-close").click();><span class="sidebar_text">Account</span></i></a>
-        <a href="/albums" onclick = $("#menu-close").click(); ><span class="sidebar_text">Albums</span></i></a>
-        <a href="/friends" onclick = $("#menu-close").click(); ><span class="sidebar_text">Friends</span></i></a>
-        <a onclick = $("#menu-close").click(); data-toggle = "modal" data-target = "#confirm_logout"><span class="sidebar_text">Log Out</span></i></a>
+        <a href="/account/settings" onclick = $("#menu-close").click();><span class="navbar_text">Account</span></i></a>
+        <a href="/albums" onclick = $("#menu-close").click(); ><span class="navbar_text">Albums</span></i></a>
+        <a href="/friends" onclick = $("#menu-close").click(); ><span class="navbar_text">Friends</span></i></a>
+        <a onclick = $("#menu-close").click(); data-toggle = "modal" data-target = "#confirm_logout"><span class="navbar_text">Log Out</span></i></a>
           <% if signed_in? %>
             <% if @avatar %>
               <%= image_tag @avatar.image.url(:small) %>

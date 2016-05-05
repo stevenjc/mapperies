@@ -292,6 +292,11 @@ function makeLegend(albums, backgrounds, markers){
     //for each album, create a checkbox and add an event listener
     //which would toggle the album's visiblity
     for (var i = 0; i < distinct.length; i++) {
+      var spacing1 = document.createElement("span");
+      var spacing2 = document.createElement("span");
+      spacing1.innerHTML=(" ");
+      spacing2.innerHTML=(" ");
+
       var listitem = document.createElement("div");
 
       var img = new Image();              //create a new image to put the color in
@@ -299,6 +304,8 @@ function makeLegend(albums, backgrounds, markers){
       img.style.height="20px";
       img.style.width="20px";
       listitem.appendChild(img);        //Add it to the parent div
+
+      listitem.appendChild(spacing1);
 
       var checkbox = document.createElement('input'); //Make a checkbox to toggle the album's visiblity
       checkbox.type="checkbox";
@@ -321,6 +328,9 @@ function makeLegend(albums, backgrounds, markers){
         }
       })
       listitem.appendChild(checkbox);             //add the checkbox to the parent div
+
+      listitem.appendChild(spacing2);
+
       var name = document.createElement("a");
       name.href="/albums/"+distinct[i];
       name.innerHTML=album_names[distinct[i]];

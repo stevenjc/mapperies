@@ -223,9 +223,15 @@ hr.small {
     margin-bottom: 30px;
 }
 
-.image-position {
+.image_position {
+  width: 45px;
+  height: 45px;
   float:right;
-  margin-top: 10px;
+  border-radius: 100%;
+}
+
+#user_name{
+
 }
 
 /* Callout */
@@ -404,6 +410,7 @@ footer {
 #album_list > div{
   width: inherit;
   text-align: left;
+  margin: 5px;
 }
 
 #album_list > div >span{

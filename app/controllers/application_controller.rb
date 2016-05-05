@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     layout "application"
 
     def avatar
-      if logged_in?
+      if signed_in?
       	if current_user.avatar_id
       		@avatar= Photo.find(current_user.avatar_id)
       	else

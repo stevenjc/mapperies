@@ -23,16 +23,24 @@
           <input id="submit" type="submit" />
         <% end %>
         <div class="panel panel-primary "  >
-          <div class="panel-heading">
-            <h3 id="mapped_albums_text"></h3>
-          </div>
-          <div id="album_list"></div>
-          <div class="panel-heading">Your Photos with No Coordinates</div>
-          <div class="panel-body">
-            <% @unmapped.each do |p| %>
-              <%=image_tag p.image.url(:med), class:"unmapped_photo", onclick:"selected()", id: p.id, data: {:album =>p.album_id} %>
-            <% end %>
-          </div>
+
+          <!-- Show the legend  -->
+          <% if @show_legend %>
+            <div class="panel-heading">
+              <h3 id="mapped_albums_text"></h3>
+            </div>
+            <div id="album_list"></div>
+          <% end %>
+
+          <!-- Show all the unmapped_photos -->
+          <% if !@unmapped.blank? %>
+            <div class="panel-heading">Your Photos with No Coordinates</div>
+            <div class="panel-body">
+              <% @unmapped.each do |p| %>
+                <%=image_tag p.image.url(:med), class:"unmapped_photo", onclick:"selected()", id: p.id, data: {:album =>p.album_id} %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>

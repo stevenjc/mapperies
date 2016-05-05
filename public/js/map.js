@@ -136,8 +136,6 @@ function initMap() {
   //Add all the photos to the map, and add them to the bounds for zoom/center
   for (i=0;i<img.length;i++){
     var image = new Image();
-    image.src = img[i];
-
     var key = img[i];
     key = key.substring(key.indexOf("/asset"));
     url="";
@@ -147,7 +145,11 @@ function initMap() {
       url= "http://s3.amazonaws.com/mapperies/app/public"+key;
       img.src=url;
     }
+    else{
+      img.scr=key;
+    }
     alert(url);
+
 
     $(image).load(function(){
       var key = this.src;

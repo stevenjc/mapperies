@@ -2,7 +2,7 @@
 <section id="portfolio" class="primary">
 
 <div class="text-label-field">
-    <h1>Editing Account: <%=current_user.email%></h1>
+    <h1>Edit Account</h1>
 </div>
 
 
@@ -35,19 +35,25 @@
         </div>
 
         <div class = "form-group">
-            <%=label_tag :avatar_id, "avatar", class: "account_edit_form_label"%>
-            <%= f.text_field :avatar_id, id:"avatar_id"%>
+        <%= f.text_field :avatar_id, id:"avatar_id", hidden: true%>
+            <%=label_tag :avatar_id, "Select Avatar", class: "account_edit_form_label"%>
+        
+        <br />
+
+        <% if @photo %>
+          <% @photo.each do |p| %>
+            <%=image_tag p.image.url(:med), id:p.id, class:"photo"%>
+          <%end %>
+        <% end %>
         </div>
-
-
-
+        <br>
 
         <%= button_tag(type: 'button', class: "btn btn-primary", "data-toggle"=> "modal", "data-target"=> "#confirm_edit") do %>
-            <i class="fa fa-pencil-square-o fa-2x"></i>
+            Update
         <% end %>
 
         <a href="/account/settings" class="btn btn-warning">
-            <i class="fa fa-times fa-2x"></i>
+            Cancel
         </a>
 
         <div class="modal fade" tabindex="-1" role="dialog" id="confirm_edit">
@@ -63,15 +69,6 @@
             </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
         </div><!-- /.modal -->
-
-
-
     <% end %>
-    <% if @photo %>
-      <% @photo.each do |p| %>
-        <%=image_tag p.image.url(:med), id:p.id, class:"photo"%>
-      <%end %>
-    <% end %>
-    <br>
-</div>
+    </div>
 </section>

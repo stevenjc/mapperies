@@ -137,9 +137,12 @@ function initMap() {
   for (i=0;i<img.length;i++){
     var image = new Image();
     image.src = img[i];
+
     var key = img[i];
     key = key.substring(key.indexOf("/asset"));
-    var LngLnt = new google.maps.LatLng(parseFloat(xx[key]), parseFloat(yy[key]));
+    // var LngLnt = new google.maps.LatLng(parseFloat(xx[key]), parseFloat(yy[key]));
+    var LngLnt= {lat: parseFloat(xx[key]), parseFloat(yy[key])};
+    alert(LngLnt);
     bounds.extend(LngLnt);
 
     $(image).load(function(){
@@ -190,6 +193,9 @@ function initMap() {
     // bounds.extend(addMarker(i));
   };
 
+  for (var i = 0; i < array.length; i++) {
+    array[i]
+  }
 
   //Once all the photos are mapped, change the zoom/center of the map
   if(img.length>1){

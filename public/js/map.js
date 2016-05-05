@@ -143,10 +143,10 @@ function initMap() {
     if(gon.livesite){
       alert("we are live");
       url= "http://s3.amazonaws.com/mapperies/app/public"+key;
-      img.src=url;
+      image.src=url;
     }
     else{
-      img.scr=key;
+      image.scr=key;
     }
     alert(url);
 

@@ -17,6 +17,8 @@ var y_coords = gon.y;   //Y coordinates for all the photos ready to be mapped
 var img = gon.img;      //URL links for all the photos ready to be mapped
 var albums = gon.albums;//Array which stores which album each image was in
 var color = gon.color;  //
+var album_names = gon.album_names;
+var album_owner = gon.album_owner;
 var default_loc = {lat: 37.09, lng:-74.5};  //keep a default location in case there are no images
 var backgrounds =[];    //URL links to the background images to organize photos by album
 var markers=[];         //references to the markers on the map
@@ -239,7 +241,7 @@ function goToAlbum(){
 
 //Function to change the width of the map based on if there are unmapped photos
 function changeWidth(){
-  if(gon.unmapped.length>0){
+  if(gon.unmapped){
     document.getElementById("map").style.width='60%';
     document.getElementById("map").style.left="2.5%";
   }else{
@@ -280,15 +282,23 @@ function makeLegend(albums, backgrounds, markers){
     img.style.width="20px";
     album_list.appendChild(img);        //Add it to the parent div
 
+    var name = document.createElement("a");
+    name.href="/albums/"+distinct[i];
+    name.innerHTML=album_names[distinct[i]];
+    album_list.appendChild(name);
+
+    var owner = document.createElement("span");
+    owner.innerHTML=album_owner[distinct[i]];
+    album_list.appendChild(owner);
+
     var checkbox = document.createElement('input'); //Make a checkbox to toggle the album's visiblity
     checkbox.type="checkbox";
     checkbox.id = "legend_"+distinct[i];
     checkbox.checked=true;                          //true by default
     checkbox.value=distinct[i];                     //store album_id in value for quick retrival
     checkbox.addEventListener('change', function(){
-      for (var i = 0; i < markers.length; i++) {
-
-        if(markers[i].myData==this.value){
+      for (var i = 0; i < markers.length; i++) {    //check each marker if it was in the toggled album
+        if(markers[i].myData==this.value){          //toggle the visiblity
           if(markers[i].getVisible()==true){
             markers[i].setVisible(false);
             markers[i].back.setVisible(false);
@@ -300,7 +310,6 @@ function makeLegend(albums, backgrounds, markers){
         }
       }
     })
-    album_list.appendChild(checkbox);
+    album_list.appendChild(checkbox);             //add the checkbox to the parent div
   }
-//  alert(distinct);
 }

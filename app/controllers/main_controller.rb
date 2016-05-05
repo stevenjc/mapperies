@@ -16,6 +16,8 @@ class MainController < ApplicationController
     y_coord=[];       #Y-Coordinates matching the order of photo_ids
     links=[];         #URL links matching the order of photo_ids
     albums=[];        #ID's of albums matching the order of photo_ids
+    album_names=Hash.new;   #Name of album matching the order of photo_ids
+    album_owner=Hash.new;   #Name of Owner of album matching the order of photo_ids
     color=[];         #index of color outline for the album
 
     #grab all the albums of friends who have shared them
@@ -49,6 +51,8 @@ class MainController < ApplicationController
           x_coord.push(t.x_coord)
           y_coord.push(t.y_coord)
           albums.push(Integer(i))
+          album_names[Integer(i)]=tempalbum.album_name
+          album_owner[Integer(i)]=User.find(tempalbum.user_id).first_name
         end
       end
       i = 0
@@ -67,8 +71,10 @@ class MainController < ApplicationController
       gon.y = y_coord
       gon.img = links
       gon.albums = albums
-      gon.unmapped = @unmapped
+      gon.unmapped = @unmapped.length>0
       gon.color = color
+      gon.album_names = album_names
+      gon.album_owner = album_owner
 
     end
   end

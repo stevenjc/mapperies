@@ -97,8 +97,8 @@ class AlbumsController < ApplicationController
       if @album.user_id != current_user.id
         @is_view = true
         @view_only = true
-      elsif AlbumView.where(album_id: @album.id)
-        @is_view = true
+      # elsif AlbumView.where(album_id: @album.id)
+      #   @is_view = true
       else
         @is_view = false
       end

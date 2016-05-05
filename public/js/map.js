@@ -158,6 +158,8 @@ function initMap() {
         anchor: new google.maps.Point(17.5,17.5)
       };
 
+      alert(backgrounds[c[album_ids[key]]]);
+
        var background_image = {
          url: backgrounds[c[album_ids[key]]], //The background color will be nth color from the Array
          scaledSize: new google.maps.Size(40,40),
@@ -192,7 +194,6 @@ function initMap() {
       return LngLnt;
     });
 
-    // bounds.extend(addMarker(i));
   };
 
   for (var i = 0; i < img.length; i++) {
@@ -200,7 +201,6 @@ function initMap() {
     bounds.extend(LngLnt);
   }
 
-  alert(img.length);
   //Once all the photos are mapped, change the zoom/center of the map
   if(img.length>1){
     map.fitBounds(bounds);

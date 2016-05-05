@@ -144,8 +144,8 @@ function initMap() {
     alert(key);
     if(gon.livesite){
       alert("we are live");
-        url= "http://s3.amazonaws.com/mapperies/app/public"+key;
-        img.src=url;
+      url= "http://s3.amazonaws.com/mapperies/app/public"+key;
+      img.src=url;
     }
     alert(url);
 
@@ -154,6 +154,7 @@ function initMap() {
       key = key.substring(key.indexOf("/asset"));
       var LngLnt = new google.maps.LatLng(parseFloat(xx[key]), parseFloat(yy[key]));
 
+      alert(key);
       var image = {
         url: this.src,  //The image will be the nth image in the array passed to JS
         scaledSize: new google.maps.Size(35,35),

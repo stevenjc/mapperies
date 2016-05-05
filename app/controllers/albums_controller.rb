@@ -303,7 +303,11 @@ class AlbumsController < ApplicationController
   end
 
   def avatar
-    @avatar= Photo.find(current_user.avatar_id)
+    if current_user.avatar_id
+      @avatar = Photo.find(current_user.avatar_id)
+    else
+      nil
+    end
   end
 
   def find_album_name(album)

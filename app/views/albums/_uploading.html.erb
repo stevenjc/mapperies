@@ -1,8 +1,8 @@
-<div class="collapse" id="photo_upload">
+<div class="collapse text-center" id="photo_upload">
   <h1> Upload Photos </h1>
   <!--Form to upload multiple photos  -->
   <%= form_for @photo, html: {multipart: true} do |f| %>
-    <div class="form-group">
+    <div class="form-group col-md-offset-5">
       <%= file_field_tag "images[]", type: :file, multiple: true, class: "upload_button"%>
     </div>
     <%= f.submit 'Upload', class:"btn btn-primary" %>

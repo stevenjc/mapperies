@@ -139,16 +139,16 @@ function initMap() {
     var key = img[i];
     key = key.substring(key.indexOf("/asset"));
     url="";
-    alert(key);
+    // alert(key);
     if(gon.livesite){
-      alert("we are live");
+      // alert("we are live");
       url= "http://s3.amazonaws.com/mapperies/app/public"+key;
       image.src=url;
     }
     else{
       image.scr=key;
     }
-    alert(url);
+    // alert(url);
 
 
     $(image).load(function(){
@@ -156,7 +156,7 @@ function initMap() {
       key = key.substring(key.indexOf("/asset"));
       var LngLnt = new google.maps.LatLng(parseFloat(xx[key]), parseFloat(yy[key]));
 
-      alert(key);
+      // alert(key);
       var image = {
         url: this.src,  //The image will be the nth image in the array passed to JS
         scaledSize: new google.maps.Size(35,35),

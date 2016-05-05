@@ -16,23 +16,50 @@
                                 <% if !@albums.blank? %>
                                   <% @albums.each do |album| %>
                                   <!-- %= render :layout =>'layouts/listbackground' do % -->
-                                  <tr>
-                                    <%= link_to album.album_name, album, :style=>'color: black;' %>
-                                  </tr>
+                                  <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail text-center">
+                                      <%if sample_photo(album.id)%>
+                                        <%=image_tag sample_photo(album.id).image.url(:med), id:"album_image"%>
+                                      <%else%>
+                                        <%=image_tag "480px-Placeholder.png", id:"placeholder"%>
+                                      <%end%>
+                                      <div class="caption overflow">
+                                        <p><%= link_to album.album_name, album, id: "album_name_listing"%></p>
+                                      </div>
+                                      <br/>
+                                  </div>
                                   <% end %>
                                 <% end %>
                                 <% if !@galleries_viewonly.blank? %>
                                   <% @galleries_viewonly.each do |gallery| %>
-                                  <tr>
-                                    <%= link_to gallery.album_name, gallery, :style=>'color: black;' %>
-                                  </tr>
+                                  <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail text-center">
+                                      <%if sample_photo(gallery.id)%>
+                                        <%=image_tag sample_photo(gallery.id).image.url(:med), id:"album_image"%>
+                                      <%else%>
+                                        <%=image_tag "480px-Placeholder.png", id:"placeholder"%>
+                                      <%end%>
+                                      <div class="caption overflow">
+                                        <p><%= link_to gallery.album_name, gallery, id: "album_name_listing"%></p>
+                                      </div>
+                                      <br/>
+                                  </div>
                                   <% end %>
                                 <% end %>
                                 <% if !@galleries_upload.blank? %>
                                   <% @galleries_upload.each do |gallery| %>
-                                  <tr>
-                                    <%= link_to gallery.last, gallery.first, :style=>'color: black;' %>
-                                  </tr>
+                                  <div class="col-sm-4 col-md-2">
+                                    <div class="thumbnail text-center">
+                                      <%if sample_photo(gallery.first.id)%>
+                                        <%=image_tag sample_photo(gallery.first.id).image.url(:med), id:"album_image"%>
+                                      <%else%>
+                                        <%=image_tag "480px-Placeholder.png", id:"placeholder"%>
+                                      <%end%>
+                                      <div class="caption overflow">
+                                        <p><%= link_to gallery.last, gallery.first, id: "album_name_listing"%></p>
+                                      </div>
+                                      <br/>
+                                  </div>
                                   <% end %>
                                 <% end %>
                               </div>

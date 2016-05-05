@@ -158,6 +158,8 @@ function initMap() {
         anchor: new google.maps.Point(17.5,17.5)
       };
 
+      alert(album_ids);
+      alert(c);
       alert(backgrounds);
       alert(key);
       alert(album_ids[key]);

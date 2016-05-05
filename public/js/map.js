@@ -140,12 +140,12 @@ function initMap() {
 
     var key = img[i];
     key = key.substring(key.indexOf("/asset"));
-    // var LngLnt = new google.maps.LatLng(parseFloat(xx[key]), parseFloat(yy[key]));
-    // var x_coord = parseFloat(xx[key]);
-    // var y_coord = parseFloat(yy[key]);
-    // var LngLnt= {lat: x_coord, y_coord};
-    // alert(LngLnt);
-    // bounds.extend(LngLnt);
+    url="";
+    if(gon.livesite){
+      alert("we are live");
+        url= "http://s3.amazonaws.com/mapperies/app/public"+key;
+    }
+    alert(url);
 
     $(image).load(function(){
       var key = this.src;

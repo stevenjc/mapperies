@@ -75,13 +75,15 @@ class MainController < ApplicationController
 
     for i in 0..(links.length)-1
       url = links[i]
-      puts "+++++++++++++++=====================+++++++++"
-      puts url
-      url.to_s.slice! 'http://s3.amazonaws.com/mapperies/app/public'
+      livesite = url.to_s.slice! 'http://s3.amazonaws.com/mapperies/app/public'
+      livesite = @livesite== 'http://s3.amazonaws.com/mapperies/app/public'
       x[url]=x_coord[i];
       y[url]=y_coord[i];
       album_ids[url]=albums[i];
     end
+
+
+    gon.livesite =livesite;
 
     gon.color_map = JSON.generate(color_map)
     gon.x1 = JSON.generate(x)

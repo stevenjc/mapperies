@@ -54,14 +54,15 @@
           <% if signed_in? %>
             <% if @avatar %>
               <%= image_tag @avatar.image.url(:small) %>
+            <% else %>
+              <img src="/assets/no_photo_user.png" style="height:50px;width:50px;float: right;">
             <% end %>
-            <a href="/account/settings" style="float:right;margin-top:25px;"><%= user_identifier %></a>
+            <a href="/account/settings" style="float:right;margin-top:15px;margin-right: 10px;"><%= user_identifier %></a>
           <% end %>
         </div>
       </div>
-        <!-- <div style="position:relative; width:100%; height:20%; background-color:#333;"></div> -->
          <%= yield %>
-       </nav>
+      </nav>
      <!-- </header> -->
 
      <!--Modal Alert to Confirm Logout -->

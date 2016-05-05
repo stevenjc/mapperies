@@ -202,6 +202,11 @@ hr.small {
 .password-label {
   text-align: center;
 }
+
+.profile-pic {
+  margin-right: 100px;
+}
+
 /* About */
 
 .about {

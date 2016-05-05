@@ -46,7 +46,7 @@
     <!-- Header -->
     <!-- <header id="top" class="header"> -->
       <nav class="navbar navbar-inverse navbar-static-top">
-        <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:104px;height:80px;"> </a>
+        <a href="/landing"> <img src="/img/mapperies.gif" alt="Mapperies" style="width:65px;height:50px;"> </a>
         <a href="/account/settings" onclick = $("#menu-close").click();><span class="navbar_text">Account</span></i></a>
         <a href="/albums" onclick = $("#menu-close").click(); ><span class="navbar_text">Albums</span></i></a>
         <a href="/friends" onclick = $("#menu-close").click(); ><span class="navbar_text">Friends</span></i></a>
@@ -54,14 +54,15 @@
           <% if signed_in? %>
             <% if @avatar %>
               <%= image_tag @avatar.image.url(:small) %>
+            <% else %>
+              <img src="/assets/no_photo_user.png" style="height:50px;width:50px;float: right;">
             <% end %>
-            <%= link_to user_identifier, account_settings_path, :style=>'color: black;' %>
+            <a href="/account/settings" style="float:right;margin-top:15px;margin-right: 10px;"><%= user_identifier %></a>
           <% end %>
         </div>
       </div>
-        <div style="position:relative;width:100%;height:7%;"></div>
          <%= yield %>
-       </nav>
+      </nav>
      <!-- </header> -->
 
      <!--Modal Alert to Confirm Logout -->

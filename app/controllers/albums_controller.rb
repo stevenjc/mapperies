@@ -366,8 +366,8 @@ class AlbumsController < ApplicationController
           AlbumView.where(album_view_id: view.album_view_id, view_upload_access: 1).each do |v|
             if v.album_id != album.id
               photos += Photo.where(album_id: v.album_id)
-              puts "!!!!!!!"
-              gets
+              # puts "!!!!!!!"
+              # gets
             end
           end
       end

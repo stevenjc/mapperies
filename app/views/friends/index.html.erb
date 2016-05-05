@@ -64,7 +64,7 @@
                                 <div class="thumbnail">
 
                                   <% if User.find(f.friend_id).avatar_id %>
-                                    <%= image_tag (Photo.find(f.avatar_id).image.url(:large)) %>
+                                    <%= image_tag (Photo.find(fUser.find(f.friend_id).avatar_id).image.url(:large)) %>
                                   <% else %>
                                     <img src="/assets/no_photo_user.png" style="height:80%;width:80%;" alt="no-photo">
                                   <% end %>

@@ -73,7 +73,11 @@ class MainController < ApplicationController
     y=Hash.new
     album_ids=Hash.new
 
-    for i in 0..(links.length)
+    for i in 0..(links.length)-1
+      url = links[i]
+      puts "+++++++++++++++=====================+++++++++"
+      puts url
+      puts url.to_s.delete 'http://s3.amazonaws.com/mapperies/app/public'
       x[links[i]]=x_coord[i];
       y[links[i]]=y_coord[i];
       album_ids[links[i]]=albums[i];

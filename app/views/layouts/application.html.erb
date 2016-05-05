@@ -52,8 +52,8 @@
         <a href="/friends" onclick = $("#menu-close").click(); ><span class="navbar_text">Friends</span></i></a>
         <a onclick = $("#menu-close").click(); data-toggle = "modal" data-target = "#confirm_logout"><span class="navbar_text">Log Out</span></i></a>
           <% if signed_in? %>
-            <% if @avatar %>
-              <%= image_tag @avatar.image.url(:small) %>
+            <% if current_user.avatar_id %>
+              <%= image_tag (Photo.find(current_user.avatar_id).image.url(:small)), :class=>"image-position"; %>
             <% else %>
               <img src="/assets/no_photo_user.png" style="height:50px;width:50px;float: right;">
             <% end %>

@@ -11,3 +11,7 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 Rails.application.config.assets.compile = true
+
+Rails.application.config.assets.precompile += %w( albums.js )
+Rails.application.config.assets.precompile += %w( main.js )
+Rails.application.config.assets.precompile += %w( friends.js )

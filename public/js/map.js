@@ -141,6 +141,7 @@ function initMap() {
     var key = img[i];
     key = key.substring(key.indexOf("/asset"));
     url="";
+    alert(key);
     if(gon.livesite){
       alert("we are live");
         url= "http://s3.amazonaws.com/mapperies/app/public"+key;

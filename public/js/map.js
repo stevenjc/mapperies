@@ -278,6 +278,7 @@ function makeLegend(albums, backgrounds, markers){
     }
   }
   if(distinct.length>1){
+    document.getElementById("mapped_albums_text").innerHTML="Albums currently on the map";
     //for each album, create a checkbox and add an event listener
     //which would toggle the album's visiblity
     for (var i = 0; i < distinct.length; i++) {

@@ -136,22 +136,27 @@ function initMap() {
   //Add all the photos to the map, and add them to the bounds for zoom/center
   for (i=0;i<img.length;i++){
     var image = new Image();
-    image.src = img[i];
-
     var key = img[i];
     key = key.substring(key.indexOf("/asset"));
-    // var LngLnt = new google.maps.LatLng(parseFloat(xx[key]), parseFloat(yy[key]));
-    // var x_coord = parseFloat(xx[key]);
-    // var y_coord = parseFloat(yy[key]);
-    // var LngLnt= {lat: x_coord, y_coord};
-    // alert(LngLnt);
-    // bounds.extend(LngLnt);
+    url="";
+    alert(key);
+    if(gon.livesite){
+      alert("we are live");
+      url= "http://s3.amazonaws.com/mapperies/app/public"+key;
+      image.src=url;
+    }
+    else{
+      image.scr=key;
+    }
+    alert(url);
+
 
     $(image).load(function(){
       var key = this.src;
       key = key.substring(key.indexOf("/asset"));
       var LngLnt = new google.maps.LatLng(parseFloat(xx[key]), parseFloat(yy[key]));
 
+      alert(key);
       var image = {
         url: this.src,  //The image will be the nth image in the array passed to JS
         scaledSize: new google.maps.Size(35,35),

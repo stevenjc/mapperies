@@ -73,11 +73,17 @@ class MainController < ApplicationController
     y=Hash.new
     album_ids=Hash.new
 
-    for i in 0..(links.length)
-      x[links[i]]=x_coord[i];
-      y[links[i]]=y_coord[i];
-      album_ids[links[i]]=albums[i];
+    for i in 0..(links.length)-1
+      url = links[i]
+      livesite = url.to_s.slice! 'http://s3.amazonaws.com/mapperies/app/public'
+      livesite = livesite!=nil
+      x[url]=x_coord[i];
+      y[url]=y_coord[i];
+      album_ids[url]=albums[i];
     end
+
+
+    gon.livesite =livesite;
 
     gon.color_map = JSON.generate(color_map)
     gon.x1 = JSON.generate(x)

@@ -1,0 +1,101 @@
+2016-05-05T16:39:36.632638+00:00 heroku[run.1633]: Process exited with status 0
+2016-05-05T16:39:36.525305+00:00 heroku[web.1]: State changed from up to starting
+2016-05-05T16:39:36.524571+00:00 heroku[web.1]: Restarting
+2016-05-05T16:39:36.662963+00:00 heroku[run.1633]: State changed from up to complete
+2016-05-05T16:39:36.756134+00:00 app[web.1]: Started GET "/" for 23.22.239.45 at 2016-05-05 16:39:36 +0000
+2016-05-05T16:39:36.806177+00:00 app[web.1]: 
+2016-05-05T16:39:36.795839+00:00 app[web.1]: Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms)
+2016-05-05T16:39:36.793548+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-05T16:39:36.806164+00:00 app[web.1]: 
+2016-05-05T16:39:36.806175+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:39:36.806176+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:39:36.806177+00:00 app[web.1]: 
+2016-05-05T16:39:36.817271+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=a7767342-f105-4761-8104-3c2939d5385e fwd="23.22.239.45" dyno=web.1 connect=1ms service=56ms status=500 bytes=1683
+2016-05-05T16:39:40.249293+00:00 heroku[web.1]: Stopping all processes with SIGTERM
+2016-05-05T16:39:41.834119+00:00 app[web.1]: Exiting
+2016-05-05T16:39:42.121668+00:00 heroku[web.1]: Starting process with command `bundle exec rails server thin -p 52791 -e production`
+2016-05-05T16:39:43.001143+00:00 heroku[web.1]: Process exited with status 0
+2016-05-05T16:39:52.938523+00:00 app[web.1]: => Rails 4.2.5.1 application starting in production on http://0.0.0.0:52791
+2016-05-05T16:39:52.938468+00:00 app[web.1]: => Booting Thin
+2016-05-05T16:39:52.938532+00:00 app[web.1]: Maximum connections set to 1024
+2016-05-05T16:39:52.938526+00:00 app[web.1]: => Ctrl-C to shutdown server
+2016-05-05T16:39:52.938533+00:00 app[web.1]: Listening on 0.0.0.0:52791, CTRL+C to stop
+2016-05-05T16:39:52.938527+00:00 app[web.1]: Thin web server (v1.6.4 codename Gob Bluth)
+2016-05-05T16:39:52.938525+00:00 app[web.1]: => Run `rails server -h` for more startup options
+2016-05-05T16:39:53.179148+00:00 heroku[web.1]: State changed from starting to up
+2016-05-05T16:39:53.861970+00:00 app[web.1]: Started GET "/" for 23.22.239.45 at 2016-05-05 16:39:53 +0000
+2016-05-05T16:39:54.188985+00:00 app[web.1]: Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+2016-05-05T16:39:54.190310+00:00 app[web.1]: 
+2016-05-05T16:39:54.190318+00:00 app[web.1]: 
+2016-05-05T16:39:54.190316+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:39:54.190317+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:39:54.402831+00:00 app[web.1]: Started GET "/main" for 129.64.123.174 at 2016-05-05 16:39:54 +0000
+2016-05-05T16:39:54.410032+00:00 app[web.1]: Processing by MainController#index as HTML
+2016-05-05T16:39:54.190317+00:00 app[web.1]: 
+2016-05-05T16:39:54.174421+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-05T16:39:54.175863+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=47f87d1f-029d-4cee-85bf-e10e62c8bbae fwd="23.22.239.45" dyno=web.1 connect=1ms service=337ms status=500 bytes=1683
+2016-05-05T16:39:54.461557+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:39:54.459282+00:00 app[web.1]:   [1m[36mUser Load (4.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "8185751247f2be0679b611f85df9377465ea2584"]]
+2016-05-05T16:39:54.461559+00:00 app[web.1]: 
+2016-05-05T16:39:54.460239+00:00 app[web.1]: Completed 500 Internal Server Error in 50ms (ActiveRecord: 24.0ms)
+2016-05-05T16:39:54.461550+00:00 app[web.1]: 
+2016-05-05T16:39:54.461559+00:00 app[web.1]: 
+2016-05-05T16:39:54.461558+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:39:54.444540+00:00 heroku[router]: at=info method=GET path="/main" host=mapperies.herokuapp.com request_id=e671ee02-6de3-457e-96e9-0c0e8044b486 fwd="129.64.123.174" dyno=web.1 connect=0ms service=63ms status=500 bytes=1683
+2016-05-05T16:39:55.147081+00:00 heroku[router]: at=info method=GET path="/favicon.ico" host=mapperies.herokuapp.com request_id=8fe14301-e317-49a2-9308-d126c2c14960 fwd="129.64.123.174" dyno=web.1 connect=3ms service=1ms status=200 bytes=157
+2016-05-05T16:40:00.566364+00:00 app[web.1]:   [1m[35mUser Load (4.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["remember_token", "8185751247f2be0679b611f85df9377465ea2584"]]
+2016-05-05T16:40:00.560260+00:00 app[web.1]: Processing by LandingController#show as HTML
+2016-05-05T16:40:00.569682+00:00 app[web.1]: 
+2016-05-05T16:40:00.569681+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:40:00.569674+00:00 app[web.1]: 
+2016-05-05T16:40:00.569682+00:00 app[web.1]: 
+2016-05-05T16:40:00.569680+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:40:00.568305+00:00 app[web.1]: Completed 500 Internal Server Error in 8ms (ActiveRecord: 4.2ms)
+2016-05-05T16:40:00.554345+00:00 app[web.1]: Started GET "/" for 129.64.123.174 at 2016-05-05 16:40:00 +0000
+2016-05-05T16:40:00.551106+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=b93f5998-3f86-474b-8ba8-e7f6a67e3d24 fwd="129.64.123.174" dyno=web.1 connect=0ms service=34ms status=500 bytes=1683
+2016-05-05T16:40:02.941503+00:00 app[web.1]: Processing by LandingController#show as HTML
+2016-05-05T16:40:02.963204+00:00 app[web.1]:   [1m[36mUser Load (20.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."remember_token" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["remember_token", "8185751247f2be0679b611f85df9377465ea2584"]]
+2016-05-05T16:40:02.931655+00:00 app[web.1]: Started GET "/" for 129.64.123.174 at 2016-05-05 16:40:02 +0000
+2016-05-05T16:40:02.965279+00:00 app[web.1]: 
+2016-05-05T16:40:02.965287+00:00 app[web.1]: 
+2016-05-05T16:40:02.965286+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:40:02.963904+00:00 app[web.1]: Completed 500 Internal Server Error in 22ms (ActiveRecord: 20.0ms)
+2016-05-05T16:40:02.965285+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:40:02.965287+00:00 app[web.1]: 
+2016-05-05T16:40:02.946744+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=8a5b6826-628f-410c-94b1-d87e08fa5332 fwd="129.64.123.174" dyno=web.1 connect=0ms service=40ms status=500 bytes=1683
+2016-05-05T16:40:04.280579+00:00 app[web.1]: 
+2016-05-05T16:40:04.267618+00:00 app[web.1]: Started GET "/" for 23.22.239.45 at 2016-05-05 16:40:04 +0000
+2016-05-05T16:40:04.278790+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-05T16:40:04.280578+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:40:04.280579+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:40:04.279479+00:00 app[web.1]: Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+2016-05-05T16:40:04.280571+00:00 app[web.1]: 
+2016-05-05T16:40:04.280580+00:00 app[web.1]: 
+2016-05-05T16:40:04.293086+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=c5905c47-966b-42e5-ae19-7a7656faac95 fwd="23.22.239.45" dyno=web.1 connect=28ms service=46ms status=500 bytes=1683
+2016-05-05T16:40:14.331333+00:00 app[web.1]: 
+2016-05-05T16:40:14.330131+00:00 app[web.1]: Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+2016-05-05T16:40:14.331339+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:40:14.331340+00:00 app[web.1]: 
+2016-05-05T16:40:14.331338+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:40:14.329464+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-05T16:40:14.326543+00:00 app[web.1]: Started GET "/" for 23.22.239.45 at 2016-05-05 16:40:14 +0000
+2016-05-05T16:40:14.331340+00:00 app[web.1]: 
+2016-05-05T16:40:14.315056+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=5419f01c-47db-40c4-becd-413ba5dcb128 fwd="23.22.239.45" dyno=web.1 connect=0ms service=10ms status=500 bytes=1683
+2016-05-05T16:40:24.367499+00:00 app[web.1]: Started GET "/" for 23.22.239.45 at 2016-05-05 16:40:24 +0000
+2016-05-05T16:40:24.371924+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-05T16:40:24.374130+00:00 app[web.1]: 
+2016-05-05T16:40:24.374122+00:00 app[web.1]: 
+2016-05-05T16:40:24.374129+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:40:24.374128+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:40:24.373380+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=35d2237c-a00b-4853-9ac7-87888642b0e8 fwd="23.22.239.45" dyno=web.1 connect=12ms service=17ms status=500 bytes=1683
+2016-05-05T16:40:24.374129+00:00 app[web.1]: 
+2016-05-05T16:40:24.372787+00:00 app[web.1]: Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+2016-05-05T16:40:34.454108+00:00 app[web.1]: 
+2016-05-05T16:40:34.447583+00:00 app[web.1]: Started GET "/" for 23.22.239.45 at 2016-05-05 16:40:34 +0000
+2016-05-05T16:40:34.452711+00:00 app[web.1]: Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+2016-05-05T16:40:34.451924+00:00 app[web.1]: Processing by LandingController#show as */*
+2016-05-05T16:40:34.454101+00:00 app[web.1]: 
+2016-05-05T16:40:34.454107+00:00 app[web.1]: NoMethodError (undefined method `avatar_id' for nil:NilClass):
+2016-05-05T16:40:34.454109+00:00 app[web.1]: 
+2016-05-05T16:40:34.454108+00:00 app[web.1]:   app/controllers/application_controller.rb:12:in `avatar'
+2016-05-05T16:40:34.464424+00:00 heroku[router]: at=info method=GET path="/" host=mapperies.herokuapp.com request_id=34d3df9e-c914-4beb-bfea-a00f66cf2b83 fwd="23.22.239.45" dyno=web.1 connect=25ms service=28ms status=500 bytes=1683

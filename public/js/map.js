@@ -145,6 +145,7 @@ function initMap() {
     if(gon.livesite){
       alert("we are live");
         url= "http://s3.amazonaws.com/mapperies/app/public"+key;
+        img.src=url;
     }
     alert(url);
 

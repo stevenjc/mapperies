@@ -22,6 +22,27 @@ table{
   font-family: "Courier New";
 }
 
+#placeholder, #album_image{
+  width: 100px;
+}
+#album_name_listing{
+  color:black;
+  text-align: center;
+}
+#album_name_listing:hover{
+  color:red;
+}
+
+.overflow {
+  max-height: 3.3em;  /* 4 lines as line-height is 1.1 */
+  height: 3.3em;      /* making it a multiple allows usage of overflow */
+  /**
+   * Required properties to achieve text-overflow
+   */
+  overflow: hidden;
+}
+
+
 #photo_container{
   padding-top: 50px;
   padding-right: 50px;
